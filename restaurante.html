@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lumbre — Cocina de Autor · Lima</title>
+<meta name="description" content="Restaurante de autor en Miraflores. Experiencia gastronómica única en Lima, Perú." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wdth,wght@0,79..100,300..700;1,79..100,300..700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high" />
+<style>
+/* ============================================================
+   LUMBRE — RESTAURANTE DE AUTOR
+   Archetype 02: Editorial Dark Warm
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0E0B09;
+  --bg-2:     #15110E;
+  --bg-3:     #1E1813;
+  --cream:    #F2EBDA;
+  --cream-2:  #DDD2BC;
+  --cream-3:  #8B7E68;
+  --accent:   #C5301E;
+  --accent-2: #A82516;
+  --gold:     #C49A5B;
+  --line:     rgba(242,235,218,.10);
+  --ease:     cubic-bezier(.25,.46,.45,.94);
+  --ease-out: cubic-bezier(0,0,.2,1);
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CURSOR ----------------------------------------- */
+.cursor-dot, .cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.cursor-dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(196,154,91,.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width .25s var(--ease), height .25s var(--ease), opacity .3s;
+}
+.cursor-ring.expand { width: 56px; height: 56px; border-color: var(--gold); }
+body.cursor-ready .cursor-dot,
+body.cursor-ready .cursor-ring { opacity: 1; }
+
+/* SPLASH ----------------------------------------- */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: splashOut 0.6s var(--ease) 2.2s forwards;
+}
+@keyframes splashOut {
+  to { opacity: 0; pointer-events: none; }
+}
+.splash-brand {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: .15em;
+  color: var(--cream);
+  opacity: 0;
+  animation: fadeUp .8s var(--ease) .3s forwards;
+}
+.splash-line {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  animation: lineIn .6s var(--ease) .9s forwards;
+}
+.splash-sub {
+  font-size: .75rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+  opacity: 0;
+  animation: fadeUp .6s var(--ease) 1.2s forwards;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes lineIn {
+  to { transform: scaleX(1); }
+}
+
+/* NAV -------------------------------------------- */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid transparent;
+  transition: background .4s var(--ease), border-color .4s, padding .4s;
+}
+nav.scrolled {
+  background: rgba(14,11,9,.92);
+  border-color: var(--line);
+  padding: 1rem 3rem;
+  backdrop-filter: blur(12px);
+}
+.nav-brand {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 300;
+  letter-spacing: .12em;
+  color: var(--cream);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: .75rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream-2);
+  text-decoration: none;
+  transition: color .25s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  font-size: .75rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: .65rem 1.5rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  transition: background .25s, color .25s;
+}
+.nav-cta:hover { background: var(--gold); color: var(--bg); }
+
+/* HERO ------------------------------------------- */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 3rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(197,48,30,.30) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 20% 70%, rgba(196,154,91,.15) 0%, transparent 50%),
+    linear-gradient(160deg, rgba(26,15,8,.80) 0%, rgba(14,11,9,.65) 40%, rgba(10,7,5,.80) 100%),
+    url("assets/img/hero.webp") center/cover no-repeat;
+  animation: bgPulse 8s ease-in-out infinite alternate;
+}
+@keyframes bgPulse {
+  from { opacity: 1; }
+  to   { opacity: .85; filter: brightness(1.08); }
+}
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle 600px at 70% 30%, rgba(197,48,30,.07) 0%, transparent 70%),
+    radial-gradient(circle 400px at 30% 80%, rgba(196,154,91,.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .7s var(--ease) 2.4s forwards;
+}
+.hero-meta .dot {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .5; transform: scale(.7); }
+}
+.hero-meta span {
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+}
+.hero-glyph {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 300;
+  line-height: .9;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(196,154,91,.3);
+  position: absolute;
+  top: 50%;
+  right: 3rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeUp .9s var(--ease) 2.5s forwards;
+}
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .9s var(--ease) 2.6s forwards;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-rating {
+  font-size: .8rem;
+  color: var(--cream-3);
+  letter-spacing: .06em;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp .7s var(--ease) 2.8s forwards;
+}
+.hero-rating strong { color: var(--gold); }
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeUp .7s var(--ease) 3s forwards;
+}
+.btn {
+  display: inline-block;
+  padding: .85rem 2rem;
+  font-size: .75rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all .3s var(--ease);
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--cream);
+  border: 1px solid var(--accent);
+}
+.btn-primary:hover { background: var(--accent-2); border-color: var(--accent-2); }
+.btn-ghost {
+  background: transparent;
+  color: var(--cream-2);
+  border: 1px solid var(--line);
+}
+.btn-ghost:hover { border-color: var(--cream-3); color: var(--cream); }
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  right: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  opacity: 0;
+  animation: fadeUp .6s var(--ease) 3.2s forwards;
+}
+.hero-scroll span {
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+  writing-mode: vertical-rl;
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* CONCEPTO --------------------------------------- */
+.section { padding: 8rem 3rem; }
+.kicker {
+  font-size: .7rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+
+.concepto {
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.concepto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.concepto-image {
+  aspect-ratio: 3/4;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 40%, rgba(197,48,30,.30) 0%, transparent 60%),
+    linear-gradient(160deg, rgba(42,18,8,.55) 0%, rgba(26,12,6,.45) 50%, rgba(14,11,9,.40) 100%),
+    url("assets/img/food-1.webp") center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+.concepto-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E") center/cover;
+  opacity: .06;
+  mix-blend-mode: overlay;
+}
+.concepto-plate {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  padding: 1.5rem;
+  background: rgba(14,11,9,.85);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.concepto-plate h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-bottom: .35rem;
+  font-style: italic;
+}
+.concepto-plate p {
+  font-size: .75rem;
+  color: var(--cream-3);
+  letter-spacing: .08em;
+}
+.concepto-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-top: 1rem;
+}
+.pillar {
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+}
+.pillar-num {
+  font-size: .7rem;
+  color: var(--cream-3);
+  letter-spacing: .2em;
+  margin-bottom: .75rem;
+}
+.pillar h4 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 300;
+  margin-bottom: .5rem;
+  font-style: italic;
+}
+.pillar p {
+  font-size: .9rem;
+  color: var(--cream-2);
+  line-height: 1.7;
+}
+
+/* SHOWCASE / PLATOS ------------------------------ */
+.platos { background: var(--bg); }
+.platos-intro {
+  max-width: 550px;
+  margin-bottom: 4rem;
+}
+.platos-intro p {
+  color: var(--cream-2);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+.platos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--line);
+}
+.plato-card {
+  background: var(--bg-3);
+  padding: 2.5rem;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  transition: background .4s var(--ease);
+}
+.plato-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 200px at var(--mx, 50%) var(--my, 50%), rgba(196,154,91,.08), transparent);
+  opacity: 0;
+  transition: opacity .4s;
+}
+.plato-card:hover::before { opacity: 1; }
+.plato-card:hover { background: #221a14; }
+.plato-num {
+  font-size: .7rem;
+  color: var(--cream-3);
+  letter-spacing: .2em;
+  margin-bottom: 3rem;
+}
+.plato-visual {
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.plato-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: transform .6s var(--ease);
+}
+.plato-card:hover .plato-circle { transform: scale(1.04); }
+.pc1 { background: url("assets/img/food-1.webp") center/cover no-repeat; }
+.pc2 { background: url("assets/img/food-2.webp") center/cover no-repeat; }
+.pc3 { background: url("assets/img/food-3.webp") center/cover no-repeat; }
+.pc4 { background: url("assets/img/food-3.webp") center/cover no-repeat; }
+.pc5 { background: url("assets/img/food-1.webp") center/cover no-repeat; }
+.pc6 { background: url("assets/img/food-2.webp") center/cover no-repeat; }
+.plato-ring {
+  position: absolute;
+  inset: 8%;
+  border: 1px solid rgba(196,154,91,.15);
+  border-radius: 50%;
+  transition: border-color .4s;
+}
+.plato-card:hover .plato-ring { border-color: rgba(196,154,91,.35); }
+.plato-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: .5rem;
+}
+.plato-desc {
+  font-size: .8rem;
+  color: var(--cream-3);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.plato-price {
+  font-size: .75rem;
+  color: var(--gold);
+  letter-spacing: .08em;
+}
+
+/* RESERVAS --------------------------------------- */
+.reservas {
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+}
+.reservas-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+.reservas-info p {
+  color: var(--cream-2);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.info-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+.info-label {
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+  min-width: 90px;
+  padding-top: .1rem;
+}
+.info-value {
+  font-size: .9rem;
+  color: var(--cream-2);
+  line-height: 1.6;
+}
+.reservas-form {
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  padding: 2.5rem;
+}
+.form-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 2rem;
+  color: var(--cream);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  margin-bottom: 1rem;
+}
+.form-group label {
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(242,235,218,.04);
+  border: 1px solid var(--line);
+  color: var(--cream);
+  padding: .8rem 1rem;
+  font-family: var(--font-sans);
+  font-size: .9rem;
+  outline: none;
+  transition: border-color .25s;
+  cursor: none;
+  -webkit-appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea { resize: none; height: 90px; }
+.form-group select option { background: var(--bg-3); color: var(--cream); }
+.form-submit {
+  width: 100%;
+  padding: 1rem;
+  background: var(--accent);
+  border: none;
+  color: var(--cream);
+  font-size: .75rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: background .25s;
+  font-family: var(--font-sans);
+}
+.form-submit:hover { background: var(--accent-2); }
+
+/* MARQUEE ---------------------------------------- */
+.marquee-strip {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  padding: 1.2rem 0;
+  background: var(--bg);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeRoll 22s linear infinite;
+}
+.marquee-item {
+  white-space: nowrap;
+  padding: 0 2.5rem;
+  font-size: .75rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+}
+.marquee-item .dot { color: var(--gold); margin: 0 .5rem; }
+@keyframes marqueeRoll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* FOOTER ----------------------------------------- */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  padding: 4rem 3rem 2rem;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+.footer-brand {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: .1em;
+  margin-bottom: .75rem;
+}
+.footer-sub {
+  font-size: .8rem;
+  color: var(--cream-3);
+  line-height: 1.6;
+  max-width: 280px;
+}
+.footer-col h5 {
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+.footer-col a {
+  font-size: .85rem;
+  color: var(--cream-3);
+  text-decoration: none;
+  transition: color .25s;
+}
+.footer-col a:hover { color: var(--cream); }
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-legal {
+  font-size: .72rem;
+  color: var(--cream-3);
+  letter-spacing: .06em;
+}
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-social a {
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+  text-decoration: none;
+  transition: color .25s;
+}
+.footer-social a:hover { color: var(--gold); }
+
+/* REVEAL ----------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
+}
+.reveal[data-split] { opacity: 1; transform: none; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* MOBILE ----------------------------------------- */
+@media (max-width: 768px) {
+  nav { padding: 1.2rem 1.5rem; }
+  nav.scrolled { padding: .9rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { padding: 0 1.5rem 4rem; }
+  .hero-glyph { font-size: 5rem; right: 1.5rem; opacity: .5 !important; }
+  .section { padding: 5rem 1.5rem; }
+  .concepto-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .platos-grid { grid-template-columns: 1fr; gap: 1px; }
+  .reservas-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- SPLASH -->
+<div id="splash">
+  <span class="splash-brand">LUMBRE</span>
+  <div class="splash-line"></div>
+  <span class="splash-sub">Cocina de Autor · Lima</span>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-brand">LUMBRE</a>
+  <ul class="nav-links">
+    <li><a href="#concepto">Concepto</a></li>
+    <li><a href="#carta">Carta</a></li>
+    <li><a href="#reservas">Reservas</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#reservas" class="nav-cta">Reservar Mesa</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-mesh"></div>
+  <div class="hero-grain"></div>
+
+  <span class="hero-glyph">火</span>
+
+  <div class="hero-content">
+    <div class="hero-meta">
+      <span class="dot"></span>
+      <span>Miraflores · Lima · Abierto</span>
+    </div>
+    <h1 class="hero-title">
+      Fuego lento.<br>
+      <em>Ingredientes honestos.</em>
+    </h1>
+    <div class="hero-rating">
+      <strong>4.8 ★</strong> · 320 reseñas · Av. La Mar 1290, Miraflores
+    </div>
+    <div class="hero-actions">
+      <a href="#reservas" class="btn btn-primary">Reservar Mesa</a>
+      <a href="#carta" class="btn btn-ghost">Ver Carta</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Bajar</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">Cocina de Autor <span class="dot">◆</span></span>
+    <span class="marquee-item">Miraflores, Lima <span class="dot">◆</span></span>
+    <span class="marquee-item">Ingredientes de Temporada <span class="dot">◆</span></span>
+    <span class="marquee-item">Vinos Naturales <span class="dot">◆</span></span>
+    <span class="marquee-item">Menú Degustación <span class="dot">◆</span></span>
+    <span class="marquee-item">Reservas Abiertas <span class="dot">◆</span></span>
+    <span class="marquee-item">Cocina de Autor <span class="dot">◆</span></span>
+    <span class="marquee-item">Miraflores, Lima <span class="dot">◆</span></span>
+    <span class="marquee-item">Ingredientes de Temporada <span class="dot">◆</span></span>
+    <span class="marquee-item">Vinos Naturales <span class="dot">◆</span></span>
+    <span class="marquee-item">Menú Degustación <span class="dot">◆</span></span>
+    <span class="marquee-item">Reservas Abiertas <span class="dot">◆</span></span>
+  </div>
+</div>
+
+<!-- CONCEPTO -->
+<section class="section concepto" id="concepto">
+  <span class="kicker reveal">— Nuestra Filosofía</span>
+  <div class="concepto-grid">
+    <div class="concepto-image reveal">
+      <div class="concepto-plate">
+        <h3>Menú Degustación</h3>
+        <p>7 tiempos · Maridaje opcional · Desde S/280</p>
+      </div>
+    </div>
+    <div class="concepto-pillars">
+      <h2 class="section-title reveal">El fuego como<br><em>lenguaje.</em></h2>
+      <div class="pillar reveal">
+        <div class="pillar-num">01</div>
+        <h4>Producto Local</h4>
+        <p>Trabajamos directamente con productores de Junín, Cusco y la costa norte. Ningún ingrediente viaja más de 48 horas antes de llegar a la cocina.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">02</div>
+        <h4>Técnica Precisa</h4>
+        <p>Fermentación, brasa controlada y cocción al vacío conviven en una propuesta donde cada temperatura tiene una razón de ser.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">03</div>
+        <h4>Experiencia Total</h4>
+        <p>La mesa es el escenario. El servicio, la música y la luz trabajan juntos para crear una experiencia que se recuerda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATOS -->
+<section class="section platos" id="carta">
+  <span class="kicker reveal">— Carta de Temporada</span>
+  <div class="platos-intro">
+    <h2 class="section-title reveal">Sabores que<br><em>narran el Perú.</em></h2>
+    <p class="reveal">Cada plato es un punto de partida. Cambia con las estaciones, con los productores y con la creatividad del equipo de cocina.</p>
+  </div>
+  <div class="platos-grid">
+    <div class="plato-card reveal">
+      <div class="plato-num">01</div>
+      <div class="plato-visual">
+        <div class="plato-circle pc1">
+          <div class="plato-ring"></div>
+        </div>
+      </div>
+      <h3 class="plato-name">Ceviche de Autor</h3>
+      <p class="plato-desc">Corvina del día, leche de tigre ahumada, ají amarillo fermentado, maíz morado deshidratado.</p>
+      <span class="plato-price">S/ 68</span>
+    </div>
+    <div class="plato-card reveal">
+      <div class="plato-num">02</div>
+      <div class="plato-visual">
+        <div class="plato-circle pc2">
+          <div class="plato-ring"></div>
+        </div>
+      </div>
+      <h3 class="plato-name">Lomo a la Brasa</h3>
+      <p class="plato-desc">Lomo fino de Junín, papa nativa confitada, salsa de huacatay, reducción de chicha de jora.</p>
+      <span class="plato-price">S/ 95</span>
+    </div>
+    <div class="plato-card reveal">
+      <div class="plato-num">03</div>
+      <div class="plato-visual">
+        <div class="plato-circle pc3">
+          <div class="plato-ring"></div>
+        </div>
+      </div>
+      <h3 class="plato-name">Causa Rellena</h3>
+      <p class="plato-desc">Papa amarilla de Huancavelica, pulpo encurtido, mayonesa de rocoto, tartar de palta.</p>
+      <span class="plato-price">S/ 52</span>
+    </div>
+    <div class="plato-card reveal">
+      <div class="plato-num">04</div>
+      <div class="plato-visual">
+        <div class="plato-circle pc4">
+          <div class="plato-ring"></div>
+        </div>
+      </div>
+      <h3 class="plato-name">Risotto Andino</h3>
+      <p class="plato-desc">Quinua real de Puno, hongos silvestres del Mantaro, trufa de temporada, parmesano artesanal.</p>
+      <span class="plato-price">S/ 78</span>
+    </div>
+    <div class="plato-card reveal">
+      <div class="plato-num">05</div>
+      <div class="plato-visual">
+        <div class="plato-circle pc5">
+          <div class="plato-ring"></div>
+        </div>
+      </div>
+      <h3 class="plato-name">Pato en Pepián</h3>
+      <p class="plato-desc">Pato de granja libre, pepián de maíz negro, camote asado, salsa de pepas de zapallo.</p>
+      <span class="plato-price">S/ 88</span>
+    </div>
+    <div class="plato-card reveal">
+      <div class="plato-num">06</div>
+      <div class="plato-visual">
+        <div class="plato-circle pc6">
+          <div class="plato-ring"></div>
+        </div>
+      </div>
+      <h3 class="plato-name">Suspiro de Lima</h3>
+      <p class="plato-desc">Versión contemporánea del clásico limeño. Manjar blanco de leche de cabra, merengue de lúcuma.</p>
+      <span class="plato-price">S/ 38</span>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVAS -->
+<section class="section reservas" id="reservas">
+  <div class="reservas-inner">
+    <div class="reservas-info">
+      <span class="kicker reveal">— Reservas</span>
+      <h2 class="section-title reveal">Tu mesa<br><em>te espera.</em></h2>
+      <p class="reveal">Recomendamos reservar con al menos 48 horas de anticipación. Para grupos mayores de 8 personas, contáctanos directamente.</p>
+      <div class="info-items">
+        <div class="info-item reveal">
+          <span class="info-label">Dirección</span>
+          <span class="info-value">Av. La Mar 1290, Miraflores, Lima</span>
+        </div>
+        <div class="info-item reveal">
+          <span class="info-label">Horarios</span>
+          <span class="info-value">Mar – Dom: 12:30 pm – 3:30 pm<br>Mar – Dom: 7:00 pm – 11:00 pm</span>
+        </div>
+        <div class="info-item reveal">
+          <span class="info-label">Teléfono</span>
+          <span class="info-value">[tu teléfono]</span>
+        </div>
+        <div class="info-item reveal">
+          <span class="info-label">WhatsApp</span>
+          <span class="info-value">[tu WhatsApp]</span>
+        </div>
+      </div>
+    </div>
+    <div class="reservas-form reveal" id="contacto">
+      <h3 class="form-title">Reservar una mesa</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" placeholder="Tu nombre" />
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" placeholder="+51 9XX XXX XXX" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Fecha</label>
+          <input type="date" />
+        </div>
+        <div class="form-group">
+          <label>Hora</label>
+          <select>
+            <option>12:30 pm</option>
+            <option>1:00 pm</option>
+            <option>1:30 pm</option>
+            <option>7:00 pm</option>
+            <option>7:30 pm</option>
+            <option>8:00 pm</option>
+            <option>8:30 pm</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Personas</label>
+          <select>
+            <option>1 – 2 personas</option>
+            <option>3 – 4 personas</option>
+            <option>5 – 6 personas</option>
+            <option>7 – 8 personas</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ocasión</label>
+          <select>
+            <option>Sin especificar</option>
+            <option>Cumpleaños</option>
+            <option>Aniversario</option>
+            <option>Negocio</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mensaje (opcional)</label>
+        <textarea placeholder="Alergias, preferencias o solicitudes especiales…"></textarea>
+      </div>
+      <button type="button" class="form-submit" id="submitBtn">Confirmar Reserva</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">LUMBRE</div>
+      <p class="footer-sub">Cocina de autor en el corazón de Miraflores. Ingredientes honestos, fuego lento y experiencia total.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navegación</h5>
+      <ul>
+        <li><a href="#concepto">Concepto</a></li>
+        <li><a href="#carta">Carta</a></li>
+        <li><a href="#reservas">Reservas</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <ul>
+        <li><a href="#">[tu email]</a></li>
+        <li><a href="#">[tu teléfono]</a></li>
+        <li><a href="#">Miraflores, Lima</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-legal">© 2026 Lumbre Restaurante · Todos los derechos reservados · <a href="creditos.html" style="color:inherit;opacity:.6;">Créditos fotográficos →</a></span>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp</a>
+      <a href="#">TripAdvisor</a>
+    </div>
+  </div>
+</footer>
+
+<script defer>
+(function () {
+  "use strict";
+
+  function safe(fn, name) {
+    try { fn(); } catch (e) { console.warn("[" + name + "]", e); }
+  }
+
+  /* CURSOR */
+  function initCursor() {
+    const dot  = document.getElementById("cursorDot");
+    const ring = document.getElementById("cursorRing");
+    if (!dot || !ring) return;
+    let rx = 0, ry = 0, mx = 0, my = 0, first = false;
+    window.addEventListener("mousemove", function (e) {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = "translate3d(" + mx + "px," + my + "px,0) translate(-50%,-50%)";
+      if (!first) {
+        first = true;
+        rx = mx; ry = my;
+        ring.style.transform = "translate3d(" + rx + "px," + ry + "px,0) translate(-50%,-50%)";
+        document.body.classList.add("cursor-ready");
+      }
+    });
+    (function lerp() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.transform = "translate3d(" + Math.round(rx) + "px," + Math.round(ry) + "px,0) translate(-50%,-50%)";
+      requestAnimationFrame(lerp);
+    })();
+    document.querySelectorAll("a, button, .plato-card, .nav-cta").forEach(function (el) {
+      el.addEventListener("mouseover", function () { ring.classList.add("expand"); });
+      el.addEventListener("mouseout",  function () { ring.classList.remove("expand"); });
+    });
+  }
+
+  /* NAV SCROLL */
+  function initNav() {
+    var nav = document.getElementById("nav");
+    window.addEventListener("scroll", function () {
+      nav.classList.toggle("scrolled", window.scrollY > 60);
+    }, { passive: true });
+  }
+
+  /* REVEALS */
+  function initReveals() {
+    var els = document.querySelectorAll(".reveal");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+    els.forEach(function (el, i) {
+      el.style.transitionDelay = (i % 4 * 0.07) + "s";
+      io.observe(el);
+      // safety net 6s
+      setTimeout(function () { el.classList.add("visible"); }, 6000);
+    });
+  }
+
+  /* PLATO CARD MOUSE GLOW */
+  function initCardGlow() {
+    document.querySelectorAll(".plato-card").forEach(function (card) {
+      card.addEventListener("mousemove", function (e) {
+        var r = card.getBoundingClientRect();
+        var x = ((e.clientX - r.left) / r.width  * 100).toFixed(1) + "%";
+        var y = ((e.clientY - r.top)  / r.height * 100).toFixed(1) + "%";
+        card.style.setProperty("--mx", x);
+        card.style.setProperty("--my", y);
+      });
+    });
+  }
+
+  /* SPLASH HIDE */
+  function initSplash() {
+    setTimeout(function () {
+      var s = document.getElementById("splash");
+      if (s) { s.style.opacity = "0"; s.style.pointerEvents = "none"; }
+    }, 2800);
+  }
+
+  /* FORM SUBMIT */
+  function initForm() {
+    var btn = document.getElementById("submitBtn");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      btn.textContent = "Reserva Confirmada ✓";
+      btn.style.background = "#2a7a2a";
+      setTimeout(function () {
+        btn.textContent = "Confirmar Reserva";
+        btn.style.background = "";
+      }, 3000);
+    });
+  }
+
+  function boot() {
+    safe(initSplash,    "splash");
+    safe(initCursor,    "cursor");
+    safe(initNav,       "nav");
+    safe(initReveals,   "reveals");
+    safe(initCardGlow,  "cardGlow");
+    safe(initForm,      "form");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
+</script>
+</body>
+</html>
