@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "src": "assets/img/hero.webp",
+    "title": "Liat Portal for Foodie Disorder - Ravioli with mushrooms and spinach in cream sauce",
+    "creator": "HaJunkiyada",
+    "creator_url": "https://commons.wikimedia.org/wiki/User:HaJunkiyada",
+    "license": "by-sa",
+    "license_version": "4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "foreign_landing_url": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Ravioli_with_mushrooms_and_spinach_in_cream_sauce.jpg",
+    "source": "wikimedia"
+  },
+  "plato1": {
+    "src": "assets/img/plato1.webp",
+    "title": "Vegetarian Diet Burger",
+    "creator": null,
+    "creator_url": null,
+    "license": "cc0",
+    "license_version": "1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "foreign_landing_url": "https://www.rawpixel.com/image/5970434/vegetarian-diet-burger",
+    "source": "rawpixel"
+  },
+  "plato2": {
+    "src": "assets/img/plato2.webp",
+    "title": "Spicy Thai Stir Fry with Tofu - Watercourse Foods",
+    "creator": "Paul Martin",
+    "creator_url": null,
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://commons.wikimedia.org/wiki/File:Spicy_Thai_Stir_Fry_with_Tofu-Watercourse_Foods.jpg",
+    "source": "wikimedia"
+  },
+  "vegetales": {
+    "src": "assets/img/vegetales.webp",
+    "title": "A fresh broccoli bunch sits among colorful radishes and peppers",
+    "creator": "Manjil Aryal",
+    "creator_url": "https://manjil0809.github.io/Portfolio/",
+    "license": "cc0",
+    "license_version": "1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "foreign_landing_url": "https://wordpress.org/photos/photo/83169cfe04/",
+    "source": "wordpress"
+  },
+  "interior": {
+    "src": "assets/img/interior.webp",
+    "title": "DSC09397, Shiki Bistro, San Carlos, CA",
+    "creator": "jimg944",
+    "creator_url": "https://www.flickr.com/photos/21203533@N00",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/21203533@N00/4686845544",
+    "source": "flickr"
+  }
+}
