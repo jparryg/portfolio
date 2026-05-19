@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wdth,wght@0,79..100,300..700;1,79..100,300..700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high" />
 <style>
 /* ============================================================
    ALCÁZAR & ASOCIADOS — CONSULTORÍA LEGAL
@@ -199,15 +200,18 @@ nav.scrolled {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 50%, rgba(26,35,60,.8) 0%, transparent 60%),
-    radial-gradient(circle at 80% 30%, rgba(15,25,50,.6) 0%, transparent 55%),
-    #0D1220;
+    radial-gradient(ellipse 70% 60% at 30% 40%, rgba(26,47,78,.35) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 70% 70%, rgba(184,160,106,.20) 0%, transparent 55%),
+    url("assets/img/hero.webp") center/cover no-repeat;
 }
 .hero-visual-pattern {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
-  background-size: 28px 28px;
+  opacity: .06;
+  background-image:
+    linear-gradient(var(--accent) 1px, transparent 1px),
+    linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 .hero-badge {
   position: absolute;
@@ -420,9 +424,9 @@ nav.scrolled {
   transition: transform .6s var(--ease);
 }
 .socio-card:hover .socio-bg { transform: scale(1.04); }
-.sb-1 { background: url("assets/img/interior.webp") center/cover no-repeat; }
-.sb-2 { background: url("assets/img/vegetales.webp") center/cover no-repeat; }
-.sb-3 { background: url("assets/img/interior.webp") center/cover no-repeat; }
+.sb-1 { background: url("assets/img/lawyer.webp") center/cover no-repeat; }
+.sb-2 { background: url("assets/img/meeting.webp") center/cover no-repeat; }
+.sb-3 { background: url("assets/img/legal.webp") center/cover no-repeat; }
 .socio-overlay {
   position: absolute;
   bottom: 0; left: 0; right: 0;
