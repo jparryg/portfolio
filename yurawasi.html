@@ -144,12 +144,77 @@ nav.is-scrolled {
   33%       { transform: scale(1.07) translate(-2%, 2.5%); }
   66%       { transform: scale(1.04) translate(2%, -2%); }
 }
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(1.05) contrast(1.08);
+}
+.hero-bg-tint {
+  position: absolute; inset: 0;
+  background: rgba(4,12,6,.70);
+}
 .hero-grain {
-  position: absolute; inset: 0; pointer-events: none; opacity: .038;
+  position: absolute; inset: 0; pointer-events: none; opacity: .038; z-index: 2;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px;
 }
-.hero-inner { position: relative; z-index: 2; max-width: 800px; }
+.hero-mesh { z-index: 1; }
+.hero-inner { position: relative; z-index: 3; max-width: 800px; }
+
+/* ─── CONCEPTO ─────────────────────────────────────────────────── */
+.concepto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 767px) { .concepto { grid-template-columns: 1fr; } }
+.concepto-img {
+  position: relative; overflow: hidden; min-height: 420px;
+}
+.concepto-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .9s var(--ease-out);
+}
+.concepto-img:hover img { transform: scale(1.05); }
+.concepto-text {
+  padding: 5rem clamp(2rem, 5vw, 4.5rem);
+  display: flex; flex-direction: column; justify-content: center;
+  background: var(--bg-2);
+}
+.concepto-text .filosofia-label { margin-bottom: 1.2rem; }
+.concepto-text .filosofia-title { font-size: clamp(1.7rem, 3.5vw, 2.4rem); }
+.concepto-text .filosofia-body { max-width: 42ch; }
+
+/* ─── GALERÍA ──────────────────────────────────────────────────── */
+.galeria { overflow: hidden; }
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 600px) { .galeria-grid { grid-template-columns: 1fr; } }
+.galeria-card {
+  position: relative; overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.galeria-card img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .7s var(--ease-out), filter .4s;
+}
+.galeria-card:hover img {
+  transform: scale(1.07);
+  filter: saturate(1.18) brightness(1.06);
+}
+.galeria-card-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: .9rem 1.1rem;
+  background: linear-gradient(transparent, rgba(4,12,6,.82));
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--cream-2);
+  transform: translateY(3px);
+  transition: transform .3s var(--ease-out);
+}
+.galeria-card:hover .galeria-card-caption { transform: none; }
 .hero-kicker {
   display: flex; align-items: center; justify-content: center; gap: .8rem;
   font-size: .7rem; letter-spacing: .28em; text-transform: uppercase;
@@ -443,6 +508,10 @@ footer {
 
 <!-- HERO -->
 <section class="hero" id="inicio">
+  <div class="hero-bg">
+    <img src="assets/img/interior.webp" alt="Interior Yurawasi" fetchpriority="high" decoding="async" />
+    <div class="hero-bg-tint"></div>
+  </div>
   <div class="hero-mesh"></div>
   <div class="hero-grain"></div>
   <div class="hero-inner">
@@ -483,6 +552,22 @@ footer {
     <span class="stat-label">animales en cocina</span>
   </div>
 </div>
+
+<!-- CONCEPTO -->
+<section class="concepto">
+  <div class="concepto-img">
+    <img src="assets/img/plato1.webp" alt="Plato de autor Yurawasi" loading="lazy" decoding="async" />
+  </div>
+  <div class="concepto-text">
+    <p class="filosofia-label reveal">— Cocina de raíz</p>
+    <h2 class="filosofia-title reveal delay-1">
+      Cada plato cuenta<br><em>una historia andina.</em>
+    </h2>
+    <p class="filosofia-body reveal delay-2">
+      Trabajamos con productores de Junín, Cusco y la costa limeña. Los ingredientes llegan frescos, sin cámara fría. La carta cambia cuando la tierra lo dice.
+    </p>
+  </div>
+</section>
 
 <!-- FILOSOFÍA -->
 <section class="filosofia" id="filosofia">
@@ -573,6 +658,24 @@ footer {
       <p class="plato-precio">S/ 18</p>
     </div>
 
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="galeria">
+  <div class="galeria-grid">
+    <div class="galeria-card reveal">
+      <img src="assets/img/plato2.webp" alt="Bowl vegano del día" loading="lazy" decoding="async" />
+      <div class="galeria-card-caption">Bowl del día</div>
+    </div>
+    <div class="galeria-card reveal delay-1">
+      <img src="assets/img/hero.webp" alt="Sala del restaurante Yurawasi" loading="lazy" decoding="async" />
+      <div class="galeria-card-caption">Nuestro espacio</div>
+    </div>
+    <div class="galeria-card reveal delay-2">
+      <img src="assets/img/vegetales.webp" alt="Vegetales frescos de temporada" loading="lazy" decoding="async" />
+      <div class="galeria-card-caption">Productos de temporada</div>
+    </div>
   </div>
 </section>
 
