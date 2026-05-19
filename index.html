@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Parry Studio · Demos de Portfolio · Webs Premium para Lima y Latam</title>
+<meta name="description" content="Webs premium para restaurantes, wellness, servicios y negocios en Lima y Latam. Demos interactivos de cada proyecto." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+/* ─── TOKENS ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #08080A;
+  --bg-2:    #0E0E12;
+  --bg-3:    #16161C;
+  --cream:   #F0EBE0;
+  --cream-2: #C8C2B4;
+  --cream-3: #6E6A62;
+  --gold:    #C8922A;
+  --gold-2:  #A87420;
+  --line:    rgba(240,235,224,.09);
+  --serif:   'Playfair Display', Georgia, serif;
+  --sans:    'Inter', system-ui, sans-serif;
+  --ease:    cubic-bezier(.22,1,.36,1);
+}
+html { overflow-x: clip; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ─── HEADER ─────────────────────────────────────────────────── */
+header {
+  border-bottom: 1px solid var(--line);
+  padding: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  letter-spacing: .01em;
+  color: var(--cream);
+}
+.brand em { font-style: italic; color: var(--gold); }
+.header-tag {
+  font-size: .72rem; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--cream-3);
+}
+
+/* ─── HERO ───────────────────────────────────────────────────── */
+.hero {
+  padding: 6rem clamp(1.5rem, 8vw, 8rem) 5rem;
+  border-bottom: 1px solid var(--line);
+}
+.hero-kicker {
+  font-size: .7rem; letter-spacing: .28em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: .8rem;
+}
+.hero-kicker::before {
+  content: ''; display: block;
+  width: 28px; height: 1px; background: var(--gold); opacity: .5;
+}
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  font-weight: 400; line-height: 1.1;
+  color: var(--cream); max-width: 14ch;
+  margin-bottom: 1.5rem;
+}
+.hero-title em { font-style: italic; color: var(--cream-2); }
+.hero-sub {
+  font-size: clamp(.92rem, 1.8vw, 1.05rem);
+  color: var(--cream-3); max-width: 58ch;
+  line-height: 1.75;
+}
+
+/* ─── FILTROS ────────────────────────────────────────────────── */
+.filters {
+  padding: 2rem clamp(1.5rem, 5vw, 3.5rem);
+  display: flex; gap: .6rem; flex-wrap: wrap;
+  border-bottom: 1px solid var(--line);
+}
+.filter-btn {
+  padding: .4rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  font-size: .72rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--cream-3);
+  background: transparent; cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+  font-family: var(--sans);
+}
+.filter-btn:hover, .filter-btn.is-active {
+  border-color: var(--gold); color: var(--gold); background: rgba(200,146,42,.08);
+}
+
+/* ─── GRID ───────────────────────────────────────────────────── */
+.grid {
+  padding: 3rem clamp(1.5rem, 5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ─── CARD ───────────────────────────────────────────────────── */
+.card {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg-2);
+  transition: border-color .3s, transform .35s var(--ease), box-shadow .35s;
+  display: flex; flex-direction: column;
+}
+.card:hover {
+  border-color: rgba(200,146,42,.35);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.45);
+}
+.card-thumb {
+  height: 210px; position: relative; overflow: hidden;
+}
+.card-thumb-bg {
+  width: 100%; height: 100%;
+  transition: transform .6s var(--ease);
+}
+.card:hover .card-thumb-bg { transform: scale(1.05); }
+.card-thumb-overlay {
+  position: absolute; inset: 0;
+  background: rgba(8,8,10,.35);
+}
+.card-tag {
+  position: absolute; top: 1rem; left: 1rem;
+  padding: .28rem .7rem;
+  border: 1px solid rgba(240,235,224,.25);
+  border-radius: 99px;
+  font-size: .64rem; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(240,235,224,.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.card-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; gap: .5rem; }
+.card-cat {
+  font-size: .68rem; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--gold);
+}
+.card-name {
+  font-family: var(--serif);
+  font-size: 1.3rem; font-weight: 400;
+  color: var(--cream); line-height: 1.25;
+}
+.card-desc {
+  font-size: .83rem; color: var(--cream-3);
+  line-height: 1.65; flex: 1;
+}
+.card-footer {
+  padding: 0 1.6rem 1.4rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.card-loc {
+  font-size: .72rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--cream-3);
+}
+.card-cta {
+  font-size: .74rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: .35rem;
+  transition: gap .2s var(--ease);
+}
+.card:hover .card-cta { gap: .6rem; }
+.card-link {
+  display: contents;
+}
+
+/* ─── THUMB GRADIENTS ────────────────────────────────────────── */
+.thumb-yurawasi {
+  background: linear-gradient(135deg, #040C06 0%, #1A3B1A 50%, #2C5230 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.thumb-seitan {
+  background: linear-gradient(135deg, #090C08 0%, #172012 50%, #2A3820 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.thumb-recontra {
+  background: linear-gradient(135deg, #0A0806 0%, #2A1008 50%, #3D1A0A 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.thumb-namaste {
+  background: linear-gradient(135deg, #060A0A 0%, #0D2020 50%, #163030 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.thumb-lumbre {
+  background: linear-gradient(135deg, #0A0806 0%, #281808 50%, #3A2410 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.thumb-anima {
+  background: linear-gradient(135deg, #080810 0%, #141428 50%, #1E1A34 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.thumb-alcazar {
+  background: linear-gradient(135deg, #080A0C 0%, #101820 50%, #182430 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.thumb-glyph {
+  font-family: var(--serif);
+  font-size: 4.5rem; font-style: italic;
+  opacity: .18; color: var(--cream); line-height: 1;
+  user-select: none;
+}
+
+/* ─── CTA ────────────────────────────────────────────────────── */
+.cta {
+  margin: 2rem clamp(1.5rem, 5vw, 3.5rem) 4rem;
+  padding: 4rem clamp(2rem, 6vw, 5rem);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg-2);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem; align-items: center;
+}
+@media (max-width: 640px) { .cta { grid-template-columns: 1fr; } }
+.cta-kicker {
+  font-size: .7rem; letter-spacing: .25em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1rem;
+}
+.cta-title {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 400; line-height: 1.2; color: var(--cream);
+  margin-bottom: .8rem;
+}
+.cta-title em { font-style: italic; }
+.cta-sub { font-size: .9rem; color: var(--cream-3); max-width: 46ch; }
+.cta-actions { display: flex; flex-direction: column; gap: .8rem; align-items: flex-start; }
+@media (max-width: 640px) { .cta-actions { flex-direction: row; flex-wrap: wrap; } }
+.btn-gold {
+  display: inline-block;
+  padding: .85rem 2rem;
+  background: var(--gold);
+  color: var(--bg);
+  font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background .25s, transform .2s var(--ease);
+}
+.btn-gold:hover { background: var(--gold-2); transform: translateY(-2px); }
+.btn-line {
+  display: inline-block;
+  padding: .85rem 2rem;
+  border: 1px solid var(--line);
+  color: var(--cream-2);
+  font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: border-color .25s, color .25s, transform .2s var(--ease);
+}
+.btn-line:hover { border-color: var(--cream-3); color: var(--cream); transform: translateY(-2px); }
+
+/* ─── FOOTER ─────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem clamp(1.5rem, 5vw, 3.5rem);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand { font-family: var(--serif); font-size: .95rem; color: var(--cream-3); }
+.footer-brand em { font-style: italic; color: var(--gold); }
+.footer-copy { font-size: .75rem; color: var(--cream-3); }
+
+/* ─── REVEAL ─────────────────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s var(--ease), transform .65s var(--ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; }
+.d2 { transition-delay: .16s; }
+.d3 { transition-delay: .24s; }
+.d4 { transition-delay: .32s; }
+.d5 { transition-delay: .40s; }
+.d6 { transition-delay: .48s; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <span class="brand">Parry<em>Studio</em></span>
+  <span class="header-tag">Portfolio · Lima · Latam</span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-kicker">Demos de proyectos</p>
+  <h1 class="hero-title">
+    Webs premium.<br><em>Resultados reales.</em>
+  </h1>
+  <p class="hero-sub">
+    Cada demo es un sitio funcional listo para entregar — HTML puro, sin frameworks, optimizado para Hostinger y cualquier host estático. Haz clic en cualquier proyecto para ver la experiencia completa.
+  </p>
+</section>
+
+<!-- FILTROS -->
+<div class="filters">
+  <button class="filter-btn is-active" data-filter="all">Todos</button>
+  <button class="filter-btn" data-filter="restaurante">Restaurantes</button>
+  <button class="filter-btn" data-filter="wellness">Wellness</button>
+  <button class="filter-btn" data-filter="servicios">Servicios</button>
+</div>
+
+<!-- GRID DE PROYECTOS -->
+<div class="grid">
+
+  <!-- Yurawasi -->
+  <article class="card reveal" data-cat="restaurante">
+    <a href="yurawasi.html" class="card-link" aria-label="Ver demo Yurawasi">
+      <div class="card-thumb">
+        <div class="card-thumb-bg thumb-yurawasi">
+          <span class="thumb-glyph">Yura</span>
+        </div>
+        <div class="card-thumb-overlay"></div>
+        <span class="card-tag">Vegano · Lince</span>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">Restaurante vegano</p>
+        <h2 class="card-name">Yurawasi</h2>
+        <p class="card-desc">Casa de las Plantas. Cocina vegana de raíz andina con ingredientes nativos de los Andes peruanos. Carta de temporada, zero waste.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-loc">Lince, Lima</span>
+        <span class="card-cta">Ver demo <span>→</span></span>
+      </div>
+    </a>
+  </article>
+
+  <!-- Seitan -->
+  <article class="card reveal d1" data-cat="restaurante">
+    <a href="seitan.html" class="card-link" aria-label="Ver demo Seitan">
+      <div class="card-thumb">
+        <div class="card-thumb-bg thumb-seitan">
+          <span class="thumb-glyph">Sei</span>
+        </div>
+        <div class="card-thumb-overlay"></div>
+        <span class="card-tag">Bistro · Miraflores</span>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">Bistro vegano</p>
+        <h2 class="card-name">Seitan Urban Bistro</h2>
+        <p class="card-desc">Cocina vegana de autor en Miraflores. Ingredientes locales, carta de estación y buen ambiente. Propuesta editorial oscura y cálida.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-loc">Miraflores, Lima</span>
+        <span class="card-cta">Ver demo <span>→</span></span>
+      </div>
+    </a>
+  </article>
+
+  <!-- La ReContra -->
+  <article class="card reveal d2" data-cat="restaurante">
+    <a href="recontra.html" class="card-link" aria-label="Ver demo La ReContra">
+      <div class="card-thumb">
+        <div class="card-thumb-bg thumb-recontra">
+          <span class="thumb-glyph">RC</span>
+        </div>
+        <div class="card-thumb-overlay"></div>
+        <span class="card-tag">Fast food · Vegano</span>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">Fast food plant-based</p>
+        <h2 class="card-name">La ReContra</h2>
+        <p class="card-desc">Vegan fast food sin concesiones. Burgers de seitan casero, nuggets plant-based, carta completa. Diseño oscuro con tipografía display impactante.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-loc">Miraflores, Lima</span>
+        <span class="card-cta">Ver demo <span>→</span></span>
+      </div>
+    </a>
+  </article>
+
+  <!-- Namasté -->
+  <article class="card reveal d3" data-cat="restaurante">
+    <a href="namaste.html" class="card-link" aria-label="Ver demo Namasté">
+      <div class="card-thumb">
+        <div class="card-thumb-bg thumb-namaste">
+          <span class="thumb-glyph">नम</span>
+        </div>
+        <div class="card-thumb-overlay"></div>
+        <span class="card-tag">Vegano · Barranco</span>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">Cocina vegana consciente</p>
+        <h2 class="card-name">Namasté</h2>
+        <p class="card-desc">Restaurante vegano de cocina consciente en Barranco. Propuesta editorial clara, fotografía de producto y carta filosófica.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-loc">Barranco, Lima</span>
+        <span class="card-cta">Ver demo <span>→</span></span>
+      </div>
+    </a>
+  </article>
+
+  <!-- Lumbre -->
+  <article class="card reveal d4" data-cat="restaurante">
+    <a href="restaurante.html" class="card-link" aria-label="Ver demo Lumbre">
+      <div class="card-thumb">
+        <div class="card-thumb-bg thumb-lumbre">
+          <span class="thumb-glyph">Lum</span>
+        </div>
+        <div class="card-thumb-overlay"></div>
+        <span class="card-tag">Fine dining · Lima</span>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">Cocina de autor</p>
+        <h2 class="card-name">Lumbre</h2>
+        <p class="card-desc">Restaurante de cocina de autor en Lima. Propuesta premium dark warm, showcase horizontal de platos, formulario de reservas cinematográfico.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-loc">Lima</span>
+        <span class="card-cta">Ver demo <span>→</span></span>
+      </div>
+    </a>
+  </article>
+
+  <!-- Ánima -->
+  <article class="card reveal d5" data-cat="wellness">
+    <a href="wellness.html" class="card-link" aria-label="Ver demo Ánima">
+      <div class="card-thumb">
+        <div class="card-thumb-bg thumb-anima">
+          <span class="thumb-glyph">Án</span>
+        </div>
+        <div class="card-thumb-overlay"></div>
+        <span class="card-tag">Wellness · Holístico</span>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">Centro de bienestar</p>
+        <h2 class="card-name">Ánima</h2>
+        <p class="card-desc">Centro de bienestar holístico. Diseño sereno con paleta oscura y acento suave, secciones de servicios, filosofía y agenda de sesiones.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-loc">Lima</span>
+        <span class="card-cta">Ver demo <span>→</span></span>
+      </div>
+    </a>
+  </article>
+
+  <!-- Alcázar -->
+  <article class="card reveal d6" data-cat="servicios">
+    <a href="servicios-profesionales.html" class="card-link" aria-label="Ver demo Alcázar">
+      <div class="card-thumb">
+        <div class="card-thumb-bg thumb-alcazar">
+          <span class="thumb-glyph">A&A</span>
+        </div>
+        <div class="card-thumb-overlay"></div>
+        <span class="card-tag">Legal · Corporativo</span>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">Consultoría legal</p>
+        <h2 class="card-name">Alcázar & Asociados</h2>
+        <p class="card-desc">Firma de consultoría legal y corporativa. Propuesta editorial crema, autoridad tipográfica, secciones de práctica, equipo y contacto.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-loc">Lima</span>
+        <span class="card-cta">Ver demo <span>→</span></span>
+      </div>
+    </a>
+  </article>
+
+</div>
+
+<!-- CTA -->
+<div class="cta reveal">
+  <div>
+    <p class="cta-kicker">¿Tienes un proyecto?</p>
+    <h2 class="cta-title">Tu sitio listo<br>en <em>días, no semanas.</em></h2>
+    <p class="cta-sub">Landing pages, webs corporativas y demos de prospecto. Entrega rápida, código limpio, hosting incluido.</p>
+  </div>
+  <div class="cta-actions">
+    <a href="https://wa.me/51934233858" target="_blank" rel="noopener" class="btn-gold">Hablar por WhatsApp</a>
+    <a href="mailto:jparryg@gmail.com" class="btn-line">Escribir un email</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Parry<em>Studio</em></span>
+  <span class="footer-copy">© 2026 John Parry · Lima, Perú</span>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  function safe(fn, name) { try { fn(); } catch(e) { console.warn("[" + name + "]", e); } }
+
+  /* ── Reveal ── */
+  function initReveals() {
+    var els = document.querySelectorAll(".reveal");
+    if (!els.length) return;
+    if (!window.IntersectionObserver) {
+      els.forEach(function(el) { el.classList.add("is-visible"); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.03, rootMargin: "0px 0px -2% 0px" });
+    els.forEach(function(el) { io.observe(el); });
+    setTimeout(function() {
+      document.querySelectorAll(".reveal:not(.is-visible)").forEach(function(el) {
+        if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("is-visible");
+      });
+    }, 6000);
+  }
+
+  /* ── Filtros ── */
+  function initFilters() {
+    var btns = document.querySelectorAll(".filter-btn");
+    var cards = document.querySelectorAll(".card");
+    btns.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        btns.forEach(function(b) { b.classList.remove("is-active"); });
+        btn.classList.add("is-active");
+        var f = btn.dataset.filter;
+        cards.forEach(function(card) {
+          var show = f === "all" || card.dataset.cat === f;
+          card.style.display = show ? "" : "none";
+        });
+      });
+    });
+  }
+
+  function boot() {
+    safe(initReveals, "initReveals");
+    safe(initFilters,  "initFilters");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
+</script>
+
+</body>
+</html>
