@@ -246,7 +246,10 @@ nav.scrolled {
   position: absolute;
   inset: 15%;
   border-radius: 50%;
-  background: url("assets/img/vegetales.webp") center/cover no-repeat;
+  background: radial-gradient(circle at 40% 40%,
+    rgba(107,140,107,.6) 0%,
+    rgba(75,107,75,.4) 40%,
+    rgba(50,80,50,.2) 100%);
   box-shadow:
     0 40px 100px rgba(0,0,0,.12),
     inset 0 1px 0 rgba(255,255,255,.5);
@@ -386,9 +389,9 @@ nav.scrolled {
 
 /* FILOSOFÍA -------------------------------------- */
 .filosofia {
-  background:
-    linear-gradient(135deg, rgba(240,237,232,.92) 0%, rgba(232,226,218,.94) 50%, rgba(240,237,232,.90) 100%),
-    url("assets/img/vegetales.webp") center/cover no-repeat;
+  background: linear-gradient(135deg,
+    rgba(240,237,232,.95) 0%,
+    rgba(220,230,215,.90) 100%);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
