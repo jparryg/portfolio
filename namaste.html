@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Namasté · Cocina Vegana Consciente · Barranco, Lima</title>
+<meta name="description" content="Restaurante vegano en Barranco inspirado en la filosofía del Buen Vivir. Sabores del mundo, ingredientes locales, cocina con intención." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wdth,wght@0,79..100,300..700;1,79..100,300..700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="assets/img/interior.webp" fetchpriority="high" />
+<style>
+/* ─── RESET & TOKENS ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #080C09;
+  --bg-2:    #0E1410;
+  --bg-3:    #141E16;
+  --cream:   #EEE9D8;
+  --cream-2: #D4CCBA;
+  --cream-3: #857A68;
+  --accent:  #3D8C5A;
+  --accent-2:#2D6B45;
+  --gold:    #B8935A;
+  --line:    rgba(238,233,216,.10);
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+  --ease-out: cubic-bezier(.22,1,.36,1);
+  --ease-in-out: cubic-bezier(.45,0,.55,1);
+  --nav-h: 72px;
+}
+
+html { overflow-x: clip; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ─── SPLASH ─────────────────────────────────────────── */
+.splash {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 1.2rem;
+  transition: opacity .6s var(--ease-out), clip-path .6s var(--ease-out);
+  animation: splashSafety .01s 4.5s forwards;
+}
+@keyframes splashSafety { to { opacity:0; pointer-events:none; clip-path: inset(0 0 100% 0); } }
+.splash.is-out { opacity: 0; pointer-events: none; clip-path: inset(0 0 100% 0); }
+.splash-logo {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 300;
+  letter-spacing: .08em;
+  color: var(--cream);
+}
+.splash-logo em { color: var(--accent); font-style: italic; }
+.splash-bar {
+  width: 40px; height: 1px;
+  background: var(--accent);
+  transform-origin: left;
+  animation: barGrow 2s var(--ease-out) forwards;
+}
+@keyframes barGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ─── NAV ────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  transition: background .4s var(--ease-out), border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+.nav.is-solid {
+  background: rgba(8,12,9,.92);
+  backdrop-filter: blur(12px);
+  border-color: var(--line);
+}
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: .95rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--cream);
+}
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none;
+  font-size: .78rem; letter-spacing: .15em; text-transform: uppercase;
+}
+.nav-links a { color: var(--cream-3); transition: color .25s; }
+.nav-links a:hover { color: var(--cream); }
+.nav-cta {
+  font-size: .76rem; letter-spacing: .15em; text-transform: uppercase;
+  padding: .6rem 1.4rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  transition: background .25s, color .25s;
+}
+.nav-cta:hover { background: var(--accent); color: var(--bg); }
+@media (max-width: 767px) {
+  .nav-links { display: none; }
+}
+
+/* ─── HERO ───────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh; min-height: 100svh;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    linear-gradient(160deg, rgba(8,12,9,.84) 0%, rgba(8,12,9,.62) 50%, rgba(8,12,9,.80) 100%),
+    url("assets/img/interior.webp") center/cover no-repeat;
+}
+.hero-mesh {
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 50% at 15% 60%, rgba(61,140,90,.28) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 65% at 80% 30%, rgba(45,107,69,.20) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 40% at 50% 90%, rgba(184,147,90,.10) 0%, transparent 55%);
+  animation: meshPulse 14s ease-in-out infinite;
+}
+@keyframes meshPulse {
+  0%,100% { opacity:.9; transform: scale(1) rotate(0deg); }
+  50%      { opacity:1;  transform: scale(1.08) rotate(1deg); }
+}
+.hero-grain {
+  position: absolute; inset: 0; z-index: 2;
+  opacity: .04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative; z-index: 3;
+  width: 100%;
+  padding: calc(var(--nav-h) + 3rem) clamp(1.5rem, 8vw, 7rem) 5rem;
+  max-width: 820px;
+}
+.hero-meta {
+  display: flex; align-items: center; gap: .8rem;
+  font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--cream-3); margin-bottom: 2rem;
+}
+.hero-meta-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0;
+}
+.hero-tag {
+  font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+  padding: .25rem .65rem;
+  border: 1px solid rgba(61,140,90,.4);
+  color: var(--accent);
+}
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 7vw, 5.6rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 1.4rem;
+  text-wrap: balance;
+}
+.hero-title em { font-style: italic; color: var(--accent); }
+.hero-sub {
+  font-size: clamp(.92rem, 1.4vw, 1.05rem);
+  color: var(--cream-2);
+  max-width: 46ch;
+  margin-bottom: 2.8rem;
+  line-height: 1.7;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .85rem 2rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: .8rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+  transition: background .25s, transform .2s;
+}
+.btn-primary:hover { background: var(--accent-2); transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .85rem 2rem;
+  border: 1px solid var(--line);
+  color: var(--cream-2);
+  font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+  transition: border-color .25s, color .25s;
+}
+.btn-ghost:hover { border-color: var(--cream-3); color: var(--cream); }
+.hero-scroll-hint {
+  position: absolute; bottom: 2.5rem; right: clamp(1.5rem, 8vw, 7rem);
+  z-index: 3;
+  writing-mode: vertical-rl;
+  font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--cream-3);
+  display: flex; align-items: center; gap: .8rem;
+}
+.hero-scroll-hint::after {
+  content: ''; display: block;
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, var(--cream-3), transparent);
+}
+
+/* ─── SECTION COMMON ─────────────────────────────────── */
+.section-kicker {
+  font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 1.4rem;
+}
+.section-title em { font-style: italic; }
+
+/* ─── REVEAL ─────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+}
+.reveal[data-split] { opacity: 1; transform: none; }
+.reveal.is-visible { opacity: 1; transform: none; }
+.reveal.delay-1 { transition-delay: .12s; }
+.reveal.delay-2 { transition-delay: .24s; }
+.reveal.delay-3 { transition-delay: .36s; }
+
+/* ─── CONCEPTO ───────────────────────────────────────── */
+.concepto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+}
+.concepto-text {
+  background: var(--bg-2);
+  padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.concepto-pillars {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; margin-top: 3rem;
+}
+.pillar-num {
+  font-family: var(--font-serif);
+  font-size: 2.4rem; font-weight: 300; font-style: italic;
+  color: var(--accent); line-height: 1;
+  margin-bottom: .5rem;
+}
+.pillar-label {
+  font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--cream-3);
+}
+.concepto-image {
+  position: relative; overflow: hidden;
+  background:
+    linear-gradient(160deg, rgba(8,12,9,.55) 0%, rgba(20,30,22,.50) 100%),
+    url("assets/img/hero.webp") center/cover no-repeat;
+}
+.concepto-image-caption {
+  position: absolute; bottom: 2rem; left: 2rem;
+  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--cream-3);
+}
+@media (max-width: 767px) {
+  .concepto { grid-template-columns: 1fr; }
+  .concepto-image { min-height: 56vw; }
+  .concepto-pillars { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+}
+
+/* ─── CARTA ──────────────────────────────────────────── */
+.carta {
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 8vw, 7rem);
+  background: var(--bg);
+}
+.carta-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2rem; margin-bottom: 4rem;
+}
+.carta-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+}
+.carta-cat-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem; font-weight: 300; font-style: italic;
+  color: var(--cream);
+  margin-bottom: .4rem;
+}
+.carta-cat-price {
+  font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.8rem;
+}
+.carta-items { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+.carta-item { border-top: 1px solid var(--line); padding-top: 1rem; }
+.carta-item-name {
+  font-size: .88rem; font-weight: 400;
+  color: var(--cream-2); margin-bottom: .25rem;
+}
+.carta-item-desc {
+  font-size: .76rem; color: var(--cream-3); line-height: 1.5;
+}
+@media (max-width: 1023px) { .carta-columns { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 559px)  { .carta-columns { grid-template-columns: 1fr; } }
+
+/* ─── GALERÍA ────────────────────────────────────────── */
+.galeria {
+  padding: 0 clamp(1.5rem, 8vw, 7rem) clamp(5rem, 10vw, 9rem);
+  background: var(--bg);
+}
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.8rem);
+}
+.galeria-card {
+  position: relative; overflow: hidden;
+  aspect-ratio: 4/5;
+  background: var(--bg-3);
+  transition: transform .4s var(--ease-out);
+}
+.galeria-card:hover { transform: translateY(-4px); }
+.galeria-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s var(--ease-out), filter .4s;
+}
+.galeria-card:hover img { transform: scale(1.06); filter: saturate(1.18); }
+.galeria-card-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 2rem 1.4rem 1.2rem;
+  background: linear-gradient(to top, rgba(8,12,9,.85), transparent);
+  font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--cream-2);
+}
+@media (max-width: 639px) { .galeria-grid { grid-template-columns: 1fr; } }
+
+/* ─── INFO ───────────────────────────────────────────── */
+.info {
+  background: var(--bg-2);
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 8vw, 7rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+}
+.info-left .section-title { max-width: 18ch; }
+.info-body { font-size: .9rem; color: var(--cream-3); line-height: 1.7; margin-top: 1.4rem; }
+.info-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+.info-right { display: flex; flex-direction: column; gap: 2.4rem; }
+.info-block-label {
+  font-size: .65rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: .5rem;
+}
+.info-block-value { font-size: .9rem; color: var(--cream-2); line-height: 1.7; }
+.info-block-value a { color: var(--gold); }
+.info-block-value a:hover { text-decoration: underline; }
+.horario-row { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: .55rem; margin-top: .55rem; font-size: .85rem; }
+.horario-row:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+.map-embed { margin-top: 1rem; overflow: hidden; }
+.map-embed iframe { display: block; width: 100%; height: 300px; border: 1px solid rgba(238,233,216,.10); filter: grayscale(30%); }
+.btn-map {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .65rem 1.4rem; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--cream-2); border: 1px solid var(--accent); text-decoration: none;
+  transition: background .25s, color .25s; margin-top: .9rem;
+}
+.btn-map:hover { background: var(--accent); color: var(--bg); }
+@media (max-width: 767px) { .info { grid-template-columns: 1fr; } }
+
+/* ─── FOOTER ─────────────────────────────────────────── */
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  padding: 2.4rem clamp(1.5rem, 8vw, 7rem);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand {
+  font-family: var(--font-serif);
+  font-size: .85rem; font-weight: 300;
+  color: var(--cream-3);
+}
+.footer-brand strong { color: var(--cream); font-weight: 400; }
+.footer-links {
+  display: flex; gap: 2rem; list-style: none;
+  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--cream-3);
+}
+.footer-links a:hover { color: var(--cream); }
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div class="splash" data-splash>
+  <p class="splash-logo">Namasté <em>Barranco</em></p>
+  <div class="splash-bar"></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Namasté <span>Barranco</span></a>
+  <ul class="nav-links">
+    <li><a href="#concepto">Filosofía</a></li>
+    <li><a href="#carta">Carta</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#info">Visítanos</a></li>
+  </ul>
+  <a href="https://wa.me/51[tu-número]?text=Hola%2C%20quiero%20reservar%20en%20Namasté" target="_blank" rel="noopener" class="nav-cta">Reservar</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-mesh"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-meta-dot"></span>
+      <span>Barranco · Lima</span>
+      <span class="hero-tag">100% Vegano</span>
+    </div>
+    <h1 class="hero-title reveal">
+      Cocina con<br><em>intención.</em>
+    </h1>
+    <p class="hero-sub reveal delay-1">
+      En Namasté cada plato es un acto consciente. Sabores del mundo — India, Mediterráneo, Perú — reunidos en Barranco con ingredientes que respetan la tierra y quienes la habitan.
+    </p>
+    <div class="hero-actions reveal delay-2">
+      <a href="#carta" class="btn-primary">Ver carta</a>
+      <a href="https://wa.me/51[tu-número]?text=Hola%2C%20quiero%20reservar%20en%20Namasté" target="_blank" rel="noopener" class="btn-ghost">Reservar mesa →</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- CONCEPTO -->
+<section class="concepto" id="concepto">
+  <div class="concepto-text">
+    <p class="section-kicker reveal">— Nuestra filosofía</p>
+    <h2 class="section-title reveal delay-1">
+      Ahimsa en<br><em>cada bocado.</em>
+    </h2>
+    <p class="reveal delay-2" style="font-size:.9rem;color:var(--cream-3);max-width:44ch;line-height:1.75;">
+      Namasté nace de una convicción simple: comer bien no debería hacerle daño a nadie. Cocina vegana de inspiración global — dal, hummus, quinua, ají — preparada con técnica y mucho cariño en el barrio más creativo de Lima.
+    </p>
+    <div class="concepto-pillars">
+      <div class="reveal delay-1">
+        <div class="pillar-num">Ahimsa</div>
+        <div class="pillar-label">No violencia</div>
+      </div>
+      <div class="reveal delay-2">
+        <div class="pillar-num">Prana</div>
+        <div class="pillar-label">Alimento vivo</div>
+      </div>
+      <div class="reveal delay-3">
+        <div class="pillar-num">Karma</div>
+        <div class="pillar-label">Cocina consciente</div>
+      </div>
+    </div>
+  </div>
+  <div class="concepto-image" aria-hidden="true">
+    <div class="concepto-image-caption">Cocina de temporada</div>
+  </div>
+</section>
+
+<!-- CARTA -->
+<section class="carta" id="carta">
+  <div class="carta-header">
+    <div>
+      <p class="section-kicker reveal">— Nuestra carta</p>
+      <h2 class="section-title reveal delay-1">Sabores del mundo, <em>raíces locales.</em></h2>
+    </div>
+    <p class="reveal delay-2" style="font-size:.82rem;color:var(--cream-3);max-width:38ch;line-height:1.65;text-align:right;">
+      Todo sin gluten disponible previa coordinación. Carta de jugos y tés de temporada al consultar.
+    </p>
+  </div>
+  <div class="carta-columns">
+
+    <!-- PIQUEOS -->
+    <div class="reveal">
+      <h3 class="carta-cat-title">Piqueos</h3>
+      <p class="carta-cat-price">S/ 10 c/u</p>
+      <ul class="carta-items">
+        <li class="carta-item">
+          <div class="carta-item-name">Samosas al Horno</div>
+          <div class="carta-item-desc">Masa integral, relleno de papa y especias</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Falafel Crocante</div>
+          <div class="carta-item-desc">Garbanzo, cilantro, tahini casero</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Papas Peruanas</div>
+          <div class="carta-item-desc">Chutney de tamarindo y hierbabuena</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ENTRADAS -->
+    <div class="reveal delay-1">
+      <h3 class="carta-cat-title">Entradas</h3>
+      <p class="carta-cat-price">S/ 16 c/u</p>
+      <ul class="carta-items">
+        <li class="carta-item">
+          <div class="carta-item-name">Dhal de Lentejas Rojas</div>
+          <div class="carta-item-desc">Cúrcuma, jengibre, leche de coco</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Causa Vegana</div>
+          <div class="carta-item-desc">Papa amarilla, palta, tofu ahumado</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Ensalada Jardín</div>
+          <div class="carta-item-desc">Vegetales de temporada, aderezo de sésamo</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Sopa de Quinua</div>
+          <div class="carta-item-desc">Verduras andinas, cilantro fresco</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- FONDOS -->
+    <div class="reveal delay-2">
+      <h3 class="carta-cat-title">Fondos</h3>
+      <p class="carta-cat-price">S/ 22 c/u</p>
+      <ul class="carta-items">
+        <li class="carta-item">
+          <div class="carta-item-name">Curry Tikka Vegano</div>
+          <div class="carta-item-desc">Garbanzos, tomate, especias, arroz basmati</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Biryani de Verduras</div>
+          <div class="carta-item-desc">Arroz aromático, castañas, azafrán</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Bowl Prana</div>
+          <div class="carta-item-desc">Quinua, tofu al horno, vegetales salteados, tahini</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Pasta del Día</div>
+          <div class="carta-item-desc">Según temporada y creatividad del chef</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Hamburguesa Namasté</div>
+          <div class="carta-item-desc">Lentejas y hongos, pan integral, chutney verde</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- POSTRES -->
+    <div class="reveal delay-3">
+      <h3 class="carta-cat-title">Postres</h3>
+      <p class="carta-cat-price">S/ 14 c/u</p>
+      <ul class="carta-items">
+        <li class="carta-item">
+          <div class="carta-item-name">Kheer de Arroz</div>
+          <div class="carta-item-desc">Leche de coco, cardamomo, pistachos</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Brownie Raw</div>
+          <div class="carta-item-desc">Cacao, dátiles, helado de lúcuma</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Chai Pudding</div>
+          <div class="carta-item-desc">Chía, té masala, frutos del bosque</div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="galeria" id="galeria">
+  <div class="galeria-grid">
+    <div class="galeria-card reveal">
+      <img src="assets/img/plato1.webp" alt="Bowl vegano colorido con quinua y verduras" loading="lazy" decoding="async" />
+      <div class="galeria-card-caption">Bowl Prana</div>
+    </div>
+    <div class="galeria-card reveal delay-1">
+      <img src="assets/img/plato2.webp" alt="Curry vegano con especias y arroz" loading="lazy" decoding="async" />
+      <div class="galeria-card-caption">Curry del día</div>
+    </div>
+    <div class="galeria-card reveal delay-2">
+      <img src="assets/img/vegetales.webp" alt="Vegetales frescos de temporada" loading="lazy" decoding="async" />
+      <div class="galeria-card-caption">Productos de temporada</div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="info" id="info">
+  <div class="info-left">
+    <p class="section-kicker reveal">— Visítanos</p>
+    <h2 class="section-title reveal delay-1">En el corazón<br><em>de Barranco.</em></h2>
+    <p class="info-body reveal delay-2">
+      Reservas por WhatsApp o llégate directamente. Tenemos mesas disponibles casi siempre — y si no, vale la pena esperar con un té masala.
+    </p>
+    <div class="info-actions reveal delay-3">
+      <a href="https://wa.me/51[tu-número]?text=Hola%2C%20quiero%20reservar%20en%20Namasté" target="_blank" rel="noopener" class="btn-primary">Reservar por WhatsApp</a>
+      <a href="mailto:[tu-email]" class="btn-ghost">Escribirnos</a>
+    </div>
+  </div>
+  <div class="info-right">
+    <div class="reveal">
+      <div class="info-block-label">Dirección</div>
+      <div class="info-block-value">[tu dirección], Barranco<br>Lima, Perú</div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps?q=Barranco+Lima+Peru&output=embed"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Namasté Barranco"></iframe>
+      </div>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Barranco+Lima+Peru"
+         target="_blank" rel="noopener" class="btn-map">Cómo llegar →</a>
+    </div>
+    <div class="reveal delay-1">
+      <div class="info-block-label">Horario</div>
+      <div class="info-block-value">
+        <div class="horario-row"><span>Lun — Vie</span><span>12 pm – 10 pm</span></div>
+        <div class="horario-row"><span>Sáb — Dom</span><span>10 am – 11 pm</span></div>
+      </div>
+    </div>
+    <div class="reveal delay-2">
+      <div class="info-block-label">Contacto</div>
+      <div class="info-block-value">
+        <a href="https://wa.me/51[tu-número]">[tu teléfono]</a><br>
+        <a href="mailto:[tu-email]">[tu email]</a><br>
+        <a href="https://instagram.com/[tu-instagram]" target="_blank" rel="noopener">@[tu-instagram]</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-brand"><strong>Namasté</strong> · Barranco, Lima · 2026</p>
+  <ul class="footer-links">
+    <li><a href="https://wa.me/51[tu-número]" target="_blank" rel="noopener">WhatsApp</a></li>
+    <li><a href="https://instagram.com/[tu-instagram]" target="_blank" rel="noopener">Instagram</a></li>
+    <li><a href="creditos.html">Créditos fotográficos →</a></li>
+  </ul>
+</footer>
+
+<script defer>
+(function () {
+  "use strict";
+
+  function safe(fn, name) {
+    try { fn(); } catch (e) { console.warn("[" + name + "]", e); }
+  }
+
+  /* ── Splash ── */
+  function initSplash() {
+    var splash = document.querySelector("[data-splash]");
+    if (!splash) return;
+    var hide = function () { splash.classList.add("is-out"); };
+    if (document.readyState === "complete") { setTimeout(hide, 600); }
+    else { window.addEventListener("load", function () { setTimeout(hide, 400); }); }
+    setTimeout(hide, 3800);
+  }
+
+  /* ── Nav solid on scroll ── */
+  function initNav() {
+    var nav = document.getElementById("nav");
+    if (!nav) return;
+    function check() {
+      if (window.scrollY > 40) { nav.classList.add("is-solid"); }
+      else { nav.classList.remove("is-solid"); }
+    }
+    window.addEventListener("scroll", check, { passive: true });
+    check();
+  }
+
+  /* ── Smooth anchor scroll ── */
+  function initSmoothScroll() {
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute("href");
+      if (!id || id === "#") return;
+      var el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      var offset = 80;
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({
+        top: el.getBoundingClientRect().top + window.scrollY - offset,
+        behavior: reduced ? "auto" : "smooth"
+      });
+    });
+  }
+
+  /* ── Reveal on scroll ── */
+  function initReveals() {
+    var els = document.querySelectorAll(".reveal");
+    if (!els.length) return;
+
+    if (!window.IntersectionObserver) {
+      els.forEach(function (el) { el.classList.add("is-visible"); });
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.03, rootMargin: "0px 0px -2% 0px" });
+
+    els.forEach(function (el) { io.observe(el); });
+
+    setTimeout(function () {
+      document.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add("is-visible");
+        }
+      });
+    }, 6000);
+  }
+
+  /* ── Boot ── */
+  function boot() {
+    safe(initSplash, "initSplash");
+    safe(initNav, "initNav");
+    safe(initSmoothScroll, "initSmoothScroll");
+    safe(initReveals, "initReveals");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+
+})();
+</script>
+
+</body>
+</html>
