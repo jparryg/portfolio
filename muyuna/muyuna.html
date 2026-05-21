@@ -1,1165 +1,1911 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muyuna Amazon Lodge — Ecolodge en el Amazonas Peruano</title>
-<meta name="description" content="Muyuna Amazon Lodge — 25 años de ecoturismo en la Reserva Tamshiyacu-Tahuayo. Delfines rosados, selva virgen, 100% energía solar. 140 km de Iquitos, Perú.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,200;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muyuna Amazon Lodge · Reserva Tamshiyacu-Tahuayo · Iquitos, Perú</title>
+<meta name="description" content="Ecolodge en el corazón de la Amazonía peruana. 25 años conectando viajeros con la selva más biodiversa del mundo. Reserva Tamshiyacu-Tahuayo, 140 km de Iquitos." />
+
+<!-- Bilingual -->
+<meta property="og:title" content="Muyuna Amazon Lodge · Iquitos, Peru" />
+<meta property="og:description" content="Eco-lodge in the heart of the Peruvian Amazon. 25 years connecting travellers with the most biodiverse rainforest on Earth." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wdth,wght@0,79..100,200..500;1,79..100,200..500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
 <style>
-/* === RESET === */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#f4efe6;--bg-2:#e8dfd0;--paper:#fff;
-  --ink:#1a1a1a;--ink-soft:#2a2a2a;--ink-mute:#6b6b6b;
-  --accent:#2d6a4f;--accent-2:#1b4332;--gold:#b07d3b;
-  --line:rgba(26,26,26,.10);
-  --fd:'Fraunces',Georgia,serif;--fb:'Inter',system-ui,sans-serif;
-  --ease:cubic-bezier(.22,.61,.36,1);
+/* ============================================================
+   MUYUNA AMAZON LODGE
+   Archetype 01 — Editorial Light Cream
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #f4efe6;
+  --bg-2:      #e8dfd0;
+  --paper:     #ffffff;
+  --ink:       #1a1a1a;
+  --ink-soft:  #2a2a2a;
+  --ink-mute:  #6b6b6b;
+  --accent:    #2d6a4f;   /* selva verde */
+  --accent-2:  #1b4332;   /* verde profundo */
+  --gold:      #b07d3b;   /* madera dorada */
+  --terra:     #8b4513;   /* tierra amazónica */
+  --line:      rgba(26,26,26,0.10);
+  --glass:     rgba(244,239,230,.80);
+  --ease:      cubic-bezier(.25,.46,.45,.94);
+  --ease-out:  cubic-bezier(0,0,.2,1);
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
 }
-html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--bg);color:var(--ink);line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-button{cursor:pointer;border:none;background:none;font-family:var(--fb)}
 
-/* === LANG === */
-.lang-es [data-lang="en"],.lang-en [data-lang="es"]{display:none}
-
-/* === REVEAL === */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
-.reveal.visible{opacity:1;transform:none}
-.reveal[data-split]{opacity:1;transform:none}
-
-/* === TYPOGRAPHY === */
-.kicker{font-family:var(--fb);font-size:.72rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem}
-.display{font-family:var(--fd);font-style:italic;font-weight:200;line-height:1.05}
-.display em{font-style:normal;font-weight:400}
-
-/* === LAYOUT === */
-.container{max-width:1200px;margin:0 auto;padding:0 2rem}
-section{padding:7rem 0}
-
-/* === BUTTONS === */
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:2px;font-family:var(--fb);font-size:.82rem;font-weight:400;letter-spacing:.06em;text-transform:uppercase;transition:all .25s var(--ease)}
-.btn-green{background:var(--accent);color:#fff}
-.btn-green:hover{background:var(--accent-2)}
-.btn-outline-light{border:1px solid rgba(244,239,230,.5);color:var(--bg)}
-.btn-outline-light:hover{background:rgba(244,239,230,.1);border-color:rgba(244,239,230,.9)}
-
-/* ============================================
-   1 · NAV
-============================================ */
-#nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:1.2rem 0;transition:background .3s,padding .3s,box-shadow .3s}
-#nav.scrolled{background:rgba(244,239,230,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:.8rem 0;box-shadow:0 1px 0 var(--line)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem}
-.nav-logo{height:48px;width:auto;object-fit:contain}
-.nav-logo-fallback{font-family:var(--fd);font-style:italic;font-weight:300;font-size:1.3rem;color:var(--accent)}
-.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-.nav-links a{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400;color:var(--ink);transition:color .2s}
-.nav-links a:hover{color:var(--accent)}
-#nav:not(.scrolled) .nav-links a{color:rgba(244,239,230,.85)}
-#nav:not(.scrolled) .nav-links a:hover{color:#fff}
-.nav-right{display:flex;align-items:center;gap:1rem}
-#langToggle{font-size:.75rem;font-weight:400;letter-spacing:.1em;padding:.4rem .8rem;border:1px solid rgba(244,239,230,.5);color:rgba(244,239,230,.85);border-radius:2px;transition:all .2s;font-family:var(--fb)}
-#nav.scrolled #langToggle{border-color:var(--accent);color:var(--accent)}
-#langToggle:hover{opacity:.8}
-.nav-cta{font-size:.78rem;padding:.55rem 1.3rem}
-#nav:not(.scrolled) .nav-cta{background:var(--accent);color:#fff}
-
-/* ============================================
-   2 · HERO
-============================================ */
-#hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:center;overflow:hidden;padding:0}
-.hero-bg{position:absolute;inset:0;background-image:url('https://muyuna.com/wp-content/uploads/2021/06/ezgif.com-gif-maker.jpg');background-size:cover;background-position:center;background-color:var(--accent-2)}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,28,20,.82) 0%,rgba(20,38,28,.68) 45%,rgba(26,42,34,.5) 100%)}
-.hero-content{position:relative;z-index:2;max-width:800px}
-.hero-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem}
-.hero-eyebrow-text{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,239,230,.7);font-weight:400}
-.hero-pill{display:inline-block;font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .8rem;border:1px solid rgba(176,125,59,.5);color:var(--gold);border-radius:100px;font-weight:400}
-#hero h1{font-family:var(--fd);font-style:italic;font-weight:200;font-size:clamp(3rem,7vw,5.5rem);line-height:1.04;color:#fff;margin-bottom:1.5rem}
-#hero h1 em{font-style:normal;font-weight:400;color:rgba(244,239,230,.9)}
-.hero-sub{font-size:1.05rem;font-weight:300;color:rgba(244,239,230,.8);max-width:560px;line-height:1.7;margin-bottom:2.5rem}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.hero-stats{position:absolute;right:2rem;bottom:3rem;z-index:2;display:flex;flex-direction:column;gap:.8rem;text-align:right}
-.hero-stat strong{display:block;font-family:var(--fd);font-style:italic;font-weight:200;font-size:1.6rem;color:#fff;line-height:1}
-.hero-stat span{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.6)}
-.hero-scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(244,239,230,.5);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;animation:scrollBounce 2s ease-in-out infinite}
-.hero-scroll-hint svg{width:18px;height:18px}
-@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
-
-/* ============================================
-   3 · MARQUEE
-============================================ */
-#marquee{background:var(--accent-2);padding:1rem 0;overflow:hidden}
-.marquee-wrap{display:flex;overflow:hidden}
-#marqueeTrack{display:flex;white-space:nowrap;animation:marqueeScroll 40s linear infinite;flex-shrink:0}
-.marquee-item{display:inline-flex;align-items:center;gap:1.2rem;padding:0 2rem;font-family:var(--fd);font-style:italic;font-weight:200;font-size:1rem;color:rgba(244,239,230,.8);letter-spacing:.02em}
-.marquee-dot{width:4px;height:4px;border-radius:50%;background:rgba(176,125,59,.6);flex-shrink:0}
-@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ============================================
-   4 · MANIFESTO
-============================================ */
-#manifesto{background:var(--bg)}
-.manifesto-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}
-.manifesto-left{position:sticky;top:120px}
-.manifesto-number{font-family:var(--fd);font-style:italic;font-weight:200;font-size:clamp(5rem,10vw,9rem);line-height:.9;color:var(--bg-2);margin-bottom:.5rem;letter-spacing:-.03em}
-.manifesto-title{font-size:clamp(1.8rem,3vw,2.5rem);margin-top:1rem}
-.manifesto-right p{font-size:1.05rem;line-height:1.8;color:var(--ink-soft);margin-bottom:1.5rem}
-.pull-quote{border-left:2px solid var(--gold);padding:1rem 0 1rem 1.5rem;margin:2rem 0}
-.pull-quote p{font-family:var(--fd);font-style:italic;font-weight:300;font-size:1.15rem;line-height:1.5;color:var(--ink-soft);margin:0 0 .5rem}
-.pull-quote cite{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);font-style:normal}
-.manifesto-pillars{display:flex;flex-direction:column;gap:.8rem;margin-top:2rem}
-.pillar{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;border:1px solid var(--line);border-radius:2px}
-.pillar-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
-.pillar span{font-size:.85rem;font-weight:400;letter-spacing:.03em}
-
-/* ============================================
-   5 · POR QUÉ MUYUNA
-============================================ */
-#por-que{background:var(--bg-2)}
-.porq-header{text-align:center;margin-bottom:4rem}
-.porq-header h2{font-size:clamp(2rem,4vw,3rem)}
-.porq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
-.porq-item{padding:2.5rem;border:1px solid var(--line);background:var(--paper);border-radius:2px;transition:box-shadow .3s}
-.porq-item:hover{box-shadow:0 8px 32px rgba(26,26,26,.07)}
-.porq-icon{font-size:2rem;margin-bottom:1rem}
-.porq-item h3{font-family:var(--fd);font-style:italic;font-weight:300;font-size:1.25rem;margin-bottom:.7rem;line-height:1.3}
-.porq-item p{font-size:.9rem;line-height:1.7;color:var(--ink-mute)}
-
-/* ============================================
-   6 · EXPERIENCIAS
-============================================ */
-#experiencias{background:var(--bg)}
-.exp-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;gap:2rem}
-.exp-header h2{font-size:clamp(2rem,4vw,3rem)}
-.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.exp-card{background:var(--paper);border-radius:2px;overflow:hidden;border:1px solid var(--line);transition:box-shadow .3s,transform .3s}
-.exp-card:hover{box-shadow:0 12px 40px rgba(26,26,26,.1);transform:translateY(-3px)}
-.exp-card-img-wrap{overflow:hidden}
-.exp-card-img-bg{width:100%;aspect-ratio:4/3;background-size:cover;background-position:center;background-color:var(--accent-2);transition:transform .6s ease,filter .4s}
-.exp-card:hover .exp-card-img-bg{transform:scale(1.05);filter:saturate(1.1)}
-.exp-01{background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Inia_geoffrensis_03.jpg/800px-Inia_geoffrensis_03.jpg')}
-.exp-02{background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Amazon_Rainforest.jpg/800px-Amazon_Rainforest.jpg')}
-.exp-03{background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Above_Clouds_jungle_Manaus_Brazil.jpg/800px-Above_Clouds_jungle_Manaus_Brazil.jpg')}
-.exp-04{background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Ramphastos_toco_-Belo_Horizonte%2C_Brazil-8.jpg/800px-Ramphastos_toco_-Belo_Horizonte%2C_Brazil-8.jpg')}
-.exp-05{background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Piranha_01.jpg/800px-Piranha_01.jpg')}
-.exp-06{background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Comunidad_nativa_Amazon_Peru.jpg/800px-Comunidad_nativa_Amazon_Peru.jpg')}
-.exp-card-body{padding:1.5rem}
-.exp-card-num{font-family:var(--fd);font-style:italic;font-weight:200;font-size:.85rem;color:var(--ink-mute);margin-bottom:.4rem}
-.exp-card-title{font-family:var(--fd);font-style:italic;font-weight:300;font-size:1.25rem;margin-bottom:.8rem;line-height:1.3}
-.exp-card-tags{display:flex;gap:.5rem;flex-wrap:wrap}
-.tag{font-size:.65rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .65rem;background:var(--bg);color:var(--ink-mute);border-radius:100px}
-.exp-more{margin-top:2.5rem;padding:1.5rem 2rem;border:1px solid var(--line);border-radius:2px;background:var(--bg-2)}
-.exp-more-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:.7rem}
-.exp-more-list{font-family:var(--fd);font-style:italic;font-weight:200;font-size:1rem;color:var(--ink-soft);line-height:1.8}
-
-/* ============================================
-   7 · EL LODGE
-============================================ */
-#lodge{background:var(--bg-2);padding:0}
-.lodge-grid{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
-.lodge-img{position:relative;overflow:hidden}
-.lodge-img img{width:100%;height:100%;object-fit:cover}
-.lodge-img-caption{position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.7);background:rgba(20,33,26,.4);backdrop-filter:blur(6px);padding:.5rem .9rem;border-radius:2px}
-.lodge-body{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center}
-.lodge-title{font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:1.2rem}
-.lodge-p{font-size:1rem;line-height:1.8;color:var(--ink-soft);margin-bottom:2rem}
-.lodge-features{display:flex;flex-direction:column;gap:.9rem}
-.lodge-feature{display:flex;align-items:flex-start;gap:1rem;padding:.9rem 1.1rem;background:var(--bg);border-radius:2px}
-.lodge-feature-icon{font-size:1.2rem;flex-shrink:0;margin-top:.1rem}
-.lodge-feature-text strong{display:block;font-size:.82rem;font-weight:500;letter-spacing:.03em;margin-bottom:.15rem}
-.lodge-feature-text span{font-size:.8rem;color:var(--ink-mute)}
-
-/* ============================================
-   8 · PAQUETES
-============================================ */
-#paquetes{background:var(--bg)}
-.pkg-header{text-align:center;margin-bottom:3.5rem}
-.pkg-header h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:.8rem}
-.pkg-header p{color:var(--ink-mute);max-width:560px;margin:0 auto;font-size:.95rem}
-.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.pkg-card{border:1px solid var(--line);border-radius:2px;padding:2rem;background:var(--paper);display:flex;flex-direction:column;transition:box-shadow .3s}
-.pkg-card:hover{box-shadow:0 8px 32px rgba(26,26,26,.08)}
-.pkg-card.featured{background:var(--accent-2);color:rgba(244,239,230,.9);border-color:transparent;box-shadow:0 12px 48px rgba(27,67,50,.35)}
-.pkg-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:400}
-.pkg-duration{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:.4rem}
-.pkg-card.featured .pkg-duration{color:rgba(244,239,230,.5)}
-.pkg-name{font-family:var(--fd);font-style:italic;font-weight:300;font-size:1.3rem;margin-bottom:1rem;line-height:1.2}
-.pkg-includes{font-size:.85rem;line-height:1.7;color:var(--ink-mute);margin-bottom:1.5rem;flex:1;list-style:none}
-.pkg-card.featured .pkg-includes{color:rgba(244,239,230,.7)}
-.pkg-includes li{padding-left:1rem;position:relative}
-.pkg-includes li::before{content:'—';position:absolute;left:0;color:var(--accent);font-weight:300}
-.pkg-card.featured .pkg-includes li::before{color:var(--gold)}
-.pkg-cta{display:block;text-align:center;padding:.75rem;border:1px solid var(--accent);color:var(--accent);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;border-radius:2px;transition:all .2s;margin-top:auto}
-.pkg-cta:hover{background:var(--accent);color:#fff}
-.pkg-card.featured .pkg-cta{border-color:rgba(244,239,230,.3);color:rgba(244,239,230,.9)}
-.pkg-card.featured .pkg-cta:hover{background:rgba(244,239,230,.1)}
-.pkg-note{text-align:center;margin-top:2rem;font-size:.8rem;color:var(--ink-mute)}
-
-/* ============================================
-   9 · TRIPADVISOR
-============================================ */
-#tripadvisor{background:var(--accent-2);color:rgba(244,239,230,.9)}
-.ta-inner{text-align:center}
-.ta-badge{display:inline-flex;flex-direction:column;align-items:center;gap:.5rem;margin-bottom:2.5rem}
-.ta-choice{font-family:var(--fd);font-style:italic;font-weight:200;font-size:1.8rem;color:var(--gold)}
-.ta-stats{display:flex;justify-content:center;gap:3rem;margin-bottom:3rem;flex-wrap:wrap}
-.ta-stat strong{display:block;font-family:var(--fd);font-style:italic;font-weight:200;font-size:2.5rem;color:#fff;line-height:1}
-.ta-stat span{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.5)}
-.ta-reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:left;margin-bottom:2rem}
-.ta-review{background:rgba(244,239,230,.06);border:1px solid rgba(244,239,230,.1);border-radius:2px;padding:1.8rem}
-.ta-stars{color:var(--gold);font-size:1rem;margin-bottom:1rem;letter-spacing:.1em}
-.ta-review-text{font-size:.9rem;line-height:1.7;color:rgba(244,239,230,.8);margin-bottom:1rem;font-style:italic}
-.ta-reviewer{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.45)}
-.ta-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.5);border-bottom:1px solid rgba(244,239,230,.2);padding-bottom:.2rem;transition:color .2s}
-.ta-link:hover{color:rgba(244,239,230,.85)}
-
-/* ============================================
-   10 · CONTACTO
-============================================ */
-#contacto{background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Rio_Amazonas.jpg/1600px-Rio_Amazonas.jpg');background-size:cover;background-position:center;background-color:var(--accent-2);position:relative}
-#contacto::before{content:'';position:absolute;inset:0;background:rgba(20,33,26,.80)}
-.contact-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.contact-left{color:rgba(244,239,230,.9)}
-.contact-left .kicker{color:var(--gold)}
-.contact-title{font-size:clamp(2rem,3.5vw,2.8rem);color:#fff;margin-bottom:1.2rem}
-.contact-p{font-size:1rem;color:rgba(244,239,230,.7);line-height:1.7;margin-bottom:2rem}
-.contact-info{display:flex;flex-direction:column}
-.contact-info-row{display:flex;gap:1.5rem;padding:1rem 0;border-bottom:1px solid rgba(244,239,230,.1)}
-.contact-info-label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.4);width:110px;flex-shrink:0;padding-top:.1rem}
-.contact-info-val{font-size:.9rem;color:rgba(244,239,230,.8);line-height:1.5}
-.contact-form-wrap{background:rgba(244,239,230,.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(244,239,230,.12);border-radius:2px;padding:2.5rem}
-.form-title{font-family:var(--fd);font-style:italic;font-weight:300;font-size:1.2rem;color:rgba(244,239,230,.9);margin-bottom:1.8rem}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.form-group{display:flex;flex-direction:column;gap:.4rem}
-.form-group.full{grid-column:1/-1}
-.form-label{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.5)}
-.form-input,.form-select,.form-textarea{background:rgba(244,239,230,.08);border:1px solid rgba(244,239,230,.15);color:rgba(244,239,230,.9);padding:.75rem .9rem;border-radius:2px;font-family:var(--fb);font-size:.88rem;font-weight:300;transition:border-color .2s;outline:none;width:100%}
-.form-input::placeholder,.form-textarea::placeholder{color:rgba(244,239,230,.3)}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:rgba(244,239,230,.4)}
-.form-select option{background:#1a2a20;color:#f4efe6}
-.form-textarea{resize:vertical;min-height:80px}
-.form-submit{width:100%;padding:.9rem;background:var(--accent);color:#fff;font-size:.82rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;margin-top:1rem;transition:background .2s;font-family:var(--fb);cursor:pointer;border:none}
-.form-submit:hover{background:var(--accent-2)}
-
-/* ============================================
-   11 · CÓMO LLEGAR
-============================================ */
-#llegar{background:var(--bg)}
-.llegar-header{margin-bottom:3.5rem}
-.llegar-header h2{font-size:clamp(2rem,4vw,3rem)}
-.llegar-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.step{display:flex;gap:1.5rem;padding-bottom:2.5rem;position:relative}
-.step:not(:last-child)::after{content:'';position:absolute;left:1.35rem;top:3.5rem;bottom:0;width:1px;background:var(--line)}
-.step-num{font-family:var(--fd);font-style:italic;font-weight:200;font-size:2.5rem;color:var(--bg-2);line-height:1;width:2.8rem;flex-shrink:0;text-align:center}
-.step-title{font-family:var(--fd);font-style:italic;font-weight:300;font-size:1.1rem;margin-bottom:.35rem}
-.step-desc{font-size:.88rem;color:var(--ink-mute);line-height:1.6}
-.map-wrap{border-radius:2px;overflow:hidden;border:1px solid var(--line)}
-.map-wrap iframe{display:block}
-
-/* ============================================
-   12 · FOOTER
-============================================ */
-#footer{background:#14211a;color:rgba(244,239,230,.7);padding:5rem 0 2rem}
-.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(244,239,230,.08);margin-bottom:2rem}
-.footer-logo{height:48px;width:auto;margin-bottom:1rem}
-.footer-tagline{font-size:.78rem;line-height:1.7;color:rgba(244,239,230,.45);margin-bottom:1.2rem}
-.footer-solar{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.5)}
-.dot-solar{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.footer-col-title{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,239,230,.35);margin-bottom:1.2rem;font-weight:400}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:.6rem}
-.footer-links a{font-size:.85rem;color:rgba(244,239,230,.55);transition:color .2s}
-.footer-links a:hover{color:rgba(244,239,230,.9)}
-.footer-social{display:flex;flex-direction:column;gap:.6rem}
-.footer-social a{font-size:.85rem;color:rgba(244,239,230,.55);display:flex;align-items:center;gap:.5rem;transition:color .2s}
-.footer-social a:hover{color:rgba(244,239,230,.9)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.footer-copy{font-size:.75rem;color:rgba(244,239,230,.3)}
-.footer-credits{font-size:.72rem;color:rgba(244,239,230,.25);text-align:right;line-height:1.5}
-
-/* ============================================
-   RESPONSIVE
-============================================ */
-@media(max-width:1024px){
-  .exp-grid{grid-template-columns:repeat(2,1fr)}
-  .pkg-grid{grid-template-columns:repeat(2,1fr)}
-  .ta-reviews{grid-template-columns:1fr 1fr}
-  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
-@media(max-width:768px){
-  section{padding:4rem 0}
-  .manifesto-grid{grid-template-columns:1fr;gap:2rem}
-  .manifesto-left{position:static}
-  .porq-grid{grid-template-columns:1fr}
-  .exp-grid{grid-template-columns:1fr}
-  .lodge-grid{grid-template-columns:1fr}
-  .lodge-img{min-height:320px}
-  .lodge-body{padding:3rem 2rem}
-  .pkg-grid{grid-template-columns:1fr}
-  .ta-reviews{grid-template-columns:1fr}
-  .ta-stats{gap:1.5rem}
-  .contact-grid{grid-template-columns:1fr;gap:3rem}
-  .llegar-grid{grid-template-columns:1fr;gap:3rem}
-  .footer-top{grid-template-columns:1fr 1fr}
-  .nav-links{display:none}
-  .hero-stats{display:none}
-  .form-grid{grid-template-columns:1fr}
-  .exp-header{flex-direction:column;align-items:flex-start}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
 }
-@media(max-width:480px){
-  .footer-top{grid-template-columns:1fr}
-  .hero-pill{display:none}
+.reveal[data-split] { opacity: 1; transform: none; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  padding: 1.6rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background .4s, padding .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
 }
+nav.scrolled {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1rem 4rem;
+  border-color: var(--line);
+}
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+.nav-brand-name {
+  font-family: var(--font-serif);
+  font-size: .95rem;
+  font-weight: 300;
+  letter-spacing: .20em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.nav-brand-sub {
+  font-size: .58rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  transition: color .25s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-lang {
+  font-size: .7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border: 1px solid var(--line);
+  padding: .35rem .75rem;
+  cursor: pointer;
+  transition: all .25s;
+  background: none;
+  font-family: var(--font-sans);
+}
+.nav-lang:hover { border-color: var(--accent); color: var(--accent); }
+.nav-cta {
+  padding: .65rem 1.5rem;
+  background: var(--accent);
+  color: white;
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background .25s;
+}
+.nav-cta:hover { background: var(--accent-2); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+  animation: heroZoom 18s ease-out forwards;
+}
+@keyframes heroZoom {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.0); }
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to top, rgba(26,26,26,.75) 0%, rgba(26,26,26,.20) 45%, transparent 70%),
+    linear-gradient(135deg, rgba(244,239,230,.08) 0%, transparent 50%);
+}
+.hero-grain {
+  position: absolute; inset: 0; z-index: 2;
+  opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: calc(5rem + 80px) 4rem 5rem;
+  max-width: 900px;
+}
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp .7s var(--ease) .3s forwards;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px; height: 1px;
+  background: rgba(244,239,230,.6);
+}
+.hero-eyebrow span {
+  font-size: .68rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,.75);
+}
+.hero-tag {
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: .22rem .6rem;
+  border: 1px solid rgba(244,239,230,.35);
+  color: rgba(244,239,230,.65);
+}
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  font-weight: 200;
+  line-height: 1.02;
+  color: #f4efe6;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .9s var(--ease) .5s forwards;
+}
+.hero-title em {
+  font-style: italic;
+  color: rgba(244,239,230,.78);
+  display: block;
+}
+.hero-sub {
+  font-size: 1.05rem;
+  color: rgba(244,239,230,.72);
+  max-width: 48ch;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp .8s var(--ease) .7s forwards;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp .7s var(--ease) .9s forwards;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .9rem 2rem;
+  font-size: .75rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all .3s var(--ease);
+}
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  border: 1px solid var(--accent);
+}
+.btn-primary:hover { background: var(--accent-2); border-color: var(--accent-2); }
+.btn-ghost {
+  background: transparent;
+  color: rgba(244,239,230,.85);
+  border: 1px solid rgba(244,239,230,.35);
+}
+.btn-ghost:hover { border-color: rgba(244,239,230,.7); color: #f4efe6; }
+
+.hero-stats {
+  position: absolute;
+  right: 4rem; bottom: 4rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  opacity: 0;
+  animation: fadeUp .7s var(--ease) 1.1s forwards;
+}
+.hero-stat {
+  text-align: right;
+}
+.hero-stat-num {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 200;
+  color: rgba(244,239,230,.9);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,.5);
+}
+
+.hero-scroll {
+  position: absolute;
+  left: 4rem; bottom: 4rem;
+  z-index: 3;
+  writing-mode: vertical-rl;
+  font-size: .62rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,.45);
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  opacity: 0;
+  animation: fadeUp .6s var(--ease) 1.3s forwards;
+}
+.hero-scroll::after {
+  content: '';
+  display: block;
+  width: 1px; height: 52px;
+  background: linear-gradient(to bottom, rgba(244,239,230,.4), transparent);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SECCIÓN COMÚN ── */
+.section { padding: 7rem 4rem; position: relative; }
+.kicker {
+  font-size: .68rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.5rem;
+}
+.kicker::before {
+  content: '';
+  display: block;
+  width: 24px; height: 1px;
+  background: var(--accent);
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 200;
+  line-height: 1.08;
+  margin-bottom: 1.2rem;
+}
+.section-title em { font-style: italic; color: var(--accent); }
+
+/* ── MANIFESTO ── */
+.manifesto {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  padding: 7rem 4rem;
+}
+.manifesto-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 6rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.manifesto-left {
+  position: sticky;
+  top: 100px;
+}
+.manifesto-num {
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  font-weight: 200;
+  font-style: italic;
+  color: rgba(45,106,79,.15);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+.manifesto-right p {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+  max-width: 58ch;
+}
+.manifesto-right p:last-child { margin-bottom: 0; }
+.manifesto-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+.pillar-num {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 200;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: .4rem;
+}
+.pillar-label {
+  font-size: .7rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  line-height: 1.5;
+}
+
+/* ── EXPERIENCIAS ── */
+.experiencias { background: var(--bg-2); }
+.experiencias-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+  margin-bottom: 4rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.experiencias-header p {
+  color: var(--ink-soft);
+  line-height: 1.75;
+  font-size: .95rem;
+}
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.exp-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  cursor: default;
+}
+.exp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(26,26,26,.10);
+}
+.exp-card-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform .6s var(--ease), filter .4s;
+}
+.exp-card:hover .exp-card-img {
+  transform: scale(1.05);
+  filter: saturate(1.12);
+}
+.exp-card-img-wrap { overflow: hidden; }
+.exp-card-body { padding: 1.8rem; }
+.exp-num {
+  font-size: .65rem;
+  letter-spacing: .2em;
+  color: var(--ink-mute);
+  margin-bottom: .8rem;
+}
+.exp-card-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: .5rem;
+  color: var(--ink);
+}
+.exp-card-body p {
+  font-size: .84rem;
+  color: var(--ink-mute);
+  line-height: 1.65;
+  margin-bottom: 1.2rem;
+}
+.exp-tag {
+  font-size: .65rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+/* ── LODGE ── */
+.lodge {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+  background: var(--bg);
+}
+.lodge-img {
+  position: relative;
+  overflow: hidden;
+}
+.lodge-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .8s var(--ease);
+}
+.lodge:hover .lodge-img img { transform: scale(1.03); }
+.lodge-img-caption {
+  position: absolute;
+  bottom: 1.5rem; left: 1.5rem;
+  font-size: .65rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,.6);
+  background: rgba(26,26,26,.35);
+  padding: .3rem .6rem;
+  backdrop-filter: blur(4px);
+}
+.lodge-content {
+  padding: 6rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.lodge-content > p {
+  font-size: .95rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  max-width: 48ch;
+}
+.lodge-features {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  margin-top: 2rem;
+}
+.lodge-feature {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  border-top: 1px solid var(--line);
+  padding-top: .8rem;
+}
+.lodge-feature-icon {
+  font-size: 1rem;
+  width: 28px;
+  flex-shrink: 0;
+  margin-top: .1rem;
+}
+.lodge-feature-text h4 {
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: .1rem;
+}
+.lodge-feature-text p {
+  font-size: .78rem;
+  color: var(--ink-mute);
+  line-height: 1.5;
+}
+
+/* ── WILDLIFE MARQUEE ── */
+.marquee-wrap {
+  background: var(--accent-2);
+  padding: 1.2rem 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(244,239,230,.08);
+  border-bottom: 1px solid rgba(244,239,230,.08);
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 25s linear infinite;
+  white-space: nowrap;
+}
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,.6);
+  flex-shrink: 0;
+}
+.marquee-dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(244,239,230,.3);
+  flex-shrink: 0;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── PRECIOS ── */
+.precios {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+.precios-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.precios-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+.precios-header p {
+  color: var(--ink-soft);
+  line-height: 1.75;
+  font-size: .95rem;
+}
+.precios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 6 paquetes en 2 filas de 3 */
+  gap: 1.5rem;
+}
+.precio-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 2.2rem;
+  transition: border-color .3s, box-shadow .3s;
+}
+.precio-card:hover {
+  border-color: rgba(45,106,79,.3);
+  box-shadow: 0 16px 48px rgba(26,26,26,.06);
+}
+.precio-card.featured {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  color: rgba(244,239,230,.9);
+}
+.precio-card.featured .precio-nights,
+.precio-card.featured .precio-price,
+.precio-card.featured .precio-label,
+.precio-card.featured h3 { color: rgba(244,239,230,.9); }
+.precio-card.featured .precio-desc { color: rgba(244,239,230,.65); }
+.precio-card.featured .precio-line { border-color: rgba(244,239,230,.15); }
+.precio-card.featured .precio-feat { color: rgba(244,239,230,.75); border-color: rgba(244,239,230,.12); }
+.precio-nights {
+  font-size: .65rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.precio-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: .5rem;
+}
+.precio-desc {
+  font-size: .82rem;
+  color: var(--ink-mute);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.precio-line { border: none; border-top: 1px solid var(--line); margin-bottom: 1.5rem; }
+.precio-price {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 200;
+  color: var(--ink);
+  line-height: 1;
+}
+.precio-label {
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: .3rem;
+  margin-bottom: 1.5rem;
+}
+.precio-feats { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.5rem; }
+.precio-feat {
+  font-size: .8rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  padding-top: .5rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.precio-feat::before { content: '✓'; color: var(--accent); font-size: .75rem; }
+.btn-precio {
+  display: block;
+  text-align: center;
+  padding: .85rem 1.5rem;
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all .25s;
+}
+.btn-precio-green {
+  background: var(--accent);
+  color: white;
+  border: 1px solid var(--accent);
+}
+.btn-precio-green:hover { background: var(--accent-2); }
+.btn-precio-outline {
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+.btn-precio-outline:hover { border-color: var(--accent); color: var(--accent); }
+.btn-precio-light {
+  border: 1px solid rgba(244,239,230,.35);
+  color: rgba(244,239,230,.85);
+}
+.btn-precio-light:hover { background: rgba(244,239,230,.1); }
+
+/* ── TESTIMONIOS ── */
+.testimonios {
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+}
+.test-inner { max-width: 1200px; margin: 0 auto; }
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.test-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 2rem;
+  transition: box-shadow .3s;
+}
+.test-card:hover { box-shadow: 0 12px 40px rgba(26,26,26,.07); }
+.test-stars { color: var(--gold); font-size: .85rem; letter-spacing: .1em; margin-bottom: 1rem; }
+.test-quote {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+}
+.test-author {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+.test-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  font-weight: 500;
+  color: white;
+  flex-shrink: 0;
+}
+.ta-2 { background: var(--gold); }
+.ta-3 { background: var(--terra); }
+.test-name { font-size: .85rem; font-weight: 500; color: var(--ink); }
+.test-loc { font-size: .72rem; color: var(--ink-mute); }
+
+/* ── RESERVAR ── */
+.reservar {
+  background:
+    linear-gradient(to bottom, rgba(244,239,230,.92) 0%, rgba(244,239,230,.88) 100%),
+    url("https://muyuna.com/wp-content/uploads/2021/06/ezgif.com-gif-maker.jpg") center/cover no-repeat fixed;
+  border-top: 1px solid var(--line);
+}
+.reservar-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.reservar-form {
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 3px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(26,26,26,.06);
+}
+.form-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 200;
+  font-style: italic;
+  margin-bottom: .35rem;
+}
+.form-sub {
+  font-size: .78rem;
+  color: var(--ink-mute);
+  margin-bottom: 2rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  margin-bottom: 1rem;
+}
+.form-group label {
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(244,239,230,.5);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: .8rem 1rem;
+  font-family: var(--font-sans);
+  font-size: .9rem;
+  outline: none;
+  border-radius: 2px;
+  transition: border-color .25s, background .25s;
+  -webkit-appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  background: white;
+}
+.form-group textarea { resize: none; height: 80px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-row .form-group { margin-bottom: 0; }
+.form-submit {
+  width: 100%;
+  margin-top: .5rem;
+  padding: 1rem;
+  background: var(--accent);
+  border: none;
+  color: white;
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background .25s;
+  font-family: var(--font-sans);
+}
+.form-submit:hover { background: var(--accent-2); }
+.reservar-info .section-title { margin-bottom: 1rem; }
+.reservar-info > p {
+  font-size: .92rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+.info-rows { display: flex; flex-direction: column; gap: 1rem; }
+.info-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+.info-row-label {
+  font-size: .65rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.info-row-value {
+  font-size: .88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.info-row-value a { color: var(--accent); }
+.info-row-value a:hover { text-decoration: underline; }
+
+/* ── COMO LLEGAR ── */
+.llegar {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+.llegar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+.llegar-steps { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
+.llegar-step {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  border-top: 1px solid var(--line);
+  padding-top: 1.2rem;
+}
+.step-num {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 200;
+  font-style: italic;
+  color: var(--accent);
+  width: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: .1rem;
+}
+.step-text h4 { font-size: .88rem; font-weight: 500; margin-bottom: .2rem; }
+.step-text p { font-size: .8rem; color: var(--ink-mute); line-height: 1.55; }
+.llegar-map {
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.llegar-map iframe {
+  display: block;
+  width: 100%;
+  height: 400px;
+  border: none;
+  filter: saturate(.7) contrast(1.1);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #14211a;
+  color: var(--bg);
+  padding: 4.5rem 4rem 2.5rem;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  max-width: 1200px;
+}
+.footer-brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 200;
+  letter-spacing: .1em;
+  margin-bottom: .4rem;
+}
+.footer-brand-tagline {
+  font-size: .78rem;
+  color: rgba(244,239,230,.45);
+  line-height: 1.65;
+  max-width: 260px;
+  margin-top: .5rem;
+}
+.footer-cert {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-top: 1.5rem;
+  padding: .6rem .8rem;
+  border: 1px solid rgba(244,239,230,.12);
+  border-radius: 2px;
+  width: fit-content;
+}
+.footer-cert-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .6; transform: scale(.85); }
+}
+.footer-cert-text { font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(244,239,230,.5); }
+.footer-col h5 {
+  font-size: .65rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+.footer-col a {
+  font-size: .82rem;
+  color: rgba(244,239,230,.45);
+  transition: color .25s;
+}
+.footer-col a:hover { color: rgba(244,239,230,.85); }
+.footer-bottom {
+  border-top: 1px solid rgba(244,239,230,.08);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .68rem;
+  color: rgba(244,239,230,.3);
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 1200px;
+}
+.footer-bottom a { color: rgba(244,239,230,.3); transition: color .25s; }
+.footer-bottom a:hover { color: rgba(244,239,230,.6); }
+
+/* ── LANG SWITCH ── */
+[data-lang] { display: none; }
+.lang-es [data-lang="es"],
+.lang-en [data-lang="en"] { display: revert; }
+body { --lang: "es"; }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 1.2rem 1.5rem; }
+  nav.scrolled { padding: .9rem 1.5rem; }
+  .nav-links { display: none; }
+  .section { padding: 5rem 1.5rem; }
+  .hero-inner { padding: calc(4rem + 80px) 1.5rem 3rem; }
+  .hero-stats { right: 1.5rem; bottom: 3rem; }
+  .hero-scroll { display: none; }
+  .manifesto-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .manifesto-left { position: static; }
+  .manifesto-pillars { grid-template-columns: repeat(3, 1fr); }
+  .experiencias-header { grid-template-columns: 1fr; gap: 1.5rem; }
+  .exp-grid { grid-template-columns: 1fr; }
+  .lodge { grid-template-columns: 1fr; }
+  .lodge-img { min-height: 55vw; }
+  .lodge-content { padding: 3rem 1.5rem; }
+  .precios-header { grid-template-columns: 1fr; gap: 1.5rem; }
+  .precios-grid { grid-template-columns: 1fr; }
+  .test-grid { grid-template-columns: 1fr; }
+  .reservar-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .llegar-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .manifesto { padding: 5rem 1.5rem; }
+  .reservar { padding: 5rem 1.5rem; }
+  .llegar { padding: 5rem 1.5rem; }
+  .testimonios { padding: 5rem 1.5rem; }
+  .precios { padding: 5rem 1.5rem; }
+  .experiencias { padding: 5rem 1.5rem; }
+}
+
+/* ── EXP CARD PHOTO BACKGROUNDS (Wikimedia Commons CC) ── */
+.exp-card-img-bg {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+  transition: transform .6s cubic-bezier(.25,.46,.45,.94), filter .4s;
+}
+.exp-card:hover .exp-card-img-bg { transform: scale(1.05); filter: saturate(1.12); }
+
+.exp-01-bg { background-image: url("https://muyuna.com/wp-content/uploads/2019/12/DSC_8464b-2-min.jpg"); background-color:#1b4332; }
+.exp-02-bg { background-image: url("https://muyuna.com/wp-content/uploads/2021/07/ezgif.com-gif-maker-4.jpg"); background-color:#0d2818; }
+.exp-03-bg { background-image: url("https://muyuna.com/wp-content/uploads/2021/06/ezgif.com-gif-maker.jpg"); background-color:#155c3e; }
+.exp-04-bg { background-image: url("https://muyuna.com/wp-content/uploads/2020/09/9-1.png"); background-color:#1b4332; }
+.exp-05-bg { background-image: url("https://muyuna.com/wp-content/uploads/2020/05/theclumsytraveler-2-min-1024x1012-1.jpg"); background-color:#0a3d2a; }
+.exp-06-bg { background-image: url("https://muyuna.com/wp-content/uploads/2020/05/1.png"); background-color:#1e5c3e; }
 </style>
 </head>
 <body class="lang-es">
 
-<!-- ============================================
-     1 · NAV
-============================================ -->
-<nav id="nav" role="navigation" aria-label="Navegación principal">
-  <div class="container nav-inner">
-    <a href="#hero" aria-label="Muyuna Amazon Lodge — Inicio">
-      <img src="https://muyuna.com/wp-content/uploads/2024/05/Logo-Muyuna-formatos-grandes-y-medianos-2-2.png"
-           alt="Muyuna Amazon Lodge" class="nav-logo"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="nav-logo-fallback" style="display:none">Muyuna</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#experiencias" data-lang="es">Experiencias</a><a href="#experiencias" data-lang="en">Experiences</a></li>
-      <li><a href="#lodge" data-lang="es">El Lodge</a><a href="#lodge" data-lang="en">The Lodge</a></li>
-      <li><a href="#paquetes" data-lang="es">Tarifas</a><a href="#paquetes" data-lang="en">Packages</a></li>
-      <li><a href="#contacto" data-lang="es">Contacto</a><a href="#contacto" data-lang="en">Contact</a></li>
-    </ul>
-    <div class="nav-right">
-      <button id="langToggle" aria-label="Switch language">EN</button>
-      <a href="#contacto" class="btn btn-green nav-cta" data-lang="es">Reservar</a>
-      <a href="#contacto" class="btn btn-green nav-cta" data-lang="en">Book Now</a>
-    </div>
+<!-- DEMO BANNER -->
+<div style="position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);z-index:9999;background:rgba(26,26,26,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:rgba(244,239,230,.75);font-family:'Inter',system-ui,sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;padding:.55rem 1.2rem;border-radius:2px;border:1px solid rgba(244,239,230,.12);white-space:nowrap;pointer-events:none;">Demo personalizado para Muyuna</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#inicio" class="nav-brand">
+    <img src="https://muyuna.com/wp-content/uploads/2024/05/Logo-Muyuna-formatos-grandes-y-medianos-2-2.png"
+         alt="Muyuna Amazon Lodge"
+         style="height:52px;width:auto;display:block;"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+    <span style="display:none;flex-direction:column;gap:.1rem;">
+      <span class="nav-brand-name">Muyuna</span>
+      <span class="nav-brand-sub">Amazon Lodge</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#experiencias" data-lang="es">Experiencias</a><a href="#experiencias" data-lang="en">Experiences</a></li>
+    <li><a href="#lodge" data-lang="es">El Lodge</a><a href="#lodge" data-lang="en">The Lodge</a></li>
+    <li><a href="#precios" data-lang="es">Tarifas</a><a href="#precios" data-lang="en">Rates</a></li>
+    <li><a href="#contacto" data-lang="es">Contacto</a><a href="#contacto" data-lang="en">Contact</a></li>
+  </ul>
+  <div style="display:flex;gap:1rem;align-items:center;">
+    <button class="nav-lang" id="langToggle">EN</button>
+    <a href="#contacto" class="nav-cta" data-lang="es">Reservar</a>
+    <a href="#contacto" class="nav-cta" data-lang="en">Book Now</a>
   </div>
 </nav>
 
-<!-- ============================================
-     2 · HERO
-============================================ -->
-<section id="hero">
-  <div class="hero-bg"></div>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg">
+    <img
+      src="https://muyuna.com/wp-content/uploads/2021/06/ezgif.com-gif-maker.jpg"
+      alt="Vista aérea del río Amazonas en la Reserva Tamshiyacu-Tahuayo"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
   <div class="hero-overlay"></div>
-  <div class="container hero-content">
+  <div class="hero-grain"></div>
+
+  <div class="hero-inner">
     <div class="hero-eyebrow">
-      <span class="hero-eyebrow-text">Reserva Tamshiyacu-Tahuayo · Iquitos, Perú</span>
-      <span class="hero-pill">140 km selva adentro</span>
+      <span data-lang="es">Reserva Tamshiyacu-Tahuayo · Iquitos, Perú</span>
+      <span data-lang="en">Tamshiyacu-Tahuayo Reserve · Iquitos, Peru</span>
+      <span class="hero-tag" data-lang="es">140 km selva adentro</span>
+      <span class="hero-tag" data-lang="en">140 km into the rainforest</span>
     </div>
-    <h1 data-lang="es">La Amazonía<br><em>sin intermediarios.</em></h1>
-    <h1 data-lang="en">The Amazon<br><em>unfiltered.</em></h1>
-    <p class="hero-sub" data-lang="es">25 años llevando viajeros al corazón de la selva más biodiversa del planeta. Un ecolodge familiar en el río Yanayacu — donde la naturaleza dicta el ritmo.</p>
-    <p class="hero-sub" data-lang="en">25 years guiding travelers into the heart of Earth's most biodiverse rainforest. A family ecolodge on the Yanayacu River — where nature sets the pace.</p>
-    <div class="hero-btns">
-      <a href="#contacto" class="btn btn-green" data-lang="es">Reservar estadía</a>
-      <a href="#contacto" class="btn btn-green" data-lang="en">Book your stay</a>
-      <a href="#experiencias" class="btn btn-outline-light" data-lang="es">Ver experiencias</a>
-      <a href="#experiencias" class="btn btn-outline-light" data-lang="en">Explore experiences</a>
-    </div>
-  </div>
-  <div class="hero-stats" aria-hidden="true">
-    <div class="hero-stat">
-      <strong>+25</strong>
-      <span data-lang="es">Años</span><span data-lang="en">Years</span>
-    </div>
-    <div class="hero-stat">
-      <strong>17</strong>
-      <span data-lang="es">Cabañas</span><span data-lang="en">Bungalows</span>
-    </div>
-    <div class="hero-stat">
-      <strong>Solar</strong>
-      <span data-lang="es">100% energía</span><span data-lang="en">100% energy</span>
+    <h1 class="hero-title">
+      <span data-lang="es">La Amazonía<br><em>sin intermediarios.</em></span>
+      <span data-lang="en">The Amazon,<br><em>undiluted.</em></span>
+    </h1>
+    <p class="hero-sub" data-lang="es">
+      25 años llevando viajeros al corazón de la selva más biodiversa del planeta. Un ecolodge familiar en el río Yanayacu — donde la naturaleza dicta el ritmo.
+    </p>
+    <p class="hero-sub" data-lang="en">
+      25 years guiding travellers into the heart of Earth's most biodiverse rainforest. A family ecolodge on the Yanayacu River — where nature sets the pace.
+    </p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn btn-primary" data-lang="es">Reservar estadía</a>
+      <a href="#contacto" class="btn btn-primary" data-lang="en">Book Your Stay</a>
+      <a href="#experiencias" class="btn btn-ghost" data-lang="es">Ver experiencias</a>
+      <a href="#experiencias" class="btn btn-ghost" data-lang="en">See Experiences</a>
     </div>
   </div>
-  <div class="hero-scroll-hint" aria-hidden="true">
-    <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3v12M4 10l5 5 5-5"/></svg>
-    <span data-lang="es">Explorar</span><span data-lang="en">Explore</span>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">+25</div>
+      <div class="hero-stat-label" data-lang="es">Años operando</div>
+      <div class="hero-stat-label" data-lang="en">Years operating</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">17</div>
+      <div class="hero-stat-label" data-lang="es">Cabañas</div>
+      <div class="hero-stat-label" data-lang="en">Cabins</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">Solar</div>
+      <div class="hero-stat-label" data-lang="es">Energía limpia</div>
+      <div class="hero-stat-label" data-lang="en">Clean energy</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true" data-lang="es">Scroll</div>
+  <div class="hero-scroll" aria-hidden="true" data-lang="en">Scroll</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">Delfín Rosado<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Mono Tocón<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Guacamayo<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Anaconda<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Piraña<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Taricaya<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Caimán<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Paiche<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Nutria Gigante<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Jaguar<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Delfín Rosado<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Mono Tocón<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Guacamayo<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Anaconda<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Piraña<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Taricaya<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Caimán<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Paiche<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Nutria Gigante<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Jaguar<span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="nosotros">
+  <div class="manifesto-inner">
+    <div class="manifesto-left reveal">
+      <div class="manifesto-num">25</div>
+      <div class="kicker" data-lang="es">Nuestra historia</div>
+      <div class="kicker" data-lang="en">Our story</div>
+      <h2 class="section-title" data-lang="es">Un ecolodge<br><em>familiar.</em></h2>
+      <h2 class="section-title" data-lang="en">A family<br><em>ecolodge.</em></h2>
+    </div>
+    <div class="manifesto-right">
+      <p class="reveal" data-lang="es">
+        Muyuna nació en 1995 de la convicción de que la Amazonía puede protegerse y compartirse al mismo tiempo. Hoy, más de dos décadas después, seguimos operados por la misma familia — con los mismos guías bilingües que conocen cada recodo del río Yanayacu.
+      </p>
+      <p class="reveal" data-lang="en">
+        Muyuna was born in 1995 from the conviction that the Amazon can be both protected and shared. Today, more than two decades later, we are still operated by the same family — with the same bilingual guides who know every bend of the Yanayacu River.
+      </p>
+      <p class="reveal" data-lang="es">
+        Estamos a 140 km de Iquitos, dentro de la Reserva Nacional Tamshiyacu-Tahuayo. Sin ruido de motores ajenos. Sin turismo masivo. Solo la selva, los animales y un equipo que lleva una vida entera aprendiendo a leerla.
+      </p>
+      <p class="reveal" data-lang="en">
+        We are 140 km from Iquitos, within the Tamshiyacu-Tahuayo National Reserve. No distant engine noise. No mass tourism. Just the jungle, the animals, and a team that has spent a lifetime learning to read it.
+      </p>
+      <div class="manifesto-pillars">
+        <div class="reveal">
+          <div class="pillar-num">17</div>
+          <div class="pillar-label" data-lang="es">Cabañas sobre pilotes</div>
+          <div class="pillar-label" data-lang="en">Elevated cabins</div>
+        </div>
+        <div class="reveal">
+          <div class="pillar-num">100%</div>
+          <div class="pillar-label" data-lang="es">Energía solar</div>
+          <div class="pillar-label" data-lang="en">Solar powered</div>
+        </div>
+        <div class="reveal">
+          <div class="pillar-num">Bio</div>
+          <div class="pillar-label" data-lang="es">Guías certificados</div>
+          <div class="pillar-label" data-lang="en">Certified naturalist guides</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ============================================
-     3 · MARQUEE
-============================================ -->
-<div id="marquee" aria-hidden="true">
-  <div class="marquee-wrap">
-    <div id="marqueeTrack">
-      <span class="marquee-item">Delfín Rosado<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Mono Tocón<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Guacamayo<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Anaconda<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Piraña<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Caimán<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Paiche<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Nutria Gigante<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Jaguar<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Mono Pigmeo<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Wattled Curassow<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Victoria Regia<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Taricaya<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Búho Amazónico<span class="marquee-dot"></span></span>
-      <!-- duplicate for seamless loop -->
-      <span class="marquee-item">Delfín Rosado<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Mono Tocón<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Guacamayo<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Anaconda<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Piraña<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Caimán<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Paiche<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Nutria Gigante<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Jaguar<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Mono Pigmeo<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Wattled Curassow<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Victoria Regia<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Taricaya<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Búho Amazónico<span class="marquee-dot"></span></span>
+<!-- EXPERIENCIAS -->
+<section class="section experiencias" id="experiencias">
+  <div class="experiencias-header">
+    <div>
+      <div class="kicker reveal" data-lang="es">Experiencias</div>
+      <div class="kicker reveal" data-lang="en">Experiences</div>
+      <h2 class="section-title reveal" data-lang="es">La selva tiene<br><em>muchas capas.</em></h2>
+      <h2 class="section-title reveal" data-lang="en">The rainforest<br><em>has many layers.</em></h2>
+    </div>
+    <p class="reveal" data-lang="es">Cada día en Muyuna es diferente. Organizamos las actividades según el nivel de lluvia, la época del año y los intereses de cada grupo. No hay itinerarios rígidos — hay selva real.</p>
+    <p class="reveal" data-lang="en">Every day at Muyuna is different. We organize activities based on rainfall, the season, and each group's interests. No rigid itineraries — just real jungle.</p>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card reveal">
+      <div class="exp-card-img-wrap"><div class="exp-card-img-bg exp-01-bg"></div></div>
+      <div class="exp-card-body">
+        <div class="exp-num">01</div>
+        <h3 data-lang="es">Delfines del río</h3>
+        <h3 data-lang="en">River dolphins</h3>
+        <p data-lang="es">El delfín rosado amazónico — Inia geoffrensis — es el gran símbolo del Yanayacu. Avistamiento en canoa, a la hora dorada.</p>
+        <p data-lang="en">The Amazon river dolphin — Inia geoffrensis — is the great symbol of the Yanayacu. Canoe sighting at golden hour.</p>
+        <div class="exp-tag" data-lang="es">Mañana · Tarde · Todo el año</div>
+        <div class="exp-tag" data-lang="en">Morning · Afternoon · Year-round</div>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-card-img-wrap"><div class="exp-card-img-bg exp-02-bg"></div></div>
+      <div class="exp-card-body">
+        <div class="exp-num">02</div>
+        <h3 data-lang="es">Caminata nocturna</h3>
+        <h3 data-lang="en">Night walk</h3>
+        <p data-lang="es">La selva de noche es otro mundo. Ranas venenosas, tarantulas, búhos y la oscuridad total que despierta los sentidos.</p>
+        <p data-lang="en">The jungle at night is another world. Poison frogs, tarantulas, owls, and the absolute darkness that awakens the senses.</p>
+        <div class="exp-tag" data-lang="es">Nocturna · 2–3 horas · Guía bilingüe</div>
+        <div class="exp-tag" data-lang="en">Nocturnal · 2–3 hours · Bilingual guide</div>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-card-img-wrap"><div class="exp-card-img-bg exp-03-bg"></div></div>
+      <div class="exp-card-body">
+        <div class="exp-num">03</div>
+        <h3 data-lang="es">Canoa por el Yanayacu</h3>
+        <h3 data-lang="en">Yanayacu canoe trip</h3>
+        <p data-lang="es">Remamos a lo largo de cochas y quebradas. El silencio del remo revela lo que el motor ahuyenta: garzas, loros, monos.</p>
+        <p data-lang="en">We paddle through cochas and streams. The silence of the oar reveals what the motor scares away: herons, parrots, monkeys.</p>
+        <div class="exp-tag" data-lang="es">Mañana / tarde · 3–4 horas</div>
+        <div class="exp-tag" data-lang="en">Morning / afternoon · 3–4 hours</div>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-card-img-wrap"><div class="exp-card-img-bg exp-04-bg"></div></div>
+      <div class="exp-card-body">
+        <div class="exp-num">04</div>
+        <h3 data-lang="es">Avistamiento de aves</h3>
+        <h3 data-lang="en">Bird watching</h3>
+        <p data-lang="es">La Reserva Tamshiyacu-Tahuayo alberga más de 580 especies de aves. Binoculares incluidos, salida al amanecer.</p>
+        <p data-lang="en">The Tamshiyacu-Tahuayo Reserve hosts over 580 bird species. Binoculars included, sunrise departure.</p>
+        <div class="exp-tag" data-lang="es">Amanecer · Lista de species</div>
+        <div class="exp-tag" data-lang="en">Sunrise · Species checklist</div>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-card-img-wrap"><div class="exp-card-img-bg exp-05-bg"></div></div>
+      <div class="exp-card-body">
+        <div class="exp-num">05</div>
+        <h3 data-lang="es">Pesca de pirañas</h3>
+        <h3 data-lang="en">Piranha fishing</h3>
+        <p data-lang="es">La actividad más icónica del Amazonas. Caña de bambú, carnada de carne cruda y mucha paciencia. Las pirañas luego van al asado.</p>
+        <p data-lang="en">The most iconic Amazon activity. Bamboo rod, raw meat bait, and a lot of patience. The piranhas then go to the grill.</p>
+        <div class="exp-tag" data-lang="es">Tarde · Todos los niveles</div>
+        <div class="exp-tag" data-lang="en">Afternoon · All levels</div>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-card-img-wrap"><div class="exp-card-img-bg exp-06-bg"></div></div>
+      <div class="exp-card-body">
+        <div class="exp-num">06</div>
+        <h3 data-lang="es">Visita a comunidad</h3>
+        <h3 data-lang="en">Community visit</h3>
+        <p data-lang="es">Visitamos familias ribereñas con quienes tenemos vínculos de décadas. Medicina tradicional, artesanía y cocina local.</p>
+        <p data-lang="en">We visit riparian families with whom we have had ties for decades. Traditional medicine, crafts, and local cooking.</p>
+        <div class="exp-tag" data-lang="es">Medio día · Cultural</div>
+        <div class="exp-tag" data-lang="en">Half-day · Cultural</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EL LODGE -->
+<div class="lodge" id="lodge">
+  <div class="lodge-img">
+    <img
+      src="https://muyuna.com/wp-content/uploads/2021/06/ezgif.com-gif-maker.jpg"
+      alt="Cabaña sobre pilotes en la selva amazónica al atardecer"
+      loading="lazy"
+    />
+    <div class="lodge-img-caption" data-lang="es">Cabañas sobre el río</div>
+    <div class="lodge-img-caption" data-lang="en">Cabins over the river</div>
+  </div>
+  <div class="lodge-content">
+    <div class="kicker reveal" data-lang="es">El Lodge</div>
+    <div class="kicker reveal" data-lang="en">The Lodge</div>
+    <h2 class="section-title reveal" data-lang="es">Cómodo.<br><em>Sin pretensiones.</em></h2>
+    <h2 class="section-title reveal" data-lang="en">Comfortable.<br><em>Without pretensions.</em></h2>
+    <p class="reveal" data-lang="es">17 cabañas construidas con madera de la zona, elevadas sobre pilotes para integrarse al paisaje. Mosquiteros, ventiladores de techo, baño privado. Sin lujo artificial — el lujo es la selva que te rodea.</p>
+    <p class="reveal" data-lang="en">17 cabins built with local timber, elevated on stilts to integrate with the landscape. Mosquito nets, ceiling fans, private bathroom. No artificial luxury — the luxury is the jungle that surrounds you.</p>
+    <div class="lodge-features">
+      <div class="lodge-feature reveal">
+        <div class="lodge-feature-icon">☀️</div>
+        <div class="lodge-feature-text">
+          <h4 data-lang="es">Energía solar</h4>
+          <h4 data-lang="en">Solar power</h4>
+          <p data-lang="es">100% paneles solares. Electricidad 24h sin generadores ruidosos.</p>
+          <p data-lang="en">100% solar panels. 24h electricity without noisy generators.</p>
+        </div>
+      </div>
+      <div class="lodge-feature reveal">
+        <div class="lodge-feature-icon">🌊</div>
+        <div class="lodge-feature-text">
+          <h4 data-lang="es">Agua purificada</h4>
+          <h4 data-lang="en">Purified water</h4>
+          <p data-lang="es">Sistema de filtración propio. Agua segura en toda la instalación.</p>
+          <p data-lang="en">Own filtration system. Safe water throughout the facility.</p>
+        </div>
+      </div>
+      <div class="lodge-feature reveal">
+        <div class="lodge-feature-icon">🍽️</div>
+        <div class="lodge-feature-text">
+          <h4 data-lang="es">Cocina amazónica</h4>
+          <h4 data-lang="en">Amazonian cuisine</h4>
+          <p data-lang="es">3 comidas incluidas. Ingredientes frescos, recetas locales, pesca del día.</p>
+          <p data-lang="en">3 meals included. Fresh ingredients, local recipes, daily catch.</p>
+        </div>
+      </div>
+      <div class="lodge-feature reveal">
+        <div class="lodge-feature-icon">🦟</div>
+        <div class="lodge-feature-text">
+          <h4 data-lang="es">Equipado para la selva</h4>
+          <h4 data-lang="en">Equipped for the jungle</h4>
+          <p data-lang="es">Mosquiteros, botas de lluvia, kits de primeros auxilios. Todo incluido.</p>
+          <p data-lang="en">Mosquito nets, rain boots, first-aid kits. All included.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ============================================
-     4 · MANIFESTO
-============================================ -->
-<section id="manifesto">
-  <div class="container">
-    <div class="manifesto-grid">
-      <div class="manifesto-left reveal">
-        <div class="manifesto-number" aria-hidden="true">25</div>
-        <div class="kicker" data-lang="es">Nuestra historia</div>
-        <div class="kicker" data-lang="en">Our story</div>
-        <h2 class="display manifesto-title" data-lang="es">Una familia.<br><em>Un río. Una misión.</em></h2>
-        <h2 class="display manifesto-title" data-lang="en">One family.<br><em>One river. One mission.</em></h2>
-      </div>
-      <div class="manifesto-right">
-        <p class="reveal" data-lang="es">En 1999, Analía y Percy Sánchez recorrieron el Perú buscando aventura. Nada los impactó como el Amazonas. Con ayuda de la comunidad de San Juan de Yanayacu, construyeron Muyuna con un propósito doble: compartir la magia de la selva con el mundo y protegerla del talado ilegal.</p>
-        <p class="reveal" data-lang="en">In 1999, Analía and Percy Sánchez traveled across Peru in search of adventure. Nothing moved them like the Amazon. With help from the community of San Juan de Yanayacu, they built Muyuna with a dual purpose: to share the magic of the rainforest with the world, and to protect it from illegal logging.</p>
-        <p class="reveal" data-lang="es">Muyuna es 100% peruano — operado por la misma familia desde el primer día. Hoy, con más de 40 empleados de la zona, todos peruanos, guías nativos bilingües y vínculos activos con la comunidad local, el lodge sigue fiel a su origen: naturaleza, personas y propósito.</p>
-        <p class="reveal" data-lang="en">Muyuna is 100% Peruvian — run by the same family since day one. Today, with more than 40 local staff, all Peruvian, bilingual native guides, and active community ties, the lodge remains true to its origins: nature, people, and purpose.</p>
-        <div class="pull-quote reveal">
-          <p>"Working in Muyuna motivates us to encourage people to show ecotourism as a manner of building a sustainably responsible society."</p>
-          <cite>Percy Sánchez, Co-founder &amp; CEO</cite>
-        </div>
-        <div class="manifesto-pillars reveal">
-          <div class="pillar">
-            <span class="pillar-dot"></span>
-            <span data-lang="es">17 Cabañas sobre pilotes — madera local, techo de palmera, hamaca y baño privado</span>
-            <span data-lang="en">17 Elevated bungalows — local timber, palm-leaf roof, hammock &amp; private bath</span>
-          </div>
-          <div class="pillar">
-            <span class="pillar-dot"></span>
-            <span data-lang="es">100% Energía solar — sin generadores ruidosos, electricidad 24 horas</span>
-            <span data-lang="en">100% Solar energy — no noisy generators, electricity around the clock</span>
-          </div>
-          <div class="pillar">
-            <span class="pillar-dot"></span>
-            <span data-lang="es">Guías nativos certificados — bilingües, nacidos en la selva que muestran</span>
-            <span data-lang="en">Certified native guides — bilingual, born in the rainforest they share</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     5 · POR QUÉ MUYUNA
-============================================ -->
-<section id="por-que">
-  <div class="container">
-    <div class="porq-header reveal">
-      <div class="kicker" data-lang="es">Diferenciadores</div>
-      <div class="kicker" data-lang="en">Why Muyuna</div>
-      <h2 class="display" data-lang="es">Por qué Muyuna<br><em>y no otro lodge.</em></h2>
-      <h2 class="display" data-lang="en">Why Muyuna<br><em>over any other lodge.</em></h2>
-    </div>
-    <div class="porq-grid">
-      <div class="porq-item reveal">
-        <div class="porq-icon">🐬</div>
-        <h3 data-lang="es">Únicos delfines rosados del Perú</h3>
-        <h3 data-lang="en">Peru's only pink river dolphins</h3>
-        <p data-lang="es">La <em>Inia geoffrensis</em> solo existe en la cuenca amazónica. En Muyuna puedes nadar con ellos — no hay otro lugar en Perú donde esto sea posible.</p>
-        <p data-lang="en"><em>Inia geoffrensis</em> exists only in the Amazon basin. At Muyuna you can swim with them — there's no other place in Peru where this is possible.</p>
-      </div>
-      <div class="porq-item reveal">
-        <div class="porq-icon">📍</div>
-        <h3 data-lang="es">Más adentro que todos</h3>
-        <h3 data-lang="en">Deeper than anyone else</h3>
-        <p data-lang="es">Ubicado aguas arriba de todos los demás lodges, el río Yanayacu tiene menos tráfico de botes y más animales en estado salvaje. La diferencia es inmediata y visible.</p>
-        <p data-lang="en">Located upstream of every other lodge, the Yanayacu River sees less boat traffic and more wildlife in its natural state. The difference is immediate and visible.</p>
-      </div>
-      <div class="porq-item reveal">
-        <div class="porq-icon">🦅</div>
-        <h3 data-lang="es">Wattled Curassow — única en el mundo</h3>
-        <h3 data-lang="en">Wattled Curassow — found nowhere else</h3>
-        <p data-lang="es">El <em>Crax globulosa</em>, ave creída extinta, solo se observa en Muyuna en toda Sudamérica. Ornitólogos de todos los continentes viajan para verla aquí.</p>
-        <p data-lang="en"><em>Crax globulosa</em>, once thought extinct, is only observed at Muyuna in all of South America. Ornithologists travel from every continent to see it here.</p>
-      </div>
-      <div class="porq-item reveal">
-        <div class="porq-icon">✅</div>
-        <h3 data-lang="es">25 años, cero enfermedades tropicales</h3>
-        <h3 data-lang="en">25 years, zero tropical illness</h3>
-        <p data-lang="es">Ni un solo caso de Fiebre Amarilla, Dengue, Malaria ni Zika en toda la historia del lodge. Agua purificada en instalaciones propias y mosquitero en cada cabaña.</p>
-        <p data-lang="en">Not a single case of Yellow Fever, Dengue, Malaria, or Zika in the entire history of the lodge. Water purified on-site and mosquito netting in every bungalow.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     6 · EXPERIENCIAS
-============================================ -->
-<section id="experiencias">
-  <div class="container">
-    <div class="exp-header reveal">
+<!-- PRECIOS -->
+<section class="section precios" id="precios">
+  <div class="precios-inner">
+    <div class="precios-header">
       <div>
-        <div class="kicker" data-lang="es">Actividades</div>
-        <div class="kicker" data-lang="en">Activities</div>
-        <h2 class="display" data-lang="es">Las experiencias<br><em>que te cambian.</em></h2>
-        <h2 class="display" data-lang="en">The experiences<br><em>that change you.</em></h2>
+        <div class="kicker reveal" data-lang="es">Tarifas</div>
+        <div class="kicker reveal" data-lang="en">Rates</div>
+        <h2 class="section-title reveal" data-lang="es">5 paquetes.<br><em>Una sola selva.</em></h2>
+        <h2 class="section-title reveal" data-lang="en">5 packages.<br><em>One jungle.</em></h2>
       </div>
+      <p class="reveal" data-lang="es">Todos los paquetes incluyen traslado fluvial desde Iquitos, alojamiento, todas las comidas y actividades guiadas con expertos bilingües. Precios disponibles consultando directamente — cada grupo es diferente.</p>
+      <p class="reveal" data-lang="en">All packages include river transfer from Iquitos, lodging, all meals, and guided activities with bilingual experts. Prices available on direct inquiry — every group is different.</p>
     </div>
-    <div class="exp-grid">
-      <div class="exp-card reveal">
-        <div class="exp-card-img-wrap">
-          <div class="exp-card-img-bg exp-01" role="img" aria-label="Delfines rosados del Amazonas"></div>
-        </div>
-        <div class="exp-card-body">
-          <div class="exp-card-num">01</div>
-          <h3 class="exp-card-title" data-lang="es">Delfines del río</h3>
-          <h3 class="exp-card-title" data-lang="en">River dolphins</h3>
-          <div class="exp-card-tags">
-            <span class="tag" data-lang="es">Mañana</span><span class="tag" data-lang="en">Morning</span>
-            <span class="tag" data-lang="es">Todo el año</span><span class="tag" data-lang="en">Year-round</span>
-          </div>
-        </div>
-      </div>
-      <div class="exp-card reveal">
-        <div class="exp-card-img-wrap">
-          <div class="exp-card-img-bg exp-02" role="img" aria-label="Selva amazónica nocturna"></div>
-        </div>
-        <div class="exp-card-body">
-          <div class="exp-card-num">02</div>
-          <h3 class="exp-card-title" data-lang="es">Caminata nocturna</h3>
-          <h3 class="exp-card-title" data-lang="en">Night walk</h3>
-          <div class="exp-card-tags">
-            <span class="tag" data-lang="es">Nocturna</span><span class="tag" data-lang="en">Nocturnal</span>
-            <span class="tag">2–3h</span>
-          </div>
-        </div>
-      </div>
-      <div class="exp-card reveal">
-        <div class="exp-card-img-wrap">
-          <div class="exp-card-img-bg exp-03" role="img" aria-label="Canoa por el río Yanayacu"></div>
-        </div>
-        <div class="exp-card-body">
-          <div class="exp-card-num">03</div>
-          <h3 class="exp-card-title" data-lang="es">Canoa por el Yanayacu</h3>
-          <h3 class="exp-card-title" data-lang="en">Yanayacu canoe</h3>
-          <div class="exp-card-tags">
-            <span class="tag" data-lang="es">Mañana / tarde</span><span class="tag" data-lang="en">Morning / afternoon</span>
-            <span class="tag">3–4h</span>
-          </div>
-        </div>
-      </div>
-      <div class="exp-card reveal">
-        <div class="exp-card-img-wrap">
-          <div class="exp-card-img-bg exp-04" role="img" aria-label="Avistamiento de aves — tucán amazónico"></div>
-        </div>
-        <div class="exp-card-body">
-          <div class="exp-card-num">04</div>
-          <h3 class="exp-card-title" data-lang="es">Avistamiento de aves</h3>
-          <h3 class="exp-card-title" data-lang="en">Birdwatching</h3>
-          <div class="exp-card-tags">
-            <span class="tag" data-lang="es">Amanecer</span><span class="tag" data-lang="en">Sunrise</span>
-            <span class="tag">+450 spp</span>
-          </div>
-        </div>
-      </div>
-      <div class="exp-card reveal">
-        <div class="exp-card-img-wrap">
-          <div class="exp-card-img-bg exp-05" role="img" aria-label="Pesca de pirañas en el Amazonas"></div>
-        </div>
-        <div class="exp-card-body">
-          <div class="exp-card-num">05</div>
-          <h3 class="exp-card-title" data-lang="es">Pesca de pirañas</h3>
-          <h3 class="exp-card-title" data-lang="en">Piranha fishing</h3>
-          <div class="exp-card-tags">
-            <span class="tag" data-lang="es">Tarde</span><span class="tag" data-lang="en">Afternoon</span>
-            <span class="tag" data-lang="es">Todos los niveles</span><span class="tag" data-lang="en">All levels</span>
-          </div>
-        </div>
-      </div>
-      <div class="exp-card reveal">
-        <div class="exp-card-img-wrap">
-          <div class="exp-card-img-bg exp-06" role="img" aria-label="Visita a comunidad nativa amazónica"></div>
-        </div>
-        <div class="exp-card-body">
-          <div class="exp-card-num">06</div>
-          <h3 class="exp-card-title" data-lang="es">Visita a comunidad</h3>
-          <h3 class="exp-card-title" data-lang="en">Community visit</h3>
-          <div class="exp-card-tags">
-            <span class="tag" data-lang="es">Medio día</span><span class="tag" data-lang="en">Half day</span>
-            <span class="tag" data-lang="es">Cultural</span><span class="tag" data-lang="en">Cultural</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="exp-more reveal">
-      <p class="exp-more-label" data-lang="es">Y mucho más incluido</p>
-      <p class="exp-more-label" data-lang="en">And much more included</p>
-      <p class="exp-more-list">Victoria Regia · Camping nocturno · Kayak libre · Nado río Amazonas · Búsqueda de reptiles nocturnos · Atardecer en el río</p>
-    </div>
-  </div>
-</section>
+    <div class="precios-grid" style="grid-template-columns:repeat(3,1fr);">
 
-<!-- ============================================
-     7 · EL LODGE
-============================================ -->
-<section id="lodge">
-  <div class="lodge-grid">
-    <div class="lodge-img reveal">
-      <img src="https://muyuna.com/wp-content/uploads/2021/07/ezgif.com-gif-maker-2.jpg"
-           alt="Bungalows del Muyuna Amazon Lodge elevados sobre el río Yanayacu">
-      <span class="lodge-img-caption" data-lang="es">Bungalows sobre pilotes · Río Yanayacu · Loreto, Perú</span>
-      <span class="lodge-img-caption" data-lang="en">Elevated bungalows · Yanayacu River · Loreto, Peru</span>
-    </div>
-    <div class="lodge-body reveal">
-      <div class="kicker" data-lang="es">El Alojamiento</div>
-      <div class="kicker" data-lang="en">The Lodge</div>
-      <h2 class="display lodge-title" data-lang="es">Cómodo.<br><em>Sin pretensiones.</em></h2>
-      <h2 class="display lodge-title" data-lang="en">Comfortable.<br><em>Without pretensions.</em></h2>
-      <p class="lodge-p" data-lang="es">17 bungalows elevados sobre pilotes en madera local, techados con palmera, con hamaca, ventilador solar, mosquitero y baño privado. Construidos en armonía con el entorno — sin concreto visible, sin artificios.</p>
-      <p class="lodge-p" data-lang="en">17 bungalows elevated on stilts, built in local timber, roofed with palm leaves, each with a hammock, solar fan, mosquito netting and private bathroom. Built in harmony with the surroundings — no visible concrete, no artifice.</p>
-      <div class="lodge-features">
-        <div class="lodge-feature">
-          <span class="lodge-feature-icon">☀️</span>
-          <div class="lodge-feature-text">
-            <strong data-lang="es">Energía solar 24h</strong><strong data-lang="en">Solar energy 24h</strong>
-            <span data-lang="es">100% paneles solares — sin generadores ruidosos</span>
-            <span data-lang="en">100% solar panels — no noisy generators</span>
-          </div>
+      <!-- Welcome to the Jungle -->
+      <div class="precio-card reveal">
+        <div class="precio-nights" data-lang="es">3 días / 2 noches</div>
+        <div class="precio-nights" data-lang="en">3 days / 2 nights</div>
+        <h3 data-lang="es">Welcome to the Jungle</h3>
+        <h3 data-lang="en">Welcome to the Jungle</h3>
+        <p class="precio-desc" data-lang="es">Primer contacto con la Amazonia. Caminatas diurnas y nocturnas, observación de fauna, caimanes y delfines rosados.</p>
+        <p class="precio-desc" data-lang="en">First contact with the Amazon. Day and night hikes, wildlife spotting, caimans and pink dolphins.</p>
+        <hr class="precio-line" />
+        <div class="precio-price" data-lang="es">Consultar</div>
+        <div class="precio-price" data-lang="en">Inquire</div>
+        <div class="precio-label" data-lang="es">traslados + alojamiento + comidas incluidas</div>
+        <div class="precio-label" data-lang="en">transfers + lodging + meals included</div>
+        <div class="precio-feats">
+          <div class="precio-feat" data-lang="es">Caminata diurna y nocturna</div>
+          <div class="precio-feat" data-lang="en">Day & night jungle walk</div>
+          <div class="precio-feat" data-lang="es">Avistamiento delfines rosados</div>
+          <div class="precio-feat" data-lang="en">Pink dolphin sighting</div>
+          <div class="precio-feat" data-lang="es">Pesca de pirañas</div>
+          <div class="precio-feat" data-lang="en">Piranha fishing</div>
+          <div class="precio-feat" data-lang="es">Guía bilingüe exclusivo</div>
+          <div class="precio-feat" data-lang="en">Exclusive bilingual guide</div>
         </div>
-        <div class="lodge-feature">
-          <span class="lodge-feature-icon">💧</span>
-          <div class="lodge-feature-text">
-            <strong data-lang="es">Agua purificada</strong><strong data-lang="en">Purified water</strong>
-            <span data-lang="es">Sistema propio de filtración — agua segura en toda la instalación</span>
-            <span data-lang="en">On-site filtration system — safe water throughout the property</span>
-          </div>
-        </div>
-        <div class="lodge-feature">
-          <span class="lodge-feature-icon">🍽️</span>
-          <div class="lodge-feature-text">
-            <strong data-lang="es">Cocina amazónica</strong><strong data-lang="en">Amazonian cuisine</strong>
-            <span data-lang="es">3 comidas · insumos locales · opción vegetariana/vegana a pedido</span>
-            <span data-lang="en">3 meals · local produce · vegetarian/vegan on request</span>
-          </div>
-        </div>
-        <div class="lodge-feature">
-          <span class="lodge-feature-icon">🛶</span>
-          <div class="lodge-feature-text">
-            <strong data-lang="es">Kayak y canoa libres</strong><strong data-lang="en">Free kayak &amp; canoe</strong>
-            <span data-lang="es">Sin costo adicional — disponibles en cualquier momento del día</span>
-            <span data-lang="en">No extra charge — available at any time of day</span>
-          </div>
-        </div>
+        <a href="#contacto" class="btn-precio btn-precio-outline" data-lang="es">Consultar disponibilidad</a>
+        <a href="#contacto" class="btn-precio btn-precio-outline" data-lang="en">Check availability</a>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============================================
-     8 · PAQUETES
-============================================ -->
-<section id="paquetes">
-  <div class="container">
-    <div class="pkg-header reveal">
-      <div class="kicker" data-lang="es">Paquetes</div>
-      <div class="kicker" data-lang="en">Packages</div>
-      <h2 class="display" data-lang="es">Elige tu aventura<br><em>en la selva.</em></h2>
-      <h2 class="display" data-lang="en">Choose your<br><em>jungle adventure.</em></h2>
-      <p data-lang="es">Todos los paquetes incluyen traslado fluvial Iquitos↔Lodge, alojamiento, 3 comidas al día y actividades guiadas con experto bilingüe.</p>
-      <p data-lang="en">All packages include river transfer Iquitos↔Lodge, accommodation, 3 meals per day and guided activities with a bilingual expert.</p>
-    </div>
-    <div class="pkg-grid">
-      <!-- 1 -->
-      <div class="pkg-card reveal">
-        <div class="pkg-duration">3 días / 2 noches</div>
-        <h3 class="pkg-name">Welcome to the Jungle</h3>
-        <ul class="pkg-includes">
-          <li data-lang="es">Caminata diurna y nocturna</li><li data-lang="en">Day &amp; night jungle walk</li>
-          <li data-lang="es">Nado con delfines rosados</li><li data-lang="en">Swimming with pink dolphins</li>
-          <li data-lang="es">Pesca de pirañas</li><li data-lang="en">Piranha fishing</li>
-          <li data-lang="es">Búsqueda de reptiles nocturnos</li><li data-lang="en">Nocturnal reptile search</li>
-        </ul>
-        <a href="#contacto" class="pkg-cta" data-lang="es">Consultar precio</a>
-        <a href="#contacto" class="pkg-cta" data-lang="en">Ask for price</a>
+      <!-- Fresh Water -->
+      <div class="precio-card reveal">
+        <div class="precio-nights" data-lang="es">4 días / 3 noches</div>
+        <div class="precio-nights" data-lang="en">4 days / 3 nights</div>
+        <h3>Fresh Water</h3>
+        <p class="precio-desc" data-lang="es">Canoa de día y de noche, birdwatching al amanecer, nado con delfines y lago Sapote. El espíritu de la selva en 4 días.</p>
+        <p class="precio-desc" data-lang="en">Day & night canoeing, dawn birdwatching, swimming with dolphins, Lake Sapote. The jungle spirit in 4 days.</p>
+        <hr class="precio-line" />
+        <div class="precio-price" data-lang="es">Consultar</div>
+        <div class="precio-price" data-lang="en">Inquire</div>
+        <div class="precio-label" data-lang="es">todo incluido desde Iquitos</div>
+        <div class="precio-label" data-lang="en">all-inclusive from Iquitos</div>
+        <div class="precio-feats">
+          <div class="precio-feat" data-lang="es">Todo lo de Welcome + canoa nocturna</div>
+          <div class="precio-feat" data-lang="en">Everything in Welcome + night canoe</div>
+          <div class="precio-feat" data-lang="es">Birdwatching al amanecer</div>
+          <div class="precio-feat" data-lang="en">Dawn birdwatching</div>
+          <div class="precio-feat" data-lang="es">Pygmy marmoset (mono más pequeño)</div>
+          <div class="precio-feat" data-lang="en">Pygmy marmoset (world's smallest monkey)</div>
+          <div class="precio-feat" data-lang="es">Victoria Regia — planta acuática más grande</div>
+          <div class="precio-feat" data-lang="en">Victoria Regia — world's largest water lily</div>
+        </div>
+        <a href="#contacto" class="btn-precio btn-precio-outline" data-lang="es">Consultar disponibilidad</a>
+        <a href="#contacto" class="btn-precio btn-precio-outline" data-lang="en">Check availability</a>
       </div>
-      <!-- 2 -->
-      <div class="pkg-card reveal">
-        <div class="pkg-duration">4 días / 3 noches</div>
-        <h3 class="pkg-name">Fresh Water</h3>
-        <ul class="pkg-includes">
-          <li data-lang="es">Todo lo del paquete anterior</li><li data-lang="en">Everything in the previous package</li>
-          <li data-lang="es">Canoa nocturna</li><li data-lang="en">Nocturnal canoe trip</li>
-          <li data-lang="es">Birdwatching al amanecer</li><li data-lang="en">Birdwatching at sunrise</li>
-          <li data-lang="es">Mono pigmeo · Victoria Regia</li><li data-lang="en">Pygmy monkey · Victoria Regia</li>
-        </ul>
-        <a href="#contacto" class="pkg-cta" data-lang="es">Consultar precio</a>
-        <a href="#contacto" class="pkg-cta" data-lang="en">Ask for price</a>
-      </div>
-      <!-- 3 FEATURED -->
-      <div class="pkg-card featured reveal">
-        <div class="pkg-badge">⭐ <span data-lang="es">Más popular</span><span data-lang="en">Most popular</span></div>
-        <div class="pkg-duration" style="color:rgba(244,239,230,.5)">5 días / 4 noches</div>
-        <h3 class="pkg-name">Majestic River</h3>
-        <ul class="pkg-includes">
-          <li data-lang="es">Todo lo de Fresh Water</li><li data-lang="en">Everything in Fresh Water</li>
-          <li data-lang="es">Nado en el río Amazonas</li><li data-lang="en">Swimming in the Amazon River</li>
-          <li data-lang="es">Kayak libre</li><li data-lang="en">Free kayaking</li>
-          <li data-lang="es">Wattled Curassow</li><li data-lang="en">Wattled Curassow</li>
-          <li data-lang="es">Visita a comunidad nativa</li><li data-lang="en">Native community visit</li>
-        </ul>
-        <a href="#contacto" class="pkg-cta" data-lang="es">Consultar precio</a>
-        <a href="#contacto" class="pkg-cta" data-lang="en">Ask for price</a>
-      </div>
-      <!-- 4 -->
-      <div class="pkg-card reveal">
-        <div class="pkg-duration">6 días / 5 noches</div>
-        <h3 class="pkg-name">Full Adventure</h3>
-        <ul class="pkg-includes">
-          <li data-lang="es">Todo lo de Majestic River</li><li data-lang="en">Everything in Majestic River</li>
-          <li data-lang="es">Camping nocturno en selva</li><li data-lang="en">Overnight jungle camping</li>
-          <li data-lang="es">Lagos Casah y Purra</li><li data-lang="en">Casah and Purra lakes</li>
-          <li data-lang="es">Tarántulas y ranas</li><li data-lang="en">Tarantulas &amp; frogs</li>
-        </ul>
-        <a href="#contacto" class="pkg-cta" data-lang="es">Consultar precio</a>
-        <a href="#contacto" class="pkg-cta" data-lang="en">Ask for price</a>
-      </div>
-      <!-- 5 -->
-      <div class="pkg-card reveal">
-        <div class="pkg-duration">4 días / 3 noches</div>
-        <h3 class="pkg-name">Bird Watching</h3>
-        <ul class="pkg-includes">
-          <li data-lang="es">Guía ornitólogo experto</li><li data-lang="en">Expert ornithologist guide</li>
-          <li data-lang="es">+450 especies registradas</li><li data-lang="en">+450 recorded species</li>
-          <li data-lang="es">Múltiples hábitats</li><li data-lang="en">Multiple habitats</li>
-          <li data-lang="es">Wattled Curassow</li><li data-lang="en">Wattled Curassow</li>
-        </ul>
-        <a href="#contacto" class="pkg-cta" data-lang="es">Consultar precio</a>
-        <a href="#contacto" class="pkg-cta" data-lang="en">Ask for price</a>
-      </div>
-      <!-- 6 -->
-      <div class="pkg-card reveal">
-        <div class="pkg-duration" data-lang="es">A medida</div>
-        <div class="pkg-duration" data-lang="en">Tailored</div>
-        <h3 class="pkg-name" data-lang="es">Diseña tu viaje</h3>
-        <h3 class="pkg-name" data-lang="en">Design your trip</h3>
-        <ul class="pkg-includes">
-          <li data-lang="es">Grupos, familias e investigadores</li><li data-lang="en">Groups, families &amp; researchers</li>
-          <li data-lang="es">Fotógrafos de naturaleza</li><li data-lang="en">Nature photographers</li>
-          <li data-lang="es">Itinerario 100% libre</li><li data-lang="en">100% free itinerary</li>
-          <li data-lang="es">Fechas y duración flexibles</li><li data-lang="en">Flexible dates &amp; duration</li>
-        </ul>
-        <a href="#contacto" class="pkg-cta" data-lang="es">Consultar precio</a>
-        <a href="#contacto" class="pkg-cta" data-lang="en">Ask for price</a>
-      </div>
-    </div>
-    <p class="pkg-note reveal" data-lang="es">Precio en USD disponible al consultar · Opción vegetariana/vegana a pedido · Niños bienvenidos</p>
-    <p class="pkg-note reveal" data-lang="en">USD price available on request · Vegetarian/vegan option available · Children welcome</p>
-  </div>
-</section>
 
-<!-- ============================================
-     9 · TRIPADVISOR
-============================================ -->
-<section id="tripadvisor">
-  <div class="container">
-    <div class="ta-inner">
-      <div class="ta-badge reveal">
-        <span class="ta-choice">Travelers' Choice</span>
-        <span style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.4)">TripAdvisor Award · Top 10% Mundial</span>
+      <!-- Majestic River -->
+      <div class="precio-card featured reveal">
+        <div class="precio-nights" data-lang="es">5 días / 4 noches · Más popular</div>
+        <div class="precio-nights" data-lang="en">5 days / 4 nights · Most popular</div>
+        <h3>Majestic River</h3>
+        <p class="precio-desc" data-lang="es">El programa completo. Incluye nado en el Amazonas, lago Corriente, búsqueda del Wattled Curassow (ave endémica) y kayak.</p>
+        <p class="precio-desc" data-lang="en">The full program. Swimming in the Amazon, Lake Corriente, search for the Wattled Curassow (endemic bird) and kayaking.</p>
+        <hr class="precio-line" />
+        <div class="precio-price" data-lang="es">Consultar</div>
+        <div class="precio-price" data-lang="en">Inquire</div>
+        <div class="precio-label" data-lang="es">todo incluido desde Iquitos</div>
+        <div class="precio-label" data-lang="en">all-inclusive from Iquitos</div>
+        <div class="precio-feats">
+          <div class="precio-feat" data-lang="es">Todo lo de Fresh Water + kayak</div>
+          <div class="precio-feat" data-lang="en">Everything in Fresh Water + kayak</div>
+          <div class="precio-feat" data-lang="es">Nado en el río Amazonas</div>
+          <div class="precio-feat" data-lang="en">Swimming in the Amazon River</div>
+          <div class="precio-feat" data-lang="es">Búsqueda del Wattled Curassow</div>
+          <div class="precio-feat" data-lang="en">Search for the Wattled Curassow</div>
+          <div class="precio-feat" data-lang="es">Visita comunidad San Juan de Yanayacu</div>
+          <div class="precio-feat" data-lang="en">Visit San Juan de Yanayacu community</div>
+        </div>
+        <a href="#contacto" class="btn-precio btn-precio-light" data-lang="es">Reservar este paquete</a>
+        <a href="#contacto" class="btn-precio btn-precio-light" data-lang="en">Book this package</a>
       </div>
-      <div class="ta-stats reveal">
-        <div class="ta-stat">
-          <strong>1,369+</strong>
-          <span data-lang="es">Reseñas verificadas</span><span data-lang="en">Verified reviews</span>
-        </div>
-        <div class="ta-stat">
-          <strong>90%+</strong>
-          <span data-lang="es">Calificación "Excelente"</span><span data-lang="en">"Excellent" rating</span>
-        </div>
-        <div class="ta-stat">
-          <strong>Top 10%</strong>
-          <span data-lang="es">Propiedades del mundo</span><span data-lang="en">Properties worldwide</span>
-        </div>
-      </div>
-      <div class="ta-reviews">
-        <div class="ta-review reveal">
-          <div class="ta-stars">★★★★★</div>
-          <p class="ta-review-text" data-lang="es">"Seis días absolutamente increíbles. Nuestro guía Edgar conoce el entorno como nadie: plantas, animales, sonidos de la selva. Su pasión y conocimiento son inigualables."</p>
-          <p class="ta-review-text" data-lang="en">"Six absolutely incredible days. Our guide Edgar knows the environment like no one else: plants, animals, jungle sounds. His passion and knowledge are unmatched."</p>
-          <span class="ta-reviewer">Marina &amp; Matthias · Alemania · Guía: Edgar</span>
-        </div>
-        <div class="ta-review reveal">
-          <div class="ta-stars">★★★★★</div>
-          <p class="ta-review-text" data-lang="es">"Lodge hermoso en plena selva. La comida es abundante y sorprendentemente deliciosa. Tres actividades guiadas al día. Las cabañas se sienten como acampar en la jungla — con todo el confort que necesitas."</p>
-          <p class="ta-review-text" data-lang="en">"Beautiful lodge deep in the jungle. The food is generous and surprisingly delicious. Three guided activities a day. The bungalows feel like camping in the jungle — with all the comfort you need."</p>
-          <span class="ta-reviewer" data-lang="es">Viajero verificado · Enero 2025</span>
-          <span class="ta-reviewer" data-lang="en">Verified traveler · January 2025</span>
-        </div>
-        <div class="ta-review reveal">
-          <div class="ta-stars">★★★★★</div>
-          <p class="ta-review-text" data-lang="es">"Cuatro días en selva profunda con toda la familia. Edson fue un guía perfecto — paciencia, conocimiento y humor. La comida deliciosa. Ya estamos planeando la vuelta."</p>
-          <p class="ta-review-text" data-lang="en">"Four days deep in the jungle with the whole family. Edson was a perfect guide — patience, knowledge, and humor. Delicious food. We're already planning our return."</p>
-          <span class="ta-reviewer" data-lang="es">Familia con niños · Guía: Edson</span>
-          <span class="ta-reviewer" data-lang="en">Family with children · Guide: Edson</span>
-        </div>
-      </div>
-      <a href="https://www.tripadvisor.com/Hotel_Review-g8318351-d318615-Reviews-Muyuna_Amazon_Lodge-Paraiso_Loreto_Region.html"
-         target="_blank" rel="noopener" class="ta-link">
-        <span data-lang="es">Ver todas las reseñas en TripAdvisor</span>
-        <span data-lang="en">Read all reviews on TripAdvisor</span>
-        ↗
-      </a>
-    </div>
-  </div>
-</section>
 
-<!-- ============================================
-     10 · CONTACTO
-============================================ -->
-<section id="contacto">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-left reveal">
-        <div class="kicker" data-lang="es">Reservas</div>
-        <div class="kicker" data-lang="en">Bookings</div>
-        <h2 class="display contact-title" data-lang="es">Empieza<br><em>tu viaje.</em></h2>
-        <h2 class="display contact-title" data-lang="en">Start<br><em>your journey.</em></h2>
-        <p class="contact-p" data-lang="es">Escríbenos con tus fechas, número de personas y el paquete que te interesa. Te respondemos en menos de 24 horas con disponibilidad y precio en USD.</p>
-        <p class="contact-p" data-lang="en">Write to us with your dates, number of people and the package you're interested in. We reply in under 24 hours with availability and USD price.</p>
-        <div class="contact-info">
-          <div class="contact-info-row">
-            <span class="contact-info-label" data-lang="es">Ubicación</span>
-            <span class="contact-info-label" data-lang="en">Location</span>
-            <span class="contact-info-val">Río Yanayacu, Reserva Tamshiyacu-Tahuayo<br>140 km de Iquitos, Loreto, Perú</span>
-          </div>
-          <div class="contact-info-row">
-            <span class="contact-info-label">WhatsApp</span>
-            <span class="contact-info-val">[tu WhatsApp]</span>
-          </div>
-          <div class="contact-info-row">
-            <span class="contact-info-label">Email</span>
-            <span class="contact-info-val">[tu email]</span>
-          </div>
-          <div class="contact-info-row">
-            <span class="contact-info-label" data-lang="es">Temporadas</span>
-            <span class="contact-info-label" data-lang="en">Seasons</span>
-            <span class="contact-info-val" data-lang="es">Alta: Jun–Sep · Baja: Oct–May<br>Abiertos los 365 días del año</span>
-            <span class="contact-info-val" data-lang="en">High: Jun–Sep · Low: Oct–May<br>Open 365 days a year</span>
+      <!-- Full Adventure -->
+      <div class="precio-card reveal">
+        <div class="precio-nights" data-lang="es">6 días / 5 noches</div>
+        <div class="precio-nights" data-lang="en">6 days / 5 nights</div>
+        <h3>Full Adventure</h3>
+        <p class="precio-desc" data-lang="es">Incluye noche de camping en la selva — la experiencia más intensa. Solo para quienes quieren ir más profundo.</p>
+        <p class="precio-desc" data-lang="en">Includes an overnight jungle camping — the most intense experience. For those who want to go deeper.</p>
+        <hr class="precio-line" />
+        <div class="precio-price" data-lang="es">Consultar</div>
+        <div class="precio-price" data-lang="en">Inquire</div>
+        <div class="precio-label" data-lang="es">todo incluido desde Iquitos</div>
+        <div class="precio-label" data-lang="en">all-inclusive from Iquitos</div>
+        <div class="precio-feats">
+          <div class="precio-feat" data-lang="es">Todo lo de Majestic River</div>
+          <div class="precio-feat" data-lang="en">Everything in Majestic River</div>
+          <div class="precio-feat" data-lang="es">Noche de camping en la selva</div>
+          <div class="precio-feat" data-lang="en">Overnight jungle camping</div>
+          <div class="precio-feat" data-lang="es">Lagos adicionales: Casah y Purra</div>
+          <div class="precio-feat" data-lang="en">Additional lakes: Casah and Purra</div>
+          <div class="precio-feat" data-lang="es">Ranas, tarántulas, búsqueda nocturna</div>
+          <div class="precio-feat" data-lang="en">Frogs, tarantulas, nocturnal search</div>
+        </div>
+        <a href="#contacto" class="btn-precio btn-precio-outline" data-lang="es">Consultar disponibilidad</a>
+        <a href="#contacto" class="btn-precio btn-precio-outline" data-lang="en">Check availability</a>
+      </div>
+
+      <!-- Bird Watching -->
+      <div class="precio-card reveal">
+        <div class="precio-nights" data-lang="es">4 días / 3 noches · Especializado</div>
+        <div class="precio-nights" data-lang="en">4 days / 3 nights · Specialized</div>
+        <h3 data-lang="es">Bird Watching</h3>
+        <h3 data-lang="en">Bird Watching</h3>
+        <p class="precio-desc" data-lang="es">Guía ornitólogo especializado. +450 especies en la reserva. Hábitat de aves endémicas y en peligro de extinción.</p>
+        <p class="precio-desc" data-lang="en">Specialist ornithologist guide. +450 species in the reserve. Habitat of endemic and endangered birds.</p>
+        <hr class="precio-line" />
+        <div class="precio-price" data-lang="es">Consultar</div>
+        <div class="precio-price" data-lang="en">Inquire</div>
+        <div class="precio-label" data-lang="es">guía ornitólogo + todo incluido</div>
+        <div class="precio-label" data-lang="en">ornithologist guide + all-inclusive</div>
+        <div class="precio-feats">
+          <div class="precio-feat" data-lang="es">Guía experto en aves + lista de especies</div>
+          <div class="precio-feat" data-lang="en">Expert bird guide + species checklist</div>
+          <div class="precio-feat" data-lang="es">Hoatzin, guacamayos, tucanes</div>
+          <div class="precio-feat" data-lang="en">Hoatzin, macaws, toucans</div>
+          <div class="precio-feat" data-lang="es">Wattled Curassow — solo aquí en Sudamérica</div>
+          <div class="precio-feat" data-lang="en">Wattled Curassow — only here in South America</div>
+          <div class="precio-feat" data-lang="es">Hábitats: várzea, terra firme, islas</div>
+          <div class="precio-feat" data-lang="en">Habitats: floodplain, terra firme, islands</div>
+        </div>
+        <a href="#contacto" class="btn-precio btn-precio-outline" data-lang="es">Consultar disponibilidad</a>
+        <a href="#contacto" class="btn-precio btn-precio-outline" data-lang="en">Check availability</a>
+      </div>
+
+      <!-- Diseña tu viaje -->
+      <div class="precio-card reveal">
+        <div class="precio-nights" data-lang="es">A medida · Grupos / Investigadores</div>
+        <div class="precio-nights" data-lang="en">Custom · Groups / Researchers</div>
+        <h3 data-lang="es">Diseña tu viaje</h3>
+        <h3 data-lang="en">Design your trip</h3>
+        <p class="precio-desc" data-lang="es">Itinerario personalizado. Grupos, familias, científicos, fotógrafos de naturaleza — armamos el viaje perfecto para ti.</p>
+        <p class="precio-desc" data-lang="en">Custom itinerary. Groups, families, scientists, nature photographers — we'll build the perfect trip for you.</p>
+        <hr class="precio-line" />
+        <div class="precio-price" data-lang="es">Cotización</div>
+        <div class="precio-price" data-lang="en">Quote</div>
+        <div class="precio-label" data-lang="es">según duración y grupo</div>
+        <div class="precio-label" data-lang="en">based on duration and group</div>
+        <div class="precio-feats">
+          <div class="precio-feat" data-lang="es">Combinación libre de actividades</div>
+          <div class="precio-feat" data-lang="en">Free combination of activities</div>
+          <div class="precio-feat" data-lang="es">Camping disponible como add-on</div>
+          <div class="precio-feat" data-lang="en">Camping available as add-on</div>
+          <div class="precio-feat" data-lang="es">Vegetariano / vegano a pedido</div>
+          <div class="precio-feat" data-lang="en">Vegetarian / vegan on request</div>
+        </div>
+        <a href="#contacto" class="btn-precio btn-precio-outline" data-lang="es">Escribirnos</a>
+        <a href="#contacto" class="btn-precio btn-precio-outline" data-lang="en">Write to us</a>
+      </div>
+
+    </div>
+    </section>
+
+<!-- TESTIMONIOS -->
+<section class="section testimonios">
+  <div class="test-inner">
+    <div class="kicker reveal" data-lang="es">Testimonios</div>
+    <div class="kicker reveal" data-lang="en">Reviews</div>
+    <h2 class="section-title reveal" data-lang="es">Los que ya<br><em>lo vivieron.</em></h2>
+    <h2 class="section-title reveal" data-lang="en">Those who<br><em>already lived it.</em></h2>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote" data-lang="es">Ver un delfín rosado a dos metros de la canoa cambió algo en mí. Muyuna no es un hotel en la selva — es la selva con techo.</p>
+        <p class="test-quote" data-lang="en">Watching a pink dolphin two meters from the canoe changed something in me. Muyuna is not a hotel in the jungle — it's the jungle with a roof.</p>
+        <div class="test-author">
+          <div class="test-avatar">SL</div>
+          <div>
+            <div class="test-name">Sarah L.</div>
+            <div class="test-loc">Londres · 5 días</div>
           </div>
         </div>
       </div>
-      <div class="contact-form-wrap reveal">
-        <p class="form-title" data-lang="es">Envía tu consulta</p>
-        <p class="form-title" data-lang="en">Send your inquiry</p>
-        <div class="form-grid">
-          <div class="form-group">
-            <label class="form-label" data-lang="es">Nombre</label>
-            <label class="form-label" data-lang="en">Name</label>
-            <input type="text" class="form-input" placeholder="Tu nombre" data-ph-es="Tu nombre" data-ph-en="Your name">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-input" placeholder="tu@email.com">
-          </div>
-          <div class="form-group">
-            <label class="form-label" data-lang="es">Fecha de llegada</label>
-            <label class="form-label" data-lang="en">Arrival date</label>
-            <input type="date" class="form-input">
-          </div>
-          <div class="form-group">
-            <label class="form-label" data-lang="es">N° personas</label>
-            <label class="form-label" data-lang="en">No. of people</label>
-            <select class="form-select">
-              <option value="">—</option>
-              <option>1</option><option>2</option>
-              <option>3–4</option><option>5–8</option><option>9+</option>
-            </select>
-          </div>
-          <div class="form-group full">
-            <label class="form-label" data-lang="es">Paquete</label>
-            <label class="form-label" data-lang="en">Package</label>
-            <select class="form-select">
-              <option value="">—</option>
-              <option>Welcome to the Jungle (3d/2n)</option>
-              <option>Fresh Water (4d/3n)</option>
-              <option>Majestic River (5d/4n)</option>
-              <option>Full Adventure (6d/5n)</option>
-              <option>Bird Watching (4d/3n)</option>
-              <option data-lang="es">Diseña tu viaje</option>
-              <option data-lang="en">Design my trip</option>
-            </select>
-          </div>
-          <div class="form-group full">
-            <label class="form-label" data-lang="es">Mensaje (opcional)</label>
-            <label class="form-label" data-lang="en">Message (optional)</label>
-            <textarea class="form-textarea" rows="3" placeholder="Cuéntanos más sobre tu viaje..." data-ph-es="Cuéntanos más sobre tu viaje..." data-ph-en="Tell us more about your trip..."></textarea>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote" data-lang="es">Percy y su equipo conocen cada árbol, cada animal, cada sonido. Te hacen sentir que estás aprendiendo la selva, no solo mirándola.</p>
+        <p class="test-quote" data-lang="en">Percy and his team know every tree, every animal, every sound. They make you feel like you're learning the jungle, not just looking at it.</p>
+        <div class="test-author">
+          <div class="test-avatar ta-2">MC</div>
+          <div>
+            <div class="test-name">Marc C.</div>
+            <div class="test-loc">Barcelona · 4 noches</div>
           </div>
         </div>
-        <button id="submitBtn" class="form-submit" data-lang="es">Enviar consulta</button>
-        <button id="submitBtnEn" class="form-submit" data-lang="en">Send inquiry</button>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote" data-lang="es">Vinimos con tres hijos. Los guías adaptaron todo al ritmo de los niños. La pesca de pirañas fue el momento del viaje para ellos.</p>
+        <p class="test-quote" data-lang="en">We came with three children. The guides adapted everything to the children's pace. Piranha fishing was the highlight of the trip for them.</p>
+        <div class="test-author">
+          <div class="test-avatar ta-3">RF</div>
+          <div>
+            <div class="test-name">Roberto F.</div>
+            <div class="test-loc">Lima · Familia · 5 días</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     11 · CÓMO LLEGAR
-============================================ -->
-<section id="llegar">
-  <div class="container">
-    <div class="llegar-header reveal">
-      <div class="kicker" data-lang="es">Cómo llegar</div>
-      <div class="kicker" data-lang="en">How to get here</div>
-      <h2 class="display" data-lang="es">El camino es<br><em>parte de la aventura.</em></h2>
-      <h2 class="display" data-lang="en">The journey<br><em>is part of the adventure.</em></h2>
+<!-- RESERVAR -->
+<section class="section reservar" id="contacto">
+  <div class="reservar-inner">
+    <div class="reservar-info">
+      <div class="kicker reveal" data-lang="es">Contacto</div>
+      <div class="kicker reveal" data-lang="en">Contact</div>
+      <h2 class="section-title reveal" data-lang="es">Empieza<br><em>tu viaje.</em></h2>
+      <h2 class="section-title reveal" data-lang="en">Start<br><em>your journey.</em></h2>
+      <p class="reveal" data-lang="es">Respondemos en menos de 24 horas. Cuéntanos tus fechas, el número de personas y el paquete que te interesa.</p>
+      <p class="reveal" data-lang="en">We respond within 24 hours. Tell us your dates, number of people, and the package you're interested in.</p>
+      <div class="info-rows">
+        <div class="info-row reveal">
+          <span class="info-row-label" data-lang="es">Ubicación</span>
+          <span class="info-row-label" data-lang="en">Location</span>
+          <span class="info-row-value">Río Yanayacu, Reserva Tamshiyacu-Tahuayo<br>140 km de Iquitos, Loreto, Perú</span>
+        </div>
+        <div class="info-row reveal">
+          <span class="info-row-label">WhatsApp</span>
+          <span class="info-row-value"><a href="https://wa.me/51000000000" target="_blank" rel="noopener">[tu WhatsApp]</a></span>
+        </div>
+        <div class="info-row reveal">
+          <span class="info-row-label">Email</span>
+          <span class="info-row-value"><a href="mailto:[pendiente]">[tu email]</a></span>
+        </div>
+        <div class="info-row reveal">
+          <span class="info-row-label" data-lang="es">Temporadas</span>
+          <span class="info-row-label" data-lang="en">Seasons</span>
+          <span class="info-row-value" data-lang="es">Alta: Jun–Sep · Baja: Oct–May<br>Abiertos todo el año</span>
+          <span class="info-row-value" data-lang="en">High: Jun–Sep · Low: Oct–May<br>Open all year round</span>
+        </div>
+      </div>
     </div>
-    <div class="llegar-grid">
-      <div class="steps reveal">
-        <div class="step">
-          <span class="step-num">1</span>
-          <div class="step-content">
-            <h3 class="step-title" data-lang="es">Vuelo Lima → Iquitos</h3>
-            <h3 class="step-title" data-lang="en">Flight Lima → Iquitos</h3>
-            <p class="step-desc" data-lang="es">Aeropuerto IQT · 1h 45min · Vuelos diarios con LATAM y Sky Airline</p>
-            <p class="step-desc" data-lang="en">IQT Airport · 1h 45min · Daily flights with LATAM and Sky Airline</p>
+    <div class="reservar-form reveal">
+      <h3 class="form-title" data-lang="es">Consultar disponibilidad</h3>
+      <h3 class="form-title" data-lang="en">Check availability</h3>
+      <p class="form-sub" data-lang="es">Sin compromiso · Respuesta en menos de 24 horas</p>
+      <p class="form-sub" data-lang="en">No commitment · Response within 24 hours</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label data-lang="es">Nombre</label>
+          <label data-lang="en">Name</label>
+          <input type="text" placeholder="Tu nombre" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="tu@email.com" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label data-lang="es">Llegada</label>
+          <label data-lang="en">Arrival</label>
+          <input type="date" />
+        </div>
+        <div class="form-group">
+          <label data-lang="es">Personas</label>
+          <label data-lang="en">People</label>
+          <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3–4</option>
+            <option>5–8</option>
+            <option>9+</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label data-lang="es">Paquete de interés</label>
+        <label data-lang="en">Package of interest</label>
+        <select>
+          <option data-lang="es">Intro a la selva — 3 días / 2 noches</option>
+          <option data-lang="es">Inmersión amazónica — 5 días / 4 noches</option>
+          <option data-lang="es">Expedición privada — a medida</option>
+          <option data-lang="en">Jungle intro — 3 days / 2 nights</option>
+          <option data-lang="en">Amazon immersion — 5 days / 4 nights</option>
+          <option data-lang="en">Private expedition — custom</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-lang="es">Mensaje (opcional)</label>
+        <label data-lang="en">Message (optional)</label>
+        <textarea placeholder="Cuéntanos algo sobre tu viaje…" data-lang="es"></textarea>
+        <textarea placeholder="Tell us about your trip…" data-lang="en"></textarea>
+      </div>
+      <button type="button" class="form-submit" id="submitBtn" data-lang="es">Enviar consulta</button>
+      <button type="button" class="form-submit" id="submitBtnEn" data-lang="en">Send inquiry</button>
+    </div>
+  </div>
+</section>
+
+<!-- COMO LLEGAR -->
+<section class="section llegar" id="llegada">
+  <div class="llegar-inner">
+    <div>
+      <div class="kicker reveal" data-lang="es">Cómo llegar</div>
+      <div class="kicker reveal" data-lang="en">How to get there</div>
+      <h2 class="section-title reveal" data-lang="es">El camino<br><em>es parte del viaje.</em></h2>
+      <h2 class="section-title reveal" data-lang="en">The journey<br><em>is part of the adventure.</em></h2>
+      <div class="llegar-steps">
+        <div class="llegar-step reveal">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4 data-lang="es">Vuelo a Iquitos</h4>
+            <h4 data-lang="en">Flight to Iquitos</h4>
+            <p data-lang="es">Iquitos (IQT) tiene vuelos directos desde Lima (1h 45m). Coordinar llegada con nosotros.</p>
+            <p data-lang="en">Iquitos (IQT) has direct flights from Lima (1h 45m). Coordinate arrival with us.</p>
           </div>
         </div>
-        <div class="step">
-          <span class="step-num">2</span>
-          <div class="step-content">
-            <h3 class="step-title" data-lang="es">Bus desde el aeropuerto</h3>
-            <h3 class="step-title" data-lang="en">Bus from the airport</h3>
-            <p class="step-desc" data-lang="es">1h 30min por la única carretera de Iquitos — el equipo de Muyuna te recibe</p>
-            <p class="step-desc" data-lang="en">1h 30min along Iquitos's only road — Muyuna's team picks you up</p>
+        <div class="llegar-step reveal">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4 data-lang="es">Traslado al río</h4>
+            <h4 data-lang="en">Transfer to the river</h4>
+            <p data-lang="es">Nuestro equipo te recoge en el aeropuerto y te lleva al embarcadero (30 min en auto).</p>
+            <p data-lang="en">Our team picks you up at the airport and takes you to the dock (30 min by car).</p>
           </div>
         </div>
-        <div class="step">
-          <span class="step-num">3</span>
-          <div class="step-content">
-            <h3 class="step-title" data-lang="es">Lancha rápida por el Amazonas</h3>
-            <h3 class="step-title" data-lang="en">Speedboat on the Amazon</h3>
-            <p class="step-desc" data-lang="es">40 minutos por el río Amazonas · Primera impresión de la selva virgen</p>
-            <p class="step-desc" data-lang="en">40 minutes on the Amazon River · First glimpse of virgin rainforest</p>
+        <div class="llegar-step reveal">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4 data-lang="es">Navegación por el Amazonas</h4>
+            <h4 data-lang="en">Amazon river navigation</h4>
+            <p data-lang="es">3–4 horas en lancha rápida por el río Amazonas y el Yanayacu. El viaje ya es una experiencia.</p>
+            <p data-lang="en">3–4 hours by fast boat along the Amazon and Yanayacu rivers. The journey is already an experience.</p>
           </div>
         </div>
-        <div class="step">
-          <span class="step-num">4</span>
-          <div class="step-content">
-            <h3 class="step-title" data-lang="es">Río Yanayacu → Muyuna</h3>
-            <h3 class="step-title" data-lang="en">Yanayacu River → Muyuna</h3>
-            <p class="step-desc" data-lang="es">40 minutos adicionales remontando el Yanayacu · Llegada al lodge</p>
-            <p class="step-desc" data-lang="en">40 more minutes up the Yanayacu · Arrival at the lodge</p>
+        <div class="llegar-step reveal">
+          <div class="step-num">4</div>
+          <div class="step-text">
+            <h4 data-lang="es">Llegada a Muyuna</h4>
+            <h4 data-lang="en">Arrival at Muyuna</h4>
+            <p data-lang="es">El equipo te espera con bienvenida, mapacho y el primer avistamiento garantizado del paisaje.</p>
+            <p data-lang="en">The team awaits you with a welcome, mapacho tea, and your first guaranteed sighting of the landscape.</p>
           </div>
         </div>
       </div>
-      <div class="map-wrap reveal">
-        <iframe src="https://www.google.com/maps?q=Rio+Yanayacu+Loreto+Peru&output=embed"
-          width="100%" height="400"
-          style="border:none;filter:saturate(.7)contrast(1.1);display:block"
-          title="Muyuna Amazon Lodge — Ubicación"
+    </div>
+    <div class="reveal">
+      <div class="llegar-map">
+        <iframe
+          src="https://www.google.com/maps?q=Rio+Yanayacu+Loreto+Peru&output=embed"
+          title="Ubicación Muyuna Amazon Lodge"
+          allowfullscreen
           loading="lazy"
-          allowfullscreen></iframe>
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     12 · FOOTER
-============================================ -->
-<footer id="footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="https://muyuna.com/wp-content/uploads/2024/05/Logo-Muyuna-formatos-grandes-y-medianos-3.png"
-             alt="Muyuna Amazon Lodge logo" class="footer-logo"
-             onerror="this.style.display='none'">
-        <p class="footer-tagline">Ecolodge familiar · Reserva Tamshiyacu-Tahuayo<br>Iquitos, Perú · Est. 1999</p>
-        <span class="footer-solar">
-          <span class="dot-solar"></span>
-          100% Energía Solar
-        </span>
-      </div>
-      <div>
-        <p class="footer-col-title" data-lang="es">Paquetes</p>
-        <p class="footer-col-title" data-lang="en">Packages</p>
-        <ul class="footer-links">
-          <li><a href="#paquetes">Welcome to the Jungle</a></li>
-          <li><a href="#paquetes">Fresh Water</a></li>
-          <li><a href="#paquetes">Majestic River</a></li>
-          <li><a href="#paquetes">Full Adventure</a></li>
-          <li><a href="#paquetes">Bird Watching</a></li>
-          <li><a href="#paquetes" data-lang="es">Diseña tu viaje</a><a href="#paquetes" data-lang="en">Design your trip</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title" data-lang="es">Experiencias</p>
-        <p class="footer-col-title" data-lang="en">Experiences</p>
-        <ul class="footer-links">
-          <li><a href="#experiencias" data-lang="es">Delfines del río</a><a href="#experiencias" data-lang="en">River dolphins</a></li>
-          <li><a href="#experiencias" data-lang="es">Caminata nocturna</a><a href="#experiencias" data-lang="en">Night walk</a></li>
-          <li><a href="#experiencias" data-lang="es">Canoa Yanayacu</a><a href="#experiencias" data-lang="en">Yanayacu canoe</a></li>
-          <li><a href="#experiencias" data-lang="es">Avistamiento de aves</a><a href="#experiencias" data-lang="en">Birdwatching</a></li>
-          <li><a href="#experiencias" data-lang="es">Pesca de pirañas</a><a href="#experiencias" data-lang="en">Piranha fishing</a></li>
-          <li><a href="#experiencias" data-lang="es">Visita a comunidad</a><a href="#experiencias" data-lang="en">Community visit</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title" data-lang="es">Contacto</p>
-        <p class="footer-col-title" data-lang="en">Contact</p>
-        <div class="footer-social">
-          <a href="#contacto">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp: [tu WhatsApp]
-          </a>
-          <a href="https://instagram.com/muyunalodge" target="_blank" rel="noopener">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @muyunalodge
-          </a>
-          <a href="https://www.tripadvisor.com/Hotel_Review-g8318351-d318615-Reviews-Muyuna_Amazon_Lodge-Paraiso_Loreto_Region.html" target="_blank" rel="noopener">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.006 4.295c-2.638 0-5.088.876-7.064 2.332L2 4.442v4.635c-1.244 1.56-2 3.536-2 5.687 0 5.074 4.118 9.192 9.192 9.192 2.406 0 4.601-.926 6.24-2.436l1.552 1.846 1.2-5.535c.493-.98.784-2.09.784-3.267 0-2.151-.756-4.127-2-5.687V4.242l-2.94 2.183A9.134 9.134 0 0012.006 4.295zm0 2.108c1.738 0 3.335.576 4.618 1.538l.672.506.755-.56 1.073-.796v2.085l.57.584A7.065 7.065 0 0121.2 14.77c0 3.967-3.225 7.192-7.192 7.192-1.984 0-3.782-.806-5.09-2.11l-.643-.64-.79.477A7.094 7.094 0 014.808 14.764c0-3.966 3.224-7.191 7.191-7.191l.007.002zm.006 2.61a4.755 4.755 0 100 9.51 4.755 4.755 0 000-9.51zm-5.4.658a4.755 4.755 0 100 9.51 4.755 4.755 0 000-9.51zm5.4 1.344a3.412 3.412 0 110 6.824 3.412 3.412 0 010-6.824zm-5.4 0a3.412 3.412 0 110 6.824 3.412 3.412 0 010-6.824z"/></svg>
-            TripAdvisor
-          </a>
-        </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="https://muyuna.com/wp-content/uploads/2024/05/Logo-Muyuna-formatos-grandes-y-medianos-3.png"
+           alt="Muyuna Amazon Lodge" style="height:60px;width:auto;margin-bottom:.5rem;opacity:.85;"
+           onerror="this.style.display='none'" />
+      <p class="footer-brand-tagline" data-lang="es">Ecolodge familiar en la Reserva Tamshiyacu-Tahuayo. Río Yanayacu, Loreto, Perú. Operando desde 1995.</p>
+      <p class="footer-brand-tagline" data-lang="en">Family ecolodge in the Tamshiyacu-Tahuayo Reserve. Yanayacu River, Loreto, Peru. Operating since 1995.</p>
+      <div class="footer-cert">
+        <div class="footer-cert-dot"></div>
+        <span class="footer-cert-text" data-lang="es">100% Energía Solar</span>
+        <span class="footer-cert-text" data-lang="en">100% Solar Energy</span>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Muyuna Amazon Lodge · Todos los derechos reservados</p>
-      <p class="footer-credits">Fotos: Muyuna.com · Wikimedia Commons (CC)<br>Diseño: John Parry</p>
+    <div class="footer-col">
+      <h5 data-lang="es">Experiencias</h5>
+      <h5 data-lang="en">Experiences</h5>
+      <ul>
+        <li><a href="#experiencias" data-lang="es">Delfines del río</a><a href="#experiencias" data-lang="en">River dolphins</a></li>
+        <li><a href="#experiencias" data-lang="es">Caminata nocturna</a><a href="#experiencias" data-lang="en">Night walk</a></li>
+        <li><a href="#experiencias" data-lang="es">Avistamiento de aves</a><a href="#experiencias" data-lang="en">Bird watching</a></li>
+        <li><a href="#experiencias" data-lang="es">Pesca de pirañas</a><a href="#experiencias" data-lang="en">Piranha fishing</a></li>
+      </ul>
     </div>
+    <div class="footer-col">
+      <h5 data-lang="es">Tarifas</h5>
+      <h5 data-lang="en">Rates</h5>
+      <ul>
+        <li><a href="#precios" data-lang="es">3 días / 2 noches</a><a href="#precios" data-lang="en">3 days / 2 nights</a></li>
+        <li><a href="#precios" data-lang="es">5 días / 4 noches</a><a href="#precios" data-lang="en">5 days / 4 nights</a></li>
+        <li><a href="#precios" data-lang="es">Expedición privada</a><a href="#precios" data-lang="en">Private expedition</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <ul>
+        <li><a href="mailto:[pendiente]">[tu email]</a></li>
+        <li><a href="https://wa.me/51000000000">[tu WhatsApp]</a></li>
+        <li><a href="#" target="_blank">muyuna.com</a></li>
+        <li><a href="#" target="_blank">@muyunalodge</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Muyuna Amazon Lodge · Loreto, Perú · <a href="assets/credits.json" target="_blank">Créditos fotográficos</a></span>
+    <span data-lang="es">Diseño web: <a href="#" target="_blank">John Parry</a></span>
+    <span data-lang="en">Web design: <a href="#" target="_blank">John Parry</a></span>
   </div>
 </footer>
 
-<!-- BANNER DEMO -->
-<div style="position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);z-index:9999;background:rgba(26,26,26,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:rgba(244,239,230,.75);font-family:'Inter',sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;padding:.55rem 1.2rem;border-radius:2px;border:1px solid rgba(244,239,230,.12);white-space:nowrap;pointer-events:none;" aria-hidden="true">
-Demo personalizado para Muyuna
-</div>
-
-<!-- ============================================
-     JS
-============================================ -->
-<script>
-(function(){
+<script defer>
+(function () {
   "use strict";
-  function safe(fn,n){try{fn()}catch(e){console.warn("["+n+"]",e)}}
 
-  function initNav(){
-    var nav=document.getElementById("nav");
-    window.addEventListener("scroll",function(){
-      nav.classList.toggle("scrolled",window.scrollY>60);
-    },{passive:true});
+  function safe(fn, name) {
+    try { fn(); } catch (e) { console.warn("[" + name + "]", e); }
   }
 
-  function initReveals(){
-    var els=document.querySelectorAll(".reveal");
-    if(!window.IntersectionObserver){
-      els.forEach(function(el){el.classList.add("visible")});return;
+  /* ── NAV ── */
+  function initNav() {
+    var nav = document.getElementById("nav");
+    function check() {
+      nav.classList.toggle("scrolled", window.scrollY > 60);
     }
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){e.target.classList.add("visible");io.unobserve(e.target)}
+    window.addEventListener("scroll", check, { passive: true });
+    check();
+  }
+
+  /* ── REVEALS ── */
+  function initReveals() {
+    var els = document.querySelectorAll(".reveal");
+    if (!window.IntersectionObserver) {
+      els.forEach(function (el) { el.classList.add("visible"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
       });
-    },{threshold:0.04,rootMargin:"0px 0px -40px 0px"});
-    els.forEach(function(el,i){
-      el.style.transitionDelay=(i%4*0.09)+"s";
+    }, { threshold: 0.04, rootMargin: "0px 0px -40px 0px" });
+    els.forEach(function (el, i) {
+      el.style.transitionDelay = (i % 4 * 0.09) + "s";
       io.observe(el);
     });
-    setTimeout(function(){
-      document.querySelectorAll(".reveal:not(.visible)").forEach(function(el){
-        if(el.getBoundingClientRect().top<window.innerHeight)
+    setTimeout(function () {
+      document.querySelectorAll(".reveal:not(.visible)").forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
           el.classList.add("visible");
+        }
       });
-    },6000);
+    }, 6000);
   }
 
-  function initLang(){
-    var btn=document.getElementById("langToggle");
-    var body=document.body;
-    var es=true;
-    if(!btn)return;
-    btn.addEventListener("click",function(){
-      es=!es;
-      body.className=es?"lang-es":"lang-en";
-      btn.textContent=es?"EN":"ES";
-      document.querySelectorAll("[data-ph-es],[data-ph-en]").forEach(function(el){
-        var ph=es?el.getAttribute("data-ph-es"):el.getAttribute("data-ph-en");
-        if(ph)el.setAttribute("placeholder",ph);
-      });
+  /* ── LANG SWITCH ── */
+  function initLang() {
+    var btn = document.getElementById("langToggle");
+    var body = document.body;
+    var isEs = true;
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      isEs = !isEs;
+      body.className = isEs ? "lang-es" : "lang-en";
+      btn.textContent = isEs ? "EN" : "ES";
     });
   }
 
-  function initMarquee(){
-    var track=document.getElementById("marqueeTrack");
-    if(!track)return;
-    track.parentElement.addEventListener("mouseenter",function(){
-      track.style.animationPlayState="paused";
-    });
-    track.parentElement.addEventListener("mouseleave",function(){
-      track.style.animationPlayState="running";
-    });
-  }
-
-  function initScroll(){
-    document.addEventListener("click",function(e){
-      var a=e.target.closest('a[href^="#"]');
-      if(!a)return;
-      var el=document.querySelector(a.getAttribute("href"));
-      if(!el)return;
+  /* ── SMOOTH SCROLL ── */
+  function initScroll() {
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute("href");
+      if (!id || id === "#") return;
+      var el = document.querySelector(id);
+      if (!el) return;
       e.preventDefault();
-      window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80,
-        behavior:window.matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});
-    });
-  }
-
-  function initForm(){
-    ["submitBtn","submitBtnEn"].forEach(function(id){
-      var btn=document.getElementById(id);
-      if(!btn)return;
-      btn.addEventListener("click",function(){
-        var isEs=document.body.classList.contains("lang-es");
-        btn.textContent=isEs?"Consulta enviada ✓":"Inquiry sent ✓";
-        btn.style.background="#1b4332";
-        setTimeout(function(){
-          btn.textContent=isEs?"Enviar consulta":"Send inquiry";
-          btn.style.background="";
-        },3500);
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({
+        top: el.getBoundingClientRect().top + window.scrollY - 80,
+        behavior: reduced ? "auto" : "smooth"
       });
     });
   }
 
-  function boot(){
-    safe(initNav,"nav");
-    safe(initReveals,"reveals");
-    safe(initLang,"lang");
-    safe(initMarquee,"marquee");
-    safe(initScroll,"scroll");
-    safe(initForm,"form");
+  /* ── FORM ── */
+  function initForm() {
+    ["submitBtn", "submitBtnEn"].forEach(function (id) {
+      var btn = document.getElementById(id);
+      if (!btn) return;
+      btn.addEventListener("click", function () {
+        var isEs = document.body.classList.contains("lang-es");
+        btn.textContent = isEs ? "Consulta enviada ✓" : "Inquiry sent ✓";
+        btn.style.background = "#1b4332";
+        setTimeout(function () {
+          btn.textContent = isEs ? "Enviar consulta" : "Send inquiry";
+          btn.style.background = "";
+        }, 3500);
+      });
+    });
   }
 
-  document.readyState==="loading"
-    ?document.addEventListener("DOMContentLoaded",boot)
-    :boot();
+  /* ── BOOT ── */
+  function boot() {
+    safe(initNav, "nav");
+    safe(initReveals, "reveals");
+    safe(initLang, "lang");
+    safe(initScroll, "scroll");
+    safe(initForm, "form");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
 </script>
 </body>
