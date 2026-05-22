@@ -137,7 +137,11 @@ header {
 .card:hover .card-thumb-bg { transform: scale(1.05); }
 .card-thumb-overlay {
   position: absolute; inset: 0;
-  background: rgba(8,8,10,.35);
+  background: rgba(0,0,0,.55);
+  transition: background .35s var(--ease);
+}
+.card:hover .card-thumb-overlay {
+  background: rgba(0,0,0,.35);
 }
 .card-tag {
   position: absolute; top: 1rem; left: 1rem;
@@ -182,44 +186,38 @@ header {
   display: contents;
 }
 
-/* ─── THUMB GRADIENTS ────────────────────────────────────────── */
+/* ─── THUMB IMAGES ───────────────────────────────────────────── */
 .thumb-yurawasi {
-  background: linear-gradient(135deg, #040C06 0%, #1A3B1A 50%, #2C5230 100%);
-  display: flex; align-items: center; justify-content: center;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Quinua_en_grano.jpg/800px-Quinua_en_grano.jpg");
+  background-size: cover; background-position: center;
 }
 .thumb-seitan {
-  background: linear-gradient(135deg, #090C08 0%, #172012 50%, #2A3820 100%);
-  display: flex; align-items: center; justify-content: center;
+  background-image: url("https://jparryg.github.io/portfolio/assets/img/interior.webp");
+  background-size: cover; background-position: center;
 }
 .thumb-recontra {
-  background: linear-gradient(135deg, #0A0806 0%, #2A1008 50%, #3D1A0A 100%);
-  display: flex; align-items: center; justify-content: center;
+  background-image: url("https://jparryg.github.io/portfolio/hero.webp");
+  background-size: cover; background-position: center;
 }
 .thumb-namaste {
-  background: linear-gradient(135deg, #060A0A 0%, #0D2020 50%, #163030 100%);
-  display: flex; align-items: center; justify-content: center;
+  background-image: url("https://jparryg.github.io/portfolio/assets/img/interior.webp");
+  background-size: cover; background-position: center;
 }
 .thumb-lumbre {
-  background: linear-gradient(135deg, #0A0806 0%, #281808 50%, #3A2410 100%);
-  display: flex; align-items: center; justify-content: center;
+  background-image: url("https://jparryg.github.io/portfolio/assets/img/hero.webp");
+  background-size: cover; background-position: center;
 }
 .thumb-anima {
-  background: linear-gradient(135deg, #080810 0%, #141428 50%, #1E1A34 100%);
-  display: flex; align-items: center; justify-content: center;
+  background-image: url("https://jparryg.github.io/portfolio/assets/img/yoga.webp");
+  background-size: cover; background-position: center;
 }
 .thumb-alcazar {
-  background: linear-gradient(135deg, #080A0C 0%, #101820 50%, #182430 100%);
-  display: flex; align-items: center; justify-content: center;
+  background-image: url("https://jparryg.github.io/portfolio/assets/img/lawyer.webp");
+  background-size: cover; background-position: center;
 }
 .thumb-muyuna {
-  background: linear-gradient(135deg, #040C06 0%, #0E2A18 50%, #1B4332 100%);
-  display: flex; align-items: center; justify-content: center;
-}
-.thumb-glyph {
-  font-family: var(--serif);
-  font-size: 4.5rem; font-style: italic;
-  opacity: .18; color: var(--cream); line-height: 1;
-  user-select: none;
+  background-image: url("https://muyuna.com/wp-content/uploads/2021/06/ezgif.com-gif-maker.jpg");
+  background-size: cover; background-position: center;
 }
 
 /* ─── CTA ────────────────────────────────────────────────────── */
@@ -329,9 +327,7 @@ footer {
   <article class="card reveal" data-cat="restaurante">
     <a href="yurawasi.html" class="card-link" aria-label="Ver demo Yurawasi">
       <div class="card-thumb">
-        <div class="card-thumb-bg thumb-yurawasi">
-          <span class="thumb-glyph">Yura</span>
-        </div>
+        <div class="card-thumb-bg thumb-yurawasi"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Vegano · Lince</span>
       </div>
@@ -351,9 +347,7 @@ footer {
   <article class="card reveal d1" data-cat="restaurante">
     <a href="seitan.html" class="card-link" aria-label="Ver demo Seitan">
       <div class="card-thumb">
-        <div class="card-thumb-bg thumb-seitan">
-          <span class="thumb-glyph">Sei</span>
-        </div>
+        <div class="card-thumb-bg thumb-seitan"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Bistro · Miraflores</span>
       </div>
@@ -373,9 +367,7 @@ footer {
   <article class="card reveal d2" data-cat="restaurante">
     <a href="recontra.html" class="card-link" aria-label="Ver demo La ReContra">
       <div class="card-thumb">
-        <div class="card-thumb-bg thumb-recontra">
-          <span class="thumb-glyph">RC</span>
-        </div>
+        <div class="card-thumb-bg thumb-recontra"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Fast food · Vegano</span>
       </div>
@@ -395,9 +387,7 @@ footer {
   <article class="card reveal d3" data-cat="restaurante">
     <a href="namaste.html" class="card-link" aria-label="Ver demo Namasté">
       <div class="card-thumb">
-        <div class="card-thumb-bg thumb-namaste">
-          <span class="thumb-glyph">नम</span>
-        </div>
+        <div class="card-thumb-bg thumb-namaste"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Vegano · Barranco</span>
       </div>
@@ -417,9 +407,7 @@ footer {
   <article class="card reveal d4" data-cat="restaurante">
     <a href="restaurante.html" class="card-link" aria-label="Ver demo Lumbre">
       <div class="card-thumb">
-        <div class="card-thumb-bg thumb-lumbre">
-          <span class="thumb-glyph">Lum</span>
-        </div>
+        <div class="card-thumb-bg thumb-lumbre"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Fine dining · Lima</span>
       </div>
@@ -439,9 +427,7 @@ footer {
   <article class="card reveal d5" data-cat="wellness">
     <a href="wellness.html" class="card-link" aria-label="Ver demo Ánima">
       <div class="card-thumb">
-        <div class="card-thumb-bg thumb-anima">
-          <span class="thumb-glyph">Án</span>
-        </div>
+        <div class="card-thumb-bg thumb-anima"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Wellness · Holístico</span>
       </div>
@@ -461,9 +447,7 @@ footer {
   <article class="card reveal d6" data-cat="servicios">
     <a href="servicios-profesionales.html" class="card-link" aria-label="Ver demo Alcázar">
       <div class="card-thumb">
-        <div class="card-thumb-bg thumb-alcazar">
-          <span class="thumb-glyph">A&A</span>
-        </div>
+        <div class="card-thumb-bg thumb-alcazar"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Legal · Corporativo</span>
       </div>
@@ -483,9 +467,7 @@ footer {
   <article class="card reveal d1" data-cat="lodge">
     <a href="muyuna/muyuna.html" class="card-link" aria-label="Ver demo Muyuna Amazon Lodge">
       <div class="card-thumb">
-        <div class="card-thumb-bg thumb-muyuna">
-          <span class="thumb-glyph">Mu</span>
-        </div>
+        <div class="card-thumb-bg thumb-muyuna"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Lodge · Turismo</span>
       </div>
