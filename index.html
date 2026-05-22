@@ -211,6 +211,10 @@ header {
   background: linear-gradient(135deg, #080A0C 0%, #101820 50%, #182430 100%);
   display: flex; align-items: center; justify-content: center;
 }
+.thumb-muyuna {
+  background: linear-gradient(135deg, #040C06 0%, #0E2A18 50%, #1B4332 100%);
+  display: flex; align-items: center; justify-content: center;
+}
 .thumb-glyph {
   font-family: var(--serif);
   font-size: 4.5rem; font-style: italic;
@@ -315,6 +319,7 @@ footer {
   <button class="filter-btn" data-filter="restaurante">Restaurantes</button>
   <button class="filter-btn" data-filter="wellness">Wellness</button>
   <button class="filter-btn" data-filter="servicios">Servicios</button>
+  <button class="filter-btn" data-filter="lodge">Lodge · Turismo</button>
 </div>
 
 <!-- GRID DE PROYECTOS -->
@@ -469,6 +474,28 @@ footer {
       </div>
       <div class="card-footer">
         <span class="card-loc">Lima</span>
+        <span class="card-cta">Ver demo <span>→</span></span>
+      </div>
+    </a>
+  </article>
+
+  <!-- Muyuna -->
+  <article class="card reveal d1" data-cat="lodge">
+    <a href="muyuna/muyuna.html" class="card-link" aria-label="Ver demo Muyuna Amazon Lodge">
+      <div class="card-thumb">
+        <div class="card-thumb-bg thumb-muyuna">
+          <span class="thumb-glyph">Mu</span>
+        </div>
+        <div class="card-thumb-overlay"></div>
+        <span class="card-tag">Lodge · Turismo</span>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">Ecolodge · Turismo de naturaleza</p>
+        <h2 class="card-name">Muyuna Amazon Lodge</h2>
+        <p class="card-desc">Ecolodge familiar en la Reserva Tamshiyacu-Tahuayo. Diseño bilingüe ES/EN, editorial con paleta amazónica, scroll storytelling y sistema de consulta de reservas.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-loc">Iquitos, Perú</span>
         <span class="card-cta">Ver demo <span>→</span></span>
       </div>
     </a>
