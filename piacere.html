@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Piacere — Pasta & Pizza · San Isidro, Lima</title>
+<meta name="description" content="Restaurante italiano en San Isidro. Pastas artesanales, pizzas a la leña y sabores de fusión ítalo-peruana. Reservas disponibles." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wdth,wght@0,79..100,200..500;1,79..100,200..500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   PIACERE — PASTA & PIZZA · SAN ISIDRO
+   Archetype 02: Editorial Dark Warm
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0c0906;
+  --bg-2:     #13100c;
+  --bg-3:     #1c1610;
+  --cream:    #f2ead8;
+  --cream-2:  #d6cab0;
+  --cream-3:  #8a7d65;
+  --accent:   #b85c3a;
+  --accent-2: #8f3f22;
+  --gold:     #c49a5b;
+  --line:     rgba(242,234,216,.10);
+  --glass:    rgba(19,16,12,.80);
+  --serif:    'Fraunces', Georgia, serif;
+  --sans:     'Inter', system-ui, sans-serif;
+  --ease:     cubic-bezier(.25,.46,.45,.94);
+  --ease-out: cubic-bezier(0,0,.2,1);
+  --nav-h:    72px;
+}
+
+html { scroll-behavior: smooth; overflow-x: clip; }
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* SPLASH --------------------------------------------------- */
+.splash {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1.4rem;
+  transition: opacity .7s var(--ease-out), clip-path .7s var(--ease-out);
+  animation: splashSafe .01s 4.2s forwards;
+}
+@keyframes splashSafe { to { opacity: 0; pointer-events: none; clip-path: inset(0 0 100% 0); } }
+.splash.out { opacity: 0; pointer-events: none; clip-path: inset(0 0 100% 0); }
+.splash-logo {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 300;
+  letter-spacing: .1em;
+  color: var(--cream);
+}
+.splash-logo em { color: var(--accent); font-style: italic; }
+.splash-tagline {
+  font-size: .68rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+}
+.splash-bar {
+  width: 40px; height: 1px;
+  background: var(--accent);
+  transform-origin: left;
+  animation: barGrow 2s var(--ease-out) .3s forwards;
+  transform: scaleX(0);
+}
+@keyframes barGrow { to { transform: scaleX(1); } }
+
+/* NAV ------------------------------------------------------ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  transition: background .4s var(--ease-out), border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+.nav.solid {
+  background: rgba(12,9,6,.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color: var(--line);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+.nav-logo em { color: var(--accent); font-style: italic; }
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none;
+  font-size: .76rem; letter-spacing: .16em; text-transform: uppercase;
+}
+.nav-links a { color: var(--cream-3); transition: color .25s; }
+.nav-links a:hover { color: var(--cream); }
+.nav-cta {
+  font-size: .74rem; letter-spacing: .15em; text-transform: uppercase;
+  padding: .6rem 1.4rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  transition: background .25s, color .25s;
+}
+.nav-cta:hover { background: var(--accent); color: var(--bg); }
+@media (max-width: 767px) { .nav-links { display: none; } }
+
+/* HERO ----------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 100vh; min-height: 100svh;
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    linear-gradient(170deg, rgba(12,9,6,.70) 0%, rgba(12,9,6,.45) 40%, rgba(12,9,6,.88) 100%),
+    url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Restaurant_interior_retouched.jpg/1280px-Restaurant_interior_retouched.jpg") center/cover no-repeat;
+}
+.hero-mesh {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 10% 60%, rgba(184,92,58,.20) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 55% at 85% 25%, rgba(196,154,91,.12) 0%, transparent 60%);
+  animation: meshBreath 12s ease-in-out infinite;
+}
+@keyframes meshBreath {
+  0%,100% { opacity: .8; }
+  50% { opacity: 1; }
+}
+.hero-grain {
+  position: absolute; inset: 0; z-index: 2; opacity: .035; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+.hero-inner {
+  position: relative; z-index: 3; width: 100%;
+  padding: calc(var(--nav-h) + 4rem) clamp(1.5rem, 8vw, 7rem) 5rem;
+  max-width: 900px;
+}
+.hero-meta {
+  display: flex; align-items: center; gap: .8rem;
+  font-size: .7rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--cream-3); margin-bottom: 2rem;
+}
+.hero-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0;
+  animation: dotPulse 2.5s ease-in-out infinite;
+}
+@keyframes dotPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+.hero-tag {
+  font-size: .63rem; letter-spacing: .18em; text-transform: uppercase;
+  padding: .22rem .6rem;
+  border: 1px solid rgba(184,92,58,.4);
+  color: var(--accent);
+}
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  font-weight: 200;
+  line-height: 1.04;
+  margin-bottom: 1.4rem;
+}
+.hero-title em { font-style: italic; color: var(--accent); }
+.hero-sub {
+  font-size: clamp(.9rem, 1.4vw, 1.05rem);
+  color: var(--cream-2);
+  max-width: 44ch;
+  line-height: 1.72;
+  margin-bottom: 2.8rem;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .9rem 2rem;
+  background: var(--accent); color: var(--bg);
+  font-size: .78rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+  transition: background .25s, transform .2s;
+}
+.btn-primary:hover { background: var(--accent-2); transform: translateY(-2px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .9rem 2rem;
+  border: 1px solid var(--line); color: var(--cream-2);
+  font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+  transition: border-color .25s, color .25s;
+}
+.btn-ghost:hover { border-color: var(--cream-3); color: var(--cream); }
+.hero-stats {
+  display: flex; gap: 2.5rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.hero-stat-num {
+  font-family: var(--serif);
+  font-size: 1.8rem; font-weight: 200; font-style: italic;
+  color: var(--gold); line-height: 1;
+  margin-bottom: .2rem;
+}
+.hero-stat-label {
+  font-size: .66rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--cream-3);
+}
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; right: clamp(1.5rem, 8vw, 7rem); z-index: 3;
+  writing-mode: vertical-rl; font-size: .63rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--cream-3); display: flex; align-items: center; gap: .8rem;
+}
+.hero-scroll::after {
+  content: ''; display: block; width: 1px; height: 48px;
+  background: linear-gradient(to bottom, var(--cream-3), transparent);
+}
+
+/* MARQUEE -------------------------------------------------- */
+.marquee-band {
+  background: var(--accent);
+  padding: .9rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-block;
+  animation: marqueeScroll 28s linear infinite;
+}
+.marquee-band:hover .marquee-track { animation-play-state: paused; }
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-item {
+  display: inline-block;
+  font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(12,9,6,.85); font-weight: 500;
+  margin: 0 2rem;
+}
+.marquee-sep { color: rgba(12,9,6,.45); margin: 0 .5rem; }
+
+/* SECTION COMMON ------------------------------------------- */
+.section { padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 8vw, 7rem); }
+.kicker {
+  font-size: .66rem; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: .75rem;
+}
+.kicker::before { content:''; display:block; width:20px; height:1px; background:var(--accent); }
+.sec-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 200; line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+.sec-title em { font-style: italic; }
+
+/* CONCEPTO ------------------------------------------------- */
+.concepto {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+}
+.concepto-text {
+  background: var(--bg-2);
+  padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.concepto-text p {
+  font-size: .9rem; color: var(--cream-3);
+  max-width: 44ch; line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+.concepto-pillars {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; margin-top: 2.5rem;
+}
+.pillar-num {
+  font-family: var(--serif);
+  font-size: 2rem; font-weight: 200; font-style: italic;
+  color: var(--accent); line-height: 1; margin-bottom: .4rem;
+}
+.pillar-label {
+  font-size: .68rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--cream-3);
+}
+.concepto-img {
+  position: relative; overflow: hidden;
+  background:
+    linear-gradient(160deg, rgba(12,9,6,.50) 0%, rgba(28,22,16,.48) 100%),
+    url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Preparation.jpg/1280px-Spaghetti_Preparation.jpg") center/cover no-repeat;
+}
+.concepto-img-caption {
+  position: absolute; bottom: 2rem; left: 2rem;
+  font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--cream-3);
+}
+@media (max-width: 767px) {
+  .concepto { grid-template-columns: 1fr; }
+  .concepto-img { min-height: 56vw; }
+}
+
+/* CARTA ---------------------------------------------------- */
+.carta { background: var(--bg); }
+.carta-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2rem; margin-bottom: 4rem;
+}
+.carta-header-note {
+  font-size: .8rem; color: var(--cream-3);
+  max-width: 36ch; line-height: 1.6;
+  text-align: right;
+}
+.carta-cols {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+}
+.carta-cat-title {
+  font-family: var(--serif);
+  font-size: 1.2rem; font-weight: 300; font-style: italic;
+  color: var(--cream); margin-bottom: .3rem;
+}
+.carta-cat-price {
+  font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.8rem;
+}
+.carta-items { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+.carta-item { border-top: 1px solid var(--line); padding-top: 1rem; }
+.carta-item-name { font-size: .88rem; font-weight: 400; color: var(--cream-2); margin-bottom: .2rem; }
+.carta-item-desc { font-size: .75rem; color: var(--cream-3); line-height: 1.5; }
+@media (max-width: 1023px) { .carta-cols { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 559px) { .carta-cols { grid-template-columns: 1fr; } }
+
+/* GALERÍA -------------------------------------------------- */
+.galeria { background: var(--bg); padding-top: 0; }
+.galeria-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.6rem);
+}
+.galeria-card {
+  position: relative; overflow: hidden;
+  aspect-ratio: 4/5; background: var(--bg-3);
+  transition: transform .4s var(--ease-out);
+}
+.galeria-card:hover { transform: translateY(-4px); }
+.galeria-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .6s var(--ease-out), filter .4s;
+}
+.galeria-card:hover img { transform: scale(1.07); filter: saturate(1.2) brightness(1.05); }
+.galeria-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 2rem 1.4rem 1.2rem;
+  background: linear-gradient(to top, rgba(12,9,6,.88), transparent);
+  font-size: .76rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--cream-2);
+}
+@media (max-width: 639px) { .galeria-grid { grid-template-columns: 1fr; } }
+
+/* POLÍTICA CORCHO ------------------------------------------ */
+.corcho {
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.corcho-inner {
+  display: flex; align-items: center; gap: 3rem;
+  flex-wrap: wrap;
+}
+.corcho-icon {
+  font-size: 3rem; flex-shrink: 0;
+}
+.corcho-text h3 {
+  font-family: var(--serif);
+  font-size: 1.6rem; font-weight: 200; font-style: italic;
+  margin-bottom: .5rem;
+}
+.corcho-text p { font-size: .9rem; color: var(--cream-3); line-height: 1.7; max-width: 50ch; }
+
+/* RESERVA -------------------------------------------------- */
+.reserva {
+  background:
+    linear-gradient(160deg, rgba(12,9,6,.88) 0%, rgba(12,9,6,.72) 50%, rgba(12,9,6,.90) 100%),
+    url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Spaghetti_bolognese_%28hozinja%29.jpg/1280px-Spaghetti_bolognese_%28hozinja%29.jpg") center/cover no-repeat fixed;
+}
+.reserva-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 7rem); align-items: start;
+}
+.reserva-info > p { font-size: .9rem; color: var(--cream-3); line-height: 1.8; margin-bottom: 2.5rem; }
+.info-rows { display: flex; flex-direction: column; gap: 1rem; }
+.info-row {
+  display: grid; grid-template-columns: 90px 1fr; gap: 1rem;
+  border-top: 1px solid var(--line); padding-top: 1rem;
+}
+.info-row-label {
+  font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--cream-3); padding-top: .15rem;
+}
+.info-row-value { font-size: .88rem; color: var(--cream-2); line-height: 1.65; }
+.info-row-value a { color: var(--gold); }
+.info-row-value a:hover { text-decoration: underline; }
+.reserva-form {
+  background: rgba(19,16,12,.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  padding: 2.5rem;
+  box-shadow: 0 24px 64px rgba(0,0,0,.3);
+}
+.form-title {
+  font-family: var(--serif);
+  font-size: 1.5rem; font-weight: 200; font-style: italic;
+  margin-bottom: .3rem;
+}
+.form-sub { font-size: .8rem; color: var(--cream-3); margin-bottom: 2rem; }
+.form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+.form-group label {
+  font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--cream-3);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--line);
+  color: var(--cream);
+  padding: .8rem 1rem;
+  font-family: var(--sans); font-size: .88rem;
+  outline: none; transition: border-color .25s, background .25s;
+  -webkit-appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  background: rgba(255,255,255,.09);
+}
+.form-group select option { background: #1c1610; }
+.form-group textarea { resize: none; height: 80px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-row .form-group { margin-bottom: 0; }
+.form-submit {
+  width: 100%; margin-top: .5rem; padding: 1rem;
+  background: var(--accent); border: none;
+  color: var(--bg); font-size: .72rem; font-weight: 500;
+  letter-spacing: .2em; text-transform: uppercase;
+  cursor: pointer; font-family: var(--sans);
+  transition: background .25s;
+}
+.form-submit:hover { background: var(--accent-2); }
+@media (max-width: 767px) {
+  .reserva-inner { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* RESEÑAS -------------------------------------------------- */
+.resenas { background: var(--bg-2); }
+.resenas-meta {
+  display: flex; align-items: center; gap: 2rem;
+  flex-wrap: wrap; margin-bottom: 3rem;
+}
+.resenas-score {
+  font-family: var(--serif);
+  font-size: 3.5rem; font-weight: 200; font-style: italic;
+  color: var(--gold); line-height: 1;
+}
+.resenas-details { color: var(--cream-3); font-size: .82rem; line-height: 1.7; }
+.resenas-details strong { color: var(--cream-2); }
+.resenas-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.resena-card {
+  background: var(--bg-3); border: 1px solid var(--line);
+  padding: 1.8rem;
+  transition: box-shadow .3s;
+}
+.resena-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.2); }
+.resena-stars { color: var(--gold); font-size: .9rem; letter-spacing: .1em; margin-bottom: 1rem; }
+.resena-text {
+  font-family: var(--serif); font-size: .95rem;
+  font-weight: 300; font-style: italic;
+  color: var(--cream-2); line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+.resena-author {
+  display: flex; align-items: center; gap: .8rem;
+  border-top: 1px solid var(--line); padding-top: 1rem;
+}
+.resena-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--accent); display: flex; align-items: center;
+  justify-content: center; font-size: .78rem; font-weight: 500;
+  color: var(--bg); flex-shrink: 0;
+}
+.resena-name { font-size: .84rem; font-weight: 400; color: var(--cream); }
+.resena-loc { font-size: .7rem; color: var(--cream-3); }
+@media (max-width: 767px) { .resenas-grid { grid-template-columns: 1fr; } }
+
+/* FOOTER --------------------------------------------------- */
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  padding: 4rem clamp(1.5rem, 8vw, 7rem) 2rem;
+}
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem; margin-bottom: 3rem;
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 2rem; font-weight: 200; letter-spacing: .08em;
+  margin-bottom: .6rem;
+}
+.footer-brand em { color: var(--accent); font-style: italic; }
+.footer-sub {
+  font-size: .8rem; color: var(--cream-3);
+  line-height: 1.65; max-width: 28ch;
+}
+.footer-col h5 {
+  font-size: .65rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+.footer-col a { font-size: .84rem; color: var(--cream-3); transition: color .25s; }
+.footer-col a:hover { color: var(--cream); }
+.footer-bottom {
+  border-top: 1px solid var(--line); padding-top: 1.5rem;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: .75rem;
+  font-size: .7rem; color: rgba(242,234,216,.35);
+}
+.footer-bottom a { color: inherit; }
+@media (max-width: 767px) {
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; }
+}
+
+/* REVEAL --------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .75s var(--ease-out), transform .75s var(--ease-out);
+}
+.reveal[data-split] { opacity: 1; transform: none; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal.d1 { transition-delay: .12s; }
+.reveal.d2 { transition-delay: .24s; }
+.reveal.d3 { transition-delay: .36s; }
+
+/* BANNER DEMO ---------------------------------------------- */
+.demo-banner {
+  position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+  z-index: 9998; pointer-events: none;
+  background: rgba(12,9,6,.78);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(242,234,216,.12);
+  color: rgba(242,234,216,.65);
+  font-family: var(--sans); font-size: .65rem;
+  font-weight: 300; letter-spacing: .2em; text-transform: uppercase;
+  padding: .55rem 1.3rem; white-space: nowrap;
+}
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div class="splash" id="splash">
+  <p class="splash-logo">Piacere <em>Pasta & Pizza</em></p>
+  <div class="splash-bar"></div>
+  <p class="splash-tagline">San Isidro · Lima</p>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#inicio" class="nav-logo">Piacere <em>·</em> Pasta & Pizza</a>
+  <ul class="nav-links">
+    <li><a href="#concepto">Concepto</a></li>
+    <li><a href="#carta">Carta</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#reserva">Reservas</a></li>
+  </ul>
+  <a href="https://wa.me/5114769720?text=Hola%2C%20quisiera%20reservar%20una%20mesa%20en%20Piacere" target="_blank" rel="noopener" class="nav-cta">Reservar</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-mesh"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-dot"></span>
+      <span>San Isidro · Lima</span>
+      <span class="hero-tag">Italiana & Peruana</span>
+    </div>
+    <h1 class="hero-title">
+      Pasta hecha<br>
+      <em>con las manos.</em>
+    </h1>
+    <p class="hero-sub">
+      Fusión ítalo-peruana con ingredientes frescos, pastas artesanales y pizzas a la leña. Una mesa para recordar en el corazón de San Isidro.
+    </p>
+    <div class="hero-actions">
+      <a href="#reserva" class="btn-primary">Reservar mesa</a>
+      <a href="#carta" class="btn-ghost">Ver carta →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">4.1★</div>
+        <div class="hero-stat-label">TripAdvisor</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">110+</div>
+        <div class="hero-stat-label">Reseñas</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">Libre</div>
+        <div class="hero-stat-label">Política corcho</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-band">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">Pastas Artesanales</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Pizza a la Leña</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Ravioli Piacere</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Fusión Ítalo-Peruana</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Ñoquis Frescos</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Lasagna de Carne</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Brochetas Caprese</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Semifreddo di Nutella</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Corcho Libre</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Pastas Artesanales</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Pizza a la Leña</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Ravioli Piacere</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Fusión Ítalo-Peruana</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Ñoquis Frescos</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Lasagna de Carne</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Brochetas Caprese</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Semifreddo di Nutella</span><span class="marquee-sep">·</span>
+    <span class="marquee-item">Corcho Libre</span><span class="marquee-sep">·</span>
+  </div>
+</div>
+
+<!-- CONCEPTO -->
+<section class="concepto" id="concepto">
+  <div class="concepto-text">
+    <div class="kicker reveal">— Nuestra historia</div>
+    <h2 class="sec-title reveal d1">
+      Lo italiano,<br><em>con alma peruana.</em>
+    </h2>
+    <p class="reveal d2">
+      En Piacere creemos que la buena cocina no necesita pretensiones. Solo insumos frescos, recetas trabajadas con cariño y el tiempo que cada plato merece.
+    </p>
+    <p class="reveal d2">
+      Nuestras pastas se hacen a diario. La masa, el relleno, la salsa — todo en casa. Porque hay sabores que no tienen atajo.
+    </p>
+    <div class="concepto-pillars">
+      <div class="reveal d1">
+        <div class="pillar-num">100%</div>
+        <div class="pillar-label">Pasta fresca</div>
+      </div>
+      <div class="reveal d2">
+        <div class="pillar-num">Leña</div>
+        <div class="pillar-label">Pizza al horno</div>
+      </div>
+      <div class="reveal d3">
+        <div class="pillar-num">Libre</div>
+        <div class="pillar-label">Política corcho</div>
+      </div>
+    </div>
+  </div>
+  <div class="concepto-img" aria-label="Preparación artesanal de pasta">
+    <div class="concepto-img-caption">Pasta del día</div>
+  </div>
+</section>
+
+<!-- CARTA -->
+<section class="section carta" id="carta">
+  <div class="carta-header">
+    <div>
+      <div class="kicker reveal">— Nuestra carta</div>
+      <h2 class="sec-title reveal d1">Para <em>compartir.</em></h2>
+    </div>
+    <p class="carta-header-note reveal d2">
+      Opciones vegetarianas disponibles. Sin gluten a pedido. Carta de temporada sujeta a cambios.
+    </p>
+  </div>
+  <div class="carta-cols">
+
+    <div class="reveal">
+      <h3 class="carta-cat-title">Entradas</h3>
+      <p class="carta-cat-price">Desde S/ 18</p>
+      <ul class="carta-items">
+        <li class="carta-item">
+          <div class="carta-item-name">Brochetas Caprese</div>
+          <div class="carta-item-desc">Mozzarella fresca, tomate cherry, albahaca, reducción de balsámico</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Carpaccio di Carne</div>
+          <div class="carta-item-desc">Láminas de lomo, parmesano, alcaparras, vinagreta al limón</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Ensalada de Pavo</div>
+          <div class="carta-item-desc">Pavo asado, lechuga, tomate, vinagreta ligera</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Antipasto della Casa</div>
+          <div class="carta-item-desc">Selección de embutidos, quesos y encurtidos</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="reveal d1">
+      <h3 class="carta-cat-title">Pastas</h3>
+      <p class="carta-cat-price">Desde S/ 28</p>
+      <ul class="carta-items">
+        <li class="carta-item">
+          <div class="carta-item-name">Ravioli Piacere</div>
+          <div class="carta-item-desc">Relleno de ricotta y espinaca, salsa de mantequilla y salvia</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Ñoquis al Gorgonzola</div>
+          <div class="carta-item-desc">Ñoquis de papa, salsa cremosa de gorgonzola y nuez</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Lasagna de Carne</div>
+          <div class="carta-item-desc">Carne, bechamel artesanal, parmesano gratinado</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Paizon de Lomo Saltado</div>
+          <div class="carta-item-desc">Fusión ítalo-peruana. Pasta con lomo saltado al wok</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Spaghetti Bolognese</div>
+          <div class="carta-item-desc">Ragú lento de carne, tomate San Marzano, parmesano</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="reveal d2">
+      <h3 class="carta-cat-title">Pizzas</h3>
+      <p class="carta-cat-price">Desde S/ 32</p>
+      <ul class="carta-items">
+        <li class="carta-item">
+          <div class="carta-item-name">Margherita</div>
+          <div class="carta-item-desc">Tomate, mozzarella fresca, albahaca, aceite de oliva</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Cebolla Acaramelada</div>
+          <div class="carta-item-desc">Cebolla, mozzarella, gorgonzola, nuez. La favorita de la casa</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Prosciutto e Rúcula</div>
+          <div class="carta-item-desc">Jamón serrano, rúcula fresca, parmesano, tomate</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Quattro Formaggi</div>
+          <div class="carta-item-desc">Mozzarella, gorgonzola, parmesano, brie</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="reveal d3">
+      <h3 class="carta-cat-title">Postres</h3>
+      <p class="carta-cat-price">Desde S/ 16</p>
+      <ul class="carta-items">
+        <li class="carta-item">
+          <div class="carta-item-name">Semifreddo di Nutella</div>
+          <div class="carta-item-desc">El clásico Piacere. Cremoso, frío, irresistible</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Tiramisú della Casa</div>
+          <div class="carta-item-desc">Receta original con café espresso y mascarpone</div>
+        </li>
+        <li class="carta-item">
+          <div class="carta-item-name">Panna Cotta</div>
+          <div class="carta-item-desc">Crema italiana con coulis de frutos rojos</div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="section galeria" id="galeria" style="padding-top:0;">
+  <div class="galeria-grid">
+    <div class="galeria-card reveal">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ravioli-de-ricota.jpg/1280px-Ravioli-de-ricota.jpg"
+           alt="Ravioli de ricotta artesanal de Piacere" loading="lazy" decoding="async" />
+      <div class="galeria-caption">Ravioli Piacere</div>
+    </div>
+    <div class="galeria-card reveal d1">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg/1280px-Eq_it-na_pizza-margherita_sep2005_sml.jpg"
+           alt="Pizza margherita a la leña" loading="lazy" decoding="async" />
+      <div class="galeria-caption">Pizza a la leña</div>
+    </div>
+    <div class="galeria-card reveal d2">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Spaghetti_bolognese_%28hozinja%29.jpg/1280px-Spaghetti_bolognese_%28hozinja%29.jpg"
+           alt="Pasta artesanal con salsa bolognese" loading="lazy" decoding="async" />
+      <div class="galeria-caption">Pasta del día</div>
+    </div>
+  </div>
+</section>
+
+<!-- POLÍTICA CORCHO -->
+<section class="section corcho">
+  <div class="corcho-inner">
+    <div class="corcho-icon reveal">🍷</div>
+    <div class="corcho-text">
+      <h3 class="reveal d1">Corcho libre — trae tu vino.</h3>
+      <p class="reveal d2">
+        En Piacere puedes traer la botella que quieras sin ningún cargo adicional. Creemos que una buena pasta merece el vino que tú elijas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section class="section resenas">
+  <div class="kicker reveal">— Lo que dicen</div>
+  <div class="resenas-meta">
+    <div class="resenas-score reveal d1">4.1★</div>
+    <div class="resenas-details reveal d2">
+      <strong>110+ reseñas en TripAdvisor</strong><br>
+      N°414 de 4,067 restaurantes en Lima · Travellers' Choice<br>
+      Italiana · San Isidro
+    </div>
+  </div>
+  <div class="resenas-grid">
+    <div class="resena-card reveal">
+      <div class="resena-stars">★★★★★</div>
+      <p class="resena-text">
+        Uno de los mejores lugares para pasta en Lima. Los ñoquis y ravioles son muy frescos. Las pizzas a la leña, extraordinarias — la de cebolla acaramelada es una sorpresa.
+      </p>
+      <div class="resena-author">
+        <div class="resena-avatar">MG</div>
+        <div>
+          <div class="resena-name">Martín G.</div>
+          <div class="resena-loc">Lima · TripAdvisor</div>
+        </div>
+      </div>
+    </div>
+    <div class="resena-card reveal d1">
+      <div class="resena-stars">★★★★★</div>
+      <p class="resena-text">
+        Lugar pequeño, pero todos los platos son muy buenos de inicio a fin. Todo el grupo quedó muy contento. La atención de Rodrigo y Sebastián siempre pendiente.
+      </p>
+      <div class="resena-author">
+        <div class="resena-avatar">CP</div>
+        <div>
+          <div class="resena-name">Carla P.</div>
+          <div class="resena-loc">Miraflores · TripAdvisor</div>
+        </div>
+      </div>
+    </div>
+    <div class="resena-card reveal d2">
+      <div class="resena-stars">★★★★☆</div>
+      <p class="resena-text">
+        Maravilloso todo — mucha variedad, buen precio. El Semifreddo di Nutella es un imprescindible. La política de corcho libre es un detalle que agradeces mucho.
+      </p>
+      <div class="resena-author">
+        <div class="resena-avatar">JR</div>
+        <div>
+          <div class="resena-name">Jorge R.</div>
+          <div class="resena-loc">San Isidro · TripAdvisor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVA -->
+<section class="section reserva" id="reserva">
+  <div class="reserva-inner">
+    <div class="reserva-info">
+      <div class="kicker reveal">— Visítanos</div>
+      <h2 class="sec-title reveal d1">
+        Una mesa<br><em>te espera.</em>
+      </h2>
+      <p class="reveal d2">
+        Reserva directamente por WhatsApp o escríbenos. Sin intermediarios, sin plataformas — solo tú y nosotros.
+      </p>
+      <div class="info-rows">
+        <div class="info-row reveal">
+          <span class="info-row-label">Dirección</span>
+          <span class="info-row-value">Av. Salaverry 3100<br>San Isidro, Lima</span>
+        </div>
+        <div class="info-row reveal">
+          <span class="info-row-label">Horario</span>
+          <span class="info-row-value">Lun – Vie: 12 pm – 11 pm<br>Sáb – Dom: 12 pm – 11 pm</span>
+        </div>
+        <div class="info-row reveal">
+          <span class="info-row-label">WhatsApp</span>
+          <span class="info-row-value"><a href="https://wa.me/5114769720">[tu WhatsApp]</a></span>
+        </div>
+        <div class="info-row reveal">
+          <span class="info-row-label">Email</span>
+          <span class="info-row-value"><a href="mailto:piaceregourmet@gmail.com">piaceregourmet@gmail.com</a></span>
+        </div>
+        <div class="info-row reveal">
+          <span class="info-row-label">Teléfono</span>
+          <span class="info-row-value"><a href="tel:+5112644335">+51 1 264-4335</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="reserva-form reveal">
+      <h3 class="form-title">Reservar mesa</h3>
+      <p class="form-sub">Sin cargo · Confirmación inmediata por WhatsApp</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" placeholder="Tu nombre" />
+        </div>
+        <div class="form-group">
+          <label>WhatsApp</label>
+          <input type="tel" placeholder="+51 9xx xxx xxx" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Fecha</label>
+          <input type="date" />
+        </div>
+        <div class="form-group">
+          <label>Hora</label>
+          <select>
+            <option>12:30 pm</option>
+            <option>1:00 pm</option>
+            <option>1:30 pm</option>
+            <option>2:00 pm</option>
+            <option>7:30 pm</option>
+            <option>8:00 pm</option>
+            <option>8:30 pm</option>
+            <option>9:00 pm</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Número de personas</label>
+        <select>
+          <option>1 persona</option>
+          <option>2 personas</option>
+          <option>3 – 4 personas</option>
+          <option>5 – 6 personas</option>
+          <option>7 o más</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mensaje (opcional)</label>
+        <textarea placeholder="Fecha especial, alergias, preferencias…"></textarea>
+      </div>
+      <button type="button" class="form-submit" id="submitBtn">
+        Confirmar reserva
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">Piacere <em>·</em></div>
+      <p class="footer-sub">Pasta artesanal, pizza a la leña y sabores de fusión ítalo-peruana en San Isidro, Lima.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Carta</h5>
+      <ul>
+        <li><a href="#carta">Entradas</a></li>
+        <li><a href="#carta">Pastas</a></li>
+        <li><a href="#carta">Pizzas</a></li>
+        <li><a href="#carta">Postres</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <ul>
+        <li><a href="https://wa.me/5114769720">[tu WhatsApp]</a></li>
+        <li><a href="mailto:piaceregourmet@gmail.com">piaceregourmet@gmail.com</a></li>
+        <li><a href="tel:+5112644335">+51 1 264-4335</a></li>
+        <li><a href="https://instagram.com/piacere.peru" target="_blank" rel="noopener">@piacere.peru</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Piacere · Av. Salaverry 3100, San Isidro · Lima, Perú</span>
+    <span>Imágenes: <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> CC · Diseño: <a href="https://jparryg.github.io/portfolio" target="_blank" rel="noopener">John Parry</a></span>
+  </div>
+</footer>
+
+<!-- BANNER DEMO -->
+<div class="demo-banner">Demo · piacere.peru · jparryg.github.io/portfolio</div>
+
+<script defer>
+(function () {
+  "use strict";
+  function safe(fn, name) { try { fn(); } catch (e) { console.warn("[" + name + "]", e); } }
+
+  /* ── Splash ── */
+  function initSplash() {
+    var splash = document.getElementById("splash");
+    if (!splash) return;
+    function hide() { splash.classList.add("out"); }
+    if (document.readyState === "complete") { setTimeout(hide, 500); }
+    else { window.addEventListener("load", function () { setTimeout(hide, 400); }); }
+    setTimeout(hide, 3600);
+  }
+
+  /* ── Nav ── */
+  function initNav() {
+    var nav = document.getElementById("nav");
+    if (!nav) return;
+    function check() { nav.classList.toggle("solid", window.scrollY > 50); }
+    window.addEventListener("scroll", check, { passive: true });
+    check();
+  }
+
+  /* ── Reveals ── */
+  function initReveals() {
+    var els = document.querySelectorAll(".reveal");
+    if (!els.length) return;
+    if (!window.IntersectionObserver) {
+      els.forEach(function (el) { el.classList.add("visible"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.04, rootMargin: "0px 0px -40px 0px" });
+    els.forEach(function (el) { io.observe(el); });
+    setTimeout(function () {
+      document.querySelectorAll(".reveal:not(.visible)").forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight)
+          el.classList.add("visible");
+      });
+    }, 6000);
+  }
+
+  /* ── Marquee pause on hover ── */
+  function initMarquee() {
+    var track = document.getElementById("marqueeTrack");
+    if (!track) return;
+    var band = track.parentElement;
+    band.addEventListener("mouseover", function () { track.style.animationPlayState = "paused"; });
+    band.addEventListener("mouseout", function () { track.style.animationPlayState = "running"; });
+  }
+
+  /* ── Smooth anchor scroll ── */
+  function initScroll() {
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute("href");
+      if (!id || id === "#") return;
+      var el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({
+        top: el.getBoundingClientRect().top + window.scrollY - 80,
+        behavior: reduced ? "auto" : "smooth"
+      });
+    });
+  }
+
+  /* ── Form feedback ── */
+  function initForm() {
+    var btn = document.getElementById("submitBtn");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      btn.textContent = "Reserva confirmada ✓";
+      btn.style.background = "#6b3a22";
+      setTimeout(function () {
+        btn.textContent = "Confirmar reserva";
+        btn.style.background = "";
+      }, 3500);
+    });
+  }
+
+  /* ── Boot ── */
+  function boot() {
+    safe(initSplash, "splash");
+    safe(initNav, "nav");
+    safe(initReveals, "reveals");
+    safe(initMarquee, "marquee");
+    safe(initScroll, "scroll");
+    safe(initForm, "form");
+  }
+
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", boot)
+    : boot();
+})();
+</script>
+</body>
+</html>
