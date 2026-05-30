@@ -689,24 +689,27 @@ ul { list-style: none; }
 .galeria-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
+  gap: 6px;
   margin-top: 48px;
 }
 
 .gal-item {
   overflow: hidden;
-  aspect-ratio: 1;
+  aspect-ratio: 2 / 3;
+  min-height: 0;
 }
 .gal-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  display: block;
   transition: transform .6s var(--ease-out);
 }
 .gal-item:hover img { transform: scale(1.06); }
 
 @media (max-width: 600px) {
-  .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+  .galeria-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ── Testimonios ──────────────────────────────────────────── */
