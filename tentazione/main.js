@@ -185,7 +185,6 @@
     safe(initCardTilt,   "tilt");
     safe(initGSAP,       "gsap");
     safe(initCartaTabs,    "tabs");
-    safe(initDeliveryModal, "delivery-modal");
   }
 
   if (document.readyState === "loading") {
@@ -305,9 +304,10 @@
 
     if (!ids.length) {
       items.innerHTML = '<p class="carrito-empty">Tu pedido está vacío.<br>Agrega productos de la carta.</p>';
-      $("#carrito-wsp-btn").setAttribute("href", "#");
-      $("#carrito-wsp-btn").style.opacity = ".4";
-      $("#carrito-wsp-btn").style.pointerEvents = "none";
+      var btnR = $("#carrito-recojo-btn");
+      var btnD = $("#carrito-delivery-btn");
+      if (btnR) { btnR.setAttribute("href", "#"); btnR.style.opacity = ".4"; btnR.style.pointerEvents = "none"; }
+      if (btnD) { btnD.setAttribute("href", "#"); btnD.style.opacity = ".4"; btnD.style.pointerEvents = "none"; }
       return;
     }
 
