@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tentazione Pasticceria & Caffè — Pastelería italiana artesanal en Punta Hermosa. Cannoli, tiramisú, tortas de celebración y café de especialidad a pasos del mar." />
+  <meta property="og:title" content="Tentazione Pasticceria & Caffè · Punta Hermosa" />
+  <meta property="og:description" content="Dolci artigianali e caffè di qualità frente al Pacífico." />
+  <meta property="og:type" content="website" />
+  <title>Tentazione Pasticceria & Caffè · Punta Hermosa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <link rel="stylesheet" href="styles.css?v=20260602" />
+</head>
+<body>
+
+<!-- SPLASH -->
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="splash-inner">
+    <span class="splash-glyph">✦</span>
+    <span class="splash-name">Tentazione</span>
+    <span class="splash-sub">Pasticceria & Caffè</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav" aria-label="Navegación principal">
+  <a href="#inicio" class="nav-logo" aria-label="Tentazione inicio">
+    <span class="nav-logo-it">Pasticceria & Caffè</span>
+    <span class="nav-logo-main">Tentazione</span>
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#carta">Carta</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/51928372003" class="nav-cta" target="_blank" rel="noopener">
+    Hacer un pedido
+  </a>
+  <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú móvil" aria-modal="true">
+  <button class="mobile-close" aria-label="Cerrar menú">✕</button>
+  <ul class="mobile-links" role="list">
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#carta">Carta</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="https://wa.me/51928372003" target="_blank" rel="noopener">Hacer un pedido</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio" aria-label="Sección principal">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="assets/img/hero.webp" alt="" width="1400" height="800" />
+    <div class="hero-tint"></div>
+  </div>
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <p class="hero-kicker">
+      <span class="dot" aria-hidden="true"></span>
+      Punta Hermosa · Abierto hoy
+    </p>
+    <span class="hero-eyebrow" aria-hidden="true">Pasticceria & Caffè</span>
+    <h1 class="hero-title">
+      <span>Dolci italiani.</span>
+      <span><em>Frente al mar.</em></span>
+    </h1>
+    <p class="hero-sub">
+      Cannoli, tiramisú, tortas artesanales y café de especialidad — hechos a mano cada día en Punta Hermosa.
+    </p>
+    <div class="hero-actions">
+      <a href="https://wa.me/51928372003" class="btn btn-primary" target="_blank" rel="noopener">
+        Hacer un pedido
+      </a>
+      <a href="#especialidades" class="btn btn-ghost">Ver especialidades</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Cannoli siciliani</span><span class="sep">✦</span>
+    <span>Tiramisú artesanal</span><span class="sep">✦</span>
+    <span>Tortas de celebración</span><span class="sep">✦</span>
+    <span>Café de especialidad</span><span class="sep">✦</span>
+    <span>Profiteroles</span><span class="sep">✦</span>
+    <span>Sachertorte</span><span class="sep">✦</span>
+    <span>Cheesecake</span><span class="sep">✦</span>
+    <span>Brunch & salado</span><span class="sep">✦</span>
+    <span>Cannoli siciliani</span><span class="sep">✦</span>
+    <span>Tiramisú artesanal</span><span class="sep">✦</span>
+    <span>Tortas de celebración</span><span class="sep">✦</span>
+    <span>Café de especialidad</span><span class="sep">✦</span>
+    <span>Profiteroles</span><span class="sep">✦</span>
+    <span>Sachertorte</span><span class="sep">✦</span>
+    <span>Cheesecake</span><span class="sep">✦</span>
+    <span>Brunch & salado</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<!-- NOSOTROS -->
+<section class="nosotros" id="nosotros" aria-label="Sobre Tentazione">
+  <div class="container">
+    <div class="nosotros-grid">
+      <div class="nosotros-img-col">
+        <figure class="nosotros-fig reveal">
+          <img src="assets/img/ambiente.webp" alt="Interior de Tentazione Pasticceria, Punta Hermosa" width="600" height="700" loading="lazy" />
+          <div class="fig-grain" aria-hidden="true"></div>
+        </figure>
+        <div class="nosotros-badge reveal">
+          <span class="badge-num">100%</span>
+          <span class="badge-txt">Artesanal</span>
+        </div>
+      </div>
+      <div class="nosotros-copy-col">
+        <p class="section-kicker reveal">· Chi siamo ·</p>
+        <h2 class="section-title reveal">
+          Tradición italiana<br><em>a pasos del Pacífico.</em>
+        </h2>
+        <p class="nosotros-body reveal">
+          Tentazione nació del amor por los sabores que se recuerdan. Cada cannolo, cada tiramisú, cada taza de café lleva consigo el cuidado de la repostería italiana clásica — hecho a mano, con ingredientes de calidad, sin prisa.
+        </p>
+        <p class="nosotros-body reveal">
+          Estamos en el corazón de Punta Hermosa para que tu visita a la playa también sea un placer para el paladar. Un ambiente acogedor entre caña, plantas y flores para quedarte más de lo que planeabas.
+        </p>
+        <div class="nosotros-pills reveal">
+          <span class="pill">Hecho a mano</span>
+          <span class="pill">Sin conservantes</span>
+          <span class="pill">Pedidos a medida</span>
+          <span class="pill">Brunch & café</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section class="especialidades" id="especialidades" aria-label="Nuestras especialidades">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-kicker">· Specialità ·</p>
+      <h2 class="section-title">Lo que hacemos<br><em>con amor.</em></h2>
+    </div>
+
+    <div class="cards-grid">
+
+      <article class="card reveal" tabindex="0">
+        <div class="card-img-wrap">
+          <img src="assets/img/card-tortas.webp" alt="Tortas de celebración artesanales con fresas y flores comestibles" width="700" height="500" loading="lazy" />
+          <div class="card-grain" aria-hidden="true"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-tag">Tortas</p>
+          <h3 class="card-title">Tortas de celebración</h3>
+          <p class="card-desc">Cumpleaños, bodas, eventos. Decoradas con frutas frescas y flores comestibles. Diseño y sabores a tu medida — con la finura de la repostería italiana clásica.</p>
+          <a href="https://wa.me/51928372003?text=Hola,%20quisiera%20encargar%20una%20torta%20de%20celebración" class="card-link" target="_blank" rel="noopener">Encargar &rarr;</a>
+        </div>
+      </article>
+
+      <article class="card reveal" tabindex="0">
+        <div class="card-img-wrap">
+          <img src="assets/img/card-pasteles.webp" alt="Cannoli siciliani con pistacho y chocolate" width="700" height="500" loading="lazy" />
+          <div class="card-grain" aria-hidden="true"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-tag">Pastelería italiana</p>
+          <h3 class="card-title">Cannoli & pasticcini</h3>
+          <p class="card-desc">Cannoli siciliani con ricotta, pistacho o chips de chocolate. Profiteroles, éclairs, sachertorte y tiramisú. Una vitrina que es un viaje directo a una pasticceria de Palermo.</p>
+          <a href="https://wa.me/51928372003" class="card-link" target="_blank" rel="noopener">Consultar &rarr;</a>
+        </div>
+      </article>
+
+      <article class="card reveal" tabindex="0">
+        <div class="card-img-wrap">
+          <img src="assets/img/card-cafe.webp" alt="Cappuccino con latte art y croissant de pollo" width="700" height="500" loading="lazy" />
+          <div class="card-grain" aria-hidden="true"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-tag">Caffè</p>
+          <h3 class="card-title">Café italiano</h3>
+          <p class="card-desc">Espresso, cappuccino, latte, matcha latte. Granos seleccionados, extracción precisa, latte art. El café que se toma de pie en los bares de Milán — aquí, mirando el Pacífico.</p>
+          <a href="#contacto" class="card-link">Visitarnos &rarr;</a>
+        </div>
+      </article>
+
+      <article class="card reveal" tabindex="0">
+        <div class="card-img-wrap">
+          <img src="assets/img/card-salado.webp" alt="Quiche artesanal con vegetales frescos y tomates cherry" width="700" height="500" loading="lazy" />
+          <div class="card-grain" aria-hidden="true"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-tag">Salado & brunch</p>
+          <h3 class="card-title">Quiches & croissants</h3>
+          <p class="card-desc">Quiches artesanales, croissants rellenos de pollo con palta y lechuga, focaccias. Para el desayuno, el almuerzo o la merienda — porque la playa también tiene hambre.</p>
+          <a href="https://wa.me/51928372003" class="card-link" target="_blank" rel="noopener">Consultar &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CARTA -->
+<section class="carta" id="carta" aria-label="Nuestra carta">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-kicker">· Il Menù ·</p>
+      <h2 class="section-title">Nuestra carta.<br><em>Hecha a mano.</em></h2>
+      <p class="carta-intro">Café de especialidad de Huabal, Jaén, Cajamarca. Dolci artesanales. Brunch todos los días.</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="carta-tabs" role="tablist" aria-label="Categorías de carta">
+      <button class="carta-tab active" role="tab" aria-selected="true"  data-tab="brunch">🍳 Brunch</button>
+      <button class="carta-tab"        role="tab" aria-selected="false" data-tab="salado">🥐 Salado</button>
+      <button class="carta-tab"        role="tab" aria-selected="false" data-tab="dolci">🍰 Dolci</button>
+      <button class="carta-tab"        role="tab" aria-selected="false" data-tab="bebidas">☕ Bebidas</button>
+    </div>
+    <script>
+    /* Tabs inline — corre inmediatamente, sin esperar defer */
+    (function() {
+      function bindTabs() {
+        var tabs   = document.querySelectorAll(".carta-tab");
+        var panels = document.querySelectorAll(".carta-panel");
+        if (!tabs.length || !panels.length) return;
+        panels.forEach(function(p) {
+          p.style.display = p.classList.contains("active") ? "block" : "none";
+        });
+        tabs.forEach(function(tab) {
+          tab.onclick = function() {
+            var t = tab.getAttribute("data-tab");
+            tabs.forEach(function(x) { x.classList.remove("active"); });
+            panels.forEach(function(p) { p.style.display = "none"; p.classList.remove("active"); });
+            tab.classList.add("active");
+            var panel = document.getElementById("tab-" + t);
+            if (panel) { panel.style.display = "block"; panel.classList.add("active"); }
+          };
+        });
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", bindTabs);
+      } else {
+        bindTabs();
+      }
+    })();
+    </script>
+
+    <!-- BRUNCH -->
+    <div class="carta-panel active" id="tab-brunch" role="tabpanel">
+      <p class="carta-nota-top">Combos incluyen jugo de fruta + café de especialidad o infusión · Disponibles de 7:30am a 1pm</p>
+      <div class="carta-grid">
+        <div class="carta-col">
+          <h3 class="carta-cat"><span class="carta-cat-it">Combos</span> Desayuno & Brunch</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="desayuno-della-casa"><div class="ci-info"><span class="ci-name">Desayuno Della Casa</span><span class="ci-desc">Huevos revueltos, prosciutto, parmesano ahumado, queso fioré san. Focaccia o tostada</span></div><span class="ci-price">S/ 38</span></li>
+            <li class="carta-item" data-product-id="campesino"><div class="ci-info"><span class="ci-name">Campesino</span><span class="ci-desc">Nueva revolución, tocino, paleta y pan campesino tostado</span></div><span class="ci-price">S/ 37</span></li>
+            <li class="carta-item" data-product-id="croissant-tentazione"><div class="ci-info"><span class="ci-name">Croissant Tentazione</span><span class="ci-desc">Croissant relleno de crema pastelera y fruta de estación</span></div><span class="ci-price">S/ 35</span></li>
+            <li class="carta-item" data-product-id="desayuno-clasico"><div class="ci-info"><span class="ci-name">Desayuno Clásico</span><span class="ci-desc">Huevos revueltos, tocino, jamón ahumado y tostada</span></div><span class="ci-price">S/ 36</span></li>
+            <li class="carta-item" data-product-id="waffle-clasico"><div class="ci-info"><span class="ci-name">Waffle Clásico</span><span class="ci-desc">Waffle, tocino, huevo frito y miel de maple</span></div><span class="ci-price">S/ 34</span></li>
+            <li class="carta-item" data-product-id="croissant-revuelto"><div class="ci-info"><span class="ci-name">Croissant Revuelto</span><span class="ci-desc">Croissant, miel y huevos revueltos</span></div><span class="ci-price">S/ 30</span></li>
+          </ul>
+        </div>
+        <div class="carta-col">
+          <h3 class="carta-cat"><span class="carta-cat-it">Waffles</span></h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="waffle-clasico"><div class="ci-info"><span class="ci-name">Waffle Clásico</span><span class="ci-desc">Masa de marina con frutos del bosque y miel de maple</span></div><span class="ci-price">S/ 22</span></li>
+            <li class="carta-item" data-product-id="waffle-bacon"><div class="ci-info"><span class="ci-name">Waffle Bacon</span><span class="ci-desc">Waffle, tocino, huevo frito y miel de maple</span></div><span class="ci-price">S/ 23</span></li>
+            <li class="carta-item" data-product-id="waffle-avena"><div class="ci-info"><span class="ci-name">Waffle de Avena</span><span class="ci-desc">Leche de almendra, servido en frutos de estación y miel de maple</span></div><span class="ci-price">S/ 25</span></li>
+          </ul>
+          <h3 class="carta-cat" style="margin-top:1.5rem"><span class="carta-cat-it">Bowls</span></h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="bowl-granola"><div class="ci-info"><span class="ci-name">Bowl de Granola</span><span class="ci-desc">Yogur griego, granola, frutos del bosque, miel de abeja y fruta fresca</span></div><span class="ci-price">S/ 24</span></li>
+            <li class="carta-item" data-product-id="macedonia"><div class="ci-info"><span class="ci-name">Macedonia</span><span class="ci-desc">Yogur griego, mix de frutas frescas y miel de abeja</span></div><span class="ci-price">S/ 26</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SALADO -->
+    <div class="carta-panel" id="tab-salado" role="tabpanel">
+      <div class="carta-grid">
+        <div class="carta-col">
+          <h3 class="carta-cat"><span class="carta-cat-it">Sandwiches</span> de Focaccia</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="brisket"><div class="ci-info"><span class="ci-name">Brisket Ahumado a Fuego Lento</span><span class="ci-desc">Brisket ahumado artesanalmente por 16 horas, con kétchup lenta, cebolla, tomate cherry, yema a la guadalupe y salsa supreme de la casa</span></div><span class="ci-price">S/ 37</span></li>
+            <li class="carta-item" data-product-id="milano"><div class="ci-info"><span class="ci-name">Milano Speciale</span><span class="ci-desc">Pollo, jamón, queso gouda y untuoso, rúcula y pesto artesanal de la casa</span></div><span class="ci-price">S/ 35</span></li>
+            <li class="carta-item" data-product-id="blt"><div class="ci-info"><span class="ci-name">BLT - Lattuga e Pomodoro</span><span class="ci-desc">Tocino frescante, tomate fresco, lechuga, aceto, honey mustard y salsa supreme de la casa</span></div><span class="ci-price">S/ 33</span></li>
+            <li class="carta-item" data-product-id="bondiola"><div class="ci-info"><span class="ci-name">Bondiola Artigianale</span><span class="ci-desc">Bondiola, arándanos ahumados, lechuga fresca, salsa de la casa. Con un toque de aceite de oliva</span></div><span class="ci-price">S/ 30</span></li>
+            <li class="carta-item" data-product-id="caprese"><div class="ci-info"><span class="ci-name">Caprese Fior di Latte</span><span class="ci-desc">Pesto artesanal, tomate fresco, fior di latte y aceite de oliva extra virgen</span></div><span class="ci-price">S/ 24</span></li>
+            <li class="carta-item" data-product-id="ahumado"><div class="ci-info"><span class="ci-name">Ahumado</span><span class="ci-desc">Tocino ahumado, gouda, caramelizado, tomate horneado, lechuga fresca y salsa especial de la casa</span></div><span class="ci-price">S/ 26</span></li>
+            <li class="carta-item" data-product-id="mixta"><div class="ci-info"><span class="ci-name">Mixta</span><span class="ci-desc">Lomo ahumado, queso gouda fundido, mantequilla y ajilí de la casa</span></div><span class="ci-price">S/ 23</span></li>
+          </ul>
+        </div>
+        <div class="carta-col">
+          <h3 class="carta-cat"><span class="carta-cat-it">Clásicos</span></h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="croissant-pollo"><div class="ci-info"><span class="ci-name">Croissant de Pollo y Palta</span><span class="ci-desc">Pan con pollo, aguacate, mayonesa al pesto, lechugas y maradentro</span></div><span class="ci-price">S/ 20</span></li>
+            <li class="carta-item" data-product-id="pan-pollo"><div class="ci-info"><span class="ci-name">Pan con Pollo</span><span class="ci-desc">Pollo con pesto, lechuga, mayonesa. Servido en pan de olla campesino</span></div><span class="ci-price">S/ 18</span></li>
+          </ul>
+          <h3 class="carta-cat" style="margin-top:1.5rem"><span class="carta-cat-it">Pasteles</span> Salados</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="quiche-espinacas"><div class="ci-info"><span class="ci-name">Quiche de Espinacas, Champiñones y Tomates Cherry</span><span class="ci-desc">Receta quiche con nuestros quesos y vegetales</span></div><span class="ci-price">S/ 18</span></li>
+            <li class="carta-item" data-product-id="quiche-lorraine"><div class="ci-info"><span class="ci-name">Quiche Lorraine</span><span class="ci-desc">Tradicional. Tartaleta salada a la francesa con una mezcla de huevos, crema, queso y tocino</span></div><span class="ci-price">S/ 18</span></li>
+          </ul>
+          <h3 class="carta-cat" style="margin-top:1.5rem"><span class="carta-cat-it">Empanadas</span></h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="empanada-carne"><div class="ci-info"><span class="ci-name">Empanada de Carne</span><span class="ci-desc">Trozos de carne salteados con cebolla, especias, papas y huevo</span></div><span class="ci-price">S/ 12</span></li>
+            <li class="carta-item" data-product-id="empanada-pollo"><div class="ci-info"><span class="ci-name">Empanada de Pollo</span><span class="ci-desc">Pollo salteado con cebolla, acompañado con aceituna y frutos</span></div><span class="ci-price">S/ 12</span></li>
+          </ul>
+          <h3 class="carta-cat" style="margin-top:1.5rem"><span class="carta-cat-it">Tostones</span></h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="huerta"><div class="ci-info"><span class="ci-name">Huerta</span><span class="ci-desc">Palta, aguacate, tomate horneado y champiñones salteados. Servido en pan campesino</span></div><span class="ci-price">S/ 24</span></li>
+            <li class="carta-item" data-product-id="apaltado"><div class="ci-info"><span class="ci-name">Apaltado</span><span class="ci-desc">Salsa labneh, huevo, aguacate y frutitos al fresco. Tomate acompañado</span></div><span class="ci-price">S/ 23</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOLCI -->
+    <div class="carta-panel" id="tab-dolci" role="tabpanel">
+      <div class="carta-grid">
+        <div class="carta-col">
+          <h3 class="carta-cat"><span class="carta-cat-it">Dolci</span> della Casa</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="tentazione-cake"><div class="ci-info"><span class="ci-name">Tentazione</span><span class="ci-desc">Con cake espresso y cacao en polvo</span></div><span class="ci-price">S/ 22</span></li>
+            <li class="carta-item" data-product-id="torta-vasca"><div class="ci-info"><span class="ci-name">Torta Vasca</span><span class="ci-desc">Cheesecake vasco con interior suave y cremoso, fina capa caramelizada. Topping a elección: mermelada de fresa o maracumango</span></div><span class="ci-price">S/ 20</span></li>
+            <li class="carta-item" data-product-id="torta-chocolate"><div class="ci-info"><span class="ci-name">Torta de Chocolate</span><span class="ci-desc">Rellena de mousse de chocolate y manjar de olla</span></div><span class="ci-price">S/ 17</span></li>
+            <li class="carta-item" data-product-id="carrot-cake"><div class="ci-info"><span class="ci-name">Carrot Cake</span><span class="ci-desc">Torta de zanahoria y pecanas de trigo, crema de manjar de olla y decorado con frosting</span></div><span class="ci-price">S/ 16</span></li>
+            <li class="carta-item" data-product-id="crema-volteada"><div class="ci-info"><span class="ci-name">Crema Volteada</span><span class="ci-desc">Cremosa mezcla de diferentes leches y huevo, con caramelo</span></div><span class="ci-price">S/ 17</span></li>
+            <li class="carta-item" data-product-id="pie-limon"><div class="ci-info"><span class="ci-name">Pie de Limón</span><span class="ci-desc">Base de galletas horneadas con relleno cremoso de limón y merengue suizo</span></div><span class="ci-price">S/ 17</span></li>
+            <li class="carta-item" data-product-id="queque-limon"><div class="ci-info"><span class="ci-name">Queque de Limón y Arándanos</span><span class="ci-desc">Queque cubierto con glase dulce con toques cítricos</span></div><span class="ci-price">S/ 11</span></li>
+          </ul>
+          <h3 class="carta-cat" style="margin-top:1.5rem"><span class="carta-cat-it">Minis</span> Postres</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="minis-3"><div class="ci-info"><span class="ci-name">Selección de 3 unidades</span><span class="ci-desc">Mini Profiterol, Mini Pie de Limón, Crocante de Manzana, Mini Tartaleta, Mango, Fresa o Arándano</span></div><span class="ci-price">S/ 12</span></li>
+            <li class="carta-item" data-product-id="minis-4"><div class="ci-info"><span class="ci-name">Selección de 4 unidades</span><span class="ci-desc">Elige 4 de nuestros mini postres</span></div><span class="ci-price">S/ 15</span></li>
+          </ul>
+        </div>
+        <div class="carta-col">
+          <h3 class="carta-cat"><span class="carta-cat-it">Postres</span> Saludables</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="choco-fit"><div class="ci-info"><span class="ci-name">Torta de Chocolate Fit</span><span class="ci-desc">Harina de almendras, cacao, huevos, yogurt griego deslactosado, ganache de cobertura al cacao al 75%</span></div><span class="ci-price">S/ 22</span></li>
+            <li class="carta-item" data-product-id="carrot-fit"><div class="ci-info"><span class="ci-name">Carrot Cake Fit</span><span class="ci-desc">Harina de almendras, huevos, leches de almendras, zanahoria, frosting de cashews y yogurt griego deslactosado</span></div><span class="ci-price">S/ 22</span></li>
+            <li class="carta-item" data-product-id="choco-pecanas"><div class="ci-info"><span class="ci-name">Chocobarra de Pecanas</span><span class="ci-desc">Hecha de pecanas, dátiles, cacao de origen al 70% y aceite de coco</span></div><span class="ci-price">S/ 14</span></li>
+            <li class="carta-item" data-product-id="choco-avellanas"><div class="ci-info"><span class="ci-name">Chocobarra de Avellanas</span><span class="ci-desc">Hecha de avellanas, dátiles, cacao de origen al 70% y aceite de coco</span></div><span class="ci-price">S/ 14</span></li>
+            <li class="carta-item" data-product-id="alfajor-choco"><div class="ci-info"><span class="ci-name">Alfajor de Chocoframbuesa</span><span class="ci-desc">Tapitas hechas de almendras rellenas con manjar de dátil y mermelada de frambuesa y arándanos, bañado en cacao al 70%</span></div><span class="ci-price">S/ 17</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- BEBIDAS -->
+    <div class="carta-panel" id="tab-bebidas" role="tabpanel">
+      <p class="carta-nota-top">Café de especialidad de Huabal, Jaén, Cajamarca · Leche vegetal +3.50 · Leche deslactosada +2 · Pídelo frío +2</p>
+      <div class="carta-grid">
+        <div class="carta-col">
+          <h3 class="carta-cat"><span class="carta-cat-it">Caffè</span> Bar</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="lungo"><div class="ci-info"><span class="ci-name">Lungo</span></div><span class="ci-price">S/ 6</span></li>
+            <li class="carta-item" data-product-id="espresso"><div class="ci-info"><span class="ci-name">Espresso Doble</span></div><span class="ci-price">S/ 8</span></li>
+            <li class="carta-item" data-product-id="americano"><div class="ci-info"><span class="ci-name">Americano</span></div><span class="ci-price">S/ 9</span></li>
+            <li class="carta-item" data-product-id="cappuccino"><div class="ci-info"><span class="ci-name">Cappuccino</span></div><span class="ci-price">S/ 10</span></li>
+            <li class="carta-item" data-product-id="latte"><div class="ci-info"><span class="ci-name">Latte</span></div><span class="ci-price">S/ 11</span></li>
+            <li class="carta-item" data-product-id="flatwhite"><div class="ci-info"><span class="ci-name">Flatwhite</span></div><span class="ci-price">S/ 11</span></li>
+            <li class="carta-item" data-product-id="caramel-latte"><div class="ci-info"><span class="ci-name">Caramel Latte</span></div><span class="ci-price">S/ 14</span></li>
+            <li class="carta-item" data-product-id="chocolate-caliente"><div class="ci-info"><span class="ci-name">Chocolate Caliente</span></div><span class="ci-price">S/ 13</span></li>
+          </ul>
+          <h3 class="carta-cat" style="margin-top:1.5rem"><span class="carta-cat-it">Matcha</span> Bar</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="matcha-latte"><div class="ci-info"><span class="ci-name">Iced Matcha Latte</span></div><span class="ci-price">S/ 15</span></li>
+            <li class="carta-item" data-product-id="vanilla-matcha"><div class="ci-info"><span class="ci-name">Vanilla Iced Matcha Latte</span></div><span class="ci-price">S/ 17</span></li>
+            <li class="carta-item" data-product-id="strawberry-matcha"><div class="ci-info"><span class="ci-name">Strawberry Iced Matcha Latte</span></div><span class="ci-price">S/ 17</span></li>
+            <li class="carta-item" data-product-id="maracumango-matcha"><div class="ci-info"><span class="ci-name">Maracumango Iced Matcha Latte</span></div><span class="ci-price">S/ 19</span></li>
+          </ul>
+          <h3 class="carta-cat" style="margin-top:1.5rem"><span class="carta-cat-it">Cold</span> Brew</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="cold-brew"><div class="ci-info"><span class="ci-name">Cold Brew</span></div><span class="ci-price">S/ 13</span></li>
+            <li class="carta-item" data-product-id="tonic-cold-brew"><div class="ci-info"><span class="ci-name">Tonic Cold Brew</span></div><span class="ci-price">S/ 14</span></li>
+            <li class="carta-item" data-product-id="orange-cold-brew"><div class="ci-info"><span class="ci-name">Orange Cold Brew</span></div><span class="ci-price">S/ 16</span></li>
+            <li class="carta-item" data-product-id="passion-cold-brew"><div class="ci-info"><span class="ci-name">Passion Fruit Cold Brew</span></div><span class="ci-price">S/ 15</span></li>
+            <li class="carta-item" data-product-id="honey-cold-brew"><div class="ci-info"><span class="ci-name">Honey Lemonade Cold Brew</span></div><span class="ci-price">S/ 17</span></li>
+          </ul>
+        </div>
+        <div class="carta-col">
+          <h3 class="carta-cat"><span class="carta-cat-it">Frappés</span> & Milkshakes</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="frappe"><div class="ci-info"><span class="ci-name">Frappé</span><span class="ci-desc">Clásico, Oreo, Caramel o Moka</span></div><span class="ci-price">S/ 18</span></li>
+            <li class="carta-item" data-product-id="milkshake"><div class="ci-info"><span class="ci-name">Milkshake</span><span class="ci-desc">Café, vainilla, fresa, chocolate, moca y oreo</span></div><span class="ci-price">S/ 18</span></li>
+          </ul>
+          <h3 class="carta-cat" style="margin-top:1.5rem"><span class="carta-cat-it">Jugos</span> & Refrescantes</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="jugo-frutas"><div class="ci-info"><span class="ci-name">Jugo de Frutas</span><span class="ci-desc">Naranja, piña, fresa, mango y papaya</span></div><span class="ci-price">S/ 13</span></li>
+            <li class="carta-item" data-product-id="limonada-coco"><div class="ci-info"><span class="ci-name">Limonada de Coco</span></div><span class="ci-price">S/ 17</span></li>
+            <li class="carta-item" data-product-id="limonada-maracuya"><div class="ci-info"><span class="ci-name">Limonada de Maracuyá</span></div><span class="ci-price">S/ 14</span></li>
+            <li class="carta-item" data-product-id="frutti-rossi"><div class="ci-info"><span class="ci-name">Frutti Rossi</span><span class="ci-desc">Fresa, mango, arándanos y leche de almendras</span></div><span class="ci-price">S/ 14</span></li>
+            <li class="carta-item" data-product-id="dolce-tropicale"><div class="ci-info"><span class="ci-name">Dolce Tropicale</span><span class="ci-desc">Piña, mango, maracuyá y leche de coco</span></div><span class="ci-price">S/ 17</span></li>
+          </ul>
+          <h3 class="carta-cat" style="margin-top:1.5rem"><span class="carta-cat-it">Kombucha</span> & Detox</h3>
+          <ul class="carta-list">
+            <li class="carta-item" data-product-id="cherry-breeze"><div class="ci-info"><span class="ci-name">Cherry Breeze</span><span class="ci-desc">Acerola</span></div><span class="ci-price">S/ 14</span></li>
+            <li class="carta-item" data-product-id="naranja-chill"><div class="ci-info"><span class="ci-name">Naranja Chill</span><span class="ci-desc">Naranja y hierba luisa</span></div><span class="ci-price">S/ 14</span></li>
+            <li class="carta-item" data-product-id="citrus-energy"><div class="ci-info"><span class="ci-name">Citrus Energy</span><span class="ci-desc">Naranja, zanahoria y kión</span></div><span class="ci-price">S/ 14</span></li>
+            <li class="carta-item" data-product-id="verde-vitale"><div class="ci-info"><span class="ci-name">Verde Vitale</span><span class="ci-desc">Apio, manzana verde, piña, kión y limón</span></div><span class="ci-price">S/ 16</span></li>
+            <li class="carta-item" data-product-id="agua"><div class="ci-info"><span class="ci-name">Agua con o sin gas</span></div><span class="ci-price">S/ 7</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="carta-nota reveal">* Carta sujeta a cambios de temporada. Consulta disponibilidad del día en tienda o por WhatsApp.</p>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="galeria" id="galeria" aria-label="Galería de productos">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-kicker">· Galleria ·</p>
+      <h2 class="section-title">Cada pieza,<br><em>una obra.</em></h2>
+    </div>
+  </div>
+  <div class="galeria-strip" role="list">
+    <div class="galeria-item" role="listitem">
+      <img src="assets/img/gal-1.webp" alt="Éclair de fresa con cobertura blanca" width="600" height="750" />
+    </div>
+    <div class="galeria-item" role="listitem">
+      <img src="assets/img/gal-2.webp" alt="Sachertorte individual con berries frescos" width="600" height="750" />
+    </div>
+    <div class="galeria-item" role="listitem">
+      <img src="assets/img/gal-3.webp" alt="Tiramisú clásico con granos de café" width="600" height="750" />
+    </div>
+    <div class="galeria-item" role="listitem">
+      <img src="assets/img/gal-4.webp" alt="Tiramisú con capas de mascarpone y savoiardi" width="600" height="750" />
+    </div>
+    <div class="galeria-item" role="listitem">
+      <img src="assets/img/gal-5.webp" alt="Profiteroles y choux variados con crema y chocolate" width="600" height="750" />
+    </div>
+    <div class="galeria-item" role="listitem">
+      <img src="assets/img/gal-6.webp" alt="Cheesecake de blueberry con espresso" width="600" height="750" />
+    </div>
+    <div class="galeria-item" role="listitem">
+      <img src="assets/img/gal-7.webp" alt="Interior nocturno de Tentazione Punta Hermosa" width="600" height="750" />
+    </div>
+  </div>
+  <div class="galeria-ig reveal">
+    <p>Síguenos para ver los últimos dolci</p>
+    <div class="galeria-redes">
+      <a href="https://www.instagram.com/tentazionepasticceria/" class="btn btn-ghost" target="_blank" rel="noopener">
+        Instagram @tentazionepasticceria
+      </a>
+      <a href="https://www.facebook.com/Latentazione.pasticceri/" class="btn btn-ghost" target="_blank" rel="noopener">
+        Facebook La Tentazione
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios" aria-label="Opiniones de clientes">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-kicker">· Recensioni ·</p>
+      <h2 class="section-title">Lo que dicen<br><em>nuestros clientes.</em></h2>
+    </div>
+
+    <div class="testi-grid">
+
+      <blockquote class="testi-card reveal">
+        <div class="testi-stars" aria-label="5 estrellas">★★★★★</div>
+        <p class="testi-text">"Los cannoli son lo mejor que he probado fuera de Italia. La masa cruje perfecto y el relleno de pistacho es una locura. Vine de visita a Punta Hermosa y acabé volviendo tres días seguidos."</p>
+        <footer class="testi-autor">
+          <span class="testi-nombre">Valentina R.</span>
+          <span class="testi-origen">Lima · Instagram</span>
+        </footer>
+      </blockquote>
+
+      <blockquote class="testi-card reveal">
+        <div class="testi-stars" aria-label="5 estrellas">★★★★★</div>
+        <p class="testi-text">"Encargué la torta de cumpleaños de mi mamá con dos días de anticipación y quedó preciosa — fresas, flores y su nombre en cursiva. Ella lloró de emoción. El sabor, increíble."</p>
+        <footer class="testi-autor">
+          <span class="testi-nombre">Marco A.</span>
+          <span class="testi-origen">Surco · WhatsApp</span>
+        </footer>
+      </blockquote>
+
+      <blockquote class="testi-card reveal">
+        <div class="testi-stars" aria-label="5 estrellas">★★★★★</div>
+        <p class="testi-text">"El tiramisú es el mejor de Lima, sin exagerar. El café bien marcado, el mascarpone justo, sin empalagar. Y el ambiente con la caña y las plantas hace que no quieras irte."</p>
+        <footer class="testi-autor">
+          <span class="testi-nombre">Sofía M.</span>
+          <span class="testi-origen">Miraflores · Google</span>
+        </footer>
+      </blockquote>
+
+      <blockquote class="testi-card reveal">
+        <div class="testi-stars" aria-label="5 estrellas">★★★★★</div>
+        <p class="testi-text">"Vine por el cappuccino y me quedé por la sachertorte. Hacía años que no probaba algo así de bien ejecutado. Un lugar especial en un rincón que no esperabas encontrar en la playa."</p>
+        <footer class="testi-autor">
+          <span class="testi-nombre">Diego F.</span>
+          <span class="testi-origen">San Isidro · Facebook</span>
+        </footer>
+      </blockquote>
+
+    </div>
+  </div>
+</section>
+
+<!-- PEDIDOS ESPECIALES CTA -->
+<section class="pedidos-cta" aria-label="Pedidos especiales">
+  <div class="pedidos-mesh" aria-hidden="true"></div>
+  <div class="container">
+    <div class="pedidos-inner reveal">
+      <p class="section-kicker">· Ordini speciali ·</p>
+      <h2 class="pedidos-title">¿Tienes un evento<br><em>especial?</em></h2>
+      <p class="pedidos-sub">
+        Tortas de cumpleaños, mesas de dulces, buffets para bodas y eventos corporativos. Escríbenos con anticipación y lo hacemos realidad — a tu medida, con ingredientes frescos.
+      </p>
+      <a href="https://wa.me/51928372003?text=Hola,%20quisiera%20consultar%20sobre%20un%20pedido%20especial%20para%20un%20evento" class="btn btn-primary btn-large" target="_blank" rel="noopener">
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto" aria-label="Contacto y ubicación">
+  <div class="container">
+    <div class="contacto-grid">
+      <div class="contacto-info reveal">
+        <p class="section-kicker">· Dove siamo ·</p>
+        <h2 class="section-title">Encuéntranos<br><em>en Punta Hermosa.</em></h2>
+
+        <ul class="info-list" role="list">
+          <li>
+            <span class="info-icon" aria-hidden="true">📍</span>
+            <div>
+              <strong>Dirección</strong>
+              <p>Calle Malabrigo Mz A1 Lt 17<br>Agr. Santa Cruz, Punta Hermosa, Lima</p>
+            </div>
+          </li>
+          <li>
+            <span class="info-icon" aria-hidden="true">📱</span>
+            <div>
+              <strong>WhatsApp / Teléfono</strong>
+              <p>
+                <a href="tel:+51928372003">+51 928 372 003</a><br>
+                <a href="tel:+51929491358">+51 929 491 358</a>
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="info-icon" aria-hidden="true">✉️</span>
+            <div>
+              <strong>Email</strong>
+              <p><a href="mailto:dolcetentazione.disandy@gmail.com">dolcetentazione.disandy@gmail.com</a></p>
+            </div>
+          </li>
+          <li>
+            <span class="info-icon" aria-hidden="true">🕐</span>
+            <div>
+              <strong>Horario</strong>
+              <p>[Horario de atención]</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="contacto-redes">
+          <a href="https://www.instagram.com/tentazionepasticceria/" class="red-link" target="_blank" rel="noopener" aria-label="Instagram Tentazione">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/Latentazione.pasticceri/" class="red-link" target="_blank" rel="noopener" aria-label="Facebook Tentazione">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://wa.me/51928372003" class="red-link" target="_blank" rel="noopener" aria-label="WhatsApp Tentazione">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="contacto-mapa reveal">
+        <div class="mapa-static">
+          <div class="mapa-visual">
+            <!-- Mapa CSS — carga desde file:// sin dependencias -->
+            <div class="mv-bg"></div>
+            <div class="mv-grid">
+              <div class="mv-road mv-road-h" style="top:38%"></div>
+              <div class="mv-road mv-road-h" style="top:52%"></div>
+              <div class="mv-road mv-road-h" style="top:65%"></div>
+              <div class="mv-road mv-road-v" style="left:25%"></div>
+              <div class="mv-road mv-road-v" style="left:42%"></div>
+              <div class="mv-road mv-road-v" style="left:60%"></div>
+              <div class="mv-road mv-road-v" style="left:75%"></div>
+              <div class="mv-road mv-road-main mv-road-h" style="top:48%;height:4px"></div>
+              <div class="mv-road mv-road-main mv-road-v" style="left:50%;width:4px"></div>
+              <div class="mv-ocean"></div>
+            </div>
+            <div class="mv-pin">
+              <svg width="36" height="44" viewBox="0 0 36 44" fill="none">
+                <path d="M18 0C8.06 0 0 8.06 0 18c0 13.5 18 26 18 26S36 31.5 36 18C36 8.06 27.94 0 18 0z" fill="#C49A5B"/>
+                <circle cx="18" cy="18" r="7" fill="#0E0B09"/>
+                <circle cx="18" cy="18" r="3.5" fill="#C49A5B"/>
+              </svg>
+              <div class="mv-pin-label">Tentazione</div>
+            </div>
+            <div class="mv-compass">N</div>
+            <div class="mv-scale">Punta Hermosa · Lima, Perú</div>
+          </div>
+          <a href="https://www.google.com/maps/search/Tentazione+Pasticceria+Punta+Hermosa+Peru/@-12.333,-76.817,15z"
+             class="mapa-btn" target="_blank" rel="noopener" aria-label="Abrir en Google Maps">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Cómo llegar en Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo">Tentazione</span>
+        <p class="footer-tagline">Pasticceria & Caffè · Punta Hermosa, Lima</p>
+      </div>
+      <nav class="footer-nav" aria-label="Pie de página">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Tentazione Pasticceria & Caffè · Todos los derechos reservados</p>
+      <p class="footer-dev">Diseño web por <a href="https://jparryg.github.io/portfolio/" target="_blank" rel="noopener">Parry Studio</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- CARRITO FAB -->
+<button id="carrito-fab" class="carrito-fab" style="display:none" aria-label="Ver mi pedido">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <path d="M16 10a4 4 0 0 1-8 0"/>
+  </svg>
+  <span class="carrito-count" id="carrito-count">0</span>
+</button>
+
+<!-- OVERLAY -->
+<div id="carrito-overlay" class="carrito-overlay"></div>
+
+<!-- PANEL CARRITO -->
+<aside id="carrito-panel" class="carrito-panel" aria-label="Tu pedido" aria-hidden="true">
+  <div class="carrito-header">
+    <h3 class="carrito-title">Mi pedido</h3>
+    <button id="carrito-close" class="carrito-close" aria-label="Cerrar pedido">✕</button>
+  </div>
+  <div id="carrito-items" class="carrito-items">
+    <p class="carrito-empty">Tu pedido está vacío.<br>Agrega productos de la carta.</p>
+  </div>
+  <div class="carrito-footer">
+    <div class="carrito-total-row">
+      <span>Total estimado</span>
+      <strong id="carrito-total">S/ 0.00</strong>
+    </div>
+    <p class="carrito-entrega-label">¿Cómo recibes tu pedido?</p>
+    <div class="carrito-btns">
+      <a id="carrito-recojo-btn" class="carrito-wsp-btn carrito-wsp-recojo" href="#"
+         target="_blank" rel="noopener" style="opacity:.4;pointer-events:none"
+         aria-label="Pedir para recojo en tienda">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Recojo en tienda
+      </a>
+      <a id="carrito-delivery-btn" class="carrito-wsp-btn carrito-wsp-delivery" href="#"
+         target="_blank" rel="noopener" style="opacity:.4;pointer-events:none"
+         aria-label="Pedir con delivery">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+        Delivery
+      </a>
+    </div>
+  </div>
+</aside>
+
+<!-- MODAL DIRECCIÓN DELIVERY -->
+<div id="delivery-modal" class="delivery-modal" aria-hidden="true" role="dialog" aria-labelledby="delivery-modal-title">
+  <div class="delivery-modal-box">
+    <h3 class="delivery-modal-title" id="delivery-modal-title">¿A dónde te lo llevamos?</h3>
+    <p class="delivery-modal-sub">Ingresa tu dirección para que podamos calcular el costo de delivery.</p>
+    <input
+      type="text"
+      id="delivery-direccion"
+      class="delivery-input"
+      placeholder="Ej: Calle Los Pinos 123, Punta Hermosa"
+      autocomplete="street-address"
+      maxlength="200"
+    />
+    <div class="delivery-modal-btns">
+      <button id="delivery-cancelar" class="delivery-btn-cancelar">Cancelar</button>
+      <a id="delivery-enviar" class="delivery-btn-enviar" href="#" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enviar por WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+<div id="delivery-overlay-modal" class="delivery-overlay-modal"></div>
+
+<!-- Demo banner -->
+<div class="demo-banner" aria-label="Banner de demo">
+  Demo personalizado para Tentazione Pasticceria & Caffè · Punta Hermosa
+</div>
+
+<script defer src="main.js?v=20260602"></script>
+</body>
+</html>
