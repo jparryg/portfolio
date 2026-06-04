@@ -224,8 +224,16 @@ header {
   background-size: cover; background-position: center;
 }
 .thumb-tentazione {
-  background-image: url("https://jparryg.github.io/portfolio/tentazione/assets/img/hero.webp");
+  background-image: url("assets/img/tentazione-hero.webp");
+  background-size: cover; background-position: center top;
+}
+.thumb-mr {
+  background-image: url("assets/img/mr-hero.webp");
   background-size: cover; background-position: center;
+}
+.thumb-fonseca {
+  background-image: url("assets/img/fonseca-hero.webp");
+  background-size: cover; background-position: center top;
 }
 
 /* ─── CTA ────────────────────────────────────────────────────── */
@@ -326,6 +334,7 @@ footer {
   <button class="filter-btn" data-filter="wellness">Wellness</button>
   <button class="filter-btn" data-filter="servicios">Servicios</button>
   <button class="filter-btn" data-filter="lodge">Lodge · Turismo</button>
+  <button class="filter-btn" data-filter="tienda">Tienda</button>
 </div>
 
 <!-- GRID DE PROYECTOS -->
@@ -493,7 +502,7 @@ footer {
 
   <!-- Tentazione -->
   <article class="card reveal d3" data-cat="restaurante">
-    <a href="tentazione/index.html" class="card-link" aria-label="Ver demo Tentazione Pasticceria">
+    <a href="https://jparryg.github.io/portfolio/tentazione/index.html" class="card-link" aria-label="Ver demo Tentazione Pasticceria" target="_blank" rel="noopener">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-tentazione"></div>
         <div class="card-thumb-overlay"></div>
@@ -506,6 +515,46 @@ footer {
       </div>
       <div class="card-footer">
         <span class="card-loc">Punta Hermosa, Lima</span>
+        <span class="card-cta">Ver demo <span>→</span></span>
+      </div>
+    </a>
+  </article>
+
+  <!-- M&R Market -->
+  <article class="card reveal d4" data-cat="tienda">
+    <a href="https://jparryg.github.io/portfolio/mr-market/index.html" class="card-link" aria-label="Ver demo M&R Market" target="_blank" rel="noopener">
+      <div class="card-thumb">
+        <div class="card-thumb-bg thumb-mr"></div>
+        <div class="card-thumb-overlay"></div>
+        <span class="card-tag">Tienda · San Isidro</span>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">Tienda de barrio premium</p>
+        <h2 class="card-name">M&amp;R Market</h2>
+        <p class="card-desc">Minimarket de barrio con presencia digital premium. Diseño editorial con identidad visual fuerte, catálogo de productos y pedidos integrados.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-loc">San Isidro, Lima</span>
+        <span class="card-cta">Ver demo <span>→</span></span>
+      </div>
+    </a>
+  </article>
+
+  <!-- Fonseca Abogados -->
+  <article class="card reveal d5" data-cat="servicios">
+    <a href="https://jparryg.github.io/portfolio/fonseca/index.html" class="card-link" aria-label="Ver demo Fonseca Abogados LLC" target="_blank" rel="noopener">
+      <div class="card-thumb">
+        <div class="card-thumb-bg thumb-fonseca"></div>
+        <div class="card-thumb-overlay" style="background:rgba(0,0,0,.72)"></div>
+        <span class="card-tag">Gaming Law · Lima · Miami</span>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">Despacho legal internacional</p>
+        <h2 class="card-name">Fonseca Abogados LLC</h2>
+        <p class="card-desc">30 años en Gaming Law latinoamericano. Arbitraje internacional, regulación del juego y consultoría para operadores y gobiernos. Lima · Miami.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-loc">Lima · Miami</span>
         <span class="card-cta">Ver demo <span>→</span></span>
       </div>
     </a>
