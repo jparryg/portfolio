@@ -1118,7 +1118,11 @@ table       { border-collapse: collapse; }
   .profile-aside { grid-template-columns: 1fr; }
   .offices { grid-template-columns: 1fr; }
 
-  .cred-l { width: 100%; padding-top: 11px !important; }
+  /* Credentials table: stack label + value vertically */
+  .cred-table tr   { display: block; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .cred-table td   { display: block; border-bottom: none; padding: 0; }
+  .cred-l          { width: 100%; font-size: 9px !important; letter-spacing: .18em; padding-top: 0; padding-right: 0; margin-bottom: 3px; }
+  .cred-v          { font-size: 14px; line-height: 1.5; }
 
   .news-item { grid-template-columns: 1fr; gap: 14px; }
   .news-thumb-wrap { max-width: 100%; }
