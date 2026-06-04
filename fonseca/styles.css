@@ -163,20 +163,24 @@ table       { border-collapse: collapse; }
 .sec-num {
   font-family: var(--ff-disp);
   font-style: italic;
-  font-size: 15px;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1;
   color: var(--accent);
   flex-shrink: 0;
-  padding-top: 4px;
+  opacity: .85;
 }
 .sec-header-body { flex: 1; }
 .sec-title {
   font-family: var(--ff-sans);
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
   margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line-strong);
+  display: inline-block;
 }
 .sec-intro {
   font-family: var(--ff-body);
@@ -1096,7 +1100,12 @@ table       { border-collapse: collapse; }
   .hero-title { font-size: clamp(2.3rem, 10.5vw, 3rem); }
   .hero-actions { flex-direction: column; align-items: flex-start; }
   .hero-actions .btn { width: 100%; justify-content: center; }
-  .hero-stats { flex-wrap: wrap; gap: 16px 20px; }
+  .hero-stats { flex-wrap: nowrap; gap: 0; justify-content: space-between; }
+  .stat { flex: 1; padding: 0 8px; border-right: 1px solid var(--line); }
+  .stat:first-child { padding-left: 0; }
+  .stat:last-child { border-right: none; padding-right: 0; }
+  .stat-num { font-size: 1.6rem; }
+  .stat-label { font-size: 9px; max-width: none; }
 
   .distinctions-inner { grid-template-columns: 1fr; }
 
