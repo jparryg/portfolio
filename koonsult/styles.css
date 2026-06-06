@@ -214,7 +214,7 @@ em{font-style:italic}
 .hero-img{
   width:100%;height:100%;
   object-fit:cover;
-  object-position:center center;
+  object-position:40% center;
 }
 .hero-tint{
   position:absolute;inset:0;
