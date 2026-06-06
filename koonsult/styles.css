@@ -881,17 +881,24 @@ em{font-style:italic}
 /* ── REVEAL ANIMATIONS ───────────────────────────────────── */
 .reveal{
   opacity:0;
-  transform:translateY(28px);
-  transition:opacity .7s var(--ease-out), transform .7s var(--ease-out);
+  transform:translateY(24px);
+  transition:opacity .65s var(--ease-out), transform .65s var(--ease-out);
+  /* Animación CSS pura como fallback si JS falla */
+  animation: revealFallback 0s 1.2s forwards;
+}
+@keyframes revealFallback {
+  to { opacity:1; transform:none; }
 }
 .reveal.is-visible{
   opacity:1;
   transform:none;
+  animation:none;
 }
-/* DEFENSIVE: fix invisible text when data-split is present */
+/* DEFENSIVE: data-split siempre visible */
 .reveal[data-split]{
   opacity:1;
   transform:none;
+  animation:none;
 }
 .split-word{
   display:inline-block;

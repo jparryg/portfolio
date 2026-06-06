@@ -101,12 +101,12 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0.05, rootMargin: "0px 0px 0px 0px" });
 
-    // 6s safety timeout
+    // Safety timeout — activa todo si el observer no dispara
     var safetyTimer = setTimeout(function () {
       els.forEach(function (el) { el.classList.add("is-visible"); });
-    }, 6000);
+    }, 800);
 
     els.forEach(function (el) {
       // Stagger siblings
@@ -220,24 +220,8 @@
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // Service cards stagger
-    var serviceCards = document.querySelectorAll(".service-card");
-    if (serviceCards.length) {
-      gsap.from(serviceCards, {
-        opacity: 0,
-        y: 40,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".services-grid",
-          start: "top 85%",
-          once: true
-        }
-      });
-      // Override reveal opacity for cards handled by GSAP
-      serviceCards.forEach(function (c) { c.style.opacity = ""; c.style.transform = ""; });
-    }
+    // Service cards — CSS reveal las maneja, no GSAP
+    // (evita que GSAP setee opacity:0 y las deje invisibles si ScrollTrigger no dispara)
 
     // Diff cards
     var diffCards = document.querySelectorAll(".diff-card");
