@@ -19,6 +19,7 @@
     safe(initTestimonials, "initTestimonials");
     safe(initForm,         "initForm");
     safe(initScrollAnimations, "initScrollAnimations");
+    safe(initClientLogos, "initClientLogos");
   }
 
   if (document.readyState === "loading") {
@@ -256,6 +257,42 @@
         }
       });
     }
+  }
+
+
+  /* ── CLIENT LOGOS SLIDER ─────────────────────────────── */
+  function initClientLogos() {
+    var track = document.getElementById("clTrack");
+    var prev = document.getElementById("clPrev");
+    var next = document.getElementById("clNext");
+    if (!track) return;
+
+    var slides = track.querySelectorAll(".cl-slide");
+    var total = slides.length / 2; // duplicados para loop
+    var current = 0;
+    var slideW = 0;
+    var gap = 48; // 3rem en px
+
+    function calcSlideW() {
+      var wrap = track.parentElement;
+      var cols = window.innerWidth <= 480 ? 1 : window.innerWidth <= 768 ? 2 : 4;
+      slideW = (wrap.offsetWidth - gap * (cols - 1)) / cols;
+      slides.forEach(function(s) { s.style.flex = "0 0 " + slideW + "px"; });
+    }
+
+    function goTo(idx) {
+      current = ((idx % total) + total) % total;
+      track.style.transform = "translateX(-" + (current * (slideW + gap)) + "px)";
+    }
+
+    calcSlideW();
+    window.addEventListener("resize", function() { calcSlideW(); goTo(current); });
+
+    if (prev) prev.addEventListener("click", function() { goTo(current - 1); });
+    if (next) next.addEventListener("click", function() { goTo(current + 1); });
+
+    // Auto-slide
+    setInterval(function() { goTo(current + 1); }, 3500);
   }
 
 })();
