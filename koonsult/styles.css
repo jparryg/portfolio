@@ -1172,3 +1172,107 @@ img::after { font-size: 0; }
   object-fit: cover;
   display: block;
 }
+
+/* ── FIXES v20260607 ─────────────────────────────────────── */
+
+/* 1. Nav logo — slogan legible */
+.nav-logo img { height: 48px !important; }
+
+/* 2. About grid — foto al costado, no debajo */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+@media(max-width:900px){
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+/* 3. About image — tamaño controlado, no full-width desbordado */
+.about-img-frame {
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 520px;
+}
+.about-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 4. Services subtitle — centrar */
+.section-sub { text-align: center !important; }
+
+/* 5. Testimonial logo — más grande y visible */
+.testimonial-logo {
+  height: 44px !important;
+  max-width: 120px !important;
+  opacity: 1 !important;
+  filter: none !important;
+  margin-left: auto;
+  object-fit: contain;
+}
+
+/* 6. Diferenciadores — alinear cards ISO y 250+ */
+.diff-card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.diff-card {
+  position: static !important;
+  transform: none !important;
+  width: 100% !important;
+}
+.diff-card-back {
+  order: 2;
+}
+.diff-card-front {
+  order: 1;
+}
+
+/* 7. ISO card — tipografía con impacto */
+.diff-card-front .dc-title {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-primary, #1a1a1a);
+  margin: .75rem 0 .5rem;
+}
+.diff-card-front .dc-title strong {
+  font-size: 1.1rem;
+  color: var(--accent, #00b4d8);
+  display: block;
+}
+.diff-iso {
+  width: 90px !important;
+  height: auto !important;
+}
+
+/* 8. Footer logo — blanco sobre fondo oscuro (colores del logo requieren SVG fuente) */
+.footer-brand img { filter: brightness(0) invert(1) !important; }
+
+/* 9. Social icons — contenedor sin filtro para que los colores SVG se vean */
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  transition: background .2s;
+}
+.footer-social a:hover { background: rgba(255,255,255,.16); }
+.footer-social a svg {
+  width: 20px;
+  height: 20px;
+  /* NO filter — dejar que los fill SVG muestren su color */
+  filter: none !important;
+}
+
+/* 10. Map iframe — altura desktop razonable */
+.contact-map iframe { min-height: 200px; }
+
