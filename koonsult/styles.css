@@ -1092,12 +1092,6 @@ img::after { font-size: 0; }
 }
 
 /* 3. Fix logos clientes -- visibles y con tamaño correcto */
-.cl-slide img {
-  filter: grayscale(80%) !important;
-  opacity: .8 !important;
-  max-height: 48px !important;
-  max-width: 140px !important;
-}
 .cl-slide:hover img {
   filter: grayscale(0%) !important;
   opacity: 1 !important;
