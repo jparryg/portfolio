@@ -283,13 +283,17 @@ em{font-style:italic}
 
 /* ── STATS ───────────────────────────────────────────────── */
 .stats{
-  background:var(--ink, #0f1114);
+  background:#0f1114 !important;
   padding:4rem 0;
 }
 .stat { opacity:1 !important; transform:none !important; }
-.stat-num { opacity:1 !important; color:#fff !important; }
-.stat-label { color:rgba(255,255,255,.7) !important; }
-.stat-plus { color:var(--accent, #00b4d8) !important; }
+.stat-num { opacity:1 !important; color:#ffffff !important; font-size:clamp(3rem,7vw,5rem) !important; }
+.stat-label { color:rgba(255,255,255,.75) !important; }
+.stat-plus { color:#00b4d8 !important; }
+.stats-grid .stat,
+.stats-grid .stat-num,
+.stats-grid .stat-label,
+.stats-grid .stat-plus { visibility:visible !important; }
 .stats-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
