@@ -229,6 +229,7 @@ em{font-style:italic}
   margin:0 auto;
   padding:0 clamp(1.25rem,4vw,3rem);
   width:100%;
+  padding-top:7rem;
 }
 .hero-kicker{
   font-size:.78rem;
@@ -270,7 +271,7 @@ em{font-style:italic}
   display:none;
 }
 .hero-scroll-hint{ display:none; }
-.hero-scroll-line{
+.hero-scroll-line{ display:none !important; 
   width:1px;height:48px;
   background:rgba(255,255,255,.3);
   animation:scrollPulse 2s ease-in-out infinite;
@@ -285,6 +286,8 @@ em{font-style:italic}
   background:var(--surface, #f5f3ef);
   padding:4rem 0;
 }
+.stat { opacity:1 !important; transform:none !important; }
+.stat-num { opacity:1 !important; }
 .stats-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -1016,7 +1019,7 @@ img::after { font-size: 0; }
   min-height: 100px;
 }
 .cl-slide img {
-  height: 90px !important;
+  height: 110px !important;
   max-width: 180px !important;
   width: auto !important;
   object-fit: contain !important;
@@ -1071,8 +1074,8 @@ img::after { font-size: 0; }
   gap: .75rem;
 }
 .testimonial-logo {
-  height: 52px !important;
-  max-height: 52px !important;
+  height: 72px !important;
+  max-height: 72px !important;
   max-width: 160px !important;
   width: auto !important;
   object-fit: contain !important;
@@ -1230,7 +1233,7 @@ img::after { font-size: 0; }
   display: block;
 }
 .diff-iso {
-  width: 90px !important;
+  width: 140px !important;
   height: auto !important;
 }
 
@@ -1273,4 +1276,15 @@ img::after { font-size: 0; }
 .nav-logo span {
   color: rgba(255,255,255,0.85) !important;
   font-size: .6rem !important;
+}
+
+/* ── STATS OVERRIDE GSAP ─────────────────────────────────── */
+/* Evita que GSAP deje las stats invisibles si ScrollTrigger no dispara */
+.stats-grid .stat,
+.stats-grid .stat-num,
+.stats-grid .stat-label,
+.stats-grid .stat-plus {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
