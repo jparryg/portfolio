@@ -70,6 +70,9 @@ em{font-style:italic}
   color:var(--ink-mute);
   max-width:480px;
   line-height:1.6;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
 }
 .body-text{
   color:var(--ink-soft);
@@ -1021,17 +1024,17 @@ img::after { font-size: 0; }
   min-height: 100px;
 }
 .cl-slide img {
-  max-height: 52px;
-  max-width: 160px;
-  width: auto;
-  object-fit: contain;
-  filter: grayscale(100%);
-  opacity: .65;
+  max-height: 64px !important;
+  max-width: 180px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  filter: grayscale(30%) !important;
+  opacity: 1 !important;
   transition: all .3s;
 }
 .cl-slide:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
+  filter: grayscale(0%) !important;
+  opacity: 1 !important;
 }
 .cl-prev, .cl-next {
   width: 44px;
@@ -1076,12 +1079,13 @@ img::after { font-size: 0; }
   gap: .75rem;
 }
 .testimonial-logo {
-  max-height: 40px;
-  max-width: 140px;
-  width: auto;
-  object-fit: contain;
-  filter: grayscale(60%);
-  opacity: .85;
+  height: 52px !important;
+  max-height: 52px !important;
+  max-width: 160px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  filter: grayscale(20%) !important;
+  opacity: 1 !important;
   margin-left: auto;
   align-self: center;
   display: block;
@@ -1276,3 +1280,18 @@ img::after { font-size: 0; }
 /* 10. Map iframe — altura desktop razonable */
 .contact-map iframe { min-height: 200px; }
 
+
+/* ── FIXES v20260607b ────────────────────────────────────── */
+/* Nav logo slogan — visible en hero oscuro y nav claro */
+.nav-logo img { height: 48px !important; }
+.nav--scrolled .nav-logo img,
+.nav-logo img { 
+  filter: none; 
+}
+/* En hero (fondo oscuro) forzar visibilidad del slogan */
+.hero .nav .nav-logo .nav-tagline,
+.nav-inner .nav-logo img + span,
+.nav-logo span {
+  color: rgba(255,255,255,0.85) !important;
+  font-size: .6rem !important;
+}
