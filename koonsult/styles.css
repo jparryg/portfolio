@@ -283,11 +283,13 @@ em{font-style:italic}
 
 /* ── STATS ───────────────────────────────────────────────── */
 .stats{
-  background:var(--surface, #f5f3ef);
+  background:var(--ink, #0f1114);
   padding:4rem 0;
 }
 .stat { opacity:1 !important; transform:none !important; }
-.stat-num { opacity:1 !important; }
+.stat-num { opacity:1 !important; color:#fff !important; }
+.stat-label { color:rgba(255,255,255,.7) !important; }
+.stat-plus { color:var(--accent, #00b4d8) !important; }
 .stats-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
