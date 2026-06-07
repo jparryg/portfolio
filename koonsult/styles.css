@@ -1117,3 +1117,58 @@ img::after { font-size: 0; }
     min-height: 100vh;
   }
 }
+
+/* ── MOBILE FIXES v20260606 ─────────────────────────────── */
+@media(max-width:768px){
+  /* 1. Hero title mínimo más manejable en móvil */
+  .hero-title{ font-size:clamp(2rem,9vw,3.5rem) }
+
+  /* 2. Padding vertical reducido en secciones */
+  .about,.services,.testimonials,.differentiators,.contact{
+    padding:4.5rem 0;
+  }
+
+  /* 3. Comilla testimonial contenida */
+  .testimonial-card blockquote::before{
+    font-size:3.5rem;
+    top:-.5rem; left:-.75rem;
+  }
+
+  /* 5. Map iframe altura fija en mobile */
+  .contact-map iframe{
+    height:220px !important;
+  }
+
+  /* 8. Demo banner flex-wrap */
+  .demo-banner{
+    flex-wrap:wrap;
+    text-align:center;
+    padding:.65rem 1rem;
+    gap:.75rem;
+  }
+}
+
+@media(max-width:480px){
+  /* 2b. Padding aún más compacto en 375px */
+  .about,.services,.testimonials,.differentiators,.contact{
+    padding:3.5rem 0;
+  }
+  /* 6. Footer brand ocupa full width */
+  .footer-brand{ grid-column:1/-1; }
+}
+
+/* ── HERO IMAGE FIX ──────────────────────────────────────── */
+/* Garantizar que la imagen hero llene el contenedor en todos los viewports */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
