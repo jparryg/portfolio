@@ -142,9 +142,7 @@ em{font-style:italic}
   to{opacity:1;transform:none}
 }
 .splash-line{
-  width:1px;height:0;
-  background:var(--accent);
-  animation:splashLineGrow .6s var(--ease-out) .8s forwards;
+  display:none;
 }
 @keyframes splashLineGrow{to{height:48px}}
 
@@ -271,13 +269,7 @@ em{font-style:italic}
 .hero-cert{
   display:none;
 }
-.hero-scroll-hint{
-  position:absolute;right:clamp(1.25rem,4vw,3rem);bottom:3rem;
-  display:flex;flex-direction:column;align-items:center;gap:.5rem;
-  color:rgba(255,255,255,.5);
-  font-size:.75rem;
-  letter-spacing:.1em;
-}
+.hero-scroll-hint{ display:none; }
 .hero-scroll-line{
   width:1px;height:48px;
   background:rgba(255,255,255,.3);
@@ -290,7 +282,7 @@ em{font-style:italic}
 
 /* ── STATS ───────────────────────────────────────────────── */
 .stats{
-  background:var(--ink);
+  background:var(--surface, #f5f3ef);
   padding:4rem 0;
 }
 .stats-grid{
@@ -1024,7 +1016,7 @@ img::after { font-size: 0; }
   min-height: 100px;
 }
 .cl-slide img {
-  height: 64px !important;
+  height: 90px !important;
   max-width: 180px !important;
   width: auto !important;
   object-fit: contain !important;
