@@ -643,3 +643,5 @@ select,input,textarea { font-family:inherit; }
   .hero-mesh,.bubble,.hero-img-wrap,.hero-credential { animation:none; }
   #splash { animation:none; opacity:0; pointer-events:none; }
 }
+
+#navMobile[hidden] { display: none !important; }
