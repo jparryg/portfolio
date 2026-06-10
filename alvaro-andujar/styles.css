@@ -266,8 +266,6 @@ select,input,textarea { font-family:inherit; }
   padding: 8rem 0 5rem;
   position: relative;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
 }
 .hero-mesh {
   position: absolute; inset: -20%; z-index: 0;
@@ -300,21 +298,16 @@ select,input,textarea { font-family:inherit; }
   50%     { transform:translateY(-30px) scale(1.05); }
 }
 
-.hero > .container,
-.hero { display:flex; align-items:center; }
-.hero {
-  display: grid;
-  align-items: center;
-}
 .hero .container {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
   position: relative;
   z-index: 1;
-  width: min(1200px, 92vw);
+  width: min(1100px, 88vw);
   margin-inline: auto;
+  padding: 0 2rem;
 }
 
 .hero-content { display:flex; flex-direction:column; gap:1.5rem; }
@@ -644,3 +637,5 @@ select,input,textarea { font-family:inherit; }
 }
 
 #navMobile[hidden] { display: none !important; }
+
+.container { padding-inline: 2rem; }
