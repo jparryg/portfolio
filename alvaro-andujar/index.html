@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Álvaro Andújar Ferrari — Cirujano Dentista · Punta Hermosa</title>
+  <meta name="description" content="Implantología y odontología de alta complejidad en Punta Hermosa. Graduado de la Cayetano Heredia. Maestría en Barcelona. Más de 18 años de experiencia." />
+  <meta property="og:title" content="Dr. Álvaro Andújar Ferrari — Dentista Punta Hermosa" />
+  <meta property="og:description" content="Implantología y cirugía oral con nivel europeo, en la costa peruana." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Libs from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=20260610" />
+</head>
+<body>
+
+  <!-- ========== SPLASH ========== -->
+  <div id="splash" role="status" aria-label="Cargando">
+    <div class="splash-inner">
+      <div class="splash-tooth">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4C17 4 11 9 11 15.5C11 19 12 21.5 13 24L14 36C14.5 40 16 44 19 44C21 44 22.5 42 24 38C25.5 42 27 44 29 44C32 44 33.5 40 34 36L35 24C36 21.5 37 19 37 15.5C37 9 31 4 24 4Z" stroke="#0ea5e9" stroke-width="2.5" stroke-linejoin="round" fill="rgba(14,165,233,0.08)"/>
+        </svg>
+      </div>
+      <p class="splash-name">Dr. Andújar</p>
+    </div>
+  </div>
+
+  <!-- ========== NAV ========== -->
+  <nav id="nav" role="navigation" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero">
+        <span class="nav-logo-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 48 48" fill="none"><path d="M24 4C17 4 11 9 11 15.5C11 19 12 21.5 13 24L14 36C14.5 40 16 44 19 44C21 44 22.5 42 24 38C25.5 42 27 44 29 44C32 44 33.5 40 34 36L35 24C36 21.5 37 19 37 15.5C37 9 31 4 24 4Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="currentColor" fill-opacity="0.1"/></svg>
+        </span>
+        <span>Dr. Andújar</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#formacion">Formación</a></li>
+        <li><a href="#testimonios">Pacientes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="#contacto" class="btn-nav">Pedir cita</a>
+      <button class="nav-hamburger" aria-label="Menú" aria-expanded="false" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile" hidden>
+      <a href="#servicios">Servicios</a>
+      <a href="#formacion">Formación</a>
+      <a href="#testimonios">Pacientes</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#contacto" class="btn-mobile-cta">Pedir cita</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="hero" aria-labelledby="hero-title">
+    <div class="hero-mesh" aria-hidden="true"></div>
+    <div class="hero-bubbles" aria-hidden="true">
+      <span class="bubble b1"></span>
+      <span class="bubble b2"></span>
+      <span class="bubble b3"></span>
+      <span class="bubble b4"></span>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-kicker">Cirujano Dentista · Punta Hermosa, Lima</p>
+      <h1 id="hero-title" class="hero-title">
+        La sonrisa que <em>siempre quisiste.</em><br>A pasos del mar.
+      </h1>
+      <p class="hero-sub">
+        Implantología avanzada, rehabilitación oral y odontología estética. 
+        Formación en la Cayetano Heredia y posgrado en Barcelona.
+      </p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-primary">Agendar consulta</a>
+        <a href="#servicios" class="btn-ghost">Ver servicios →</a>
+      </div>
+
+      <!-- Floating credential card -->
+      <div class="hero-credential glass-card" aria-label="Credencial profesional">
+        <div class="cred-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#0ea5e9" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#0ea5e9" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <p class="cred-title">Maestría en Implantología</p>
+          <p class="cred-sub">Barcelona, España · 2006–2024 experiencia</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <img
+          src="https://images.pexels.com/photos/3845547/pexels-photo-3845547.jpeg?auto=compress&cs=tinysrgb&w=900"
+          alt="Consultorio dental Dr. Andújar Punta Hermosa"
+          class="hero-img"
+          loading="eager"
+        />
+        <div class="hero-img-glow" aria-hidden="true"></div>
+      </div>
+
+      <!-- Stats floating pills -->
+      <div class="stat-pill pill-1 glass-card">
+        <span class="stat-num">+18</span>
+        <span class="stat-label">años de<br>experiencia</span>
+      </div>
+      <div class="stat-pill pill-2 glass-card">
+        <span class="stat-num">★ 5.0</span>
+        <span class="stat-label">Google<br>Reviews</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INTRO STRIP ========== -->
+  <section class="intro-strip" aria-label="Propuesta de valor">
+    <div class="strip-inner">
+      <div class="strip-item reveal">
+        <span class="strip-icon" aria-hidden="true">🦷</span>
+        <span>Implantes dentales de última generación</span>
+      </div>
+      <div class="strip-divider" aria-hidden="true"></div>
+      <div class="strip-item reveal">
+        <span class="strip-icon" aria-hidden="true">🌊</span>
+        <span>Consultorio frente al Pacífico</span>
+      </div>
+      <div class="strip-divider" aria-hidden="true"></div>
+      <div class="strip-item reveal">
+        <span class="strip-icon" aria-hidden="true">🎓</span>
+        <span>Posgrado en Barcelona, España</span>
+      </div>
+      <div class="strip-divider" aria-hidden="true"></div>
+      <div class="strip-item reveal">
+        <span class="strip-icon" aria-hidden="true">🏥</span>
+        <span>UPCH · Cayetano Heredia 2006</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICIOS ========== -->
+  <section id="servicios" class="servicios section-pad" aria-labelledby="servicios-title">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-kicker">Lo que ofrezco</p>
+        <h2 id="servicios-title" class="section-title">Atención dental completa,<br><em>sin salir de la costa.</em></h2>
+        <p class="section-desc">Desde revisiones preventivas hasta cirugía de alta complejidad. Todo en un entorno tranquilo y profesional, en Punta Hermosa.</p>
+      </div>
+
+      <div class="servicios-grid">
+
+        <article class="servicio-card glass-card reveal" tabindex="0">
+          <div class="srv-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#0ea5e9" stroke-width="1.5"/><path d="M10 16l4 4 8-8" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Implantes Dentales</h3>
+          <p>Rehabilitación de piezas perdidas con implantes de titanio. Técnica minimamente invasiva y resultados permanentes.</p>
+          <span class="srv-tag">Alta complejidad</span>
+        </article>
+
+        <article class="servicio-card glass-card reveal" tabindex="0">
+          <div class="srv-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 6C10 6 6 10 6 14.5C6 17 7 18.5 7.5 20L8 26C8.3 28.5 9.5 30 11 30C12 30 13 29 16 26.5C19 29 20 30 21 30C22.5 30 23.7 28.5 24 26L24.5 20C25 18.5 26 17 26 14.5C26 10 22 6 16 6Z" stroke="#0ea5e9" stroke-width="1.5" stroke-linejoin="round" fill="rgba(14,165,233,0.06)"/></svg>
+          </div>
+          <h3>Cirugía Oral</h3>
+          <p>Extracciones complejas, cirugía de terceros molares, resecciones apicales y otros procedimientos quirúrgicos con precisión.</p>
+          <span class="srv-tag">Diplomado especializado</span>
+        </article>
+
+        <article class="servicio-card glass-card reveal" tabindex="0">
+          <div class="srv-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="6" y="14" width="20" height="12" rx="3" stroke="#0ea5e9" stroke-width="1.5"/><path d="M11 14v-3a5 5 0 0110 0v3" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="20" r="2" fill="#0ea5e9"/></svg>
+          </div>
+          <h3>Odontología Estética</h3>
+          <p>Carillas de porcelana, blanqueamiento profesional y rehabilitación estética. Sonrisas diseñadas a medida.</p>
+          <span class="srv-tag">Diseño de sonrisa</span>
+        </article>
+
+        <article class="servicio-card glass-card reveal" tabindex="0">
+          <div class="srv-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 26V6M8 14h16M10 10h12M10 22h12" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Rehabilitación Oral</h3>
+          <p>Prótesis fija, removible y sobre implantes. Reconstrucción completa de la función y estética del sistema masticatorio.</p>
+          <span class="srv-tag">Maestría en Odontología Integrada</span>
+        </article>
+
+        <article class="servicio-card glass-card reveal" tabindex="0">
+          <div class="srv-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="#0ea5e9" stroke-width="1.5"/><path d="M16 10v6l4 3" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Limpiezas y Prevención</h3>
+          <p>Profilaxis dental, control de caries y tratamientos preventivos. La base de una salud bucal duradera.</p>
+          <span class="srv-tag">Rutina anual</span>
+        </article>
+
+        <article class="servicio-card glass-card reveal" tabindex="0">
+          <div class="srv-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 20h16M10 12l2 8M20 12l2 8M14 12v8M18 12v8" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Endodoncia</h3>
+          <p>Tratamiento de conductos para salvar piezas con infección profunda. Procedimiento bajo anestesia, sin dolor.</p>
+          <span class="srv-tag">Tratamiento conservador</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FORMACIÓN ========== -->
+  <section id="formacion" class="formacion section-pad" aria-labelledby="form-title">
+    <div class="container form-layout">
+
+      <div class="form-visual reveal">
+        <div class="form-img-container">
+          <img
+            src="https://images.pexels.com/photos/4269700/pexels-photo-4269700.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Dr. Álvaro Andújar Ferrari, cirujano dentista Punta Hermosa"
+            class="form-img"
+            loading="lazy"
+          />
+          <div class="form-img-badge glass-card">
+            <p class="badge-year">2006</p>
+            <p class="badge-label">Cayetano Heredia</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-content">
+        <p class="section-kicker reveal">Quién soy</p>
+        <h2 id="form-title" class="section-title reveal">Formación europea.<br><em>Compromiso local.</em></h2>
+        <p class="form-text reveal">
+          Soy Álvaro Andújar Ferrari, cirujano-dentista graduado de Estomatología en la Universidad Peruana Cayetano Heredia en 2006. Después de ejercer más de una década en Lima, decidí profundizar mi especialización con diplomados en Cirugía Oral e Implantología, y maestrías en Odontología Integrada Avanzada e Implantología en Barcelona, España.
+        </p>
+        <p class="form-text reveal">
+          Hoy ofrezco ese nivel de conocimiento en Punta Hermosa: un distrito que merece atención dental de primer nivel. Trabajo con cada paciente de manera personalizada, sin apresuramientos, en un entorno sereno frente al Pacífico.
+        </p>
+
+        <div class="timeline reveal">
+          <div class="tl-item">
+            <span class="tl-year">2006</span>
+            <div class="tl-content">
+              <p class="tl-title">Graduación · UPCH</p>
+              <p class="tl-desc">Estomatología — Universidad Peruana Cayetano Heredia, Lima</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">2010s</span>
+            <div class="tl-content">
+              <p class="tl-title">Diplomado en Cirugía Oral e Implantología</p>
+              <p class="tl-desc">Perfeccionamiento en técnicas quirúrgicas avanzadas</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">BCN</span>
+            <div class="tl-content">
+              <p class="tl-title">Maestría en Implantología · Barcelona, España</p>
+              <p class="tl-desc">Formación de postgrado de nivel europeo</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">Hoy</span>
+            <div class="tl-content">
+              <p class="tl-title">Consultorio en Punta Hermosa</p>
+              <p class="tl-desc">Playa Central · Atención local y a visitantes de temporada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== PUNTA HERMOSA ========== -->
+  <section class="ph-section section-pad" aria-labelledby="ph-title">
+    <div class="container ph-layout">
+      <div class="ph-content reveal">
+        <p class="section-kicker">Dónde estoy</p>
+        <h2 id="ph-title" class="section-title">Punta Hermosa.<br><em>A 42 km de Lima.</em></h2>
+        <p class="ph-text">
+          El consultorio está ubicado en Playa Central, Punta Hermosa — a pocos minutos de las mejores playas del sur de Lima. Ideal tanto para residentes del balneario como para familias que visitan la costa durante el verano o los fines de semana.
+        </p>
+        <div class="ph-features">
+          <div class="ph-feat">
+            <span aria-hidden="true">📍</span>
+            <span>Playa Central, Punta Hermosa</span>
+          </div>
+          <div class="ph-feat">
+            <span aria-hidden="true">🚗</span>
+            <span>42 km desde el centro de Lima por la Panamericana Sur</span>
+          </div>
+          <div class="ph-feat">
+            <span aria-hidden="true">🌅</span>
+            <span>Entorno tranquilo frente al Pacífico</span>
+          </div>
+        </div>
+        <a
+          href="https://maps.google.com/maps?q=M56F%2BXWH+Punta+Hermosa"
+          target="_blank"
+          rel="noopener"
+          class="btn-ghost"
+          aria-label="Abrir mapa de Punta Hermosa en Google Maps"
+        >
+          Cómo llegar →
+        </a>
+      </div>
+
+      <div class="ph-map reveal">
+        <div class="map-wrap glass-card">
+          <iframe
+            title="Ubicación consultorio Dr. Andújar — Playa Central, Punta Hermosa"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-76.8285%2C-12.3483%2C-76.8085%2C-12.3283&layer=mapnik&marker=-12.3383%2C-76.8185"
+            width="100%"
+            height="350"
+            style="border:0;border-radius:16px;"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIOS ========== -->
+  <section id="testimonios" class="testimonios section-pad" aria-labelledby="test-title">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-kicker">Pacientes</p>
+        <h2 id="test-title" class="section-title">Lo que dicen <em>quienes ya confían.</em></h2>
+      </div>
+
+      <div class="test-grid">
+
+        <blockquote class="test-card glass-card reveal" cite="#">
+          <div class="test-stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="test-quote">"Vine de Lima para un implante que otros me habían dicho que era complicado. El Dr. Andújar lo resolvió en una sesión. Profésional, tranquilo, sin dolor. El consultorio es cómodo y el entorno de Punta Hermosa hace que la experiencia sea otra."</p>
+          <footer class="test-author">
+            <span class="test-name">Andrés M.</span>
+            <span class="test-detail">Implante · Lima, 2024</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="test-card glass-card reveal" cite="#">
+          <div class="test-stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="test-quote">"Llevo años con mi dentista en Lima pero desde que descubrí a Álvaro no volvería atrás. Sabe explicar lo que hace, no te apura, y los resultados son impecables. El blanqueamiento me quedó perfecto."</p>
+          <footer class="test-author">
+            <span class="test-name">Carla F.</span>
+            <span class="test-detail">Blanqueamiento · Punta Hermosa, 2024</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="test-card glass-card reveal" cite="#">
+          <div class="test-stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="test-quote">"Mi familia completa atiende con el Dr. Andújar. Desde mis hijos hasta mis padres. Tiene mucha paciencia, mucho conocimiento y el precio es muy razonable para el nivel que ofrece. Un hallazgo para el balneario."</p>
+          <footer class="test-author">
+            <span class="test-name">Rosario V.</span>
+            <span class="test-detail">Atención familiar · Punta Hermosa, 2023–2024</span>
+          </footer>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA SECTION ========== -->
+  <section class="cta-section section-pad" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta-box glass-card reveal">
+        <div class="cta-mesh" aria-hidden="true"></div>
+        <div class="cta-content">
+          <p class="section-kicker">¿Listo para empezar?</p>
+          <h2 id="cta-title" class="cta-title">Tu primera consulta<br><em>sin compromiso.</em></h2>
+          <p class="cta-desc">Cuéntame qué necesitas. Evaluamos tu caso, te explico las opciones y decidimos juntos el mejor plan de tratamiento.</p>
+          <div class="cta-actions">
+            <a
+              href="https://wa.me/51972024219?text=Hola%20Dr.%20Alvaro%2C%20quisiera%20agendar%20una%20consulta."
+              target="_blank"
+              rel="noopener"
+              class="btn-primary"
+              aria-label="Contactar por WhatsApp al Dr. Andújar"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2C6.477 2 2 6.477 2 11.99c0 1.99.583 3.85 1.593 5.41L2 22l4.7-1.563A9.953 9.953 0 0011.99 22c5.523 0 10-4.477 10-10.01S17.513 2 11.99 2z"/></svg>
+              WhatsApp
+            </a>
+            <a href="mailto:alvaro.andujar.ferrari.83@gmail.com" class="btn-ghost">
+              Enviar correo →
+            </a>
+          </div>
+        </div>
+        <div class="cta-visual" aria-hidden="true">
+          <div class="cta-img-wrap">
+            <img
+              src="https://images.pexels.com/photos/3779706/pexels-photo-3779706.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt=""
+              class="cta-img"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACTO ========== -->
+  <section id="contacto" class="contacto section-pad" aria-labelledby="contact-title">
+    <div class="container contact-layout">
+
+      <div class="contact-info reveal">
+        <p class="section-kicker">Contacto</p>
+        <h2 id="contact-title" class="section-title">Hablemos<br><em>sin rodeos.</em></h2>
+
+        <div class="contact-items">
+          <a href="tel:+51972024219" class="contact-item glass-card">
+            <span class="contact-icon" aria-hidden="true">📞</span>
+            <div>
+              <p class="ci-label">Teléfono / WhatsApp</p>
+              <p class="ci-value">+51 972 024 219</p>
+            </div>
+          </a>
+          <a href="mailto:alvaro.andujar.ferrari.83@gmail.com" class="contact-item glass-card">
+            <span class="contact-icon" aria-hidden="true">✉️</span>
+            <div>
+              <p class="ci-label">Correo electrónico</p>
+              <p class="ci-value">alvaro.andujar.ferrari.83@gmail.com</p>
+            </div>
+          </a>
+          <div class="contact-item glass-card">
+            <span class="contact-icon" aria-hidden="true">📍</span>
+            <div>
+              <p class="ci-label">Dirección</p>
+              <p class="ci-value">Playa Central, Punta Hermosa, Lima</p>
+            </div>
+          </div>
+          <a href="https://www.instagram.com/dralvaroandujarferrari/" target="_blank" rel="noopener" class="contact-item glass-card">
+            <span class="contact-icon" aria-hidden="true">📸</span>
+            <div>
+              <p class="ci-label">Instagram</p>
+              <p class="ci-value">@dralvaroandujarferrari</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="horarios reveal">
+          <h3 class="hor-title">Horarios</h3>
+          <div class="hor-items">
+            <div class="hor-row">
+              <span>Lunes – Viernes</span>
+              <span class="hor-time">[tu horario]</span>
+            </div>
+            <div class="hor-row">
+              <span>Sábados</span>
+              <span class="hor-time">[tu horario]</span>
+            </div>
+            <div class="hor-row">
+              <span>Domingos y feriados</span>
+              <span class="hor-time">Previa coordinación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal">
+        <div class="contact-form glass-card">
+          <h3 class="form-title">Escribir mensaje</h3>
+          <div class="form-field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" autocomplete="name" />
+          </div>
+          <div class="form-field">
+            <label for="telefono">WhatsApp / Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+51 9XX XXX XXX" autocomplete="tel" />
+          </div>
+          <div class="form-field">
+            <label for="servicio">¿Qué necesitas?</label>
+            <select id="servicio" name="servicio">
+              <option value="" disabled selected>Selecciona un servicio</option>
+              <option>Implante dental</option>
+              <option>Cirugía oral</option>
+              <option>Blanqueamiento / Estética</option>
+              <option>Limpieza y prevención</option>
+              <option>Rehabilitación oral</option>
+              <option>Endodoncia</option>
+              <option>Consulta general</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="mensaje">Mensaje (opcional)</label>
+            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntame brevemente tu situación..."></textarea>
+          </div>
+          <button type="button" class="btn-primary btn-form" id="btnForm">Enviar por WhatsApp</button>
+          <p class="form-note">Al enviar, se abrirá WhatsApp con tu consulta pre-cargada.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner container">
+      <div class="footer-brand">
+        <span class="footer-logo-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 48 48" fill="none"><path d="M24 4C17 4 11 9 11 15.5C11 19 12 21.5 13 24L14 36C14.5 40 16 44 19 44C21 44 22.5 42 24 38C25.5 42 27 44 29 44C32 44 33.5 40 34 36L35 24C36 21.5 37 19 37 15.5C37 9 31 4 24 4Z" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.08"/></svg>
+        </span>
+        <div>
+          <p class="footer-name">Dr. Álvaro Andújar Ferrari</p>
+          <p class="footer-sub">Cirujano Dentista · COP [tu número COP]</p>
+        </div>
+      </div>
+      <div class="footer-links" role="navigation" aria-label="Footer navigation">
+        <a href="#servicios">Servicios</a>
+        <a href="#formacion">Formación</a>
+        <a href="#testimonios">Pacientes</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/dralvaroandujarferrari/" target="_blank" rel="noopener" aria-label="Instagram Dr. Andújar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://wa.me/51972024219" target="_blank" rel="noopener" aria-label="WhatsApp Dr. Andújar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dr. Álvaro Andújar Ferrari · Todos los derechos reservados</p>
+      <p>Sitio web por <a href="https://jparryg.github.io/portfolio/" target="_blank" rel="noopener">Parry Studio</a></p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="main.js?v=20260610" defer></script>
+
+</body>
+</html>
