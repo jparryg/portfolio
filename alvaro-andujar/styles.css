@@ -670,3 +670,13 @@ body { overflow-x: hidden; }
   .hero-title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
   .section-title { font-size: clamp(1.6rem, 6vw, 2rem); }
 }
+
+.nav-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.hero-title em {
+  font-size: 1em !important;
+}
