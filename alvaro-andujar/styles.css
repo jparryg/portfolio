@@ -655,8 +655,8 @@ body { overflow-x: hidden; }
 
 
 .nav-logo-img {
-  width: 68px;
-  height: 68px;
+  width: 136px;
+  height: 136px;
   object-fit: cover;
   border-radius: 50%;
   flex-shrink: 0;
