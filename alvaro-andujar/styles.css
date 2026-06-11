@@ -264,14 +264,19 @@ select,input,textarea { font-family:inherit; }
 }
 .hero-mesh {
   position: absolute; inset: 0; z-index: 0;
+  background-image: url('playa-punta-hermosa.jpg');
+  background-size: cover;
+  background-position: center 60%;
+}
+.hero-mesh::after {
+  content: '';
+  position: absolute; inset: 0;
   background: linear-gradient(
     160deg,
-    rgba(240,247,255,0.85) 0%,
-    rgba(224,242,254,0.78) 55%,
-    rgba(240,247,255,0.72) 100%
+    rgba(240,247,255,0.82) 0%,
+    rgba(224,242,254,0.75) 55%,
+    rgba(240,247,255,0.68) 100%
   );
-  filter: none;
-  animation: none;
 }
 @keyframes meshDrift {
   0%,100% { transform: scale(1) rotate(0deg); }
@@ -701,24 +706,6 @@ body { overflow-x: hidden; }
 }
 .nav-inner {
   justify-content: flex-end;
-}
-
-/* ---- HERO COASTAL BACKGROUND (lado izquierdo) ---- */
-.hero-content-coastal {
-  position: relative;
-  z-index: 1;
-}
-.hero-content-coastal::before {
-  content: '';
-  position: absolute;
-  inset: -40px -60px -40px -80px;
-  background-image: url('playa-punta-hermosa.jpg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 28px;
-  opacity: 0.13;
-  z-index: -1;
-  pointer-events: none;
 }
 
 
