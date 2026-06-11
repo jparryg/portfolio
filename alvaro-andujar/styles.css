@@ -712,11 +712,11 @@ body { overflow-x: hidden; }
   content: '';
   position: absolute;
   inset: -40px -60px -40px -80px;
-  background-image: url('502776281_17900102328194869_563415596374041467_n.jpg');
+  background-image: url('playa-punta-hermosa.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 28px;
-  opacity: 0.10;
+  opacity: 0.13;
   z-index: -1;
   pointer-events: none;
 }
