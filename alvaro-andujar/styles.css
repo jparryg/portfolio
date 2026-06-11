@@ -266,7 +266,7 @@ select,input,textarea { font-family:inherit; }
   position: absolute; inset: 0; z-index: 0;
   background-image: url('playa-punta-hermosa.jpg');
   background-size: cover;
-  background-position: center 60%;
+  background-position: center 30%;
 }
 .hero-mesh::after {
   content: '';
@@ -732,5 +732,11 @@ body { overflow-x: hidden; }
 .servicio-card {
   opacity: 1;
   transform: none;
+}
+
+@media (max-width: 768px) {
+  .hero-mesh {
+    background-position: center 20%;
+  }
 }
 
