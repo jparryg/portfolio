@@ -517,7 +517,7 @@ select,input,textarea { font-family:inherit; }
 
 .cta-visual { position:relative; z-index:1; }
 .cta-img-wrap {
-  width: 320px;
+  width: 370px;
   aspect-ratio: 3/4;
   border-radius: 20px;
   overflow: hidden;
@@ -682,6 +682,10 @@ body { overflow-x: hidden; }
   .hero {
     padding-top: 8rem;
   }
+  .hero-logo-inline img {
+    width: 180px;
+    height: 180px;
+  }
 }
 .srv-icon { display: none; }
 
@@ -689,8 +693,8 @@ body { overflow-x: hidden; }
   margin-bottom: 1.5rem;
 }
 .hero-logo-inline img {
-  width: 200px;
-  height: 200px;
+  width: 260px;
+  height: 260px;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 4px 20px rgba(14,165,233,0.2);
@@ -698,3 +702,48 @@ body { overflow-x: hidden; }
 .nav-inner {
   justify-content: flex-end;
 }
+
+/* ---- HERO COASTAL BACKGROUND (lado izquierdo) ---- */
+.hero-content-coastal {
+  position: relative;
+  z-index: 1;
+}
+.hero-content-coastal::before {
+  content: '';
+  position: absolute;
+  inset: -40px -60px -40px -80px;
+  background-image: url('502776281_17900102328194869_563415596374041467_n.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 28px;
+  opacity: 0.10;
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+/* ---- FOOTER LOGO REAL ---- */
+.footer-logo-img-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+.footer-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ---- CTA img-wrap 370px ---- */
+.cta-img-wrap { width: 370px; }
+
+/* ---- SERVICIO CARDS — visible por defecto (GSAP anima desde JS) ---- */
+.servicio-card {
+  opacity: 1;
+  transform: none;
+}
+
