@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casablanca del Mar — Hotel &amp; Restaurante en Punta Hermosa</title>
+  <meta name="description" content="Hotel y restaurante frente al Pacífico en Punta Hermosa, Lima. Ceviches, mariscos, habitaciones con vista al mar. Reserva tu mesa o habitación hoy." />
+  <meta property="og:title" content="Casablanca del Mar — Punta Hermosa" />
+  <meta property="og:description" content="Gastronomía de mar y descanso frente al Pacífico. Hotel y restaurante en Punta Hermosa, Lima, Perú." />
+  <meta property="og:image" content="./assets/img/vista-aerea-frente-playa.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#f4efe6" />
+
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="./assets/img/vista-aerea-frente-playa.jpg" fetchpriority="high" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500&display=swap" />
+
+  <link rel="stylesheet" href="styles.css?v=20260611" />
+</head>
+<body>
+
+  <!-- Skip link accesibilidad -->
+  <a href="#main" class="skip-link">Ir al contenido</a>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+    <a href="#inicio" class="nav-logo" aria-label="Casablanca del Mar — inicio">
+      <span class="nav-logo-wave">≋</span>
+      <span class="nav-logo-text">Casablanca <em>del Mar</em></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#restaurante">Restaurante</a></li>
+      <li><a href="#carta">Carta</a></li>
+      <li><a href="#hotel">Habitaciones</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+    </ul>
+    <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20hacer%20una%20reserva" class="btn btn-nav" target="_blank" rel="noopener">Reservar</a>
+    <button class="nav-burger" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav-mobile" aria-hidden="true">
+    <ul role="list">
+      <li><a href="#restaurante">Restaurante</a></li>
+      <li><a href="#carta">Carta</a></li>
+      <li><a href="#hotel">Habitaciones</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+    </ul>
+    <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20hacer%20una%20reserva" class="btn btn-primary" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio" aria-label="Portada">
+      <div class="hero-bg">
+        <img src="./assets/img/vista-aerea-frente-playa.jpg" alt="Vista aérea de Casablanca del Mar frente al Pacífico, Punta Hermosa" fetchpriority="high" loading="eager" />
+        <div class="hero-bg-tint"></div>
+      </div>
+      <div class="hero-grain"></div>
+      <div class="hero-inner container">
+        <p class="hero-kicker">
+          <span class="hero-dot" aria-hidden="true"></span>
+          Punta Hermosa · Abierto todos los días
+        </p>
+        <h1 class="hero-title">
+          El sabor del mar,<br />
+          <em>desde el mar.</em>
+        </h1>
+        <p class="hero-sub">Hotel &amp; Restaurante frente al Pacífico en Punta Hermosa, Lima</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20reservar%20una%20mesa" class="btn btn-primary" target="_blank" rel="noopener">Reservar mesa</a>
+          <a href="#hotel" class="btn btn-ghost">Ver habitaciones</a>
+        </div>
+        <div class="hero-rating" aria-label="Valoración">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span>4.5 · Google Reviews</span>
+        </div>
+      </div>
+      <a href="#restaurante" class="hero-scroll-cue" aria-label="Bajar al contenido">
+        <span class="scroll-line"></span>
+        <span class="scroll-label">Descubrir</span>
+      </a>
+    </section>
+
+    <!-- ===================== INTRO EDITORIAL ===================== -->
+    <section class="intro" aria-label="Presentación">
+      <div class="container intro-grid">
+        <div class="intro-num" aria-hidden="true">01</div>
+        <div class="intro-body">
+          <h2 class="intro-title reveal" data-split>
+            Un refugio gastronómico<br />
+            <em>donde el Pacífico es el decorado.</em>
+          </h2>
+          <p class="intro-text reveal">
+            En Punta Hermosa, donde las olas definen el tiempo, Casablanca del Mar
+            es hotel y restaurante a la vez. Sube a dormir con el sonido del mar.
+            Baja a almorzar ceviche mientras el horizonte ocupa toda la ventana.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RESTAURANTE ===================== -->
+    <section class="restaurante" id="restaurante" aria-label="El restaurante">
+      <div class="restaurante-hero">
+        <img src="./assets/img/terraza-mesas-vista-panoramica.jpg" alt="Terraza del restaurante Casablanca del Mar con vista al mar en Punta Hermosa" loading="lazy" decoding="async" />
+        <div class="restaurante-hero-overlay"></div>
+        <div class="restaurante-hero-caption container">
+          <p class="section-kicker">El restaurante</p>
+          <h2 class="section-title">Cocina de mar,<br /><em>con el mar enfrente.</em></h2>
+        </div>
+      </div>
+      <div class="container restaurante-body">
+        <div class="restaurante-cols">
+          <div class="restaurante-col reveal">
+            <h3>Ingredientes del Pacífico</h3>
+            <p>Ceviches, tiraditos, jaleas y mariscos preparados con la pesca del día. La carta combina sabores peruanos clásicos con influencias de la costa y del mediterráneo.</p>
+          </div>
+          <div class="restaurante-col reveal">
+            <h3>Terraza frente al mar</h3>
+            <p>El primer y segundo piso del edificio son enteramente del restaurante. Come en la terraza o en el salón interior — en cualquiera de los dos, el Pacífico está siempre en el cuadro.</p>
+          </div>
+          <div class="restaurante-col reveal">
+            <h3>Horario</h3>
+            <p>Lunes a domingo de 8 am a 11 pm. Desayuno, almuerzo y cena. Grupos y eventos especiales — escríbenos al WhatsApp para coordinar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PLATOS DESTACADOS ===================== -->
+    <section class="platos" aria-label="Platos destacados">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-kicker">De nuestra carta</p>
+          <h2 class="section-title">Los favoritos<br /><em>de la casa.</em></h2>
+        </header>
+        <div class="platos-grid" data-platos>
+          <!-- Ceviche Casablanca -->
+          <article class="plato-card" data-tilt>
+            <div class="plato-img-wrap">
+              <img src="./assets/img/ceviche-mixto-clasico.png" alt="Ceviche Casablanca — langostinos, calamares y pescado en salsa tres ajíes" loading="lazy" decoding="async" />
+            </div>
+            <div class="plato-info">
+              <h3 class="plato-name">Ceviche Casablanca</h3>
+              <p class="plato-desc">Langostinos, calamares y pescado en salsa tres ajíes</p>
+              <span class="plato-precio">S/ 55</span>
+            </div>
+          </article>
+          <!-- Jalea Mixta -->
+          <article class="plato-card" data-tilt>
+            <div class="plato-img-wrap">
+              <img src="./assets/img/jalea-mixta-chicharron.jpg" alt="Jalea Mixta — mariscos y pescado crocante con yuca y salsa criolla" loading="lazy" decoding="async" />
+            </div>
+            <div class="plato-info">
+              <h3 class="plato-name">Jalea Mixta</h3>
+              <p class="plato-desc">Mariscos y pescado crocante, yuca y salsa criolla</p>
+              <span class="plato-precio">S/ 50</span>
+            </div>
+          </article>
+          <!-- Pulpo -->
+          <article class="plato-card" data-tilt>
+            <div class="plato-img-wrap">
+              <img src="./assets/img/causa-langostinos-cremosa.jpg" alt="Pulpo en salsa parrillera con papas doradas y choclo salteado" loading="lazy" decoding="async" />
+            </div>
+            <div class="plato-info">
+              <h3 class="plato-name">Pulpo Parrillero</h3>
+              <p class="plato-desc">Tentáculos tiernos, papas doradas y choclo salteado</p>
+              <span class="plato-precio">S/ 60</span>
+            </div>
+          </article>
+          <!-- Pasta -->
+          <article class="plato-card" data-tilt>
+            <div class="plato-img-wrap">
+              <img src="./assets/img/tallarines-mariscos-vista-mar.jpg" alt="Pappardelle Mar Adentro — pasta con langostinos a la crema y lomo en salsa de pimienta" loading="lazy" decoding="async" />
+            </div>
+            <div class="plato-info">
+              <h3 class="plato-name">Pappardelle Mar Adentro</h3>
+              <p class="plato-desc">Pasta, langostinos a la crema y lomo en salsa de pimienta</p>
+              <span class="plato-precio">S/ 75</span>
+            </div>
+          </article>
+        </div>
+        <div class="platos-cta reveal">
+          <a href="#carta" class="btn btn-outline">Ver carta completa</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CARTA RESUMEN ===================== -->
+    <section class="carta" id="carta" aria-label="Carta del restaurante">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-kicker">Carta</p>
+          <h2 class="section-title">Todo lo que<br /><em>sirve el mar.</em></h2>
+        </header>
+        <div class="carta-categorias">
+          <div class="carta-cat reveal">
+            <h3 class="carta-cat-title">Entradas</h3>
+            <ul class="carta-items">
+              <li><span>Tequeños de queso (6 / 12 uds.)</span><span>S/ 29 / 45</span></li>
+              <li><span>Wantanes rellenos de mariscos</span><span>S/ 40</span></li>
+              <li><span>Langostinos al Panko</span><span>S/ 50</span></li>
+              <li><span>Jalea Mixta personal (1–2 pers.)</span><span>S/ 50</span></li>
+            </ul>
+          </div>
+          <div class="carta-cat reveal">
+            <h3 class="carta-cat-title">Ceviches &amp; Frío</h3>
+            <ul class="carta-items">
+              <li><span>Ceviche de Pescado</span><span>S/ 48</span></li>
+              <li><span>Ceviche Mixto</span><span>S/ 55</span></li>
+              <li><span>Ceviche Casablanca</span><span>S/ 55</span></li>
+              <li><span>Tiradito (rocoto / ají / clásico)</span><span>S/ 48</span></li>
+              <li><span>Causa de Langostinos</span><span>S/ 50</span></li>
+            </ul>
+          </div>
+          <div class="carta-cat reveal">
+            <h3 class="carta-cat-title">Del Mar</h3>
+            <ul class="carta-items">
+              <li><span>Arroz con Mariscos</span><span>S/ 45</span></li>
+              <li><span>Chupe de Langostinos</span><span>S/ 55</span></li>
+              <li><span>Pulpo en Salsa Parrillera</span><span>S/ 60</span></li>
+              <li><span>Chita Entera a la Brasa</span><span>S/ 80</span></li>
+              <li><span>Tacu Tacu de Mariscos</span><span>S/ 48</span></li>
+            </ul>
+          </div>
+          <div class="carta-cat reveal">
+            <h3 class="carta-cat-title">Pastas &amp; Tierra</h3>
+            <ul class="carta-items">
+              <li><span>Pappardelle Mar Adentro</span><span>S/ 75</span></li>
+              <li><span>Fetuccini de Marcelo</span><span>S/ 75</span></li>
+              <li><span>Lomo Saltado</span><span>S/ 60</span></li>
+              <li><span>Medallón de Lomo Fino</span><span>S/ 72</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="carta-nota reveal">
+          <p>Carta completa disponible en el local. Para grupos y eventos especiales, contáctanos.</p>
+          <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20consultar%20la%20carta%20completa" class="btn btn-primary" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOTEL ===================== -->
+    <section class="hotel" id="hotel" aria-label="Habitaciones del hotel">
+      <div class="hotel-intro container">
+        <header class="section-header reveal">
+          <p class="section-kicker">Hotel</p>
+          <h2 class="section-title">Duerme donde el mar<br /><em>no descansa.</em></h2>
+        </header>
+        <p class="hotel-desc reveal">Las habitaciones están en los pisos superiores, sobre el restaurante. Cada una diseñada para que lo primero que veas al despertar sea el Pacífico — o al menos una parte de él.</p>
+      </div>
+      <div class="habitaciones-grid container" data-habitaciones>
+        <!-- Habitación Interna -->
+        <article class="hab-card reveal" data-tilt>
+          <div class="hab-img-wrap">
+            <img src="./assets/img/fachada-exterior-atardecer.jpg" alt="Habitación interna de Casablanca del Mar, Punta Hermosa" loading="lazy" decoding="async" />
+          </div>
+          <div class="hab-info">
+            <h3 class="hab-tipo">Habitación Interna</h3>
+            <p class="hab-desc">Acogedora y tranquila, ideal para descansar del sol y las olas.</p>
+            <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20información%20sobre%20la%20Habitación%20Interna" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Consultar disponibilidad</a>
+          </div>
+        </article>
+        <!-- Interna A/C -->
+        <article class="hab-card reveal" data-tilt>
+          <div class="hab-img-wrap">
+            <img src="./assets/img/fachada-exterior-sunset.jpg" alt="Habitación interna con aire acondicionado de Casablanca del Mar" loading="lazy" decoding="async" />
+          </div>
+          <div class="hab-info">
+            <h3 class="hab-tipo">Interna con A/C</h3>
+            <p class="hab-desc">Climatizada, perfecta para los días de más calor en la costa.</p>
+            <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20información%20sobre%20la%20Habitación%20Interna%20con%20A/C" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Consultar disponibilidad</a>
+          </div>
+        </article>
+        <!-- Vista Parcial al Mar -->
+        <article class="hab-card reveal" data-tilt>
+          <div class="hab-img-wrap">
+            <img src="./assets/img/plato-pescado-vino-vista-mar.jpg" alt="Habitación con vista parcial al mar en Casablanca del Mar, Punta Hermosa" loading="lazy" decoding="async" />
+          </div>
+          <div class="hab-info">
+            <h3 class="hab-tipo">Vista Parcial al Mar</h3>
+            <p class="hab-desc">Despierta con el horizonte del Pacífico recortado en tu ventana.</p>
+            <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20información%20sobre%20la%20habitación%20Vista%20Parcial%20al%20Mar" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Consultar disponibilidad</a>
+          </div>
+        </article>
+        <!-- Vista al Mar -->
+        <article class="hab-card reveal hab-featured" data-tilt>
+          <div class="hab-badge">La más solicitada</div>
+          <div class="hab-img-wrap">
+            <img src="./assets/img/terraza-mesas-vista-panoramica.jpg" alt="Habitación con vista completa al mar en Casablanca del Mar, Punta Hermosa" loading="lazy" decoding="async" />
+          </div>
+          <div class="hab-info">
+            <h3 class="hab-tipo">Vista al Mar</h3>
+            <p class="hab-desc">El mar, sin barreras. Ventanas de piso a techo con el Pacífico como protagonista.</p>
+            <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20información%20sobre%20la%20habitación%20Vista%20al%20Mar" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Consultar disponibilidad</a>
+          </div>
+        </article>
+        <!-- King Vista Parcial -->
+        <article class="hab-card reveal" data-tilt>
+          <div class="hab-img-wrap">
+            <img src="./assets/img/vista-aerea-frente-playa.jpg" alt="Habitación King con vista parcial al mar y escritorio de trabajo en Casablanca del Mar" loading="lazy" decoding="async" />
+          </div>
+          <div class="hab-info">
+            <h3 class="hab-tipo">King Vista Parcial al Mar</h3>
+            <p class="hab-desc">Cama King size, escritorio, minibar y el confort de casa con el mar de fondo.</p>
+            <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20información%20sobre%20la%20habitación%20King%20Vista%20Parcial" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Consultar disponibilidad</a>
+          </div>
+        </article>
+      </div>
+      <div class="hotel-reserva container reveal">
+        <p>¿No sabes cuál elegir? Escríbenos y te ayudamos a encontrar la que se ajusta a tu visita.</p>
+        <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20reservar%20una%20habitación%20en%20Casablanca%20del%20Mar" class="btn btn-primary" target="_blank" rel="noopener">Reservar habitación</a>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONIOS ===================== -->
+    <section class="testimonios" aria-label="Reseñas de huéspedes">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="section-kicker">Reseñas</p>
+          <h2 class="section-title">Lo que dicen<br /><em>quienes ya volvieron.</em></h2>
+        </header>
+        <div class="testimonios-track" data-testimonios>
+          <blockquote class="testimonio-card reveal">
+            <p class="testimonio-texto">"La vista es impresionante y la comida, increíble. El ceviche casablanca es el mejor que he probado en Lima sur."</p>
+            <footer class="testimonio-autor">
+              <span class="testimonio-nombre">Carla M.</span>
+              <span class="testimonio-origen">Lima</span>
+              <span class="testimonio-stars" aria-label="5 estrellas">★★★★★</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonio-card reveal">
+            <p class="testimonio-texto">"Nos quedamos dos noches y no queríamos irnos. El servicio es muy cálido, se nota que es un negocio familiar con alma."</p>
+            <footer class="testimonio-autor">
+              <span class="testimonio-nombre">Diego R.</span>
+              <span class="testimonio-origen">Miraflores</span>
+              <span class="testimonio-stars" aria-label="5 estrellas">★★★★★</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonio-card reveal">
+            <p class="testimonio-texto">"Perfecta para escapar el fin de semana. Desayuno con vista al mar. ¿Qué más puedes pedir en Lima?"</p>
+            <footer class="testimonio-autor">
+              <span class="testimonio-nombre">Sofía L.</span>
+              <span class="testimonio-origen">San Isidro</span>
+              <span class="testimonio-stars" aria-label="5 estrellas">★★★★★</span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NOSOTROS ===================== -->
+    <section class="nosotros" id="nosotros" aria-label="Historia del lugar">
+      <div class="container nosotros-grid">
+        <div class="nosotros-img reveal">
+          <img src="./assets/img/fachada-exterior-atardecer.jpg" alt="Vista exterior de Casablanca del Mar al atardecer en Punta Hermosa" loading="lazy" decoding="async" />
+        </div>
+        <div class="nosotros-texto">
+          <p class="section-kicker">Nosotros</p>
+          <h2 class="section-title reveal">Un rincón donde el mar<br /><em>entra por todas las ventanas.</em></h2>
+          <p class="reveal">Casablanca del Mar nació en Punta Hermosa para ofrecer lo que pocos lugares combinan: gastronomía honesta con ingredientes del Pacífico y la tranquilidad de dormir frente al mar.</p>
+          <p class="reveal">Cada piso tiene su propia vida — el restaurante en los dos primeros, las habitaciones arriba. Un solo edificio, dos experiencias, una sola vista.</p>
+          <a href="https://wa.me/51923433405" class="btn btn-outline" target="_blank" rel="noopener">Contáctanos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MAPA + CONTACTO ===================== -->
+    <section class="contacto" id="contacto" aria-label="Ubicación y contacto">
+      <div class="container contacto-grid">
+        <div class="contacto-info reveal">
+          <p class="section-kicker">Encuéntranos</p>
+          <h2 class="section-title">Punta Hermosa,<br /><em>a 45 minutos de Lima.</em></h2>
+          <address class="contacto-datos">
+            <div class="dato">
+              <span class="dato-icon" aria-hidden="true">📍</span>
+              <div>
+                <strong>Dirección</strong>
+                <span>Mz. A1 Lt. 40 Urb. El Carmen<br />Punta Hermosa, Lima</span>
+              </div>
+            </div>
+            <div class="dato">
+              <span class="dato-icon" aria-hidden="true">🕐</span>
+              <div>
+                <strong>Horario</strong>
+                <span>Lunes a Domingo<br />8 am – 11 pm</span>
+              </div>
+            </div>
+            <div class="dato">
+              <span class="dato-icon" aria-hidden="true">💬</span>
+              <div>
+                <strong>WhatsApp</strong>
+                <span><a href="https://wa.me/51923433405" target="_blank" rel="noopener">+51 923 433 405</a></span>
+              </div>
+            </div>
+            <div class="dato">
+              <span class="dato-icon" aria-hidden="true">✉</span>
+              <div>
+                <strong>Correo</strong>
+                <span><a href="mailto:ventas@casablancadelmarph.com">ventas@casablancadelmarph.com</a></span>
+              </div>
+            </div>
+          </address>
+          <a href="https://maps.google.com/?q=Casablanca+del+Mar+Punta+Hermosa+Lima" class="btn btn-outline" target="_blank" rel="noopener">Cómo llegar →</a>
+        </div>
+        <div class="contacto-mapa reveal">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-76.8248%2C-12.3578%2C-76.8148%2C-12.3478&amp;layer=mapnik&amp;marker=-12.3528%2C-76.8198"
+            width="100%"
+            height="400"
+            style="border:0;border-radius:12px;"
+            loading="lazy"
+            title="Mapa de ubicación de Casablanca del Mar en Punta Hermosa"
+            aria-label="Mapa de ubicación"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="cta-final" aria-label="Llamada a la acción final">
+      <div class="cta-final-bg">
+        <img src="./assets/img/fachada-exterior-sunset.jpg" alt="Atardecer desde el restaurante Casablanca del Mar" loading="lazy" decoding="async" />
+        <div class="cta-final-overlay"></div>
+      </div>
+      <div class="container cta-final-inner">
+        <p class="section-kicker light">¿Listo para venir?</p>
+        <h2 class="cta-final-title">Reserva tu mesa<br /><em>o tu noche.</em></h2>
+        <p class="cta-final-sub">Escríbenos al WhatsApp y te confirmamos disponibilidad en minutos.</p>
+        <div class="cta-final-actions">
+          <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20reservar%20una%20mesa%20en%20Casablanca%20del%20Mar" class="btn btn-cream" target="_blank" rel="noopener">Reservar mesa</a>
+          <a href="https://wa.me/51923433405?text=Hola,%20quisiera%20reservar%20una%20habitación%20en%20Casablanca%20del%20Mar" class="btn btn-outline-light" target="_blank" rel="noopener">Reservar habitación</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo-wave" aria-hidden="true">≋</span>
+        <strong>Casablanca del Mar</strong>
+        <p>Hotel &amp; Restaurante<br />Punta Hermosa, Lima, Perú</p>
+      </div>
+      <nav class="footer-nav" aria-label="Navegación del pie de página">
+        <ul role="list">
+          <li><a href="#restaurante">Restaurante</a></li>
+          <li><a href="#carta">Carta</a></li>
+          <li><a href="#hotel">Habitaciones</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="footer-social">
+        <p>Síguenos</p>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/casablancadelmarph" target="_blank" rel="noopener" aria-label="Instagram de Casablanca del Mar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100086718913349" target="_blank" rel="noopener" aria-label="Facebook de Casablanca del Mar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/51923433405" target="_blank" rel="noopener" aria-label="WhatsApp de Casablanca del Mar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2025 Casablanca del Mar · Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script defer src="lib/gsap.min.js"></script>
+  <script defer src="lib/ScrollTrigger.min.js"></script>
+  <script defer src="lib/manifest.js"></script>
+  <script defer src="main.js?v=20260611"></script>
+
+</body>
+</html>
