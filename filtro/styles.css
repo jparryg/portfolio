@@ -273,9 +273,9 @@ ul, ol { list-style: none; padding: 0; }
   position: absolute; inset: 0;
   background: linear-gradient(
     170deg,
-    rgba(26,23,20,0.72) 0%,
-    rgba(26,23,20,0.45) 50%,
-    rgba(26,23,20,0.65) 100%
+    rgba(26,23,20,0.55) 0%,
+    rgba(26,23,20,0.30) 50%,
+    rgba(26,23,20,0.60) 100%
   );
 }
 .hero-grain {
