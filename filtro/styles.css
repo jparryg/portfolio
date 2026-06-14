@@ -511,20 +511,52 @@ ul, ol { list-style: none; padding: 0; }
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  padding: 1.25rem 1.5rem;
+  padding: 1rem 1.25rem;
   background: var(--paper);
   border-radius: var(--r-md);
   border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
   transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out), border-color .25s;
 }
 .menu-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(26,23,20,0.08);
-  border-color: var(--accent);
+  border-left-color: var(--accent-2);
 }
-.menu-icon { font-size: 1.75rem; flex-shrink: 0; line-height: 1; margin-top: .1rem; }
-.menu-info h4 { font-family: var(--serif); font-size: 1rem; font-weight: 400; margin-bottom: .25rem; color: var(--ink); }
-.menu-info p { font-size: .85rem; color: var(--ink-mute); line-height: 1.5; }
+.menu-info h4 { font-family: var(--serif); font-size: 1rem; font-weight: 400; margin-bottom: .2rem; color: var(--ink); }
+.menu-info p { font-size: .83rem; color: var(--ink-mute); line-height: 1.5; }
+
+.menu-cat-hero {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  aspect-ratio: 3 / 1;
+}
+.menu-cat-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: brightness(0.82);
+  transition: transform .6s var(--ease-soft), filter .4s;
+}
+.menu-cat-hero:hover img {
+  transform: scale(1.03);
+  filter: brightness(0.9);
+}
+.menu-cat-hero-label {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.5rem;
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: #f5f0e8;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
 
 /* =============================================================
    12. Testimonials
