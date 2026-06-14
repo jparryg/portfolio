@@ -531,7 +531,7 @@ ul, ol { list-style: none; padding: 0; }
   border-radius: var(--r-lg);
   overflow: hidden;
   margin-bottom: 1.5rem;
-  aspect-ratio: 3 / 1;
+  height: clamp(160px, 18vw, 240px);
 }
 .menu-cat-hero img {
   width: 100%;
