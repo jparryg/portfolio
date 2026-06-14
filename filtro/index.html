@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filtro — Café de Especialidad · Punta Hermosa</title>
+  <meta name="description" content="El mejor café de especialidad en Punta Hermosa. Granos de origen, sandwiches frescos, cold brew y buena vibra frente al mar. Abierto de 7 AM." />
+
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?w=1600&auto=compress" fetchpriority="high" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500&display=swap" />
+
+  <link rel="stylesheet" href="styles.css?v=20260614" />
+</head>
+<body>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Ir al contenido</a>
+
+<!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner container">
+    <a href="#hero" class="nav-logo" aria-label="Filtro inicio">
+      <span class="nav-logo-mark">◈</span>
+      <span class="nav-logo-text">Filtro</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#menu">Carta</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#visitas">Reseñas</a></li>
+      <li><a href="#ubicacion">Cómo llegar</a></li>
+    </ul>
+    <a href="https://wa.me/51993522345" target="_blank" rel="noopener" class="btn btn-nav">
+      Contactar →
+    </a>
+    <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <a href="#menu" class="nav-mobile-link">Carta</a>
+    <a href="#nosotros" class="nav-mobile-link">Nosotros</a>
+    <a href="#visitas" class="nav-mobile-link">Reseñas</a>
+    <a href="#ubicacion" class="nav-mobile-link">Cómo llegar</a>
+    <a href="https://wa.me/51993522345" target="_blank" rel="noopener" class="btn btn-primary nav-mobile-cta">
+      WhatsApp →
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<main id="main">
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img
+      src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?w=1600&auto=compress"
+      alt="Taza de café de especialidad con arte latte"
+      fetchpriority="high"
+      loading="eager"
+    />
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-grain"></div>
+  <div class="hero-inner container">
+    <p class="hero-kicker">
+      <span class="hero-dot"></span>
+      Abierto hoy · 7:00 AM – 6:30 PM
+    </p>
+    <h1 class="hero-title" data-split="lines">
+      Café de especialidad.<br /><em>Punta Hermosa.</em>
+    </h1>
+    <p class="hero-sub">
+      Granos de origen, sandwiches frescos<br />y buena vibra frente al mar.
+    </p>
+    <div class="hero-rating">
+      <span class="hero-stars">★★★★★</span>
+      <span class="hero-score"><span data-count-to="5.0">5.0</span> · <span data-count-to="25">25</span> reseñas Google</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#menu" class="btn btn-primary">Ver carta</a>
+      <a href="https://wa.me/51993522345" target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp ↗</a>
+    </div>
+  </div>
+  <a href="#nosotros" class="hero-scroll-hint" aria-label="Desliza hacia abajo">
+    <span>scroll</span>
+    <span class="hero-scroll-line"></span>
+  </a>
+</section>
+
+<!-- ═══════════════════════════ MANIFESTO ═══════════════════════════ -->
+<section class="manifesto" id="nosotros">
+  <div class="container manifesto-inner">
+    <div class="manifesto-num reveal">01</div>
+    <div class="manifesto-body">
+      <h2 class="manifesto-title reveal" data-split="lines">
+        El café que<br /><em>Punta Hermosa</em><br />merecía.
+      </h2>
+      <p class="manifesto-text reveal">
+        En Filtro creemos que un buen café cambia la mañana. Por eso trabajamos solo con granos de origen, preparamos cada taza con cuidado y elegimos ingredientes frescos para nuestra carta de sandwiches. No somos una cadena. Somos el lugar de siempre.
+      </p>
+      <div class="manifesto-stats">
+        <div class="stat reveal">
+          <span class="stat-num">★ 5.0</span>
+          <span class="stat-label">Rating Google</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num">7AM</span>
+          <span class="stat-label">Abrimos temprano</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num">6 días</span>
+          <span class="stat-label">De la semana</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ GALERÍA BENTO ═══════════════════════════ -->
+<section class="bento" aria-label="Galería Filtro">
+  <div class="bento-grid">
+    <div class="bento-card bento-lg" data-tilt>
+      <img
+        src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?w=900&auto=compress"
+        alt="Latte art en taza de cerámica" loading="lazy" decoding="async"
+      />
+      <div class="bento-label">Latte art</div>
+    </div>
+    <div class="bento-card" data-tilt>
+      <img
+        src="https://images.pexels.com/photos/2638026/pexels-photo-2638026.jpeg?w=600&auto=compress"
+        alt="Cold brew en vaso con hielo" loading="lazy" decoding="async"
+      />
+      <div class="bento-label">Cold Brew</div>
+    </div>
+    <div class="bento-card" data-tilt>
+      <img
+        src="https://images.pexels.com/photos/1603901/pexels-photo-1603901.jpeg?w=600&auto=compress"
+        alt="Sandwich artesanal fresco" loading="lazy" decoding="async"
+      />
+      <div class="bento-label">Sandwiches</div>
+    </div>
+    <div class="bento-card bento-wide" data-tilt>
+      <img
+        src="https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?w=1200&auto=compress"
+        alt="Vista del mar en Punta Hermosa" loading="lazy" decoding="async"
+      />
+      <div class="bento-label">Punta Hermosa</div>
+    </div>
+    <div class="bento-card" data-tilt>
+      <img
+        src="https://images.pexels.com/photos/894695/pexels-photo-894695.jpeg?w=600&auto=compress"
+        alt="Granos de café de especialidad" loading="lazy" decoding="async"
+      />
+      <div class="bento-label">Granos de origen</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ MARQUEE ═══════════════════════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Café de Especialidad</span><span class="marquee-dot">·</span>
+    <span>Cold Brew</span><span class="marquee-dot">·</span>
+    <span>Sandwiches Frescos</span><span class="marquee-dot">·</span>
+    <span>Granos de Origen</span><span class="marquee-dot">·</span>
+    <span>Leche de Avena</span><span class="marquee-dot">·</span>
+    <span>Punta Hermosa</span><span class="marquee-dot">·</span>
+    <span>Pour-Over Manual</span><span class="marquee-dot">·</span>
+    <span>Café de Especialidad</span><span class="marquee-dot">·</span>
+    <span>Cold Brew</span><span class="marquee-dot">·</span>
+    <span>Sandwiches Frescos</span><span class="marquee-dot">·</span>
+    <span>Granos de Origen</span><span class="marquee-dot">·</span>
+    <span>Leche de Avena</span><span class="marquee-dot">·</span>
+    <span>Punta Hermosa</span><span class="marquee-dot">·</span>
+    <span>Pour-Over Manual</span><span class="marquee-dot">·</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ MENÚ ═══════════════════════════ -->
+<section class="menu-sec" id="menu">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-num">02</span>
+      <h2 class="section-title">La carta</h2>
+      <p class="section-sub">Todo preparado en el momento. Siempre fresco.</p>
+    </div>
+
+    <!-- Café -->
+    <div class="menu-cat">
+      <h3 class="menu-cat-title reveal">Café</h3>
+      <div class="menu-grid" data-menu-cat="cafe">
+        <article class="menu-card reveal">
+          <span class="menu-icon">☕</span>
+          <div class="menu-info">
+            <h4>Espresso</h4>
+            <p>Doble shot. Intensidad pura.</p>
+          </div>
+        </article>
+        <article class="menu-card reveal">
+          <span class="menu-icon">🥛</span>
+          <div class="menu-info">
+            <h4>Latte con leche de avena</h4>
+            <p>Suave, cremoso, sin culpas.</p>
+          </div>
+        </article>
+        <article class="menu-card reveal">
+          <span class="menu-icon">🧊</span>
+          <div class="menu-info">
+            <h4>Cold Brew</h4>
+            <p>12 horas de extracción en frío.</p>
+          </div>
+        </article>
+        <article class="menu-card reveal">
+          <span class="menu-icon">💧</span>
+          <div class="menu-info">
+            <h4>Filtrado manual</h4>
+            <p>V60 o Chemex. Para quienes saben.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Sandwiches -->
+    <div class="menu-cat">
+      <h3 class="menu-cat-title reveal">Sandwiches</h3>
+      <div class="menu-grid" data-menu-cat="sandwiches">
+        <article class="menu-card reveal">
+          <span class="menu-icon">🥑</span>
+          <div class="menu-info">
+            <h4>Pollo & Palta</h4>
+            <p>Pan artesanal, palta fresca, mostaza antigua.</p>
+          </div>
+        </article>
+        <article class="menu-card reveal">
+          <span class="menu-icon">🧀</span>
+          <div class="menu-info">
+            <h4>Jamón & Brie</h4>
+            <p>Clásico europeo con toque de miel.</p>
+          </div>
+        </article>
+        <article class="menu-card reveal">
+          <span class="menu-icon">🌿</span>
+          <div class="menu-info">
+            <h4>Veggie del día</h4>
+            <p>Ingredientes de temporada, siempre frescos.</p>
+          </div>
+        </article>
+        <article class="menu-card reveal">
+          <span class="menu-icon">⭐</span>
+          <div class="menu-info">
+            <h4>Club Filtro</h4>
+            <p>Triple capa. El más pedido.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Para llevar -->
+    <div class="menu-cat">
+      <h3 class="menu-cat-title reveal">Para llevar</h3>
+      <div class="menu-grid" data-menu-cat="llevar">
+        <article class="menu-card reveal">
+          <span class="menu-icon">☁️</span>
+          <div class="menu-info">
+            <h4>Granos de origen</h4>
+            <p>Bolsas 250g. Para tu mañana en casa.</p>
+          </div>
+        </article>
+        <article class="menu-card reveal">
+          <span class="menu-icon">📦</span>
+          <div class="menu-info">
+            <h4>Kit pour-over</h4>
+            <p>Filtros + dripper. Empieza bien.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ RESEÑAS ═══════════════════════════ -->
+<section class="testimonials" id="visitas">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Lo que dicen</h2>
+      <p class="section-sub">★★★★★ 5.0 en Google · 25 reseñas</p>
+    </div>
+    <div class="testimonials-track" id="testimonials-track">
+      <article class="testimonial-card">
+        <blockquote>
+          "El mejor café en Punta Hermosa. Excelente comida, buena vibra y el equipo es muy profesional."
+        </blockquote>
+        <footer class="testimonial-foot">
+          <span class="testimonial-stars">★★★★★</span>
+          <span class="testimonial-author">Visitante Google</span>
+        </footer>
+      </article>
+      <article class="testimonial-card">
+        <blockquote>
+          "Muy buen café y servicio. Pedí un iced latte con leche de avena y estaba delicioso."
+        </blockquote>
+        <footer class="testimonial-foot">
+          <span class="testimonial-stars">★★★★★</span>
+          <span class="testimonial-author">Visitante Google</span>
+        </footer>
+      </article>
+      <article class="testimonial-card">
+        <blockquote>
+          "Aparte del café increíble, los sandwiches son deliciosos. Todo se siente súper fresco. Atención muy amable y ambiente único."
+        </blockquote>
+        <footer class="testimonial-foot">
+          <span class="testimonial-stars">★★★★★</span>
+          <span class="testimonial-author">Visitante Google</span>
+        </footer>
+      </article>
+      <article class="testimonial-card">
+        <blockquote>
+          "He ido muchas veces. Me encanta la variedad en la carta, el café es delicioso y la atención mil puntos."
+        </blockquote>
+        <footer class="testimonial-foot">
+          <span class="testimonial-stars">★★★★★</span>
+          <span class="testimonial-author">Visitante Google</span>
+        </footer>
+      </article>
+    </div>
+    <div class="testimonials-nav" role="group" aria-label="Navegación de reseñas">
+      <button class="t-prev" aria-label="Anterior">←</button>
+      <div class="t-dots" id="t-dots"></div>
+      <button class="t-next" aria-label="Siguiente">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ HORARIO + CONTACTO ═══════════════════════════ -->
+<section class="info-sec" id="info">
+  <div class="container info-grid">
+    <div class="info-block reveal">
+      <h3 class="info-title">Horario</h3>
+      <ul class="hours-list">
+        <li><span>Lunes</span><span>7:00 AM – 6:30 PM</span></li>
+        <li class="closed"><span>Martes</span><span>Cerrado</span></li>
+        <li><span>Miércoles</span><span>7:00 AM – 6:30 PM</span></li>
+        <li><span>Jueves</span><span>7:00 AM – 6:30 PM</span></li>
+        <li><span>Viernes</span><span>7:00 AM – 6:30 PM</span></li>
+        <li class="highlight"><span>Sábado</span><span>7:00 AM – 6:30 PM</span></li>
+        <li class="highlight"><span>Domingo</span><span>7:00 AM – 6:30 PM</span></li>
+      </ul>
+    </div>
+    <div class="info-block reveal">
+      <h3 class="info-title">Contáctanos</h3>
+      <div class="contact-list">
+        <a href="tel:+51993522345" class="contact-item">
+          <span class="contact-icon">📞</span>
+          <span>+51 993 522 345</span>
+        </a>
+        <a href="https://wa.me/51993522345" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-icon">💬</span>
+          <span>WhatsApp</span>
+        </a>
+        <a href="https://instagram.com/filtroph" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-icon">📸</span>
+          <span>@filtroph</span>
+        </a>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <span>Lote 4, C. Punta Sal Mz. A<br />Punta Hermosa, Lima</span>
+        </div>
+      </div>
+    </div>
+    <div class="info-block info-image reveal">
+      <img
+        src="https://images.pexels.com/photos/1813466/pexels-photo-1813466.jpeg?w=800&auto=compress"
+        alt="Interior de café de especialidad" loading="lazy" decoding="async"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ MAPA ═══════════════════════════ -->
+<section class="map-sec" id="ubicacion">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Cómo llegar</h2>
+      <p class="section-sub">Lote 4, C. Punta Sal Mz. A · Punta Hermosa, Lima</p>
+    </div>
+    <div class="map-wrap reveal">
+      <iframe
+        title="Mapa de Filtro en Punta Hermosa"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-76.8290%2C-12.3365%2C-76.8183%2C-12.3305&layer=mapnik&marker=-12.3334983%2C-76.8236425"
+        loading="lazy"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="map-cta reveal">
+      <a
+        href="https://www.google.com/maps/place/Filtro/@-12.3334983,-76.8236425,17z"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-primary"
+      >
+        Abrir en Google Maps →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CTA FINAL ═══════════════════════════ -->
+<section class="cta-final">
+  <div class="cta-final-bg">
+    <img
+      src="https://images.pexels.com/photos/2122294/pexels-photo-2122294.jpeg?w=1600&auto=compress"
+      alt="Pastel y café en Filtro" loading="lazy" decoding="async"
+    />
+    <div class="cta-final-overlay"></div>
+  </div>
+  <div class="container cta-final-inner reveal">
+    <h2 class="cta-final-title">
+      Tu próxima mañana<br /><em>empieza acá.</em>
+    </h2>
+    <p class="cta-final-sub">Abrimos a las 7 AM. El café ya está listo.</p>
+    <div class="cta-final-actions">
+      <a href="https://wa.me/51993522345" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+        Escribirnos →
+      </a>
+      <a href="https://instagram.com/filtroph" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">
+        @filtroph ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo-mark">◈</span>
+      <span>Filtro</span>
+    </div>
+    <p class="footer-address">Lote 4, C. Punta Sal Mz. A · Punta Hermosa · Lima, Perú</p>
+    <p class="footer-hours">Lun, Mié–Dom · 7:00 AM – 6:30 PM</p>
+    <div class="footer-links">
+      <a href="https://instagram.com/filtroph" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/51993522345" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="tel:+51993522345">+51 993 522 345</a>
+    </div>
+    <p class="footer-credits">
+      Fotos vía <a href="https://pexels.com" target="_blank" rel="noopener">Pexels</a> · Licencia CC0 ·
+      Diseño <a href="#" rel="noopener">Parry Studio</a>
+    </p>
+  </div>
+</footer>
+
+<!-- Scripts (IIFE, no modules) -->
+<script defer src="lib/gsap.min.js"></script>
+<script defer src="lib/ScrollTrigger.min.js"></script>
+<script defer src="lib/manifest.js"></script>
+<script defer src="main.js?v=20260614"></script>
+
+</body>
+</html>

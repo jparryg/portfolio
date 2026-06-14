@@ -1,0 +1,55 @@
+{
+  "project": "Filtro — Café de Especialidad, Punta Hermosa",
+  "generated": "2026-06-14",
+  "images": [
+    {
+      "id": "pexels-302899",
+      "url": "https://www.pexels.com/photo/302899/",
+      "license": "Pexels License (free for commercial use)",
+      "usage": "hero background — specialty coffee cup"
+    },
+    {
+      "id": "pexels-312418",
+      "url": "https://www.pexels.com/photo/312418/",
+      "license": "Pexels License",
+      "usage": "bento grid — latte art"
+    },
+    {
+      "id": "pexels-2638026",
+      "url": "https://www.pexels.com/photo/2638026/",
+      "license": "Pexels License",
+      "usage": "bento grid — cold brew"
+    },
+    {
+      "id": "pexels-1603901",
+      "url": "https://www.pexels.com/photo/1603901/",
+      "license": "Pexels License",
+      "usage": "bento grid — sandwich"
+    },
+    {
+      "id": "pexels-1032650",
+      "url": "https://www.pexels.com/photo/1032650/",
+      "license": "Pexels License",
+      "usage": "bento grid — Punta Hermosa beach"
+    },
+    {
+      "id": "pexels-894695",
+      "url": "https://www.pexels.com/photo/894695/",
+      "license": "Pexels License",
+      "usage": "bento grid — coffee beans"
+    },
+    {
+      "id": "pexels-1813466",
+      "url": "https://www.pexels.com/photo/1813466/",
+      "license": "Pexels License",
+      "usage": "info section — café interior"
+    },
+    {
+      "id": "pexels-2122294",
+      "url": "https://www.pexels.com/photo/2122294/",
+      "license": "Pexels License",
+      "usage": "CTA final background — coffee and pastry"
+    }
+  ],
+  "notes": "All images from Pexels.com under free commercial license. Replace with actual Filtro photos before launch."
+}
