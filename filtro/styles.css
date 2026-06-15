@@ -386,8 +386,20 @@ ul, ol { list-style: none; padding: 0; }
   margin-bottom: 2.5rem;
 }
 .manifesto-stats {
-  display: flex; gap: 2rem; flex-wrap: wrap;
+  display: flex;
+  gap: 0;
+  flex-wrap: nowrap;
+  border-top: 1px solid var(--line);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
 }
+.stat {
+  flex: 1;
+  padding-inline: 1.25rem;
+  border-right: 1px solid var(--line);
+}
+.stat:first-child { padding-left: 0; }
+.stat:last-child { border-right: none; }
 .stat { display: flex; flex-direction: column; gap: .25rem; }
 .stat-num {
   font-family: var(--serif);
