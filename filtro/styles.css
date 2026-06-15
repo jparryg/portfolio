@@ -407,7 +407,6 @@ ul, ol { list-style: none; padding: 0; }
 .bento-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto auto;
   gap: .75rem;
   padding-inline: var(--gutter);
   max-width: 1200px;
@@ -417,7 +416,7 @@ ul, ol { list-style: none; padding: 0; }
   position: relative;
   border-radius: var(--r-lg);
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   cursor: pointer;
   transition: transform .4s var(--ease-out), box-shadow .4s var(--ease-out);
   transform-style: preserve-3d;
@@ -436,8 +435,6 @@ ul, ol { list-style: none; padding: 0; }
   transform: translateY(-4px);
   box-shadow: 0 20px 50px rgba(176,90,47,0.2);
 }
-.bento-lg { grid-column: span 2; aspect-ratio: 16 / 9; }
-.bento-wide { grid-column: span 2; aspect-ratio: 16 / 7; }
 .bento-label {
   position: absolute; bottom: 1rem; left: 1rem;
   background: rgba(245,240,232,0.88);
@@ -807,11 +804,8 @@ ul, ol { list-style: none; padding: 0; }
 
   .bento-grid {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto;
   }
-  .bento-lg { grid-column: 1 / 4; aspect-ratio: 21 / 8; }
-  .bento-wide { grid-column: 1 / 4; aspect-ratio: 21 / 8; }
-  .bento-card { aspect-ratio: 1 / 1; }
+  .bento-card { aspect-ratio: 4 / 3; }
 
   .info-grid { grid-template-columns: 1fr 1fr; }
   .info-image { grid-column: 1 / -1; }
@@ -826,12 +820,13 @@ ul, ol { list-style: none; padding: 0; }
   .info-image img { height: 100%; min-height: 320px; }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .bento-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
-  .bento-lg { grid-column: 1 / 4; }
-  .bento-wide { grid-column: 2 / 5; }
+  .bento-card { aspect-ratio: 3 / 4; }
+}
+@media (min-width: 1280px) {
   .menu-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
