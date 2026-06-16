@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Propuesta Web — M&R Market</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #fafaf8;
+    --bg2: #f2f0eb;
+    --ink: #1a1a18;
+    --ink2: #5a5850;
+    --accent: #2e6b3e;
+    --accent2: #e8f5ec;
+    --border: #ddd9d0;
+    --red: #c0392b;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* Header */
+  .header {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+
+  .studio-tag {
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink2);
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    color: var(--ink2);
+  }
+
+  /* Demo banner */
+  .demo-banner {
+    background: var(--accent2);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 40px;
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+  }
+
+  .demo-banner strong {
+    display: block;
+    color: var(--accent);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .demo-banner a {
+    color: var(--accent);
+    font-weight: 600;
+    word-break: break-all;
+  }
+
+  /* Section */
+  h2 {
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink2);
+    margin-bottom: 16px;
+    margin-top: 40px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  p {
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+
+  /* Includes list */
+  .includes {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+
+  .includes li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-family: system-ui, sans-serif;
+    font-size: 15px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .includes li:last-child { border-bottom: none; }
+
+  .check {
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Price block */
+  .price-block {
+    background: var(--ink);
+    color: white;
+    border-radius: 8px;
+    padding: 32px;
+    margin: 40px 0;
+    text-align: center;
+  }
+
+  .price-label {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+
+  .price-amount {
+    font-size: 3.5rem;
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .price-note {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+  }
+
+  .price-regular {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+
+  .price-condition {
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 20px;
+  }
+
+  /* Process steps */
+  .steps {
+    list-style: none;
+    counter-reset: step;
+  }
+
+  .steps li {
+    counter-increment: step;
+    padding: 12px 0 12px 48px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    font-family: system-ui, sans-serif;
+    font-size: 15px;
+  }
+
+  .steps li:last-child { border-bottom: none; }
+
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 28px;
+    height: 28px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink2);
+  }
+
+  .steps li strong {
+    display: block;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .steps li span {
+    color: var(--ink2);
+    font-size: 13px;
+  }
+
+  /* FAQ */
+  .faq-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-q {
+    font-family: system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .faq-a {
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    color: var(--ink2);
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-block {
+    background: var(--accent2);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 32px;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .cta-block h3 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 12px;
+  }
+
+  .cta-block p {
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    color: var(--ink2);
+    margin-bottom: 24px;
+  }
+
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25d366;
+    color: #000;
+    font-family: system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    color: var(--ink2);
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 32px 16px 60px; }
+    h1 { font-size: 1.6rem; }
+    .price-amount { font-size: 2.8rem; }
+    .price-block { padding: 24px 20px; }
+    .cta-block { padding: 24px 20px; }
+  }
+
+  @media print {
+    body { max-width: 100%; padding: 20px; }
+    .btn-wa { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="studio-tag">John Parry Web Studio · Lima, Perú</div>
+  <h1>Propuesta: Presencia digital para M&R Market</h1>
+  <div class="subtitle">Preparada para Randy & Margarita — Junio 2026</div>
+</div>
+
+<div class="demo-banner">
+  <strong>📱 Ya pueden verlo funcionando</strong>
+  El demo está listo y disponible ahora mismo:<br/>
+  <a href="https://jparryg.github.io/portfolio/mr-market/index.html" target="_blank">jparryg.github.io/portfolio/mr-market</a><br/>
+  <small style="color:var(--ink2);margin-top:4px;display:block;">Abrir desde el celular para ver la experiencia completa.</small>
+</div>
+
+<h2>El problema que resuelve</h2>
+
+<p>Cuando alguien en Punta Hermosa busca en Google "minimarket cerca", M&R no aparece con presencia propia. Los clientes potenciales —vecinos nuevos, turistas, personas que buscan delivery— terminan en otro lado.</p>
+
+<p>Una web propia cambia eso: M&R aparece, se ve profesional, y el cliente puede armar su pedido y mandarlo directo al WhatsApp de Randy o Margarita con un botón.</p>
+
+<h2>Qué incluye</h2>
+
+<ul class="includes">
+  <li><span class="check">✓</span> <span>Catálogo digital organizado por categorías — los productos que ustedes decidan mostrar, sin mantener precios en la web</span></li>
+  <li><span class="check">✓</span> <span>Sistema de pedidos por WhatsApp — el cliente arma su carrito, toca un botón, y el pedido llega al celular de Randy o Margarita con todo el detalle</span></li>
+  <li><span class="check">✓</span> <span>Mapa de ubicación y horarios — visible desde Google</span></li>
+  <li><span class="check">✓</span> <span>Diseño adaptado a celular — la mayoría de clientes lo van a abrir desde el teléfono</span></li>
+  <li><span class="check">✓</span> <span>Subida al servidor incluida — no hay que hacer nada técnico</span></li>
+  <li><span class="check">✓</span> <span>Una semana de ajustes post-entrega — cambios de productos, texto, colores</span></li>
+</ul>
+
+<h2>Cómo maneja la web los precios variables</h2>
+
+<p>El catálogo funciona con dos tipos de productos:</p>
+
+<p><strong>Productos con precio fijo</strong> — abarrotes, bebidas, lácteos envasados, limpieza, conservas. Estos muestran precio en la web. Son los más vendidos y los que casi nunca cambian de precio en semanas o meses. El cliente sabe cuánto va a gastar antes de escribir, y eso hace que decida más rápido.</p>
+
+<p><strong>Productos frescos</strong> — frutas, verduras, carnes. Estos aparecen en el catálogo con una etiqueta de <em>"precio del día"</em> y un botón de WhatsApp directo para consultar. Sin precio fijo que mantener, sin desactualización.</p>
+
+<p>El resultado: la web funciona sola para el 80% del catálogo. Y el 20% restante genera conversaciones en WhatsApp que frecuentemente derivan en pedidos más completos.</p>
+
+<div class="price-block">
+  <div class="price-label">Inversión total</div>
+  <div class="price-amount">$150</div>
+  <div class="price-note">pago único · todo incluido</div>
+  <div class="price-regular">Precio regular del servicio: $200 + dominio y hosting aparte</div>
+  <div class="price-condition" style="text-align:left;margin-top:20px;">
+    <div style="margin-bottom:10px;opacity:0.8;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;">Qué cubre este precio</div>
+    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.15);font-size:14px;">
+      <span>Diseño y desarrollo de la web</span><span style="opacity:0.7;">$150</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.15);font-size:14px;">
+      <span>Dominio propio (ej: mrmarket.pe) — 1er año</span><span style="opacity:0.7;">incluido</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.15);font-size:14px;">
+      <span>Hosting — 1er año</span><span style="opacity:0.7;">incluido</span>
+    </div>
+    <div style="padding:12px 0 0;font-size:13px;opacity:0.65;line-height:1.5;">
+      A partir del segundo año, dominio y hosting se renuevan directamente a nombre de M&R — aproximadamente $50–60/año. El negocio queda siendo dueño de su web.
+    </div>
+    <div style="margin-top:16px;padding:12px;background:rgba(255,255,255,0.08);border-radius:4px;font-size:13px;line-height:1.5;">
+      Este precio especial es para Margarita y Randy porque nos conocemos hace tiempo y hay confianza. Es una forma de ayudarlos a dar el salto digital con una ventaja real. A cambio, les pido autorización para usar los resultados — pedidos generados, experiencia del cliente — como caso de estudio. El sistema de carrito con total calculado que llega directo al WhatsApp es una funcionalidad nueva que estoy implementando por primera vez, y M&R sería el negocio donde la probamos juntos.
+    </div>
+  </div>
+</div>
+
+<h2>Cómo funciona el proceso</h2>
+
+<ol class="steps">
+  <li>
+    <strong>Confirman y me pasan los productos</strong>
+    <span>Una lista simple de qué categorías y productos quieren mostrar. No hacen falta fotos — busco imágenes de stock.</span>
+  </li>
+  <li>
+    <strong>Entrego en 5 días hábiles</strong>
+    <span>Un link para revisar la web antes de publicarla. Si algo no les gusta, lo cambiamos.</span>
+  </li>
+  <li>
+    <strong>La subo y queda activa</strong>
+    <span>Con el número de WhatsApp de Randy o Margarita. Desde ese momento, cualquier cliente puede pedir por ahí.</span>
+  </li>
+  <li>
+    <strong>Semana de ajustes incluida</strong>
+    <span>Si quieren agregar productos, cambiar algo, o ajustar el diseño, lo hago sin costo adicional.</span>
+  </li>
+</ol>
+
+<h2>Preguntas frecuentes</h2>
+
+<div class="faq-item">
+  <div class="faq-q">¿Hay un costo mensual o anual después?</div>
+  <div class="faq-a">El primer año está todo incluido en los $150 — diseño, dominio y hosting. A partir del segundo año, dominio y hosting se renuevan directamente a nombre de M&R por aproximadamente $50–60 anuales. La web y el dominio quedan siendo propiedad del negocio.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-q">¿Qué pasa si cambian los precios?</div>
+  <div class="faq-a">Los productos estables (abarrotes, bebidas, conservas) tienen precio en la web y rara vez cambian. Los frescos como frutas y verduras van sin precio fijo — aparecen como "precio del día" con un botón para consultar por WhatsApp. Así nunca hay información desactualizada.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-q">¿Cómo saben que va a funcionar?</div>
+  <div class="faq-a">El demo ya está construido y funciona. Pueden abrirlo ahora mismo, armar un pedido de prueba, y ver exactamente cómo les llegaría al WhatsApp. No hay que imaginárselo — ya existe.</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-q">¿Qué necesitan dar de su parte?</div>
+  <div class="faq-a">Solo una lista de los productos que quieren mostrar y el número de WhatsApp al que deben llegar los pedidos. Con eso es suficiente para empezar.</div>
+</div>
+
+<div class="cta-block">
+  <h3>¿Tienen dudas antes de decidir?</h3>
+  <p>Puedo reunirme en el local, mostrarles el demo en persona, y responder cualquier pregunta que tenga el contador. Sin presión, sin compromiso.</p>
+  <a class="btn-wa" href="https://wa.me/51961748282?text=Hola%20John%2C%20quiero%20hablar%20de%20la%20propuesta%20web%20para%20M%26R%20Market" target="_blank">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Escribir a John
+  </a>
+</div>
+
+<div class="footer">
+  John Parry Web Studio · Punta Hermosa, Lima<br/>
+  Esta propuesta es válida por 30 días desde la fecha de emisión.
+</div>
+
+</body>
+</html>
