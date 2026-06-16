@@ -777,6 +777,10 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
 .footer-logo-wave { font-size: 2rem; color: var(--accent-2); }
 .footer-brand strong { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; }
 .footer-brand p { font-size: .85rem; color: rgba(245,240,232,.55); line-height: 1.5; }
+.footer-logo-img { max-width: 160px; display: block; margin: 0 auto 0.5rem; mix-blend-mode: screen; }
+@media (max-width: 719px) {
+  .footer-logo-img { max-width: 120px; }
+}
 
 .footer-nav ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: .75rem; }
 .footer-nav a { font-size: .875rem; color: rgba(245,240,232,.65); transition: color .2s; }
