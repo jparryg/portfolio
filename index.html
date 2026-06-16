@@ -248,6 +248,10 @@ header {
   background-image: url("filtro/assets/img/ig-latte.webp");
   background-size: cover; background-position: center;
 }
+.thumb-casablanca {
+  background-image: url("casablanca/assets/img/terraza-mesas-vista-panoramica.jpg");
+  background-size: cover; background-position: center;
+}
 
 /* ─── CTA ────────────────────────────────────────────────────── */
 .cta {
@@ -322,7 +326,7 @@ footer {
 </style>
 </head>
 <body>
-<!-- v20260611 -->
+<!-- v20260615 -->
 
 <!-- HEADER -->
 <header>
@@ -344,10 +348,13 @@ footer {
 <!-- FILTROS -->
 <div class="filters">
   <button class="filter-btn is-active" data-filter="all">Todos</button>
-  <button class="filter-btn" data-filter="restaurante">Restaurantes</button>
+  <button class="filter-btn" data-filter="restaurantes">Restaurantes</button>
   <button class="filter-btn" data-filter="wellness">Wellness</button>
+  <button class="filter-btn" data-filter="marca-personal">Marca Personal</button>
   <button class="filter-btn" data-filter="servicios">Servicios</button>
-  <button class="filter-btn" data-filter="lodge">Lodge · Turismo</button>
+  <button class="filter-btn" data-filter="lodge">Lodge</button>
+  <button class="filter-btn" data-filter="turismo">Turismo</button>
+  <button class="filter-btn" data-filter="tienda">Tienda</button>
   <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
 </div>
 
@@ -355,7 +362,7 @@ footer {
 <div class="grid">
 
   <!-- Yurawasi -->
-  <article class="card reveal" data-cat="restaurante">
+  <article class="card reveal" data-cat="restaurantes">
     <a href="yurawasi.html" class="card-link" aria-label="Ver demo Yurawasi">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-yurawasi"></div>
@@ -375,7 +382,7 @@ footer {
   </article>
 
   <!-- Seitan -->
-  <article class="card reveal d1" data-cat="restaurante">
+  <article class="card reveal d1" data-cat="restaurantes">
     <a href="seitan.html" class="card-link" aria-label="Ver demo Seitan">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-seitan"></div>
@@ -395,7 +402,7 @@ footer {
   </article>
 
   <!-- La ReContra -->
-  <article class="card reveal d2" data-cat="restaurante">
+  <article class="card reveal d2" data-cat="restaurantes">
     <a href="recontra.html" class="card-link" aria-label="Ver demo La ReContra">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-recontra"></div>
@@ -415,7 +422,7 @@ footer {
   </article>
 
   <!-- Namasté -->
-  <article class="card reveal d3" data-cat="restaurante">
+  <article class="card reveal d3" data-cat="restaurantes">
     <a href="namaste.html" class="card-link" aria-label="Ver demo Namasté">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-namaste"></div>
@@ -435,7 +442,7 @@ footer {
   </article>
 
   <!-- Lumbre -->
-  <article class="card reveal d4" data-cat="restaurante">
+  <article class="card reveal d4" data-cat="restaurantes">
     <a href="restaurante.html" class="card-link" aria-label="Ver demo Lumbre">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-lumbre"></div>
@@ -495,7 +502,7 @@ footer {
   </article>
 
   <!-- Piacere -->
-  <article class="card reveal d2" data-cat="restaurante">
+  <article class="card reveal d2" data-cat="restaurantes">
     <a href="piacere.html" class="card-link" aria-label="Ver demo Piacere">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-piacere"></div>
@@ -515,7 +522,7 @@ footer {
   </article>
 
   <!-- Tentazione -->
-  <article class="card reveal d3" data-cat="restaurante">
+  <article class="card reveal d3" data-cat="restaurantes">
     <a href="https://jparryg.github.io/portfolio/tentazione/index.html" class="card-link" aria-label="Ver demo Tentazione Pasticceria" target="_blank" rel="noopener">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-tentazione"></div>
@@ -594,6 +601,26 @@ footer {
     </a>
   </article>
 
+  <!-- Casablanca del Mar -->
+  <article class="card reveal d2" data-cat="lodge">
+    <a href="https://jparryg.github.io/portfolio/casablanca/" class="card-link" aria-label="Ver demo Casablanca del Mar" target="_blank" rel="noopener">
+      <div class="card-thumb">
+        <div class="card-thumb-bg thumb-casablanca"></div>
+        <div class="card-thumb-overlay"></div>
+        <span class="card-tag">Hotel · Restaurante · Punta Hermosa</span>
+      </div>
+      <div class="card-body">
+        <p class="card-cat">Hotel & Restaurante</p>
+        <h2 class="card-name">Casablanca del Mar</h2>
+        <p class="card-desc">Hotel boutique y restaurante frente al Pacífico en Punta Hermosa. Cocina marina peruana, cocteles de autor y terraza con vista panorámica al mar.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-loc">Punta Hermosa, Lima</span>
+        <span class="card-cta">Ver demo <span>→</span></span>
+      </div>
+    </a>
+  </article>
+
   <!-- Álvaro Andújar Ferrari -->
   <article class="card reveal d2" data-cat="servicios">
     <a href="https://jparryg.github.io/portfolio/alvaro-andujar/" class="card-link" aria-label="Ver demo Dr. Álvaro Andújar Ferrari" target="_blank" rel="noopener">
@@ -615,7 +642,7 @@ footer {
   </article>
 
   <!-- Filtro -->
-  <article class="card reveal d3" data-cat="restaurante">
+  <article class="card reveal d3" data-cat="restaurantes">
     <a href="filtro/" class="card-link" aria-label="Ver demo Filtro">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-filtro"></div>
