@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Créditos fotográficos · KILU HOME</title>
+  <link rel="stylesheet" href="styles.css?v=20260615">
+  <style>
+    .credits-page { padding: calc(var(--nav-h) + 3rem) var(--gutter) 4rem; max-width: 800px; margin: 0 auto; }
+    .credits-back { color: var(--gold); font-size: .875rem; margin-bottom: 2rem; display: inline-block; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+    .credits-back:hover { opacity: .7; }
+    .credits-title { font-family: var(--serif); font-size: 2rem; font-style: italic; font-weight: 500; margin-bottom: .75rem; }
+    .credits-intro { color: var(--cream-2); font-size: .9375rem; font-weight: 300; margin-bottom: 2.5rem; line-height: 1.7; }
+    .credits-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+    .credits-item { border: 1px solid var(--line); border-radius: 4px; padding: 1.25rem 1.5rem; background: var(--bg-card); }
+    .credits-item-id { font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .4rem; }
+    .credits-item-title { font-family: var(--serif); font-style: italic; font-size: 1.125rem; color: var(--cream); margin-bottom: .35rem; }
+    .credits-item-meta { font-size: .8125rem; color: var(--cream-3); line-height: 1.6; }
+    .credits-item-meta a { color: var(--cream-2); border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .credits-item-meta a:hover { border-color: var(--cream-2); }
+  </style>
+</head>
+<body>
+  <nav class="nav is-scrolled" aria-label="Navegación">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">KILU HOME</a>
+    </div>
+  </nav>
+
+  <div class="credits-page">
+    <a class="credits-back" href="index.html">← Volver al inicio</a>
+    <h1 class="credits-title">Créditos fotográficos</h1>
+    <p class="credits-intro">
+      Las imágenes de esta web provienen de
+      <a href="https://openverse.org" target="_blank" rel="noopener" style="color:var(--gold);">Openverse</a>
+      bajo licencias Creative Commons. A continuación el detalle de cada una.
+      Las fotos serán reemplazadas por imágenes reales del showroom y productos de Kilu Home.
+    </p>
+    <ul class="credits-list" id="credits-list">
+      <li class="credits-item" style="text-align:center; color:var(--cream-3); padding:2rem;">
+        Cargando créditos…
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    (function () {
+      var list = document.getElementById("credits-list");
+      fetch("assets/credits.json")
+        .then(function (r) { return r.json(); })
+        .then(function (credits) {
+          var items = Object.entries(credits);
+          if (!items.length) { list.innerHTML = "<li class='credits-item'>No hay créditos registrados.</li>"; return; }
+          list.innerHTML = items.map(function (entry) {
+            var id = entry[0], c = entry[1];
+            var creator = c.creator_url
+              ? '<a href="' + c.creator_url + '" target="_blank" rel="noopener">' + (c.creator || "Autor desconocido") + '</a>'
+              : (c.creator || "Autor desconocido");
+            return '<li class="credits-item">' +
+              '<p class="credits-item-id">' + id + '</p>' +
+              '<p class="credits-item-title">' + (c.title || "Sin título") + '</p>' +
+              '<p class="credits-item-meta">' +
+                'Autor: ' + creator +
+                (c.source ? ' · Fuente: ' + c.source : '') +
+                ' · Licencia: <a href="' + (c.license_url || "#") + '" target="_blank" rel="noopener">' +
+                (c.license || "CC").toUpperCase() + ' ' + (c.license_version || "") + '</a>' +
+                (c.foreign_landing_url ? ' · <a href="' + c.foreign_landing_url + '" target="_blank" rel="noopener">Ver original ↗</a>' : '') +
+              '</p>' +
+            '</li>';
+          }).join("");
+        })
+        .catch(function () {
+          list.innerHTML = '<li class="credits-item" style="color:var(--cream-3);">Error al cargar créditos.</li>';
+        });
+    })();
+  </script>
+</body>
+</html>

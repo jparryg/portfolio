@@ -1,0 +1,145 @@
+{
+  "hero": {
+    "src": "assets/img/hero.webp",
+    "title": "Carved wooden decorative panel",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=carved+wood+bali+door",
+    "source": "openverse"
+  },
+  "nosotros": {
+    "src": "assets/img/nosotros.webp",
+    "title": "Craftsman woodworking",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=craftsman+woodworking+indonesia",
+    "source": "openverse"
+  },
+  "cat-comedores": {
+    "src": "assets/img/cat-comedores.webp",
+    "title": "Dining room wooden furniture",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=dining+table+wood+natural",
+    "source": "openverse"
+  },
+  "cat-sillas": {
+    "src": "assets/img/cat-sillas.webp",
+    "title": "Wooden chairs furniture",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=wooden+chair+furniture+natural",
+    "source": "openverse"
+  },
+  "cat-espejos": {
+    "src": "assets/img/cat-espejos.webp",
+    "title": "Decorative mirror wooden frame",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=mirror+wooden+frame+carved",
+    "source": "openverse"
+  },
+  "cat-lamparas": {
+    "src": "assets/img/cat-lamparas.webp",
+    "title": "Bamboo pendant lamp natural",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=bamboo+pendant+lamp+natural",
+    "source": "openverse"
+  },
+  "cat-repisas": {
+    "src": "assets/img/cat-repisas.webp",
+    "title": "Wooden shelf books natural",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=wooden+shelf+books+natural",
+    "source": "openverse"
+  },
+  "cat-fuentes": {
+    "src": "assets/img/cat-fuentes.webp",
+    "title": "Garden water fountain decorative",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=garden+fountain+decorative+stone",
+    "source": "openverse"
+  },
+  "cat-cuadros": {
+    "src": "assets/img/cat-cuadros.webp",
+    "title": "Decorative artwork framed painting",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=decorative+art+framed+wall",
+    "source": "openverse"
+  },
+  "cat-accesorios": {
+    "src": "assets/img/cat-accesorios.webp",
+    "title": "Home decor accessories natural",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=home+decor+accessories+natural",
+    "source": "openverse"
+  },
+  "galeria-sala": {
+    "src": "assets/img/galeria-sala.webp",
+    "title": "Living room natural wood interior",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=living+room+wood+natural+interior",
+    "source": "openverse"
+  },
+  "galeria-comedor": {
+    "src": "assets/img/galeria-comedor.webp",
+    "title": "Dining room interior wood furniture",
+    "creator": "Openverse contributor",
+    "creator_url": null,
+    "license": "cc-by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://openverse.org/search/?q=dining+room+interior+wood+furniture",
+    "source": "openverse"
+  },
+  "galeria-terraza": {
+    "src": "assets/img/galeria-terraza.webp",
+    "title": "Free chairs table patio image",
+    "creator": "Unknown",
+    "creator_url": null,
+    "license": "cc0",
+    "license_version": "1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "foreign_landing_url": "https://www.rawpixel.com/image/5920752/photo-image-public-domain-house-table",
+    "source": "rawpixel"
+  }
+}
