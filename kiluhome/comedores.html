@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comedores y Mesas — KILU HOME · Punta Hermosa, Lima</title>
+  <meta name="description" content="Mesas de comedor, mesas de centro y consolas en teca, raíz y ratán importadas directamente desde Indonesia. Showroom en Punta Hermosa, Lima.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap">
+
+  <link rel="stylesheet" href="styles.css?v=20260615">
+  <meta name="theme-color" content="#0C0906">
+
+  <style>
+    /* ── Category page overrides ─────────────────────────────────── */
+    .cat-hero {
+      padding: 5rem var(--pad) 4rem;
+      border-bottom: 1px solid rgba(240,232,212,.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .cat-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('assets/img/cat-comedores.webp') center/cover no-repeat;
+      opacity: .12;
+      filter: saturate(.5);
+    }
+    .cat-hero-inner { position: relative; max-width: 680px; }
+    .cat-hero-back {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--cream-3);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color .2s;
+    }
+    .cat-hero-back:hover { color: var(--cream); }
+    .cat-hero-back svg { width: 14px; height: 14px; }
+    .cat-kicker {
+      font-size: .7rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .cat-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 1.25rem;
+    }
+    .cat-title em { font-style: italic; color: var(--cream-2); }
+    .cat-desc {
+      font-size: .95rem;
+      color: var(--cream-3);
+      line-height: 1.8;
+      max-width: 58ch;
+    }
+
+    /* ── Product grid ─────────────────────────────────────────────── */
+    .prod-section {
+      padding: 0 var(--pad) 5rem;
+    }
+    .prod-group-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--cream-2);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3rem 0 1.5rem;
+      border-bottom: 1px solid rgba(240,232,212,.07);
+      margin-bottom: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .prod-group-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(240,232,212,.07);
+    }
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.25rem;
+    }
+    .prod-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(240,232,212,.07);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .3s, transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s;
+    }
+    .prod-card:hover {
+      border-color: rgba(196,145,58,.4);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.4);
+    }
+    .prod-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.92) saturate(.9);
+      transition: filter .4s, transform .5s cubic-bezier(.22,1,.36,1);
+    }
+    .prod-card:hover .prod-img {
+      filter: brightness(1) saturate(1);
+      transform: scale(1.04);
+    }
+    .prod-img-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+    .prod-body {
+      padding: 1.25rem 1.25rem .9rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+    .prod-name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.25;
+    }
+    .prod-material {
+      font-size: .77rem;
+      color: var(--cream-3);
+      letter-spacing: .04em;
+    }
+    .prod-dims {
+      font-size: .77rem;
+      color: var(--cream-3);
+    }
+    .prod-price {
+      font-size: .85rem;
+      color: var(--gold);
+      margin-top: .3rem;
+      font-weight: 400;
+      letter-spacing: .03em;
+    }
+    .prod-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      margin: .9rem 1.25rem 1.25rem;
+      padding: .6rem 1.1rem;
+      background: transparent;
+      border: 1px solid rgba(196,145,58,.45);
+      border-radius: 3px;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      transition: background .25s, border-color .25s, color .25s;
+      align-self: flex-start;
+    }
+    .prod-cta:hover {
+      background: rgba(196,145,58,.12);
+      border-color: var(--gold);
+    }
+    .prod-cta svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    /* ── Breadcrumb strip ─────────────────────────────────────────── */
+    .breadcrumb {
+      padding: 1rem var(--pad);
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--cream-3);
+      border-bottom: 1px solid rgba(240,232,212,.06);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .breadcrumb a { color: var(--cream-3); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--cream); }
+    .breadcrumb-sep { opacity: .4; }
+
+    @media (max-width: 600px) {
+      .prod-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" data-nav aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html" aria-label="KILU HOME — inicio">
+        KILU HOME
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+        <li><a href="index.html#catalogo">Catálogo</a></li>
+        <li><a href="index.html#galeria">Galería</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+
+      <a class="btn btn-outline nav-cta"
+         href="https://wa.me/51938729224?text=Hola%2C%20quisiera%20consultar%20sobre%20Comedores%20y%20Mesas%20de%20Kilu%20Home."
+         target="_blank" rel="noopener"
+         aria-label="Consultar por WhatsApp">
+        Consultar →
+      </a>
+
+      <button class="nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" data-nav-drawer aria-hidden="true">
+    <a href="index.html#nosotros" data-drawer-link>Nosotros</a>
+    <a href="index.html#catalogo" data-drawer-link>Catálogo</a>
+    <a href="index.html#galeria" data-drawer-link>Galería</a>
+    <a href="index.html#contacto" data-drawer-link>Contacto</a>
+    <a class="btn btn-outline"
+       href="https://wa.me/51938729224?text=Hola%2C%20quisiera%20consultar%20sobre%20Comedores%20y%20Mesas%20de%20Kilu%20Home."
+       target="_blank" rel="noopener">
+      Consultar por WhatsApp →
+    </a>
+  </div>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb" aria-label="Ubicación en el sitio">
+      <a href="index.html">Kilu Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="index.html#catalogo">Catálogo</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Comedores y Mesas</span>
+    </div>
+
+    <!-- Hero de categoría -->
+    <section class="cat-hero" aria-label="Comedores y Mesas">
+      <div class="cat-hero-inner">
+        <a class="cat-hero-back" href="index.html#catalogo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          Volver al catálogo
+        </a>
+        <p class="cat-kicker">Catálogo · Comedores y Mesas</p>
+        <h1 class="cat-title">Comedores<br><em>y Mesas</em></h1>
+        <p class="cat-desc">
+          Mesas de comedor en teca maciza y mix de maderas, mesas de centro con bases de raíz y tronco natural, consolas talladas a mano y mesas auxiliares. Todos los piezas importadas directamente desde talleres en Java y Bali, Indonesia.
+        </p>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <div class="prod-section">
+
+      <!-- ── Mesas de Comedor ───────────────────────────────────── -->
+      <h2 class="prod-group-title">Mesas de Comedor</h2>
+      <div class="prod-grid">
+
+        <article class="prod-card reveal">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/cat-comedores.webp"
+                 alt="Mesa de comedor rectangular en mix de maderas"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa de Comedor Rectangular</h3>
+            <p class="prod-material">Material: Mix de maderas teca y roble</p>
+            <p class="prod-dims">200 × 100 × 78 cm</p>
+            <p class="prod-price">Desde $1,500</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20de%20Comedor%20Rectangular%20en%20mix%20de%20maderas%20%28200x100%20cm%29%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="1">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-tienda.webp"
+                 alt="Mesa de comedor rectangular en madera teca maciza"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa de Comedor Rectangular</h3>
+            <p class="prod-material">Material: Madera teca maciza</p>
+            <p class="prod-dims">200 × 100 × 78 cm</p>
+            <p class="prod-price">Desde $1,900</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20de%20Comedor%20Rectangular%20en%20teca%20maciza%20%28200x100%20cm%29%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+      </div>
+
+      <!-- ── Mesas de Centro ─────────────────────────────────────── -->
+      <h2 class="prod-group-title">Mesas de Centro</h2>
+      <div class="prod-grid">
+
+        <article class="prod-card reveal">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-circular-troncos.webp"
+                 alt="Mesa circular con vidrio y base de troncos de teca"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa Circular con Vidrio</h3>
+            <p class="prod-material">Material: Madera natural</p>
+            <p class="prod-dims">Ø75 × 40 cm · Ø90 × 47 cm</p>
+            <p class="prod-price">Desde $325</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20Circular%20con%20Vidrio%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="1">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-raiz-vidrio.webp"
+                 alt="Mesa circular con vidrio y base de raíz de árbol"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa Circular con Vidrio y Raíz de Árbol</h3>
+            <p class="prod-material">Material: Raíz de madera teca</p>
+            <p class="prod-dims">Ø80 × 46 cm</p>
+            <p class="prod-price">Desde $1,200</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20Circular%20con%20Vidrio%20y%20Base%20de%20Ra%C3%ADz%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="2">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-raiz-tienda.webp"
+                 alt="Mesas circulares de raíz de teca en showroom"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa Circular — Tronco de Árbol</h3>
+            <p class="prod-material">Material: Raíz de madera teca</p>
+            <p class="prod-dims">Ø70 × 45 cm · Ø90 × 46 cm</p>
+            <p class="prod-price">Desde $550</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20Circular%20con%20Tronco%20de%20%C3%81rbol%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="3">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-circular-troncos.webp"
+                 alt="Mesa circular de raíz de árbol con base de hierro"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa Circular de Raíz con Hierro</h3>
+            <p class="prod-material">Material: Raíz de madera teca</p>
+            <p class="prod-dims">Ø100 × 53 cm</p>
+            <p class="prod-price">Desde $650</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20Circular%20de%20Ra%C3%ADz%20con%20Base%20de%20Hierro%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="4">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-raiz-tienda.webp"
+                 alt="Mesa con base de troncos de raíz de teca"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa con Base de Troncos</h3>
+            <p class="prod-material">Material: Raíz de madera teca</p>
+            <p class="prod-dims">100 × 100 cm</p>
+            <p class="prod-price">Desde $750</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20con%20Base%20de%20Troncos%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="5">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-raiz-vidrio.webp"
+                 alt="Mesa pequeña en tronco petrificado con acero"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa Pequeña — Tronco Petrificado</h3>
+            <p class="prod-material">Material: Tronco petrificado con acero</p>
+            <p class="prod-dims">64 × 50 × 60 cm</p>
+            <p class="prod-price">Desde $895</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20Peque%C3%B1a%20de%20Tronco%20Petrificado%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+      </div>
+
+      <!-- ── Consolas ────────────────────────────────────────────── -->
+      <h2 class="prod-group-title">Consolas</h2>
+      <div class="prod-grid">
+
+        <article class="prod-card reveal">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/consola-teca.webp"
+                 alt="Consola de dos puertas en teca"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Consola de Dos Puertas</h3>
+            <p class="prod-material">Material: Madera teca</p>
+            <p class="prod-dims">105 × 40 × 90 cm</p>
+            <p class="prod-price">Desde $980</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Consola%20de%20Dos%20Puertas%20en%20teca%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="1">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-circular-troncos.webp"
+                 alt="Consola con base de rombos en palma de banano"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Consola con Base de Rombos</h3>
+            <p class="prod-material">Material: Palma de banano</p>
+            <p class="prod-dims">166 × 35 × 85 cm</p>
+            <p class="prod-price">Desde $1,250</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Consola%20con%20Base%20de%20Rombos%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="2">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-tienda.webp"
+                 alt="Consola con tapa de vidrio"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Consola con Vidrio</h3>
+            <p class="prod-material">Material: Madera natural</p>
+            <p class="prod-dims">125 × 27 × 82 cm</p>
+            <p class="prod-price">Desde $495</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Consola%20con%20Vidrio%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+      </div>
+
+      <!-- ── Mesas Auxiliares y de Noche ─────────────────────────── -->
+      <h2 class="prod-group-title">Mesas Auxiliares y de Noche</h2>
+      <div class="prod-grid">
+
+        <article class="prod-card reveal">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-noche.webp"
+                 alt="Mesa de noche con diseño geométrico en teca de bote"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa de Noche — Teca de Bote</h3>
+            <p class="prod-material">Material: Madera teca de bote</p>
+            <p class="prod-dims">50 × 40 × 60 cm · 40 × 50 × 60 cm</p>
+            <p class="prod-price">Desde $195</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20de%20Noche%20en%20Teca%20de%20Bote%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="1">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-noche.webp"
+                 alt="Mesa circular auxiliar en teca reciclada"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa Circular Auxiliar</h3>
+            <p class="prod-material">Material: Madera teca reciclada con hierro</p>
+            <p class="prod-dims">Ø40 × 46 cm · Ø50 × 50 cm</p>
+            <p class="prod-price">Desde $195</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20Circular%20Auxiliar%20en%20teca%20reciclada%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+      </div>
+
+      <!-- ── Mesas Especiales ────────────────────────────────────── -->
+      <h2 class="prod-group-title">Mesas Especiales</h2>
+      <div class="prod-grid">
+
+        <article class="prod-card reveal">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-raiz-tienda.webp"
+                 alt="Mesa cuadrada modelo cubo en teca reciclada"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa Cuadrada Modelo Cubo</h3>
+            <p class="prod-material">Material: Madera teca reciclada</p>
+            <p class="prod-dims">80 × 80 cm</p>
+            <p class="prod-price">Desde $995</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20Cuadrada%20Modelo%20Cubo%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="1">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-circular-troncos.webp"
+                 alt="Mesa circular con base de troncos de teca"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa Circular con Base de Troncos</h3>
+            <p class="prod-material">Material: Troncos de teca</p>
+            <p class="prod-dims">Ø60 cm · Ø80 cm</p>
+            <p class="prod-price">Desde $495</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20Circular%20con%20Base%20de%20Troncos%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="2">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-tienda.webp"
+                 alt="Mesa triangular en madera sungay"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa Triangular</h3>
+            <p class="prod-material">Material: Madera sungay</p>
+            <p class="prod-dims">90 × 60 × 46 cm</p>
+            <p class="prod-price">Desde $275</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20Triangular%20en%20madera%20sungay%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+        <article class="prod-card reveal" data-delay="3">
+          <div class="prod-img-wrap">
+            <img class="prod-img"
+                 src="assets/img/mesa-raiz-vidrio.webp"
+                 alt="Mesa con tapa de vidrio y base de raíz de teca"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="prod-body">
+            <h3 class="prod-name">Mesa con Vidrio — Raíz de Teca</h3>
+            <p class="prod-material">Material: Madera de raíz teca</p>
+            <p class="prod-dims">106 × 41 cm</p>
+            <p class="prod-price">Desde $1,050</p>
+          </div>
+          <a class="prod-cta"
+             href="https://wa.me/51938729224?text=Hola%2C%20me%20interesa%20la%20Mesa%20con%20Vidrio%20y%20Ra%C3%ADz%20de%20Teca%20de%20Kilu%20Home."
+             target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Consultar
+          </a>
+        </article>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <p class="footer-brand-name">KILU HOME</p>
+        <p class="footer-brand-tag">
+          Muebles y decoración importados directamente desde Indonesia.
+          Showroom en Punta Hermosa, Lima.
+        </p>
+        <p style="font-size:.75rem; color:var(--cream-3); margin-top:.75rem;">
+          CASA LUNA E.I.R.L. · Marca registrada ®
+        </p>
+      </div>
+
+      <div class="footer-nav">
+        <p class="footer-nav-title">Secciones</p>
+        <ul class="footer-nav-links" role="list">
+          <li><a href="index.html#nosotros">Nosotros</a></li>
+          <li><a href="index.html#catalogo">Catálogo</a></li>
+          <li><a href="index.html#galeria">Galería</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <p class="footer-nav-title">Contacto</p>
+        <p class="footer-contact-line">
+          <a href="tel:+51938729224">+51 938 729 224</a>
+        </p>
+        <p class="footer-contact-line">
+          Av. Don Angelo Mz. J Lote 7<br>
+          Urb. La Planicie, Punta Hermosa
+        </p>
+        <p class="footer-contact-line" style="margin-top:.75rem;">
+          <a href="https://www.instagram.com/kiluhome/" target="_blank" rel="noopener">Instagram</a>
+          &nbsp;·&nbsp;
+          <a href="https://www.facebook.com/KiluHome/" target="_blank" rel="noopener">Facebook</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        © 2026 KILU HOME · CASA LUNA E.I.R.L. · Todos los derechos reservados.
+      </p>
+      <a class="footer-credits-link" href="creditos.html">
+        Créditos fotográficos →
+      </a>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a class="whatsapp-fab"
+     href="https://wa.me/51938729224?text=Hola%2C%20quisiera%20consultar%20sobre%20Comedores%20y%20Mesas%20de%20Kilu%20Home."
+     target="_blank" rel="noopener"
+     aria-label="Consultar por WhatsApp"
+     data-whatsapp-fab>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <script defer src="lib/gsap.min.js?v=20260615"></script>
+  <script defer src="lib/ScrollTrigger.min.js?v=20260615"></script>
+  <script defer src="lib/manifest.js?v=20260615"></script>
+  <script>
+  (function () {
+    "use strict";
+    function safe(fn, n) { try { fn(); } catch(e) { console.warn("[" + n + "]", e); } }
+
+    function initNav() {
+      var nav = document.querySelector("[data-nav]");
+      if (!nav) return;
+      var toggle = document.querySelector("[data-nav-toggle]");
+      var drawer = document.querySelector("[data-nav-drawer]");
+      var drawerLinks = document.querySelectorAll("[data-drawer-link]");
+
+      window.addEventListener("scroll", function () {
+        nav.classList.toggle("nav--scrolled", window.scrollY > 40);
+      }, { passive: true });
+
+      if (toggle && drawer) {
+        toggle.addEventListener("click", function () {
+          var open = drawer.getAttribute("aria-hidden") === "false";
+          drawer.setAttribute("aria-hidden", open ? "true" : "false");
+          toggle.setAttribute("aria-expanded", open ? "false" : "true");
+          toggle.classList.toggle("is-open", !open);
+        });
+        drawerLinks.forEach(function (link) {
+          link.addEventListener("click", function () {
+            drawer.setAttribute("aria-hidden", "true");
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.classList.remove("is-open");
+          });
+        });
+      }
+    }
+
+    function initReveals() {
+      var els = document.querySelectorAll(".reveal");
+      if (!els.length) return;
+      if (!window.IntersectionObserver) {
+        els.forEach(function(el) { el.classList.add("is-visible"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            var delay = e.target.dataset.delay ? parseFloat(e.target.dataset.delay) * 100 : 0;
+            setTimeout(function () { e.target.classList.add("is-visible"); }, delay);
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.04, rootMargin: "0px 0px -3% 0px" });
+      els.forEach(function (el) { io.observe(el); });
+      setTimeout(function () {
+        document.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
+          if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("is-visible");
+        });
+      }, 6000);
+    }
+
+    function initWaFab() {
+      var fab = document.querySelector("[data-whatsapp-fab]");
+      if (!fab) return;
+      window.addEventListener("scroll", function () {
+        fab.classList.toggle("fab--visible", window.scrollY > 300);
+      }, { passive: true });
+    }
+
+    function boot() {
+      safe(initNav,     "nav");
+      safe(initReveals, "reveals");
+      safe(initWaFab,   "fab");
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", boot);
+    } else {
+      boot();
+    }
+  })();
+  </script>
+
+</body>
+</html>
