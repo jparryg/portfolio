@@ -16,7 +16,7 @@
   <style>
     /* ── Category page overrides ─────────────────────────────────── */
     .cat-hero {
-      padding: 5rem var(--pad) 4rem;
+      padding: 5rem max(1.5rem, var(--pad)) 4rem;
       border-bottom: 1px solid rgba(240,232,212,.08);
       position: relative;
       overflow: hidden;
@@ -84,6 +84,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      scroll-margin-top: 80px;
     }
     .prod-group-title::after {
       content: '';
