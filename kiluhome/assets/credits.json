@@ -12,14 +12,14 @@
   },
   "nosotros": {
     "src": "assets/img/nosotros.webp",
-    "title": "Craftsman woodworking",
-    "creator": "Openverse contributor",
-    "creator_url": null,
-    "license": "cc-by",
+    "title": "Forest and furniture in Jepara, Indonesia",
+    "creator": "CIFOR",
+    "creator_url": "https://www.flickr.com/photos/45423546@N07",
+    "license": "by-nc-nd",
     "license_version": "2.0",
-    "license_url": "https://creativecommons.org/licenses/by/2.0/",
-    "foreign_landing_url": "https://openverse.org/search/?q=craftsman+woodworking+indonesia",
-    "source": "openverse"
+    "license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/45423546@N07/24026644688",
+    "source": "flickr"
   },
   "cat-comedores": {
     "src": "assets/img/cat-comedores.webp",
