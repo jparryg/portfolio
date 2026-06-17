@@ -451,6 +451,11 @@ footer {
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: .85rem; width: 100%;
 }
+@media (max-width: 767px) {
+  .compare-antes-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .compare-antes-img {
   width: 100%; border-radius: 2px;
   border: 1px solid var(--line, rgba(255,255,255,.08));
