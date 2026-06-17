@@ -536,6 +536,19 @@ footer {
   .compare-despues-bar { padding: .5rem 1rem; }
   .compare-antes-grid { grid-template-columns: 1fr; }
 }
+.compare-antes-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  font-size: .82rem;
+  color: #ccc;
+}
+.compare-antes-bullets li {
+  line-height: 1.4;
+}
 </style>
 </head>
 <body>
@@ -964,6 +977,11 @@ footer {
             <img class="compare-antes-img" src="assets/img/fonseca/gl-04.webp" alt="Gaming Law — Contacto" loading="lazy">
           </div>
           <p class="compare-antes-note">Web en Wix · sin jerarquía visual fuerte · sin animaciones de scroll · sin optimización mobile-first.</p>
+          <ul class="compare-antes-bullets">
+            <li>❌ Construida en Wix — logo de plataforma visible</li>
+            <li>❌ Sin versión en español para clientes latinos</li>
+            <li>❌ Sin formulario de consulta ni CTA claro</li>
+          </ul>
           <div class="compare-antes-actions">
             <a href="https://www.gaminglawlatam.com/" target="_blank" rel="noopener" class="compare-antes-link">Ver web actual ↗</a>
           </div>
@@ -974,7 +992,7 @@ footer {
           <div class="compare-despues-bar">
             <div class="compare-despues-meta">
               <span>Parry Studio · Demo 2025</span>
-              <strong>Una solución para cada presupuesto · Entrega en 48 h</strong>
+              <strong>Demo funcional · Sin compromiso · Publicas al aprobar</strong>
             </div>
             <div class="compare-despues-actions">
               <a href="https://jparryg.github.io/portfolio/fonseca/index.html" target="_blank" rel="noopener">Ver demo completo ↗</a>
@@ -1023,7 +1041,7 @@ footer {
           <div class="compare-despues-bar">
             <div class="compare-despues-meta">
               <span>Parry Studio · Demo 2025</span>
-              <strong>Una solución para cada presupuesto · Entrega en 48 h</strong>
+              <strong>Demo funcional · Sin compromiso · Publicas al aprobar</strong>
             </div>
             <div class="compare-despues-actions">
               <a href="https://jparryg.github.io/portfolio/seitan.html" target="_blank" rel="noopener">Ver demo completo ↗</a>
@@ -1072,7 +1090,7 @@ footer {
           <div class="compare-despues-bar">
             <div class="compare-despues-meta">
               <span>Parry Studio · Demo 2025</span>
-              <strong>Una solución para cada presupuesto · Entrega en 48 h</strong>
+              <strong>Demo funcional · Sin compromiso · Publicas al aprobar</strong>
             </div>
             <div class="compare-despues-actions">
               <a href="https://jparryg.github.io/portfolio/recontra.html" target="_blank" rel="noopener">Ver demo completo ↗</a>
@@ -1111,6 +1129,11 @@ footer {
             <img class="compare-antes-img" src="assets/img/casablanca/Screenshot%202026-06-17%20142531.webp" alt="Casablanca — Contacto actual" loading="lazy">
           </div>
           <p class="compare-antes-note">Web genérica · sin identidad visual fuerte · sin galería de habitaciones · sin sistema de reservas directo · experiencia mobile deficiente.</p>
+          <ul class="compare-antes-bullets">
+            <li>❌ Diseño desactualizado — no refleja la calidad del hospedaje</li>
+            <li>❌ Sin sistema de reservas ni WhatsApp directo</li>
+            <li>❌ No adaptada a móvil</li>
+          </ul>
           <div class="compare-antes-actions">
             <a href="https://casablancaph.com/" target="_blank" rel="noopener" class="compare-antes-link">Ver web actual ↗</a>
           </div>
@@ -1121,7 +1144,7 @@ footer {
           <div class="compare-despues-bar">
             <div class="compare-despues-meta">
               <span>Parry Studio · Demo 2025</span>
-              <strong>Una solución para cada presupuesto · Entrega en 48 h</strong>
+              <strong>Demo funcional · Sin compromiso · Publicas al aprobar</strong>
             </div>
             <div class="compare-despues-actions">
               <a href="https://jparryg.github.io/portfolio/casablanca/index.html" target="_blank" rel="noopener">Ver demo completo ↗</a>
@@ -1152,7 +1175,7 @@ footer {
     <div class="compare-body">
       <div class="compare-panel is-active" data-panel-id="antes">
         <div class="compare-antes">
-          <p class="compare-antes-label">Solo redes sociales</p>
+          <p class="compare-antes-label">Estado actual · solo Instagram y Facebook</p>
           <div class="compare-antes-grid" style="grid-template-columns: 1fr 1fr 1fr;">
             <img src="assets/img/kiluhome/kh-antes-search.webp"
                  alt="Búsqueda 'Kilu Home' — solo aparecen Facebook e Instagram, sin web propia"
@@ -1175,7 +1198,7 @@ footer {
           <div class="compare-despues-bar">
             <div class="compare-despues-meta">
               <span>Parry Studio · Demo 2025</span>
-              <strong>Una solución para cada presupuesto · Entrega en 48 h</strong>
+              <strong>Demo funcional · Sin compromiso · Publicas al aprobar</strong>
             </div>
             <div class="compare-despues-actions">
               <a href="https://jparryg.github.io/portfolio/kiluhome/index.html" target="_blank" rel="noopener">Ver demo completo ↗</a>
@@ -1256,6 +1279,11 @@ footer {
         var iframe = modal.querySelector("iframe");
         if (iframe && (!iframe.src || iframe.src === window.location.href)) {
           iframe.src = iframe.dataset.src;
+          iframe.addEventListener('load', function() {
+            try { iframe.contentWindow.scrollTo(0, 0); } catch(e) {}
+          }, { once: true });
+        } else if (iframe && iframe.src) {
+          try { iframe.contentWindow.scrollTo(0, 0); } catch(e) {}
         }
       }
     }
