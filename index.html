@@ -327,10 +327,222 @@ footer {
 .d4 { transition-delay: .32s; }
 .d5 { transition-delay: .40s; }
 .d6 { transition-delay: .48s; }
+
+/* ═══════════════════════════════════════════════
+   COMPARE SYSTEM — pill + modal
+   ═══════════════════════════════════════════════ */
+.card-compare-pill {
+  position: absolute; top: 1rem; right: 1rem;
+  padding: .28rem .72rem;
+  border: 1px solid rgba(200,146,42,.45);
+  border-radius: 99px;
+  font-size: .6rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(10,8,6,.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+  z-index: 2;
+}
+#compare-modal,
+.compare-modal-instance {
+  display: none;
+  position: fixed; inset: 0; z-index: 9000;
+  background: rgba(0,0,0,.88);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  align-items: center; justify-content: center;
+  padding: 1.25rem;
+}
+.compare-modal-instance.is-open { display: flex; }
+.compare-box {
+  background: var(--bg-2, #111);
+  border: 1px solid var(--line, rgba(255,255,255,.1));
+  border-radius: 4px;
+  width: 100%; max-width: 980px;
+  max-height: 90vh;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.compare-header {
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--line, rgba(255,255,255,.1));
+  display: flex; align-items: center;
+  justify-content: space-between;
+  gap: 1rem; flex-shrink: 0; flex-wrap: wrap;
+}
+.compare-title {
+  font-family: var(--serif, Georgia, serif);
+  font-size: 1.05rem; font-weight: 400;
+  color: var(--cream, #f5f0e8);
+}
+.compare-title span {
+  font-family: var(--sans, sans-serif);
+  font-size: .68rem; letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--cream-3, rgba(245,240,232,.45));
+  margin-left: .6rem;
+}
+.compare-header-right {
+  display: flex; align-items: center; gap: .85rem;
+}
+.compare-toggle {
+  display: flex;
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--line, rgba(255,255,255,.1));
+  border-radius: 99px; padding: 3px; gap: 2px;
+}
+.compare-toggle-btn {
+  padding: .3rem 1rem;
+  border-radius: 99px; border: none;
+  background: transparent;
+  font-size: .68rem; letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cream-3, rgba(245,240,232,.45));
+  cursor: pointer;
+  font-family: var(--sans, sans-serif);
+  transition: background .2s, color .2s;
+}
+.compare-toggle-btn.is-active {
+  background: var(--bg, #0a0806);
+  border: 1px solid var(--line, rgba(255,255,255,.1));
+  color: var(--gold, #c8922a);
+}
+.compare-close {
+  background: transparent;
+  border: 1px solid var(--line, rgba(255,255,255,.1));
+  color: var(--cream-3, rgba(245,240,232,.45));
+  border-radius: 2px;
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: .95rem; flex-shrink: 0;
+  transition: border-color .2s, color .2s;
+}
+.compare-close:hover {
+  border-color: var(--cream-3, rgba(245,240,232,.45));
+  color: var(--cream, #f5f0e8);
+}
+.compare-body {
+  flex: 1; overflow: hidden;
+  position: relative; min-height: 420px;
+}
+.compare-panel {
+  position: absolute; inset: 0;
+  opacity: 0; pointer-events: none;
+  transition: opacity .28s ease;
+  overflow-y: auto;
+}
+.compare-panel.is-active {
+  opacity: 1; pointer-events: auto;
+}
+.compare-antes {
+  padding: 1.75rem 2rem;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 1.25rem;
+}
+.compare-antes-label {
+  font-size: .66rem; letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--cream-3, rgba(245,240,232,.45));
+  align-self: flex-start;
+}
+.compare-antes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: .85rem; width: 100%;
+}
+.compare-antes-img {
+  width: 100%; border-radius: 2px;
+  border: 1px solid var(--line, rgba(255,255,255,.08));
+  display: block; object-fit: cover;
+}
+.compare-antes-note {
+  font-size: .78rem;
+  color: var(--cream-3, rgba(245,240,232,.45));
+  line-height: 1.7; max-width: 54ch; text-align: center;
+}
+.compare-antes-actions {
+  display: flex; align-items: center;
+  gap: 1rem; flex-wrap: wrap; justify-content: center;
+}
+.compare-antes-link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--cream-3, rgba(245,240,232,.45));
+  border: 1px solid var(--line, rgba(255,255,255,.1));
+  border-radius: 2px; padding: .55rem 1.1rem;
+  transition: border-color .2s, color .2s;
+  text-decoration: none;
+}
+.compare-antes-link:hover {
+  border-color: var(--cream-3);
+  color: var(--cream, #f5f0e8);
+}
+.compare-despues {
+  height: 100%; display: flex; flex-direction: column;
+}
+.compare-despues-bar {
+  padding: .65rem 1.5rem;
+  border-bottom: 1px solid var(--line, rgba(255,255,255,.1));
+  display: flex; align-items: center;
+  justify-content: space-between; flex-shrink: 0;
+  flex-wrap: wrap; gap: .5rem;
+}
+.compare-despues-meta {
+  display: flex; flex-direction: column; gap: .15rem;
+}
+.compare-despues-meta span {
+  font-size: .68rem;
+  color: var(--cream-3, rgba(245,240,232,.45));
+  letter-spacing: .06em;
+}
+.compare-despues-meta strong {
+  font-size: .72rem; font-weight: 500;
+  color: var(--gold, #c8922a);
+  letter-spacing: .04em;
+}
+.compare-despues-actions {
+  display: flex; align-items: center; gap: .75rem;
+}
+.compare-despues-bar a {
+  font-size: .68rem; letter-spacing: .1em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: .3rem;
+  transition: color .2s; text-decoration: none;
+  border-radius: 2px; padding: .45rem .9rem;
+  border: 1px solid var(--line, rgba(255,255,255,.1));
+  color: var(--cream-3, rgba(245,240,232,.45));
+}
+.compare-despues-bar a:hover {
+  color: var(--cream, #f5f0e8);
+  border-color: var(--cream-3);
+}
+.compare-despues-bar a.cta-wa {
+  background: rgba(37,211,102,.12);
+  border-color: rgba(37,211,102,.35);
+  color: #25d366;
+}
+.compare-despues-bar a.cta-wa:hover {
+  background: rgba(37,211,102,.2);
+  color: #25d366;
+}
+.compare-despues iframe {
+  flex: 1; width: 100%; border: none; min-height: 500px;
+}
+@media (max-width: 640px) {
+  .compare-header { padding: .85rem 1rem; }
+  .compare-antes  { padding: 1rem; }
+  .compare-title span { display: none; }
+  .compare-despues-bar { padding: .5rem 1rem; }
+  .compare-antes-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 380px) {
+  .compare-antes-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
-<!-- v20260615 -->
+<!-- v20260617 -->
 
 <!-- HEADER -->
 <header>
@@ -387,11 +599,15 @@ footer {
 
   <!-- Seitan -->
   <article class="card reveal d1" data-cat="restaurantes">
-    <a href="seitan.html" class="card-link" aria-label="Ver demo Seitan">
+    <a href="https://jparryg.github.io/portfolio/seitan.html"
+       class="card-link card-link--compare"
+       aria-label="Ver comparativa Seitan Urban Bistro"
+       data-compare="seitan">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-seitan"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Bistro · Miraflores</span>
+        <span class="card-compare-pill">Antes → Después</span>
       </div>
       <div class="card-body">
         <p class="card-cat">Bistro vegano</p>
@@ -400,18 +616,22 @@ footer {
       </div>
       <div class="card-footer">
         <span class="card-loc">Miraflores, Lima</span>
-        <span class="card-cta">Ver demo <span>→</span></span>
+        <span class="card-cta">Ver comparativa <span>→</span></span>
       </div>
     </a>
   </article>
 
   <!-- La ReContra -->
   <article class="card reveal d2" data-cat="restaurantes">
-    <a href="recontra.html" class="card-link" aria-label="Ver demo La ReContra">
+    <a href="https://jparryg.github.io/portfolio/recontra.html"
+       class="card-link card-link--compare"
+       aria-label="Ver comparativa La ReContra"
+       data-compare="recontra">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-recontra"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Fast food · Vegano</span>
+        <span class="card-compare-pill">Antes → Después</span>
       </div>
       <div class="card-body">
         <p class="card-cat">Fast food plant-based</p>
@@ -420,7 +640,7 @@ footer {
       </div>
       <div class="card-footer">
         <span class="card-loc">Miraflores, Lima</span>
-        <span class="card-cta">Ver demo <span>→</span></span>
+        <span class="card-cta">Ver comparativa <span>→</span></span>
       </div>
     </a>
   </article>
@@ -567,11 +787,15 @@ footer {
 
   <!-- Fonseca Abogados -->
   <article class="card reveal d5" data-cat="servicios">
-    <a href="https://jparryg.github.io/portfolio/fonseca/index.html" class="card-link" aria-label="Ver demo Fonseca Abogados LLC" target="_blank" rel="noopener">
+    <a href="https://jparryg.github.io/portfolio/fonseca/index.html"
+       class="card-link card-link--compare"
+       aria-label="Ver comparativa Fonseca Abogados LLC"
+       data-compare="fonseca">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-fonseca"></div>
         <div class="card-thumb-overlay" style="background:rgba(0,0,0,.72)"></div>
         <span class="card-tag">Gaming Law · Lima · Miami</span>
+        <span class="card-compare-pill">Antes → Después</span>
       </div>
       <div class="card-body">
         <p class="card-cat">Despacho legal internacional</p>
@@ -580,7 +804,7 @@ footer {
       </div>
       <div class="card-footer">
         <span class="card-loc">Lima · Miami</span>
-        <span class="card-cta">Ver demo <span>→</span></span>
+        <span class="card-cta">Ver comparativa <span>→</span></span>
       </div>
     </a>
   </article>
@@ -607,11 +831,15 @@ footer {
 
   <!-- Casablanca del Mar -->
   <article class="card reveal d2" data-cat="lodge">
-    <a href="https://jparryg.github.io/portfolio/casablanca/" class="card-link" aria-label="Ver demo Casablanca del Mar" target="_blank" rel="noopener">
+    <a href="https://jparryg.github.io/portfolio/casablanca/index.html"
+       class="card-link card-link--compare"
+       aria-label="Ver comparativa Casablanca del Mar"
+       data-compare="casablanca">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-casablanca"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Hotel · Restaurante · Punta Hermosa</span>
+        <span class="card-compare-pill">Antes → Después</span>
       </div>
       <div class="card-body">
         <p class="card-cat">Hotel & Restaurante</p>
@@ -620,7 +848,7 @@ footer {
       </div>
       <div class="card-footer">
         <span class="card-loc">Punta Hermosa, Lima</span>
-        <span class="card-cta">Ver demo <span>→</span></span>
+        <span class="card-cta">Ver comparativa <span>→</span></span>
       </div>
     </a>
   </article>
@@ -647,11 +875,15 @@ footer {
 
   <!-- Kilu Home -->
   <article class="card reveal d4" data-cat="tienda">
-    <a href="kiluhome/" class="card-link" aria-label="Ver demo Kilu Home">
+    <a href="https://jparryg.github.io/portfolio/kiluhome/index.html"
+       class="card-link card-link--compare"
+       aria-label="Ver comparativa Kilu Home"
+       data-compare="kiluhome">
       <div class="card-thumb">
         <div class="card-thumb-bg thumb-kiluhome"></div>
         <div class="card-thumb-overlay"></div>
         <span class="card-tag">Muebles · Punta Hermosa</span>
+        <span class="card-compare-pill">Antes → Después</span>
       </div>
       <div class="card-body">
         <p class="card-cat">Tienda de decoración</p>
@@ -660,7 +892,7 @@ footer {
       </div>
       <div class="card-footer">
         <span class="card-loc">Punta Hermosa, Lima</span>
-        <span class="card-cta">Ver demo <span>→</span></span>
+        <span class="card-cta">Ver comparativa <span>→</span></span>
       </div>
     </a>
   </article>
@@ -706,6 +938,255 @@ footer {
   <span class="footer-copy">© 2026 John Parry · Lima, Perú</span>
 </footer>
 
+<!-- ═══════════════════════════════════════
+     MODALES ANTES/DESPUÉS — 5 proyectos
+     ═══════════════════════════════════════ -->
+
+<!-- ── MODAL 1: FONSECA ── -->
+<div class="compare-modal-instance" data-modal-id="fonseca"
+     role="dialog" aria-modal="true" aria-label="Comparativa — Fonseca Abogados LLC">
+  <div class="compare-box">
+    <div class="compare-header">
+      <div class="compare-title">Fonseca Abogados LLC <span>Antes → Después</span></div>
+      <div class="compare-header-right">
+        <div class="compare-toggle">
+          <button class="compare-toggle-btn is-active" data-panel="antes">Antes</button>
+          <button class="compare-toggle-btn" data-panel="despues">Después</button>
+        </div>
+        <button class="compare-close" aria-label="Cerrar">✕</button>
+      </div>
+    </div>
+    <div class="compare-body">
+      <div class="compare-panel is-active" data-panel-id="antes">
+        <div class="compare-antes">
+          <p class="compare-antes-label">Estado actual · gaminglawlatam.com</p>
+          <div class="compare-antes-grid">
+            <img class="compare-antes-img" src="assets/img/fonseca/gl-01.webp" alt="Gaming Law — Home" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/fonseca/gl-02.webp" alt="Gaming Law — Servicios" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/fonseca/gl-03.webp" alt="Gaming Law — Equipo" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/fonseca/gl-04.webp" alt="Gaming Law — Contacto" loading="lazy">
+          </div>
+          <p class="compare-antes-note">Web en Wix · sin jerarquía visual fuerte · sin animaciones de scroll · sin optimización mobile-first.</p>
+          <div class="compare-antes-actions">
+            <a href="https://www.gaminglawlatam.com/" target="_blank" rel="noopener" class="compare-antes-link">Ver web actual ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="compare-panel" data-panel-id="despues">
+        <div class="compare-despues">
+          <div class="compare-despues-bar">
+            <div class="compare-despues-meta">
+              <span>Parry Studio · Demo 2025</span>
+              <strong>Una solución para cada presupuesto · Entrega en 48 h</strong>
+            </div>
+            <div class="compare-despues-actions">
+              <a href="https://jparryg.github.io/portfolio/fonseca/index.html" target="_blank" rel="noopener">Ver demo completo ↗</a>
+              <a class="cta-wa" href="https://wa.me/51961748282?text=Hola%20John%2C%20vi%20el%20demo%20de%20Fonseca%20Abogados%20en%20tu%20portfolio%20y%20me%20interesa%20algo%20similar%20para%20mi%20negocio." target="_blank" rel="noopener">¿Cuánto costaría algo así para mi negocio? →</a>
+            </div>
+          </div>
+          <iframe src="" data-src="https://jparryg.github.io/portfolio/fonseca/index.html" title="Demo Fonseca Abogados LLC" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL 2: SEITAN ── -->
+<div class="compare-modal-instance" data-modal-id="seitan"
+     role="dialog" aria-modal="true" aria-label="Comparativa — Seitan Urban Bistro">
+  <div class="compare-box">
+    <div class="compare-header">
+      <div class="compare-title">Seitan Urban Bistro <span>Antes → Después</span></div>
+      <div class="compare-header-right">
+        <div class="compare-toggle">
+          <button class="compare-toggle-btn is-active" data-panel="antes">Antes</button>
+          <button class="compare-toggle-btn" data-panel="despues">Después</button>
+        </div>
+        <button class="compare-close" aria-label="Cerrar">✕</button>
+      </div>
+    </div>
+    <div class="compare-body">
+      <div class="compare-panel is-active" data-panel-id="antes">
+        <div class="compare-antes">
+          <p class="compare-antes-label">Estado actual · seitanbistro.wixsite.com/urban-bistro</p>
+          <div class="compare-antes-grid">
+            <img class="compare-antes-img" src="assets/img/Seitan/preview.webp" alt="Seitan — Home actual" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/Seitan/preview%20(1).webp" alt="Seitan — Carta actual" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/Seitan/preview%20(2).webp" alt="Seitan — Sección actual" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/Seitan/preview%20(3).webp" alt="Seitan — Mobile actual" loading="lazy">
+          </div>
+          <p class="compare-antes-note">Web Wix Free con branding Wix visible · dominio seitan.pe caído · sin carta visual con fotos · sin WhatsApp directo.</p>
+          <div class="compare-antes-actions">
+            <a href="https://seitanbistro.wixsite.com/urban-bistro" target="_blank" rel="noopener" class="compare-antes-link">Ver web actual ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="compare-panel" data-panel-id="despues">
+        <div class="compare-despues">
+          <div class="compare-despues-bar">
+            <div class="compare-despues-meta">
+              <span>Parry Studio · Demo 2025</span>
+              <strong>Una solución para cada presupuesto · Entrega en 48 h</strong>
+            </div>
+            <div class="compare-despues-actions">
+              <a href="https://jparryg.github.io/portfolio/seitan.html" target="_blank" rel="noopener">Ver demo completo ↗</a>
+              <a class="cta-wa" href="https://wa.me/51961748282?text=Hola%20John%2C%20vi%20el%20demo%20de%20Seitan%20Urban%20Bistro%20en%20tu%20portfolio%20y%20me%20interesa%20algo%20similar%20para%20mi%20negocio." target="_blank" rel="noopener">¿Cuánto costaría algo así para mi negocio? →</a>
+            </div>
+          </div>
+          <iframe src="" data-src="https://jparryg.github.io/portfolio/seitan.html" title="Demo Seitan Urban Bistro" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL 3: RECONTRA ── -->
+<div class="compare-modal-instance" data-modal-id="recontra"
+     role="dialog" aria-modal="true" aria-label="Comparativa — La ReContra">
+  <div class="compare-box">
+    <div class="compare-header">
+      <div class="compare-title">La ReContra <span>Antes → Después</span></div>
+      <div class="compare-header-right">
+        <div class="compare-toggle">
+          <button class="compare-toggle-btn is-active" data-panel="antes">Antes</button>
+          <button class="compare-toggle-btn" data-panel="despues">Después</button>
+        </div>
+        <button class="compare-close" aria-label="Cerrar">✕</button>
+      </div>
+    </div>
+    <div class="compare-body">
+      <div class="compare-panel is-active" data-panel-id="antes">
+        <div class="compare-antes">
+          <p class="compare-antes-label">Estado actual · pedidos.larecontra.pe + Instagram</p>
+          <div class="compare-antes-grid">
+            <img class="compare-antes-img" src="assets/img/la%20recontra/preview.webp" alt="La ReContra — Estado actual" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/la%20recontra/preview%20(1).webp" alt="La ReContra — App pedidos" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/la%20recontra/Screenshot%202026-06-17%20143801.webp" alt="La ReContra — Captura 1" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/la%20recontra/Screenshot%202026-06-17%20143835.webp" alt="La ReContra — Captura 2" loading="lazy">
+          </div>
+          <p class="compare-antes-note">Sin web corporativa · solo app de pedidos en subdominio · sin historia de marca · sin carta visual · sin sección quiénes somos.</p>
+          <div class="compare-antes-actions">
+            <a href="https://pedidos.larecontra.pe/pedir" target="_blank" rel="noopener" class="compare-antes-link">Ver plataforma actual ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="compare-panel" data-panel-id="despues">
+        <div class="compare-despues">
+          <div class="compare-despues-bar">
+            <div class="compare-despues-meta">
+              <span>Parry Studio · Demo 2025</span>
+              <strong>Una solución para cada presupuesto · Entrega en 48 h</strong>
+            </div>
+            <div class="compare-despues-actions">
+              <a href="https://jparryg.github.io/portfolio/recontra.html" target="_blank" rel="noopener">Ver demo completo ↗</a>
+              <a class="cta-wa" href="https://wa.me/51961748282?text=Hola%20John%2C%20vi%20el%20demo%20de%20La%20ReContra%20en%20tu%20portfolio%20y%20me%20interesa%20algo%20similar%20para%20mi%20negocio." target="_blank" rel="noopener">¿Cuánto costaría algo así para mi negocio? →</a>
+            </div>
+          </div>
+          <iframe src="" data-src="https://jparryg.github.io/portfolio/recontra.html" title="Demo La ReContra" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL 4: CASABLANCA ── -->
+<div class="compare-modal-instance" data-modal-id="casablanca"
+     role="dialog" aria-modal="true" aria-label="Comparativa — Casablanca del Mar">
+  <div class="compare-box">
+    <div class="compare-header">
+      <div class="compare-title">Casablanca del Mar <span>Antes → Después</span></div>
+      <div class="compare-header-right">
+        <div class="compare-toggle">
+          <button class="compare-toggle-btn is-active" data-panel="antes">Antes</button>
+          <button class="compare-toggle-btn" data-panel="despues">Después</button>
+        </div>
+        <button class="compare-close" aria-label="Cerrar">✕</button>
+      </div>
+    </div>
+    <div class="compare-body">
+      <div class="compare-panel is-active" data-panel-id="antes">
+        <div class="compare-antes">
+          <p class="compare-antes-label">Estado actual · web existente</p>
+          <div class="compare-antes-grid">
+            <img class="compare-antes-img" src="assets/img/casablanca/Screenshot%202026-06-17%20142133.webp" alt="Casablanca — Home actual" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/casablanca/Screenshot%202026-06-17%20142249.webp" alt="Casablanca — Habitaciones actual" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/casablanca/Screenshot%202026-06-17%20142338.webp" alt="Casablanca — Restaurante actual" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/casablanca/Screenshot%202026-06-17%20142531.webp" alt="Casablanca — Contacto actual" loading="lazy">
+          </div>
+          <p class="compare-antes-note">Web genérica · sin identidad visual fuerte · sin galería de habitaciones · sin sistema de reservas directo · experiencia mobile deficiente.</p>
+          <div class="compare-antes-actions">
+            <a href="https://casablancaph.com/" target="_blank" rel="noopener" class="compare-antes-link">Ver web actual ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="compare-panel" data-panel-id="despues">
+        <div class="compare-despues">
+          <div class="compare-despues-bar">
+            <div class="compare-despues-meta">
+              <span>Parry Studio · Demo 2025</span>
+              <strong>Una solución para cada presupuesto · Entrega en 48 h</strong>
+            </div>
+            <div class="compare-despues-actions">
+              <a href="https://jparryg.github.io/portfolio/casablanca/index.html" target="_blank" rel="noopener">Ver demo completo ↗</a>
+              <a class="cta-wa" href="https://wa.me/51961748282?text=Hola%20John%2C%20vi%20el%20demo%20de%20Casablanca%20del%20Mar%20en%20tu%20portfolio%20y%20me%20interesa%20algo%20similar%20para%20mi%20negocio." target="_blank" rel="noopener">¿Cuánto costaría algo así para mi negocio? →</a>
+            </div>
+          </div>
+          <iframe src="" data-src="https://jparryg.github.io/portfolio/casablanca/index.html" title="Demo Casablanca del Mar" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL 5: KILU HOME ── -->
+<div class="compare-modal-instance" data-modal-id="kiluhome"
+     role="dialog" aria-modal="true" aria-label="Comparativa — Kilu Home">
+  <div class="compare-box">
+    <div class="compare-header">
+      <div class="compare-title">Kilu Home <span>Antes → Después</span></div>
+      <div class="compare-header-right">
+        <div class="compare-toggle">
+          <button class="compare-toggle-btn is-active" data-panel="antes">Antes</button>
+          <button class="compare-toggle-btn" data-panel="despues">Después</button>
+        </div>
+        <button class="compare-close" aria-label="Cerrar">✕</button>
+      </div>
+    </div>
+    <div class="compare-body">
+      <div class="compare-panel is-active" data-panel-id="antes">
+        <div class="compare-antes">
+          <p class="compare-antes-label">Estado actual · solo Instagram y Facebook</p>
+          <div class="compare-antes-grid">
+            <img class="compare-antes-img" src="assets/img/kiluhome/584742347_1811363226921566_6671513403189567236_n.webp" alt="Kilu Home — Instagram 1" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/kiluhome/589120658_18046597946679965_2625587975047335478_n.webp" alt="Kilu Home — Instagram 2" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/kiluhome/655027290_1475155754397956_4285608196807073868_n.webp" alt="Kilu Home — Instagram 3" loading="lazy">
+            <img class="compare-antes-img" src="assets/img/kiluhome/Screenshot%202026-06-17%20143042.webp" alt="Kilu Home — Captura actual" loading="lazy">
+          </div>
+          <p class="compare-antes-note">Sin web propia · catálogo solo en Instagram · sin precios visibles · sin WhatsApp directo · clientes dependen de DM para consultar disponibilidad.</p>
+          <div class="compare-antes-actions">
+            <a href="https://www.instagram.com/kiluhome.pe/" target="_blank" rel="noopener" class="compare-antes-link">Ver Instagram actual ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="compare-panel" data-panel-id="despues">
+        <div class="compare-despues">
+          <div class="compare-despues-bar">
+            <div class="compare-despues-meta">
+              <span>Parry Studio · Demo 2025</span>
+              <strong>Una solución para cada presupuesto · Entrega en 48 h</strong>
+            </div>
+            <div class="compare-despues-actions">
+              <a href="https://jparryg.github.io/portfolio/kiluhome/index.html" target="_blank" rel="noopener">Ver demo completo ↗</a>
+              <a class="cta-wa" href="https://wa.me/51961748282?text=Hola%20John%2C%20vi%20el%20demo%20de%20Kilu%20Home%20en%20tu%20portfolio%20y%20me%20interesa%20algo%20similar%20para%20mi%20negocio." target="_blank" rel="noopener">¿Cuánto costaría algo así para mi negocio? →</a>
+            </div>
+          </div>
+          <iframe src="" data-src="https://jparryg.github.io/portfolio/kiluhome/index.html" title="Demo Kilu Home" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 (function () {
   "use strict";
@@ -750,9 +1231,68 @@ footer {
     });
   }
 
+  /* ── Compare modal system ── */
+  function initCompareModal() {
+    var modals = document.querySelectorAll(".compare-modal-instance");
+    if (!modals.length) return;
+    function openModal(modal) {
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal(modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "";
+    }
+    function showPanel(modal, name) {
+      modal.querySelectorAll(".compare-toggle-btn").forEach(function(btn) {
+        btn.classList.toggle("is-active", btn.dataset.panel === name);
+      });
+      modal.querySelectorAll(".compare-panel").forEach(function(p) {
+        p.classList.toggle("is-active", p.dataset.panelId === name);
+      });
+      if (name === "despues") {
+        var iframe = modal.querySelector("iframe");
+        if (iframe && (!iframe.src || iframe.src === window.location.href)) {
+          iframe.src = iframe.dataset.src;
+        }
+      }
+    }
+    /* Abrir modal desde card */
+    document.querySelectorAll(".card-link--compare").forEach(function(trigger) {
+      trigger.addEventListener("click", function(e) {
+        e.preventDefault();
+        var modal = document.querySelector(
+          ".compare-modal-instance[data-modal-id='" + trigger.dataset.compare + "']"
+        );
+        if (!modal) return;
+        showPanel(modal, "antes");
+        openModal(modal);
+      });
+    });
+    /* Listeners por modal */
+    modals.forEach(function(modal) {
+      modal.querySelectorAll(".compare-toggle-btn").forEach(function(btn) {
+        btn.addEventListener("click", function() { showPanel(modal, btn.dataset.panel); });
+      });
+      var closeBtn = modal.querySelector(".compare-close");
+      if (closeBtn) closeBtn.addEventListener("click", function() { closeModal(modal); });
+      modal.addEventListener("click", function(e) {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+    /* Escape */
+    document.addEventListener("keydown", function(e) {
+      if (e.key !== "Escape") return;
+      modals.forEach(function(modal) {
+        if (modal.style.display === "flex") closeModal(modal);
+      });
+    });
+  }
+
   function boot() {
-    safe(initReveals, "initReveals");
-    safe(initFilters,  "initFilters");
+    safe(initReveals,      "initReveals");
+    safe(initFilters,      "initFilters");
+    safe(initCompareModal, "initCompareModal");
   }
 
   if (document.readyState === "loading") {
