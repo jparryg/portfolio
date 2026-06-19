@@ -574,12 +574,6 @@ ul { list-style: none; }
   letter-spacing: .07em;
   text-transform: uppercase;
 }
-.stats-note {
-  font-size: .72rem; font-style: italic;
-  color: var(--cream-3); opacity: .5;
-  text-align: center;
-}
-
 /* ── SECCIÓN GALERÍA ── */
 .section-galeria {
   padding-block: clamp(5rem, 10vw, 8rem);
@@ -605,7 +599,7 @@ ul { list-style: none; }
   filter: saturate(1.18);
 }
 .galeria-item--wide { grid-column: span 2; }
-.galeria-item--wide img { aspect-ratio: 16/8; }
+.galeria-item--wide img { aspect-ratio: 16/8; object-position: center 70%; }
 .galeria-item--tall img { aspect-ratio: 3/4; }
 
 /* ── SECCIÓN HORARIOS ── */
