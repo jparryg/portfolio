@@ -82,14 +82,12 @@
 
     items.forEach(function (el) { io.observe(el); });
 
-    /* Safety: force-reveal anything still hidden after 6s */
+    /* Safety: force-reveal ALL hidden elements after 1.5s — no viewport check */
     setTimeout(function () {
       document.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
-        if (el.getBoundingClientRect().top < window.innerHeight) {
-          el.classList.add("is-visible");
-        }
+        el.classList.add("is-visible");
       });
-    }, 6000);
+    }, 1500);
   }
 
   /* ── Card tilt (only on hover-capable devices) ── */

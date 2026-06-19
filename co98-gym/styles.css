@@ -1,8 +1,8 @@
-/* ============================================================
+﻿/* ============================================================
    CO 9.8 — Centro de Entrenamiento | Punta Hermosa
    Archetype: 02 Editorial Dark Warm (sport/athletic variant)
-   Accent: Electric Lime — diferenciado del rojo del restaurante
-   2026-06-18
+   Accent: Teal CO 9.8 — extraído del mural de fotos reales
+   2026-06-19
    ============================================================ */
 
 /* ── Custom Properties ── */
@@ -13,9 +13,9 @@
   --cream:     #edebe3;
   --cream-2:   #c8c5b8;
   --cream-3:   #7a7870;
-  --accent:    #d0ff00;
-  --accent-2:  #4ade80;
-  --accent-dark: #8aab00;
+  --accent:    #6be9f2;
+  --accent-2:  #2bc4ce;
+  --accent-dark: #1a8a92;
   --line:      rgba(237,235,227,.10);
   --nav-h:     72px;
   --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
@@ -121,7 +121,7 @@ ul { list-style: none; }
   position: absolute;
   width: 34px; height: 34px;
   border-radius: 50%;
-  border: 1.5px solid rgba(208,255,0,.45);
+  border: 1.5px solid rgba(107,233,242,.45);
   transform: translate(-50%,-50%);
   transition: width .2s var(--ease-out), height .2s var(--ease-out), border-color .2s;
 }
@@ -222,6 +222,7 @@ ul { list-style: none; }
   gap: 2.2rem;
   padding-top: var(--nav-h);
 }
+.nav-mobile[hidden] { display: none; }
 .nav-mobile a {
   font-size: 1.6rem;
   font-weight: 300;
@@ -230,7 +231,7 @@ ul { list-style: none; }
   transition: color .2s;
 }
 .nav-mobile a:hover { color: var(--cream); }
-.nav-mobile .btn-cta { font-size: 1rem; margin-top: 1rem; }
+.nav-mobile .btn-cta { font-size: 1rem; margin-top: 1rem; color: var(--bg); }
 
 /* ── HERO ── */
 .hero {
@@ -265,9 +266,9 @@ ul { list-style: none; }
   position: absolute; inset: -25% -15%; z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(circle at 18% 62%, rgba(208,255,0,.14) 0%, transparent 44%),
+    radial-gradient(circle at 18% 62%, rgba(107,233,242,.14) 0%, transparent 44%),
     radial-gradient(circle at 82% 22%, rgba(74,222,128,.09) 0%, transparent 38%),
-    radial-gradient(circle at 58% 88%, rgba(208,255,0,.07) 0%, transparent 38%);
+    radial-gradient(circle at 58% 88%, rgba(107,233,242,.07) 0%, transparent 38%);
   filter: blur(55px);
   animation: meshDrift 20s ease-in-out infinite alternate;
 }
@@ -381,9 +382,9 @@ ul { list-style: none; }
   transition: background .2s, transform .15s var(--ease-out), box-shadow .2s;
 }
 .btn-cta:hover {
-  background: #e6ff33;
+  background: var(--accent-2);
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(208,255,0,.22);
+  box-shadow: 0 12px 32px rgba(107,233,242,.22);
 }
 .btn-cta-large { padding: 1.15rem 3.2rem; font-size: 1rem; }
 
@@ -443,7 +444,7 @@ ul { list-style: none; }
 .section-filosofia::before {
   content: '';
   position: absolute; inset: -40% -5%; pointer-events: none;
-  background: radial-gradient(ellipse at 15% 50%, rgba(208,255,0,.055) 0%, transparent 55%);
+  background: radial-gradient(ellipse at 15% 50%, rgba(107,233,242,.055) 0%, transparent 55%);
 }
 
 .filosofia-grid {
@@ -537,7 +538,7 @@ ul { list-style: none; }
   text-transform: uppercase;
   color: var(--accent);
   padding: .28rem .65rem;
-  border: 1px solid rgba(208,255,0,.3);
+  border: 1px solid rgba(107,233,242,.3);
   border-radius: 2px;
 }
 
@@ -628,7 +629,7 @@ ul { list-style: none; }
   transition: background .2s;
 }
 .horario-row:last-child { border-bottom: none; }
-.horario-row:hover { background: rgba(208,255,0,.03); }
+.horario-row:hover { background: rgba(107,233,242,.03); }
 .horario-dia { font-size: 1rem; color: var(--cream-2); }
 .horario-hora {
   font-family: var(--font-d);
@@ -650,6 +651,8 @@ ul { list-style: none; }
   text-underline-offset: 3px;
 }
 .horarios-aside a:hover { color: var(--accent); }
+.horarios-aside .btn-cta { color: var(--bg); }
+.horarios-aside .btn-cta:hover { color: var(--bg); }
 
 /* ── SECCIÓN UBICACIÓN ── */
 .section-ubicacion {
@@ -683,16 +686,16 @@ ul { list-style: none; }
 .dato-val a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .ubicacion-map {
-  aspect-ratio: 4/3;
-  overflow: hidden;
+  display: flex; flex-direction: column;
   border: 1px solid var(--line);
   background: var(--bg-3);
 }
 .ubicacion-map iframe {
-  width: 100%; height: 100%; border: 0;
+  width: 100%; aspect-ratio: 4/3; border: 0;
   filter: invert(1) hue-rotate(200deg) saturate(.65) brightness(.85);
   opacity: .85;
 }
+.ubicacion-cta { margin-top: 1.25rem; align-self: flex-start; }
 
 /* ── CTA FINAL ── */
 .section-cta-final {
@@ -703,7 +706,7 @@ ul { list-style: none; }
 }
 .cta-mesh {
   position: absolute; inset: -30% -10%; z-index: 0; pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, rgba(208,255,0,.09) 0%, transparent 55%);
+  background: radial-gradient(circle at 50% 50%, rgba(107,233,242,.09) 0%, transparent 55%);
   filter: blur(80px);
 }
 .cta-grain {
@@ -775,6 +778,11 @@ ul { list-style: none; }
 
 /* DEFENSIVE: elemento con AMBOS .reveal Y data-split */
 .reveal[data-split] { opacity: 1; transform: none; }
+
+/* Reduced-motion: siempre visible, sin animación */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal[data-split] { opacity: 1; transform: none; transition: none; }
+}
 
 /* Stagger clases */
 .clases-grid .clase-card.reveal:nth-child(1) { transition-delay: 0s; }
