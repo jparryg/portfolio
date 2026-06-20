@@ -184,7 +184,7 @@
   function initScrollTrigger() {
     if (!window.gsap || !window.ScrollTrigger) return;
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to(".hero-bg img", {
+    gsap.to(".hero-bg video, .hero-bg .hero-img-fallback", {
       yPercent: 14,
       ease: "none",
       scrollTrigger: {

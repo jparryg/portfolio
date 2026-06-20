@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=20260620" />
+  <link rel="stylesheet" href="styles.css?v=20260621" />
 </head>
 <body>
 
@@ -76,8 +76,14 @@
     <!-- ══ HERO ══ -->
     <section class="hero" id="inicio">
       <div class="hero-bg">
-        <img src="assets/img/hero.webp"
-             alt="Comunidad CO 9.8 — Centro de Entrenamiento, Punta Hermosa"
+        <video class="hero-video"
+               autoplay muted loop playsinline
+               poster="assets/img/hero-poster.webp">
+          <source src="assets/img/hero-video-trim.mp4" type="video/mp4" />
+        </video>
+        <img class="hero-img-fallback"
+             src="assets/img/hero.webp"
+             alt=""
              loading="eager"
              fetchpriority="high"
              width="1920" height="1080" />
@@ -445,10 +451,10 @@
   </footer>
 
   <!-- ══ SCRIPTS (IIFE + defer — no ES modules) ══ -->
-  <script defer src="lib/gsap.min.js?v=20260620"></script>
-  <script defer src="lib/ScrollTrigger.min.js?v=20260620"></script>
-  <script defer src="lib/manifest.js?v=20260620"></script>
-  <script defer src="main.js?v=20260620"></script>
+  <script defer src="lib/gsap.min.js?v=20260621"></script>
+  <script defer src="lib/ScrollTrigger.min.js?v=20260621"></script>
+  <script defer src="lib/manifest.js?v=20260621"></script>
+  <script defer src="main.js?v=20260621"></script>
 
 </body>
 </html>
