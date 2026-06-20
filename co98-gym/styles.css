@@ -612,8 +612,8 @@ ul { list-style: none; }
   filter: saturate(1.18);
 }
 .galeria-item--wide { grid-column: span 2; }
-.galeria-item--wide img { aspect-ratio: 16/8; object-position: center 70%; }
-.galeria-item--tall img { aspect-ratio: 3/4; }
+.galeria-item--wide img { aspect-ratio: 16/8; object-position: center 20%; }
+.galeria-item--tall img { aspect-ratio: 3/4; object-position: left top; }
 
 /* ── SECCIÓN HORARIOS ── */
 .section-horarios {
@@ -702,7 +702,7 @@ ul { list-style: none; }
   filter: invert(1) hue-rotate(200deg) saturate(.65) brightness(.85);
   opacity: .85;
 }
-.ubicacion-cta { margin-top: 1.25rem; align-self: flex-start; }
+.ubicacion-cta { margin: 1.25rem auto 0; }
 
 /* ── CTA FINAL ── */
 .section-cta-final {
