@@ -67,20 +67,17 @@ ul { list-style: none; }
 .splash.is-out { opacity: 0; pointer-events: none; visibility: hidden; }
 
 .splash-logo {
-  display: flex; align-items: baseline; gap: .25em;
+  display: flex; align-items: center; justify-content: center;
   animation: splashReveal .7s var(--ease-out) .25s both;
 }
 @keyframes splashReveal {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: none; }
 }
-.splash-co {
-  font-family: var(--font-b);
-  font-size: clamp(2rem, 7vw, 3.5rem);
-  font-weight: 300;
-  color: var(--cream-3);
-  letter-spacing: .18em;
-  text-transform: uppercase;
+.splash-logo-img {
+  width: clamp(100px, 20vw, 160px);
+  height: auto;
+  filter: invert(1);
 }
 .splash-num {
   font-family: var(--font-d);
@@ -147,19 +144,12 @@ ul { list-style: none; }
 }
 
 .nav-logo {
-  font-family: var(--font-b);
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--cream);
+  display: flex; align-items: center;
 }
-.nav-logo em {
-  font-family: var(--font-d);
-  font-style: italic;
-  font-weight: 700;
-  color: var(--accent);
-  margin-left: .05em;
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  filter: invert(1);
 }
 
 .nav-links {
@@ -612,8 +602,8 @@ ul { list-style: none; }
   filter: saturate(1.18);
 }
 .galeria-item--wide { grid-column: span 2; }
-.galeria-item--wide img { aspect-ratio: 16/8; object-position: center 20%; }
-.galeria-item--tall img { aspect-ratio: 3/4; object-position: left top; }
+.galeria-item--wide img { aspect-ratio: 16/8; object-position: center 45%; }
+.galeria-item--tall img { aspect-ratio: 3/4; object-position: center top; }
 
 /* ── SECCIÓN HORARIOS ── */
 .section-horarios {
@@ -702,7 +692,7 @@ ul { list-style: none; }
   filter: invert(1) hue-rotate(200deg) saturate(.65) brightness(.85);
   opacity: .85;
 }
-.ubicacion-cta { margin: 1.25rem auto 0; }
+.ubicacion-cta { margin: 1.25rem auto; }
 
 /* ── CTA FINAL ── */
 .section-cta-final {
@@ -752,13 +742,12 @@ ul { list-style: none; }
   justify-content: space-between; gap: 1.5rem;
   margin-bottom: 2rem;
 }
-.footer-logo {
-  font-size: 1.15rem; font-weight: 500;
-  letter-spacing: .06em; text-transform: uppercase;
-}
-.footer-logo em {
-  font-family: var(--font-d);
-  font-style: italic; font-weight: 700; color: var(--accent);
+.footer-logo { display: flex; align-items: center; }
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+  filter: invert(1);
+  opacity: .85;
 }
 .footer-links { display: flex; gap: 2rem; }
 .footer-links a { font-size: .875rem; color: var(--cream-3); transition: color .2s; }
