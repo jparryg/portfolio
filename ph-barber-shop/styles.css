@@ -346,7 +346,7 @@ figure { margin: 0; }
   overflow: hidden;
   border-radius: 4px;
   background-size: cover;
-  background-position: center top;
+  background-position: center 20%;
   border: 1px solid var(--line);
   transition: transform .35s var(--ease), box-shadow .35s;
 }
