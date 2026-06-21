@@ -1,0 +1,27 @@
+{
+  "note": "Solo las fotos de stock requieren atribución. Las fotos g1–g6 y hero.webp son propiedad del cliente (PH Barber Shop).",
+  "stock_images": [
+    {
+      "file": "assets/img/service-afeitado.webp",
+      "title": "Straight razor and shaving brush",
+      "source_url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHg4MjYyMDQtaW1hZ2Uta3d5b2VwNXMuanBn.jpg",
+      "landing_url": "https://www.rawpixel.com",
+      "creator": null,
+      "license": "CC0 1.0 Universal",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution_required": false,
+      "used_for": "Card de servicio — Afeitado Clásico"
+    },
+    {
+      "file": "assets/img/service-keratina.webp",
+      "title": "Hairdressers",
+      "source_url": "https://live.staticflickr.com/807/40975936752_659fb1ed05_b.jpg",
+      "landing_url": "https://www.flickr.com/photos/adornhairdressers/40975936752",
+      "creator": "adornhairdressers",
+      "license": "Public Domain Mark 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "attribution_required": false,
+      "used_for": "Card de servicio — Keratina & Tratamiento"
+    }
+  ]
+}
