@@ -269,7 +269,7 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; col
   mix-blend-mode: overlay;
   transition: background .4s ease;
 }
-.hero-inner { position: relative; z-index: 0; max-width: 760px; color: var(--cream); }
+.hero-inner { position: relative; z-index: 0; max-width: 760px; padding-inline: 1.4rem; color: var(--cream); }
 .hero-inner::before {
   /* Scoped scrim behind the whole text column only — guarantees contrast
      against the brightest buffet-photo highlights without darkening the
@@ -476,7 +476,10 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; col
   padding: 1.8rem;
   box-shadow: 0 16px 40px -22px rgba(35,38,26,0.32);
 }
+.cafe-info-icon { display: inline-flex; color: var(--accent); margin-bottom: .6rem; }
+.cafe-info-icon svg { display: block; width: 28px; height: 28px; }
 .cafe-info-card h3 { font-size: 1.05rem; color: var(--accent-2-dark); }
+.cafe-info-card .btn-primary { margin-top: .8rem; }
 .cafe-info-card p { margin-top: .5rem; font-size: .92rem; color: var(--ink-soft); }
 .cafe-info-muted { font-size: .8rem; color: var(--ink-mute); margin-top: .3rem; }
 
@@ -576,6 +579,7 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; col
 .footer-nav a { font-size: .88rem; color: rgba(251,247,238,0.75); }
 .footer-nav a:hover { color: var(--accent-2); }
 .footer-copy { font-size: .78rem; color: rgba(251,247,238,0.5); }
+.footer-credit { font-size: .72rem; color: rgba(251,247,238,0.55); margin-top: .35rem; }
 
 /* =============================================================
    15. Responsive
@@ -593,7 +597,7 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; col
 
 @media (min-width: 960px) {
   .process-list { grid-template-columns: repeat(5, 1fr); }
-  .process-step { flex-direction: column; align-items: flex-start; gap: .6rem; }
+  .process-step { flex-direction: column; align-items: center; gap: .6rem; text-align: center; }
 }
 
 @media (min-width: 960px) {
