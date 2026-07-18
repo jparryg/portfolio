@@ -155,17 +155,35 @@ em { font-style: italic; color: var(--accent); }
   border-bottom: 1px solid var(--line);
 }
 .hero-article { max-width: 640px; }
+.flag-glass-wrap {
+  position: relative;
+  isolation: isolate;
+  padding: .3rem .4rem;
+  margin: -.3rem -.4rem 0;
+  overflow: hidden;
+  border-radius: 14px;
+}
+.flag-glass-bg {
+  position: absolute;
+  inset: -6% -4%;
+  width: 108%; height: 112%;
+  z-index: -1;
+  opacity: .22;
+  filter: blur(1.5px);
+  transform-origin: 50% 50%;
+  animation: flagFlutter 7s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes flagFlutter {
+  0%, 100% { transform: skewY(0deg) scale(1.02); }
+  50%      { transform: skewY(-.7deg) scale(1.045); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flag-glass-bg { animation: none; }
+}
 .huge-serif {
   font-size: clamp(2.4rem, 6vw, 4.2rem);
   margin-bottom: 1.1rem;
-}
-.flag-badge {
-  display: inline-block;
-  width: 0.42em; height: auto;
-  margin-left: 0.18em;
-  vertical-align: middle;
-  transform: translateY(-0.08em);
-  border: 1px solid var(--line-soft);
 }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.6rem 0 1.4rem; }
 .hero-meta {
