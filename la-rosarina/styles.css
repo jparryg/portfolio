@@ -1,0 +1,394 @@
+/* =============================================================
+   LA ROSARINA — CATERING PARRILLERO ARGENTINO
+   Archetype 09: Newspaper Editorial
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   1. Tokens
+   ------------------------------------------------------------- */
+:root {
+  --bg:        #faf7f0;   /* newsprint cream */
+  --bg-2:      #f1ecdf;
+  --ink:       #16140e;
+  --ink-2:     #3a362c;
+  --ink-mute:  #746c58;
+  --accent:    #960018;   /* newspaper red */
+  --line:      #16140e;
+  --line-soft: rgba(22,20,14,.16);
+
+  --font-serif: 'Bodoni Moda', Georgia, serif;
+  --font-body:  'Source Serif 4', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --nav-h: 128px;
+}
+
+/* -------------------------------------------------------------
+   2. Reset & base
+   ------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+html { -webkit-text-size-adjust: 100%; tab-size: 2; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+  overscroll-behavior-y: none;
+}
+img, svg, video { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+a { color: inherit; text-decoration: none; }
+p { text-wrap: pretty; }
+h1, h2, h3, h4 { font-family: var(--font-serif); text-wrap: balance; line-height: 1.1; font-weight: 500; }
+em { font-style: italic; color: var(--accent); }
+::selection { background: var(--accent); color: var(--bg); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.skip-link {
+  position: fixed; top: -100px; left: 1rem;
+  padding: .6rem 1rem; background: var(--ink); color: var(--bg);
+  z-index: 9999; font-weight: 500; font-family: var(--font-sans);
+}
+.skip-link:focus { top: 1rem; }
+
+/* -------------------------------------------------------------
+   3. Utilities
+   ------------------------------------------------------------- */
+.kicker {
+  font-family: var(--font-sans);
+  font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: .6rem;
+}
+.deck {
+  font-size: 1rem; color: var(--ink-2); max-width: 52ch; line-height: 1.7;
+}
+.hairline-top, .hairline-bottom { border-top: 1px solid var(--line); }
+.hairline-bottom { border-top: none; border-bottom: 1px solid var(--line); }
+
+/* -------------------------------------------------------------
+   4. Splash
+   ------------------------------------------------------------- */
+.splash {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  transition: opacity .7s var(--ease-out), clip-path .7s var(--ease-out);
+  animation: splashSafe .01s 3.2s forwards;
+}
+@keyframes splashSafe { to { opacity: 0; pointer-events: none; clip-path: inset(0 0 100% 0); } }
+.splash.out { opacity: 0; pointer-events: none; clip-path: inset(0 0 100% 0); }
+.splash-logo { font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--ink); }
+.splash-bar { width: 48px; height: 1px; background: var(--accent); transform-origin: left; animation: barGrow 1.8s var(--ease-soft) forwards; }
+@keyframes barGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* -------------------------------------------------------------
+   5. Masthead
+   ------------------------------------------------------------- */
+.masthead {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+}
+.masthead-inner {
+  max-width: 920px; margin: 0 auto;
+  padding: 1.4rem clamp(1.2rem, 4vw, 2rem) 1rem;
+  text-align: center;
+}
+.brand-newspaper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  letter-spacing: .01em;
+  color: var(--ink);
+}
+.brand-badge {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.issue {
+  font-family: var(--font-sans);
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-mute); margin-top: .3rem;
+}
+.masthead-nav {
+  display: flex; justify-content: center; gap: 1.6rem; flex-wrap: wrap;
+  margin-top: .9rem;
+  font-family: var(--font-sans);
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+}
+.masthead-nav a { color: var(--ink-2); transition: color .2s var(--ease-out); }
+.masthead-nav a:hover { color: var(--accent); }
+
+/* -------------------------------------------------------------
+   6. Buttons
+   ------------------------------------------------------------- */
+.btn-primary, .btn-ghost {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .85rem 1.8rem;
+  font-family: var(--font-sans);
+  font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  transition: background .2s var(--ease-out), color .2s var(--ease-out), transform .2s var(--ease-out);
+}
+.btn-primary { background: var(--accent); color: var(--bg); }
+.btn-primary:hover { background: #7a0013; transform: translateY(-1px); }
+.btn-ghost { border: 1px solid var(--line); color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--bg); }
+
+/* -------------------------------------------------------------
+   7. Hero
+   ------------------------------------------------------------- */
+.hero {
+  max-width: 1100px; margin: 0 auto;
+  padding: 2.6rem clamp(1.2rem, 4vw, 2rem) 3.5rem;
+  display: grid; grid-template-columns: 1fr; gap: 2.2rem;
+  border-bottom: 1px solid var(--line);
+}
+.hero-article { max-width: 640px; }
+.huge-serif {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  margin-bottom: 1.1rem;
+}
+.flag-badge {
+  display: inline-block;
+  width: 0.42em; height: auto;
+  margin-left: 0.18em;
+  vertical-align: middle;
+  transform: translateY(-0.08em);
+  border: 1px solid var(--line-soft);
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.6rem 0 1.4rem; }
+.hero-meta {
+  display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
+  font-family: var(--font-sans);
+  font-size: .78rem; letter-spacing: .04em; color: var(--ink-mute);
+}
+.hero-meta-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.hero-meta .sep { opacity: .5; }
+.hero-figure { width: 100%; }
+
+/* -------------------------------------------------------------
+   8. Image placeholders (temporary — replace with real WebP photos)
+   ------------------------------------------------------------- */
+.img-placeholder {
+  background: repeating-linear-gradient(135deg, var(--bg-2), var(--bg-2) 10px, #e8e0cd 10px, #e8e0cd 20px);
+  border: 1px solid var(--line-soft);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 1rem;
+}
+.ph-label {
+  font-family: var(--font-sans);
+  font-size: .72rem; letter-spacing: .05em;
+  color: var(--ink-mute);
+  background: var(--bg);
+  padding: .3rem .7rem;
+  border: 1px solid var(--line-soft);
+}
+.ph-hero { aspect-ratio: 4 / 5; }
+.hero-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--line-soft);
+  filter: grayscale(.1) contrast(1.04);
+}
+.ph-card { aspect-ratio: 4 / 3; margin-bottom: 1rem; }
+.ph-evento { aspect-ratio: 1 / 1; }
+
+/* Fotos reales del cliente — mismo tratamiento visual que tenían los placeholders */
+.card-photo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: grayscale(.15) contrast(1.04);
+}
+.servicio-card .card-photo { aspect-ratio: 4 / 3; margin-bottom: 1rem; }
+.evento-card .card-photo { aspect-ratio: 1 / 1; }
+
+/* -------------------------------------------------------------
+   9. Section shells
+   ------------------------------------------------------------- */
+.section {
+  max-width: 920px; margin: 0 auto;
+  padding: 3.4rem clamp(1.2rem, 4vw, 2rem);
+  border-bottom: 1px solid var(--line);
+}
+.section-header { max-width: 640px; margin-bottom: 2rem; }
+.section-title { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: .6rem; }
+.byline { display: flex; align-items: center; gap: .9rem; }
+.byline-photo {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line-soft);
+  filter: grayscale(.2) contrast(1.04);
+  flex-shrink: 0;
+}
+.byline .deck { margin: 0; }
+
+/* -------------------------------------------------------------
+   10. Historia — multi-column editorial
+   ------------------------------------------------------------- */
+.multi-column {
+  column-count: 1;
+  column-gap: 2.4rem;
+  max-width: 720px;
+}
+.multi-column p { margin-bottom: 1.1rem; }
+.dropcap {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 4.6rem;
+  line-height: .82;
+  padding: .05em .08em 0 0;
+  color: var(--accent);
+}
+.pull-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 1.2rem 0;
+  margin: 1.6rem 0;
+}
+
+/* -------------------------------------------------------------
+   11. Servicios grid
+   ------------------------------------------------------------- */
+.servicios-grid {
+  display: grid; grid-template-columns: 1fr; gap: 2rem;
+}
+.servicio-card h3 { font-size: 1.2rem; margin-bottom: .4rem; }
+.servicio-card p { font-size: .92rem; color: var(--ink-2); }
+.servicios-nota {
+  margin-top: 2rem; font-size: .9rem; color: var(--ink-mute);
+  border-top: 1px dashed var(--line-soft); padding-top: 1.4rem;
+}
+.servicios-nota a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* -------------------------------------------------------------
+   12b. Tienda grid
+   ------------------------------------------------------------- */
+.tienda-grid {
+  display: grid; grid-template-columns: 1fr; gap: 2rem;
+}
+.tienda-card h3 { font-size: 1.2rem; margin-bottom: .4rem; }
+.tienda-card p { font-size: .92rem; color: var(--ink-2); margin-bottom: .6rem; }
+.tienda-link {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: .1rem;
+  transition: opacity .2s var(--ease-out);
+}
+.tienda-link:hover { opacity: .7; }
+
+/* -------------------------------------------------------------
+   12. Eventos grid
+   ------------------------------------------------------------- */
+.eventos-grid { display: grid; grid-template-columns: 1fr; gap: 1.6rem; }
+.evento-card figcaption {
+  font-family: var(--font-sans);
+  font-size: .78rem; font-style: italic; color: var(--ink-mute);
+  margin-top: .6rem;
+}
+
+/* -------------------------------------------------------------
+   13. Contacto
+   ------------------------------------------------------------- */
+.contacto { border-bottom: none; }
+.contacto-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  margin-top: 1.6rem;
+  filter: grayscale(.15) contrast(1.04);
+  border: 1px solid var(--line-soft);
+}
+.contacto-grid {
+  display: grid; grid-template-columns: 1fr; gap: 2.4rem;
+  padding-top: 2.2rem;
+}
+.contacto-datos { display: flex; flex-direction: column; gap: 1rem; }
+.dato-row {
+  display: flex; justify-content: space-between; gap: 1rem;
+  border-top: 1px solid var(--line-soft); padding-top: .8rem;
+  font-family: var(--font-sans); font-size: .88rem;
+}
+.dato-label { color: var(--ink-mute); letter-spacing: .04em; text-transform: uppercase; font-size: .68rem; align-self: center; }
+.dato-value a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* -------------------------------------------------------------
+   14. Footer
+   ------------------------------------------------------------- */
+.footer {
+  max-width: 920px; margin: 0 auto;
+  padding: 1.6rem clamp(1.2rem, 4vw, 2rem) 2rem;
+  font-family: var(--font-sans);
+}
+.footer-main {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand { font-size: .82rem; color: var(--ink-mute); }
+.footer-brand strong { color: var(--ink); font-family: var(--font-serif); font-weight: 500; }
+.footer-links { display: flex; gap: 1.6rem; list-style: none; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
+.footer-links a:hover { color: var(--accent); }
+.footer-credit {
+  margin-top: 1rem; padding-top: 1rem;
+  border-top: 1px solid var(--line-soft);
+  font-size: .7rem; color: var(--ink-mute);
+  text-align: center;
+}
+.footer-credit a { color: var(--ink-mute); text-decoration: underline; text-underline-offset: 2px; }
+.footer-credit a:hover { color: var(--accent); }
+
+/* -------------------------------------------------------------
+   15. Reveal system
+   ------------------------------------------------------------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+.reveal.is-visible { opacity: 1; transform: none; }
+.reveal[data-split] { opacity: 1; transform: none; } /* defensive: never hide split-text parents */
+.delay-1 { transition-delay: .08s; }
+.delay-2 { transition-delay: .16s; }
+.delay-3 { transition-delay: .24s; }
+
+/* -------------------------------------------------------------
+   16. Responsive (mobile-first)
+   ------------------------------------------------------------- */
+@media (min-width: 720px) {
+  .hero { grid-template-columns: 1.1fr .9fr; align-items: center; }
+  .multi-column { column-count: 2; }
+  .servicios-grid { grid-template-columns: repeat(3, 1fr); }
+  .tienda-grid { grid-template-columns: repeat(3, 1fr); }
+  .eventos-grid { grid-template-columns: repeat(3, 1fr); }
+  .contacto-grid { grid-template-columns: 1.2fr .8fr; }
+  .masthead-inner { text-align: left; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; }
+  .masthead-nav { margin-top: 0; }
+}
+@media (min-width: 960px) {
+  .huge-serif { font-size: clamp(3rem, 5.2vw, 4.6rem); }
+}
+
+/* -------------------------------------------------------------
+   17. Reduced motion — only intrusive effects
+   ------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .splash-bar { animation: none; transform: scaleX(1); }
+}
