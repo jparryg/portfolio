@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=20260718l" />
+<link rel="stylesheet" href="styles.css?v=20260718p" />
 <link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high" />
 </head>
 <body>
@@ -51,8 +51,13 @@
           <path d="M0,0 H600 V96 Q450,112 300,96 T0,96 Z" fill="#75AADB"/>
           <path d="M0,96 Q150,80 300,96 T600,96 V224 Q450,240 300,224 T0,224 Z" fill="#FFFFFF"/>
           <path d="M0,224 Q150,208 300,224 T600,224 V320 H0 Z" fill="#75AADB"/>
-          <circle cx="300" cy="160" r="32" fill="#F6B40E"/>
-          <circle cx="300" cy="160" r="32" fill="none" stroke="#8a5a10" stroke-width="1.4" opacity=".6"/>
+          <g fill="#E3AC1C">
+            <polygon points="296.4,128.2 303.6,128.2 300.0,108.0"/><polygon points="308.8,129.2 315.5,132.0 316.1,121.2"/><polygon points="319.9,135.0 325.0,140.1 336.8,123.2"/><polygon points="328.0,144.5 330.8,151.2 338.8,143.9"/><polygon points="331.8,156.4 331.8,163.6 352.0,160.0"/><polygon points="330.8,168.8 328.0,175.5 338.8,176.1"/><polygon points="325.0,179.9 319.9,185.0 336.8,196.8"/><polygon points="315.5,188.0 308.8,190.8 316.1,198.8"/><polygon points="303.6,191.8 296.4,191.8 300.0,212.0"/><polygon points="291.2,190.8 284.5,188.0 283.9,198.8"/><polygon points="280.1,185.0 275.0,179.9 263.2,196.8"/><polygon points="272.0,175.5 269.2,168.8 261.2,176.1"/><polygon points="268.2,163.6 268.2,156.4 248.0,160.0"/><polygon points="269.2,151.2 272.0,144.5 261.2,143.9"/><polygon points="275.0,140.1 280.1,135.0 263.2,123.2"/><polygon points="284.5,132.0 291.2,129.2 283.9,121.2"/>
+          </g>
+          <circle cx="300" cy="160" r="32" fill="#E3AC1C" stroke="#8a6a10" stroke-width="1.4" opacity=".9"/>
+          <circle cx="289" cy="152" r="4.5" fill="#6b4a12"/>
+          <circle cx="311" cy="152" r="4.5" fill="#6b4a12"/>
+          <path d="M285,175 Q300,186 315,175" fill="none" stroke="#6b4a12" stroke-width="3" stroke-linecap="round"/>
         </svg>
         <p class="kicker reveal">EDICIÓN ESPECIAL · CATERING &amp; EVENTOS</p>
         <h1 class="huge-serif reveal delay-1">Lo autóctono de<br><em>Argentina</em>, ahora en tu mesa.</h1>
@@ -70,7 +75,7 @@
       </div>
     </article>
     <div class="hero-figure">
-      <img class="hero-photo" src="assets/img/hero.webp" alt="Parrillada argentina de La Rosarina, empanada casera y bife a la parrilla" width="1400" height="1750" fetchpriority="high" loading="eager" decoding="sync">
+      <img class="hero-photo" src="assets/img/hero.webp" alt="Natali, chef ejecutiva de La Rosarina, cortando un corte de carne en un evento al aire libre" width="1400" height="1747" fetchpriority="high" loading="eager" decoding="sync">
     </div>
   </section>
 
@@ -127,29 +132,62 @@
     <div class="section-header">
       <p class="kicker reveal">TAMBIÉN PARA LLEVAR</p>
       <h2 class="section-title reveal delay-1">Nuestra<br><em>tienda.</em></h2>
-      <p class="deck reveal delay-2">Cuchillos, tablas y fiambres seleccionados — consulta disponibilidad y precios por WhatsApp.</p>
+      <p class="deck reveal delay-2">Cuchillos, tablas, fiambres y vinos seleccionados — consulta disponibilidad y precios por WhatsApp.</p>
     </div>
     <div class="tienda-grid">
       <article class="tienda-card reveal">
-        <img class="card-photo" src="assets/img/tienda-cuchillos.webp" alt="Natali con cuchillo artesanal La Rosarina, cortando una bondiola de campo" loading="lazy" decoding="async" width="307" height="535">
+        <img class="card-photo" src="assets/img/tienda-cuchillos.webp" alt="Natali con cuchillo artesanal La Rosarina, cortando una bondiola de campo" loading="lazy" decoding="async" width="259" height="411">
         <h3>Cuchillos Artesanales</h3>
         <p>Filo y diseño para tu parrilla en casa. [Modelos y precios por confirmar]</p>
+        <button type="button" class="tienda-expand" data-tienda-open="cuchillos">Ver opciones →</button>
         <a href="https://wa.me/51947710311?text=Hola%20Natali%2C%20quiero%20consultar%20por%20los%20cuchillos" target="_blank" rel="noopener" class="tienda-link">Consultar disponibilidad →</a>
       </article>
       <article class="tienda-card reveal delay-1">
-        <img class="card-photo" src="assets/img/tienda-tablas.webp" alt="Tablas de madera artesanales La Rosarina en distintos tamaños" loading="lazy" decoding="async" width="342" height="516">
+        <img class="card-photo" src="assets/img/tienda-tablas.webp" alt="Tablas de madera artesanales La Rosarina en distintos tamaños" loading="lazy" decoding="async" width="257" height="448">
         <h3>Tablas de Madera</h3>
         <p>Tablas de tronco, hechas a mano, para servir con estilo. [Medidas por confirmar]</p>
+        <button type="button" class="tienda-expand" data-tienda-open="tablas">Ver opciones →</button>
         <a href="https://wa.me/51947710311?text=Hola%20Natali%2C%20quiero%20consultar%20por%20las%20tablas%20de%20madera" target="_blank" rel="noopener" class="tienda-link">Consultar disponibilidad →</a>
       </article>
       <article class="tienda-card reveal delay-2">
-        <img class="card-photo" src="assets/img/tienda-fiambres.webp" alt="Tabla de fiambres y quesos La Rosarina" loading="lazy" decoding="async" width="342" height="514">
+        <img class="card-photo" src="assets/img/tienda-fiambres.webp" alt="Tabla de fiambres y quesos La Rosarina" loading="lazy" decoding="async" width="342" height="304">
         <h3>Fiambres &amp; Embutidos</h3>
         <p>Selección para picadas y mesas de fiambre. [Variedades por confirmar]</p>
+        <button type="button" class="tienda-expand" data-tienda-open="fiambres">Ver opciones →</button>
         <a href="https://wa.me/51947710311?text=Hola%20Natali%2C%20quiero%20consultar%20por%20los%20fiambres" target="_blank" rel="noopener" class="tienda-link">Consultar disponibilidad →</a>
+      </article>
+      <article class="tienda-card reveal">
+        <img class="card-photo" src="assets/img/tienda-especias.webp" alt="Sal parrillera y especias gourmet La Rosarina" loading="lazy" decoding="async" width="341" height="395">
+        <h3>Sal Parrillera &amp; Especias</h3>
+        <p>Mezclas gourmet propias, para llevar el sabor La Rosarina a tu propia parrilla. [Variedades y precios por confirmar]</p>
+        <button type="button" class="tienda-expand" data-tienda-open="especias">Ver opciones →</button>
+        <a href="https://wa.me/51947710311?text=Hola%20Natali%2C%20quiero%20consultar%20por%20la%20sal%20parrillera%20y%20especias" target="_blank" rel="noopener" class="tienda-link">Consultar disponibilidad →</a>
+      </article>
+      <article class="tienda-card reveal delay-1">
+        <img class="card-photo" src="assets/img/tienda-vino.webp" alt="Botella de vino La Rosarina con etiqueta personalizada" loading="lazy" decoding="async" width="465" height="1600">
+        <h3>Vinos La Rosarina</h3>
+        <p>Vino con etiqueta personalizada de la casa, ideal para regalo. [Variedades y precios por confirmar]</p>
+        <a href="https://wa.me/51947710311?text=Hola%20Natali%2C%20quiero%20consultar%20por%20los%20vinos" target="_blank" rel="noopener" class="tienda-link">Consultar disponibilidad →</a>
+      </article>
+      <article class="tienda-card reveal delay-2">
+        <img class="card-photo" src="assets/img/tienda-pack.webp" alt="Pack de regalo La Rosarina: vino, fiambre y posavasos en caja de madera" loading="lazy" decoding="async" width="1440" height="1650">
+        <h3>Packs &amp; Ofertas</h3>
+        <p>Cajas de regalo armadas con vino, fiambre y detalles de la casa. [Contenido y precios por confirmar]</p>
+        <button type="button" class="tienda-expand" data-tienda-open="packs">Ver opciones →</button>
+        <a href="https://wa.me/51947710311?text=Hola%20Natali%2C%20quiero%20consultar%20por%20los%20packs%20y%20ofertas" target="_blank" rel="noopener" class="tienda-link">Consultar disponibilidad →</a>
       </article>
     </div>
   </section>
+
+  <!-- MODAL TIENDA — reutilizable para las 4 categorías -->
+  <div class="tienda-modal" data-tienda-modal hidden>
+    <div class="tienda-modal-backdrop" data-tienda-close></div>
+    <div class="tienda-modal-panel" role="dialog" aria-modal="true" aria-labelledby="tienda-modal-title">
+      <button type="button" class="tienda-modal-close" data-tienda-close aria-label="Cerrar">✕</button>
+      <h3 class="tienda-modal-title" id="tienda-modal-title" data-tienda-modal-title></h3>
+      <div class="tienda-modal-grid" data-tienda-modal-grid></div>
+    </div>
+  </div>
 
   <!-- EVENTOS / CATERING DESTACADO -->
   <section class="section eventos" id="eventos">
@@ -213,7 +251,7 @@
 
 <script defer src="lib/gsap.min.js?v=20260718l"></script>
 <script defer src="lib/ScrollTrigger.min.js?v=20260718l"></script>
-<script defer src="lib/manifest.js?v=20260718l"></script>
-<script defer src="main.js?v=20260718l"></script>
+<script defer src="lib/manifest.js?v=20260718o"></script>
+<script defer src="main.js?v=20260718m"></script>
 </body>
 </html>
