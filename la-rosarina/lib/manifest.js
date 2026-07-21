@@ -15,7 +15,8 @@
         items: [
           { nombre: "Cuchillo Chef 20cm", foto: "assets/img/tienda-cuchillos.webp", precio: "[precio por confirmar]" },
           { nombre: "Cuchillo Puntilla", foto: "assets/img/tienda-cuchillos.webp", precio: "[precio por confirmar]" },
-          { nombre: "Set de Cuchillos", foto: "assets/img/tienda-cuchillos.webp", precio: "[precio por confirmar]" }
+          { nombre: "Set de Cuchillos", foto: "assets/img/tienda-cuchillos.webp", precio: "[precio por confirmar]" },
+          { nombre: "Cuchillo Carnicero", foto: "assets/img/tienda-cuchillos2.webp", precio: "[precio por confirmar]" }
         ]
       },
       tablas: {

@@ -7,6 +7,8 @@
    1. Tokens
    ------------------------------------------------------------- */
 :root {
+  color-scheme: light;
+
   --bg:        #faf7f0;   /* newsprint cream */
   --bg-2:      #f1ecdf;
   --ink:       #16140e;
