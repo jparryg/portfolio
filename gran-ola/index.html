@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gran-Ola — Snacks artesanales, directo de la costa</title>
+<meta name="description" content="Granola, energéticos, horneados, chocolatería, panadería colombiana, apiarios y café artesanales de Gran-Ola. Hechos en la costa peruana." />
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/favicon-180.png" />
+
+<link rel="preload" as="image" href="assets/img/hero/hero-atardecer-01.webp" fetchpriority="high" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap">
+
+<link rel="stylesheet" href="styles.css?v=20260728" />
+</head>
+<body>
+<a class="skip-link" href="#historia">Saltar al contenido</a>
+
+<div id="carrito-fab" class="carrito-fab" style="display:none" aria-label="Ver pedido">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+  <span class="carrito-count" id="carrito-count">0</span>
+</div>
+
+<div id="carrito-panel" class="carrito-panel" aria-hidden="true">
+  <div class="carrito-header">
+    <h3 class="carrito-title">Mi pedido</h3>
+    <button id="carrito-close" class="carrito-close" aria-label="Cerrar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div id="carrito-items" class="carrito-items">
+    <p class="carrito-empty">Tu pedido está vacío.<br/>Agrega productos del catálogo.</p>
+  </div>
+  <div class="carrito-footer">
+    <div class="delivery-toggle">
+      <button class="dtoggle-btn active" data-mode="recojo">🏪 Recojo en tienda</button>
+      <button class="dtoggle-btn" data-mode="delivery">🛵 Delivery</button>
+    </div>
+    <div id="delivery-address-wrap" class="delivery-address-wrap" style="display:none">
+      <input id="delivery-address" class="delivery-address-input" type="text" placeholder="Tu dirección de entrega..." />
+    </div>
+    <div class="pago-block">
+      <span class="pago-label">Método de pago</span>
+      <div class="pago-options">
+        <button class="pago-btn active" data-pago="Yape">Yape</button>
+        <button class="pago-btn" data-pago="Plin">Plin</button>
+        <button class="pago-btn" data-pago="Transferencia">Transferencia</button>
+      </div>
+    </div>
+    <div class="carrito-total-row">
+      <span>Total estimado</span>
+      <strong id="carrito-total">S/ 0.00</strong>
+    </div>
+    <a id="carrito-wsp-btn" class="btn-carrito-wsp" href="#" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar pedido por WhatsApp
+    </a>
+    <button id="carrito-vaciar" class="btn-vaciar">Vaciar pedido</button>
+  </div>
+</div>
+<div id="carrito-overlay" class="carrito-overlay"></div>
+
+<nav class="nav" data-nav>
+  <div class="container nav-inner">
+    <a class="nav-brand" href="#top" aria-label="Gran-Ola inicio">
+      <img src="assets/img/logo/logo-instagram-profile.webp" alt="Gran-Ola" width="136" height="136" />
+    </a>
+    <div class="nav-links">
+      <a href="#historia">Historia</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#pedidos-especiales">Pedidos especiales</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="btn btn-primary nav-cta" href="https://wa.me/51943600184" target="_blank" rel="noopener">Escríbenos</a>
+    <button class="nav-burger" data-burger aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+</nav>
+
+<div class="nav-mobile" data-mobile-nav hidden>
+  <a href="#historia">Historia</a>
+  <a href="#catalogo">Catálogo</a>
+  <a href="#pedidos-especiales">Pedidos especiales</a>
+  <a href="#contacto">Contacto</a>
+  <a class="btn btn-primary" href="https://wa.me/51943600184" target="_blank" rel="noopener">Escríbenos</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <img src="assets/img/hero/hero-atardecer-01.webp" alt="Atardecer sobre el mar, en la costa donde nace Gran-Ola" fetchpriority="high" loading="eager" />
+  </div>
+  <div class="container hero-inner">
+    <span class="hero-badge">🚐 desde la van, hasta tu mesa</span>
+    <h1 class="hero-title">Prueba un bocado, y sentirás que volviste a <em>casa</em>.</h1>
+    <p class="hero-sub">Granola, energéticos, horneados y miel hechos a mano en la costa peruana — sin atajos, sin relleno.</p>
+    <div class="hero-actions">
+      <a class="btn btn-sun" href="#catalogo">Ver catálogo</a>
+      <a class="btn btn-ghost" style="color:#fffbf2;border-color:rgba(255,255,255,.4)" href="#historia">Nuestra historia</a>
+    </div>
+  </div>
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z" fill="#F7F0E4"></path>
+    </svg>
+  </div>
+</header>
+
+<section class="historia" id="historia">
+  <div class="historia-blob b1" aria-hidden="true"></div>
+  <div class="container historia-grid">
+    <figure class="historia-figure reveal" data-reveal>
+      <img src="assets/img/historia/van-playa-01.webp" alt="Van Gran-Ola con bolsas de granola y trail mix sobre la arena, frente al mar" loading="lazy" decoding="async" />
+    </figure>
+    <div class="historia-copy reveal" data-reveal>
+      <span class="kicker">Una van, una idea</span>
+      <h2>Todo empezó por llevar algo bueno a la playa.</h2>
+      <p>Gran-Ola nació de una van estacionada frente al mar y una idea simple: snacks que alimenten de verdad, hechos con las manos, sin procesos industriales de por medio.</p>
+      <p>Hoy seguimos horneando, tostando y envasando cada producto a mano — del pedido más chico al más grande — entre granola, energéticos, chocolatería y panadería colombiana, además de miel y propóleo de productores peruanos que conocemos de cerca.</p>
+      <div class="historia-stats">
+        <div class="historia-stat"><strong>100%</strong><span>artesanal</span></div>
+        <div class="historia-stat"><strong>0</strong><span>rellenos industriales</span></div>
+        <div class="historia-stat"><strong>24</strong><span>productos en catálogo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="historia" style="padding-top:0">
+  <div class="container historia-grid is-reverse">
+    <figure class="historia-figure reveal" data-reveal>
+      <img src="assets/img/historia/van-playa-02.webp" alt="Van Gran-Ola en la playa al atardecer" loading="lazy" decoding="async" />
+    </figure>
+    <div class="historia-copy reveal" data-reveal>
+      <span class="kicker">Ingredientes con origen</span>
+      <h2>Miel de Oxapampa, café de Villa Rica, cacao de verdad.</h2>
+      <p>Trabajamos con apicultores y productores peruanos para la miel, el propóleo y el café — y usamos chocolate al 70% en toda nuestra línea dulce. Lo que no tenemos es atajos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="catalogo" id="catalogo">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">El catálogo completo</span>
+      <h2>24 productos, 7 familias.</h2>
+      <p>De la granola de cada mañana a los pedidos especiales de fin de semana.</p>
+    </div>
+  </div>
+
+  <div class="cat-nav-wrap">
+    <div class="container">
+      <div class="cat-nav">
+        <a class="cat-pill is-active" data-cat-pill="granolas" href="#cat-granolas">Granolas</a>
+        <a class="cat-pill" data-cat-pill="snacks-energeticos" href="#cat-snacks-energeticos">Snacks energéticos</a>
+        <a class="cat-pill" data-cat-pill="galletas-horneados" href="#cat-galletas-horneados">Galletas y horneados</a>
+        <a class="cat-pill" data-cat-pill="chocolates" href="#cat-chocolates">Chocolatería</a>
+        <a class="cat-pill" data-cat-pill="panaderia-colombiana" href="#cat-panaderia-colombiana">Panadería colombiana</a>
+        <a class="cat-pill" data-cat-pill="apiarios-suplementos" href="#cat-apiarios-suplementos">Apiarios y suplementos</a>
+        <a class="cat-pill" data-cat-pill="cafe-aceite" href="#cat-cafe-aceite">Café y aceite</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="cat-section" id="cat-granolas" data-cat-section="granolas">
+      <h3 class="cat-title"><span class="kicker-num">01</span> Granolas</h3>
+      <div class="product-grid">
+        <article class="product-card reveal" data-reveal data-nombre="Granola Artesanal" data-variants='[{"label": "250gr", "price": 18.5}, {"label": "400gr", "price": 29}]'>
+          <div class="product-photo"><img src="assets/img/productos/granolas/granola-artesanal-01.webp" alt="Bowl de granola artesanal con frutos secos y coco" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Granola Artesanal</h3>
+            <p class="product-ingredients">Hojuelas de avena, almendras, nueces, girasol, ajonjolí, pop de cereales andinos, láminas de coco, cranberries, aceite de coco virgen, panela y miel de abejas.</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Granola Choco" data-variants='[{"label": "250gr", "price": 18.5}, {"label": "400gr", "price": 29}]'>
+          <div class="product-photo"><img src="assets/img/productos/granolas/granola-choco-01.webp" alt="Granola con cacao, almendras y castañas" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Granola Choco</h3>
+            <p class="product-ingredients">Almendras, castañas, avellanas, calabaza, girasol, cacao, miel de panela, piel de naranja y toque de especias.</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="cat-section" id="cat-snacks-energeticos" data-cat-section="snacks-energeticos">
+      <h3 class="cat-title"><span class="kicker-num">02</span> Snacks energéticos</h3>
+      <div class="product-grid">
+        <article class="product-card reveal" data-reveal data-nombre="Bolita Energética" data-variants='[{"label": "Caja x6", "price": 18}]'>
+          <div class="product-photo"><img src="assets/img/productos/snacks-energeticos/bolita-energetica-01.webp" alt="Bolitas energéticas de castaña, dátil y chocolate 70%" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Bolita Energética</h3>
+            <p class="product-ingredients">Cashews, dátiles e higos con un toque de chocolate orgánico al 70%.</p>
+            <p class="product-price">S/18 <small>caja x6</small></p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Trail Mix Premium" data-variants='[{"label": "300gr - Mix cashew", "price": 35}, {"label": "300gr - Mix pecana", "price": 30}, {"label": "Unidad", "price": 3.5}]'>
+          <div class="product-photo"><img src="assets/img/productos/snacks-energeticos/trail-mix-01.webp" alt="Trail mix premium de frutos secos" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Trail Mix Premium</h3>
+            <p class="product-ingredients">Pecana, avellana, almendras, calabaza, girasol, miel de abejas, aceite de coco virgen y sal de Maras, con cranberries y nibs de cacao cubiertos en chocolate orgánico al 55%.</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Barras Energéticas" data-variants='[{"label": "Caja", "price": 30}, {"label": "Unidad", "price": 8}]'>
+          <div class="product-photo"><img src="assets/img/productos/snacks-energeticos/barra-energetica-01.webp" alt="Barra energética de kiwicha, frutos secos y dátil" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Barras Energéticas</h3>
+            <p class="product-ingredients">Cashews, nueces, almendras, semillas de calabaza y girasol, pop de cereales andinos, pasta artesanal de dátiles, nibs de cacao cubiertos de chocolate al 55%.</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="cat-section" id="cat-galletas-horneados" data-cat-section="galletas-horneados">
+      <h3 class="cat-title"><span class="kicker-num">03</span> Galletas y horneados</h3>
+      <div class="product-grid">
+        <article class="product-card reveal" data-reveal data-nombre="Alfajores" data-variants='[{"label": "Caja x12", "price": 35}]'>
+          <div class="product-photo"><img src="assets/img/productos/galletas-horneados/alfajores-01.webp" alt="Alfajores de pecana y almendra rellenos de manjar de olla" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Alfajores</h3>
+            <p class="product-ingredients">De pecanas y almendras, mantequilla cajamarquina, con manjar de olla.</p>
+            <p class="product-price">S/35 <small>caja x12</small></p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Galletas de Pecanas" data-variants='[{"label": "Caja (por encargo)", "price": 35}]'>
+          <div class="product-photo"><img src="assets/img/productos/galletas-horneados/galletas-pecanas-01.webp" alt="Galletas de pecana bañadas en chocolate" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Galletas de Pecanas</h3>
+            <p class="product-ingredients">Pecanas, almendras, mantequilla cajamarquina y chocolate orgánico al 70%.</p>
+            <p class="product-price">S/35 <small>caja, por encargo</small></p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Galleta de Avena" data-variants='[{"label": "Bolsa x4", "price": 30}, {"label": "Mini bolsa", "price": 8}, {"label": "Unidad", "price": 28}]'>
+          <div class="product-photo"><img src="assets/img/productos/galletas-horneados/galleta-avena-01.webp" alt="Galleta de avena con arándanos y chocolate 70%" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Galleta de Avena</h3>
+            <p class="product-ingredients">Hojuelas de avena, pecanas, cranberries, huevos de gallinas libres, aceite de coco, panela y especias, con trozos de chocolate orgánico al 70%.</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="cat-section" id="cat-chocolates" data-cat-section="chocolates">
+      <h3 class="cat-title"><span class="kicker-num">04</span> Chocolatería</h3>
+      <div class="product-grid">
+        <article class="product-card reveal" data-reveal data-nombre="Ferrero Choler" data-variants='[{"label": "Caja x6", "price": 24}, {"label": "Unidad", "price": 4.5}]'>
+          <div class="product-photo"><img src="assets/img/productos/chocolates/ferrero-choler-01.webp" alt="Ferrero Choler, bolitas de kiwicha cubiertas de avellana y cacao" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Ferrero Choler</h3>
+            <p class="product-ingredients">Bolitas de kiwicha cubiertas en pasta artesanal de avellana, cacao, chocolate orgánico al 70% y dátiles.</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Choco Danuca" data-variants='[{"label": "Unidad", "price": 12}]'>
+          <div class="product-photo"><img src="assets/img/productos/chocolates/choco-danuca-01.webp" alt="Choco Danuca, barra de chocolate con pecana y dátil" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Choco Danuca</h3>
+            <p class="product-ingredients">Nueces, cashews y dátiles, cubiertos en chocolate orgánico al 70%.</p>
+            <p class="product-price">S/12 <small>unidad</small></p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Chocoteja Fit" data-variants='[{"label": "Unidad", "price": 5}, {"label": "6 unidades", "price": 27}]'>
+          <div class="product-photo"><img src="assets/img/productos/chocolates/chocoteja-fit-01.webp" alt="Chocoteja Fit de nueces, castañas y dátil" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Chocoteja Fit</h3>
+            <p class="product-ingredients">Pasta artesanal de almendras y dátiles con nibs de cacao, pecana entera cubierta con chocolate orgánico al 70%.</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="cat-section" id="cat-panaderia-colombiana" data-cat-section="panaderia-colombiana">
+      <h3 class="cat-title"><span class="kicker-num">05</span> Panadería colombiana</h3>
+      <div class="product-grid">
+        <article class="product-card reveal" data-reveal data-nombre="Pandebono" data-variants='[{"label": "Clásico", "price": 3}, {"label": "Con bocadillo", "price": 3.5}, {"label": "Petit caja x50", "price": 60}, {"label": "Masa x kilo", "price": 40}]'>
+          <div class="product-photo"><img src="assets/img/productos/panaderia-colombiana/pandebono-01.webp" alt="Pandebonos clásicos y rellenos de bocadillo" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Pandebono</h3>
+            <p class="product-ingredients">Amasijo colombiano a base de almidón de yuca, abundante queso, mantequilla cajamarquina y leche de vaquita feliz.</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Waffle de Pandebono" data-variants='[{"label": "Tradicional", "price": 18}, {"label": "Chocowafle", "price": 18}, {"label": "Bocadillo", "price": 18}]'>
+          <div class="product-photo"><img src="assets/img/productos/panaderia-colombiana/waffle-pandebono-01.webp" alt="Waffle de pandebono con manjar de olla" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Waffle de Pandebono</h3>
+            <p class="product-ingredients">Crujiente por fuera, suave por dentro — fusión de tradición colombiana-belga.</p>
+            <p class="product-price">S/18</p>
+            <p class="product-note">Tradicional · Chocowafle · Bocadillo</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Obleas" data-variants='[{"label": "Unidad", "price": 6}, {"label": "x12", "price": 60}]'>
+          <div class="product-photo"><img src="assets/img/productos/panaderia-colombiana/obleas-01.webp" alt="Obleas rellenas de manjar de olla" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Obleas</h3>
+            <p class="product-ingredients">Disfruta de la auténtica oblea colombiana, un crujiente disco relleno de manjar de olla — perfecta para cualquier momento del día.</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Manjar de Olla" data-variants='[{"label": "400g", "price": 26}]'>
+          <div class="product-photo"><img src="assets/img/productos/panaderia-colombiana/manjar-de-olla-01.webp" alt="Frasco de manjar de olla Gran-Ola" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Manjar de Olla</h3>
+            <p class="product-ingredients">Crema dulce a base de leche y azúcar, cocida lentamente hasta su textura perfecta.</p>
+            <p class="product-price">S/26 <small>400g</small></p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="cat-section" id="cat-apiarios-suplementos" data-cat-section="apiarios-suplementos">
+      <h3 class="cat-title"><span class="kicker-num">06</span> Apiarios y suplementos</h3>
+      <div class="product-grid">
+        <article class="product-card reveal" data-reveal data-nombre="Miel de Abejas" data-variants='[{"label": "Multifloral (Oxapampa)", "price": 45}, {"label": "Eucalipto (Cusco)", "price": 50}]'>
+          <div class="product-photo"><img src="assets/img/productos/apiarios-suplementos/miel-de-abejas-01.webp" alt="Frascos de miel de abejas Gran-Ola" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Miel de Abejas</h3>
+            <p class="product-ingredients">Multifloral cruda (Oxapampa) o floración de eucalipto cruda (Cusco).</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Propolio" data-variants='[{"label": "", "price": 24}]'>
+          <div class="product-photo"><img src="assets/img/productos/apiarios-suplementos/propolio-01.webp" alt="Propolio Gran-Ola en gotero" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Propolio</h3>
+            <p class="product-price">S/24</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Propolkids" data-variants='[{"label": "", "price": 18}]'>
+          <div class="product-photo"><img src="assets/img/productos/apiarios-suplementos/propolkids-placeholder.webp" alt="Propolkids — foto de producto pendiente de confirmar" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Propolkids</h3>
+            <p class="product-price">S/18</p>
+            <p class="product-note">Foto real pendiente</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Valeriana" data-variants='[{"label": "", "price": 18}]'>
+          <div class="product-photo"><img src="assets/img/productos/apiarios-suplementos/grupo-suplementos-01.webp" alt="Valeriana en gotero, junto a otros suplementos Gran-Ola" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Valeriana</h3>
+            <p class="product-price">S/18</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Polen" data-variants='[{"label": "", "price": 20}]'>
+          <div class="product-photo"><img src="assets/img/productos/apiarios-suplementos/grupo-suplementos-01.webp" alt="Frasco de polen, junto a otros suplementos Gran-Ola" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Polen</h3>
+            <p class="product-price">S/20</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Vitapol" data-variants='[{"label": "", "price": 37}]'>
+          <div class="product-photo"><img src="assets/img/productos/apiarios-suplementos/grupo-suplementos-01.webp" alt="Frasco de Vitapol, junto a otros suplementos Gran-Ola" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Vitapol</h3>
+            <p class="product-price">S/37</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Bioinfusión" data-variants='[{"label": "", "price": 28}]'>
+          <div class="product-photo"><img src="assets/img/productos/apiarios-suplementos/grupo-suplementos-01.webp" alt="Bi-Infusión, junto a otros suplementos Gran-Ola" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Bioinfusión</h3>
+            <p class="product-price">S/28</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+      </div>
+      <p class="product-note" style="margin-top:1rem">Valeriana, Polen, Vitapol y Bioinfusión comparten foto de grupo por ahora — fotos individuales, pendientes.</p>
+    </div>
+
+    <div class="cat-section" id="cat-cafe-aceite" data-cat-section="cafe-aceite">
+      <h3 class="cat-title"><span class="kicker-num">07</span> Café y aceite</h3>
+      <div class="product-grid">
+        <article class="product-card reveal" data-reveal data-nombre="Café Essencia" data-variants='[{"label": "250gr", "price": 22}, {"label": "500gr", "price": 40}, {"label": "kilo", "price": 75}]'>
+          <div class="product-photo"><img src="assets/img/productos/cafe-aceite/cafe-essencia-01.webp" alt="Bolsas de Café Essencia, Villa Rica" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Café Essencia</h3>
+            <p class="product-ingredients">85 puntos SCA, Finca Barboza, variedad Caturra Amarilla, cultivada a 1550 msnm en Villa Rica. Tueste medio, notas de chocolate y cítricos.</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+        <article class="product-card reveal" data-reveal data-nombre="Aceite de Coco" data-variants='[{"label": "730ml", "price": 48}, {"label": "1000ml", "price": 60}]'>
+          <div class="product-photo"><img src="assets/img/productos/cafe-aceite/aceite-de-coco-01.webp" alt="Frasco de aceite de coco Gran-Ola" loading="lazy" decoding="async" /></div>
+          <div class="product-body">
+            <h3>Aceite de Coco</h3>
+            <p class="product-ingredients">Prensado en frío, origen Tarapoto.</p>
+          <div class="product-cart-controls" data-cart-controls></div></div>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="especiales" id="pedidos-especiales">
+  <div class="container especiales-grid">
+    <figure class="especiales-figure reveal" data-reveal>
+      <img src="assets/img/productos/pedidos-especiales/tortas-01.webp" alt="Torta personalizada Gran-Ola con vista al mar" loading="lazy" decoding="async" />
+    </figure>
+    <div class="especiales-copy reveal" data-reveal>
+      <span class="kicker">Para ocasiones especiales</span>
+      <h2>Tortas y pedidos personalizados, por encargo.</h2>
+      <p>Cumpleaños, celebraciones o antojos puntuales — armamos tortas y pedidos a medida con la misma receta artesanal de siempre.</p>
+      <div class="especiales-actions">
+        <a class="btn btn-primary" href="https://wa.me/51943600184" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="contacto" id="contacto">
+  <div class="container">
+    <div class="section-head section-head--echo">
+      <span class="kicker">Vuelve cuando quieras.</span>
+      <h2>Pide, pregunta o pasa la voz.</h2>
+      <p>Porque ese primer bocado siempre pide un segundo.</p>
+    </div>
+    <div class="contacto-grid">
+      <div class="contact-card">
+        <strong>Instagram</strong>
+        <span>Novedades, pedidos y el día a día de la van.</span>
+        <a href="https://instagram.com/gran_ola_oficial" target="_blank" rel="noopener">@gran_ola_oficial</a>
+      </div>
+      <div class="contact-card">
+        <strong>Facebook</strong>
+        <span>La página de siempre, para quienes nos siguen ahí.</span>
+        <a href="https://facebook.com/profile.php?id=100064615397364" target="_blank" rel="noopener">Gran-Ola en Facebook</a>
+      </div>
+      <div class="contact-card">
+        <strong>WhatsApp / Teléfono</strong>
+        <span>Pedidos, tortas especiales y mayoristas.</span>
+        <a href="https://wa.me/51943600184" target="_blank" rel="noopener">943 600 184</a>
+      </div>
+      <div class="contact-card">
+        <strong>Ubicación</strong>
+        <span>[tu dirección]</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Gran-Ola+Artesanal" target="_blank" rel="noopener">Cómo llegar →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Gran-Ola Artesanal. Hecho con cariño en Punta Hermosa, Lima, Perú.</span>
+      <span>Hecho por <a href="https://jparryg.github.io/portfolio" target="_blank" rel="noopener" style="text-decoration:underline">Studio Parry</a></span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="lib/gsap.min.js?v=20260728"></script>
+<script defer src="lib/ScrollTrigger.min.js?v=20260728"></script>
+<script defer src="lib/manifest.js?v=20260728"></script>
+<script defer src="main.js?v=20260728"></script>
+</body>
+</html>
