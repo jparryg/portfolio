@@ -76,10 +76,14 @@
     var els = document.querySelectorAll(".reveal:not([data-split])");
     if (!els.length) return;
 
-    // Safety: activar todo a los 800ms si el observer no dispara
+    // Safety: si el observer no dispara, a los 6s revelar solo lo que ya esta en pantalla
     setTimeout(function () {
-      els.forEach(function (el) { el.classList.add("is-visible"); });
-    }, 800);
+      els.forEach(function (el) {
+        if (!el.classList.contains("is-visible") && el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add("is-visible");
+        }
+      });
+    }, 6000);
 
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
