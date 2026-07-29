@@ -9,7 +9,7 @@
   --ink-soft:  #24404f;
   --ink-mute:  #62727a;
   --accent:    #1f7a94;
-  --accent-2:  #e2683c;
+  --accent-2:  #CA4C1E; /* oscurecido para contraste WCAG con texto blanco */
   --gold:      #c9a24b;
   --line:      rgba(19,36,48,0.12);
   --line-soft: rgba(19,36,48,0.07);

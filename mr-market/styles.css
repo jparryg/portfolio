@@ -89,7 +89,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   backdrop-filter: blur(8px);
 }
 .btn-ghost-light:hover { background: rgba(255,255,255,0.25); }
-.btn-wsp { background: var(--wsp); color: #fff; font-size: 16px; padding: 16px 36px; }
+.btn-wsp { background: var(--wsp); color: #093219; font-size: 16px; padding: 16px 36px; }
 .btn-wsp:hover { background: var(--wsp-dark); box-shadow: 0 8px 32px rgba(37,211,102,0.30); }
 
 /* ── DEMO BANNER ── */
@@ -123,7 +123,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .nav-links a:hover { color: var(--ink); }
 .btn-nav-cta {
   display: flex; align-items: center; gap: 8px;
-  padding: 10px 20px; background: var(--wsp); color: #fff;
+  padding: 10px 20px; background: var(--wsp); color: #093219;
   border-radius: 100px; font-size: 14px; font-weight: 500;
   transition: background var(--t-fast), transform var(--t-fast) var(--ease-spring);
 }
@@ -140,7 +140,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 .nav-mobile a { padding: 14px 0; font-size: 18px; font-weight: 500; border-bottom: 1px solid var(--line); color: var(--ink); }
 .nav-mobile a:last-of-type { border-bottom: none; }
-.btn-mobile-cta { margin-top: 16px; display: flex; align-items: center; justify-content: center; padding: 14px 24px; background: var(--wsp); color: #fff; border-radius: 100px; font-weight: 600; font-size: 16px; }
+.btn-mobile-cta { margin-top: 16px; display: flex; align-items: center; justify-content: center; padding: 14px 24px; background: var(--wsp); color: #093219; border-radius: 100px; font-weight: 600; font-size: 16px; }
 .nav-mobile.is-open { display: flex; }
 
 /* ── HERO ── */
@@ -300,7 +300,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .prod-price { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
 .btn-pedir {
   display: inline-flex; align-items: center; padding: 8px 16px;
-  background: var(--wsp); color: #fff; border-radius: 100px;
+  background: var(--wsp); color: #093219; border-radius: 100px;
   font-size: 13px; font-weight: 600;
   transition: background var(--t-fast), transform var(--t-fast) var(--ease-spring);
 }
@@ -509,7 +509,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .carrito-total-row strong { font-size: 22px; font-family: 'Fraunces', serif; letter-spacing: -0.02em; }
 .btn-carrito-wsp {
   display: flex; align-items: center; justify-content: center; gap: 10px;
-  padding: 15px 24px; background: var(--wsp); color: #fff;
+  padding: 15px 24px; background: var(--wsp); color: #093219;
   border-radius: 100px; font-size: 15px; font-weight: 600;
   transition: background var(--t-fast), transform var(--t-fast) var(--ease-spring);
   cursor: pointer;
@@ -562,7 +562,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   transition: background var(--t-fast), transform var(--t-fast) var(--ease-spring);
 }
 .btn-agregar:hover { background: var(--ink-soft); transform: scale(1.04); }
-.btn-agregar.is-added { background: var(--wsp); color: #fff; }
+.btn-agregar.is-added { background: var(--wsp); color: #093219; }
 
 /* ── MAPA ── */
 .mapa-section {
@@ -681,7 +681,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   gap: 10px;
   padding: 15px 32px;
   background: var(--wsp);
-  color: #fff;
+  color: #093219;
   border-radius: 100px;
   font-size: 16px;
   font-weight: 700;

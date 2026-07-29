@@ -11,7 +11,7 @@
   --ink:       #1a1814;
   --ink-soft:  #2a2520;
   --ink-mute:  #6b6358;
-  --accent:    #0cb7f2;   /* celeste Koonsult */
+  --accent:    #08779D;   /* celeste Koonsult, oscurecido para contraste WCAG (botones y texto sobre --accent-light) */
   --accent-2:  #0a9fd8;
   --accent-light: #e6f7fd;
   --gold:      #8B6914;

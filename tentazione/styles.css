@@ -1605,13 +1605,13 @@ body:has(.carrito-panel.open) .carrito-overlay {
 }
 .carrito-wsp-delivery {
   background: #25D366;
-  color: #fff;
+  color: #093219;
   border: 1.5px solid #25D366;
 }
 .carrito-wsp-delivery:hover {
   background: #1ebe5d;
   border-color: #1ebe5d;
-  color: #fff;
+  color: #093219;
   transform: translateY(-1px);
 }
 
@@ -1717,7 +1717,7 @@ body:has(.carrito-panel.open) .carrito-overlay {
   background: #25D366;
   border: 1.5px solid #25D366;
   border-radius: var(--r);
-  color: #fff;
+  color: #093219;
   font-family: var(--font-body);
   font-size: .88rem;
   font-weight: 600;
@@ -1726,7 +1726,7 @@ body:has(.carrito-panel.open) .carrito-overlay {
 }
 .delivery-btn-enviar:hover {
   background: #1ebe5d;
-  color: #fff;
+  color: #093219;
 }
 
 /* ─── Reduced-motion: solo lo intrusivo ──────────────── */
