@@ -1,0 +1,416 @@
+/* =============================================================
+   1. Tokens
+   ============================================================= */
+:root {
+  --bg:        #f6f1e6;
+  --bg-2:      #ece2cc;
+  --paper:     #fffdf8;
+  --cream:     #fbf6ec;
+  --ink:       #201b15;
+  --ink-soft:  #3b342b;
+  --ink-mute:  #6b5f4e;
+  --accent:    #1f5c52;   /* marine teal — casa */
+  --accent-dark: #163f38;
+  --accent-2:  #9c6b3e;   /* cobre del logo — decorativo / texto grande */
+  --accent-2-text:    #6b4a26;  /* cobre oscurecido — texto pequeño sobre fondos claros, AA */
+  --accent-2-on-dark: #d9a968;  /* cobre aclarado — texto sobre fondos oscuros, AA */
+  --line:      rgba(32,27,21,0.12);
+
+  --serif: "Cormorant Garamond", "Times New Roman", serif;
+  --sans:  "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-soft:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --nav-h: 100px;
+}
+
+@property --mesh-x { syntax: "<percentage>"; inherits: false; initial-value: 30%; }
+@property --mesh-y { syntax: "<percentage>"; inherits: false; initial-value: 40%; }
+
+/* =============================================================
+   2. Reset & base
+   ============================================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+html { -webkit-text-size-adjust: 100%; tab-size: 2; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+  overscroll-behavior-y: none;
+}
+
+img, svg, video { display: block; max-width: 100%; }
+img { height: auto; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+a { color: inherit; text-decoration: none; }
+p { text-wrap: pretty; }
+h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.01em; font-family: var(--serif); color: var(--ink); font-weight: 500; }
+em { font-style: italic; color: var(--accent); }
+ul { list-style: none; padding: 0; }
+table { border-collapse: collapse; }
+address { font-style: normal; }
+::selection { background: var(--accent); color: var(--cream); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* =============================================================
+   3. Utilities
+   ============================================================= */
+.container { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: 1.5rem; }
+@media (min-width: 960px) { .container { padding-inline: 2.5rem; } }
+
+.skip-link {
+  position: fixed; top: -100px; left: 1rem;
+  padding: .6rem 1rem; background: var(--ink); color: var(--cream);
+  z-index: 9999; border-radius: 8px; font-weight: 600;
+  transition: top .3s var(--ease-out);
+}
+.skip-link:focus { top: 1rem; }
+
+.kicker {
+  font-family: var(--sans);
+  font-size: .78rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--accent-2-text);
+  font-weight: 600;
+  margin-bottom: .9rem;
+}
+.kicker-light { color: var(--cream); }
+
+.section-title { font-size: clamp(2rem, 4.4vw, 3.1rem); margin-bottom: 2.4rem; }
+.lede { font-size: clamp(1.15rem, 1.6vw, 1.4rem); color: var(--ink-soft); font-weight: 400; margin-bottom: 1.1rem; }
+
+/* =============================================================
+   4. Reveal — scroll animation (defensive CSS, see gotcha A.4.5)
+   ============================================================= */
+[data-reveal] {
+  opacity: 0; transform: translateY(36px);
+  transition: opacity .8s var(--ease-soft), transform .8s var(--ease-soft);
+}
+[data-reveal].is-revealed { opacity: 1; transform: none; }
+.reveal[data-split] { opacity: 1; transform: none; }
+
+/* =============================================================
+   5. Components
+   ============================================================= */
+.btn {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .95rem 1.7rem;
+  font-family: var(--sans); font-weight: 600; font-size: .96rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(32,27,21,0.08), 0 1px 3px rgba(32,27,21,0.06);
+  transition: transform .45s var(--ease-soft), box-shadow .45s var(--ease-soft), background-color .3s, color .3s;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-4px); box-shadow: 0 22px 44px rgba(32,27,21,0.16), 0 10px 20px rgba(31,92,82,0.18); }
+.btn:active { transform: translateY(-1px); transition-duration: .12s; }
+.btn-icon { width: 18px; height: 18px; flex: none; }
+
+.btn-primary { background: var(--accent); color: var(--cream); }
+.btn-primary:hover { background: var(--accent-dark); }
+
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
+.btn-ghost:hover { background: var(--paper); border-color: var(--ink); box-shadow: 0 14px 30px rgba(32,27,21,0.1); }
+
+/* Cursor */
+.cursor {
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  display: none;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: opacity .25s var(--ease-out);
+}
+.cursor.is-ready { opacity: 1; }
+@media (hover: hover) and (pointer: fine) { .cursor { display: block; } }
+.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; pointer-events: none; will-change: transform; }
+.cursor-dot { width: 5px; height: 5px; margin: -2.5px; background: var(--cream); border-radius: 50%; }
+.cursor-ring {
+  width: 30px; height: 30px; margin: -15px; border: 1px solid var(--cream); border-radius: 50%;
+  transition: width .35s var(--ease-out), height .35s var(--ease-out), margin .35s var(--ease-out);
+}
+.cursor.is-interactive .cursor-ring { width: 46px; height: 46px; margin: -23px; }
+.has-cursor, .has-cursor a, .has-cursor button { cursor: none; }
+
+/* Scroll progress */
+.scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 200; background: rgba(32,27,21,0.06); pointer-events: none; }
+.scroll-progress span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform-origin: 0 0; transform: scaleX(0); transition: transform .08s linear;
+}
+
+/* =============================================================
+   6. Nav
+   ============================================================= */
+.nav {
+  position: fixed; top: 0; inset-inline: 0; z-index: 100;
+  transition: background-color .4s var(--ease-out), backdrop-filter .4s var(--ease-out), box-shadow .4s var(--ease-out);
+}
+.nav.is-scrolled {
+  background: rgba(246,241,230,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--line);
+}
+.nav-inner { display: flex; align-items: center; gap: 1.5rem; height: var(--nav-h); }
+.nav-brand { display: flex; align-items: center; gap: 1rem; margin-right: auto; min-width: 0; }
+.nav-logo { width: 75px; height: 75px; border-radius: 50%; object-fit: cover; flex: none; }
+/* Unscrolled nav floats over the dark hero photo — text/icons default to
+   cream so they stay legible there; is-scrolled swaps to the ink palette
+   once the nav gets its own light background. */
+.nav-brand-text { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--cream); transition: color .4s var(--ease-out); }
+.nav.is-scrolled .nav-brand-text { color: var(--ink); }
+
+.nav-links { display: none; gap: 2.1rem; }
+@media (min-width: 960px) { .nav-links { display: flex; } }
+.nav-link { position: relative; padding: .25rem 0; font-size: .95rem; font-weight: 500; color: var(--cream); transition: color .4s var(--ease-out); }
+.nav.is-scrolled .nav-link { color: var(--ink-soft); }
+.nav-link::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -3px;
+  height: 1px; background: currentColor;
+  transform: scaleX(0); transform-origin: right;
+  transition: transform .45s var(--ease-soft);
+}
+.nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.nav-cta { display: none; }
+@media (min-width: 720px) { .nav-cta { display: inline-flex; padding: .7rem 1.35rem; font-size: .88rem; } }
+
+.nav-burger {
+  display: grid; place-items: center; gap: 4px;
+  width: 42px; height: 42px;
+}
+@media (min-width: 720px) { .nav-burger { display: none; } }
+.nav-burger span { width: 22px; height: 2px; background: var(--cream); border-radius: 2px; transition: transform .3s var(--ease-out), opacity .3s, background-color .4s var(--ease-out); }
+.nav.is-scrolled .nav-burger span { background: var(--ink); }
+.nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.nav-mobile {
+  position: fixed; inset: var(--nav-h) 0 0 0; z-index: 90;
+  background: var(--ink); color: var(--cream);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6rem;
+  padding: 2rem;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path .6s var(--ease-soft);
+}
+.nav-mobile[hidden] { display: flex; clip-path: inset(0 0 100% 0); }
+.nav-mobile.is-open { clip-path: inset(0); }
+.nav-mobile-link { font-family: var(--serif); font-size: 1.6rem; }
+
+/* [hidden] companion rule — see gotcha A.16 */
+[hidden] { display: none !important; }
+.nav-mobile.is-open[hidden] { display: flex !important; }
+
+/* =============================================================
+   7. Hero
+   ============================================================= */
+.hero {
+  position: relative;
+  min-height: 100vh; min-height: 100svh;
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero-bg { position: absolute; inset: 0; z-index: -1; }
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.05);
+}
+.hero-bg img.ambient-on { animation: ambientZoom 30s ease-in-out infinite; }
+@keyframes ambientZoom {
+  0%, 100% { transform: scale(1.05) translate3d(0,0,0); }
+  50%      { transform: scale(1.13) translate3d(-1%, -1%, 0); }
+}
+/* Floor alpha never drops below 0.65 anywhere in the hero (top to bottom):
+   at 0.65, even a worst-case pure-white photo highlight (plate rim, ajonjolí)
+   composited under this tint contrasts at 5.50:1 against solid cream text —
+   comfortably past the 4.5:1 AA minimum. See chat for the exact WCAG calc. */
+.hero-bg-tint {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(20,16,11,0.90) 0%, rgba(20,16,11,0.80) 35%, rgba(20,16,11,0.70) 65%, rgba(20,16,11,0.65) 100%);
+}
+
+.hero-content { position: relative; z-index: 1; padding-block: 7rem 4.5rem; color: var(--cream); max-width: 780px; }
+.hero-title { font-size: clamp(2.6rem, 6.6vw, 5rem); color: var(--cream); margin-bottom: 1.2rem; }
+.hero-title em { color: var(--accent-2-on-dark); font-style: italic; }
+.hero-sub { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--cream); max-width: 46ch; margin-bottom: 2.1rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.8rem; }
+.hero-actions .btn-ghost { color: var(--cream); border-color: rgba(251,246,236,0.5); }
+.hero-actions .btn-ghost:hover { background: rgba(251,246,236,0.14); border-color: var(--cream); }
+.hero-rating { font-size: .92rem; color: rgba(251,246,236,0.95); display: flex; align-items: baseline; gap: .4rem; flex-wrap: wrap; }
+.hero-rating-value { font-family: var(--serif); font-size: 1.5rem; color: var(--cream); font-weight: 600; }
+
+/* =============================================================
+   8. Marquee
+   ============================================================= */
+.marquee {
+  overflow: hidden; position: relative; background: var(--ink); padding-block: 1.1rem;
+  display: flex; flex-wrap: nowrap; align-items: center;
+}
+.marquee::before, .marquee::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+}
+.marquee::before { left: 0;  background: linear-gradient(90deg, var(--ink), transparent); }
+.marquee::after  { right: 0; background: linear-gradient(270deg, var(--ink), transparent); }
+.marquee-track {
+  display: inline-flex; flex: none; gap: 1.6rem; white-space: nowrap; will-change: transform;
+  font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--cream); letter-spacing: .02em;
+}
+.marquee-track span:nth-child(even) { color: var(--accent-2-on-dark); font-style: normal; font-family: var(--sans); font-size: .75rem; letter-spacing: .1em; }
+
+/* =============================================================
+   9. Concept
+   ============================================================= */
+.concept { padding-block: 6rem; }
+.concept-text p { max-width: 62ch; margin-bottom: 1.1rem; }
+.concept-text p:last-child { margin-bottom: 0; }
+
+/* =============================================================
+   10. Carta
+   ============================================================= */
+.carta { padding-block: 6rem; background: var(--bg-2); }
+
+.destacados {
+  display: grid; gap: 1.3rem; margin-bottom: 4.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+.dish-card {
+  --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 50%;
+  position: relative; isolation: isolate;
+  background: var(--paper);
+  border-radius: 18px;
+  padding: 1.1rem 1.1rem 1.4rem;
+  box-shadow: 0 1px 0 var(--line);
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform .55s var(--ease-soft), box-shadow .55s var(--ease-soft);
+}
+.dish-card:hover { transition-duration: .15s; }
+.dish-card::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+  background: radial-gradient(220px circle at var(--mx) var(--my), rgba(31,92,82,.22), transparent 62%);
+  opacity: 0; transition: opacity .35s;
+  mix-blend-mode: multiply;
+}
+.dish-card:hover::before { opacity: 1; }
+.dish-card:hover {
+  box-shadow: 0 40px 70px -24px rgba(31,92,82,.28), 0 20px 40px -18px rgba(32,27,21,.28);
+}
+.dish-card-img { border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; margin-bottom: .95rem; transform: translateZ(30px); }
+.dish-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease-soft), filter .55s; }
+.dish-card:hover .dish-card-img img { transform: scale(1.1); filter: saturate(1.14) brightness(1.03); }
+.dish-card h3 { font-size: 1.28rem; margin-bottom: .3rem; transform: translateZ(24px); }
+.dish-card p { font-size: .88rem; color: var(--ink-mute); transform: translateZ(24px); }
+
+.carta-lists { display: grid; gap: 3rem; }
+@media (min-width: 860px) { .carta-lists { grid-template-columns: 1fr 1fr .8fr; gap: 3.5rem; } }
+.carta-col-title {
+  font-size: 1.5rem; margin-bottom: 1.2rem; padding-bottom: .7rem;
+  border-bottom: 1px solid var(--line);
+}
+.carta-col-title-spaced { margin-top: 2.4rem; }
+.carta-list li {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-block: .55rem;
+  border-bottom: 1px dashed var(--line);
+  font-size: .95rem;
+}
+.carta-list li strong { color: var(--ink); font-weight: 600; flex: 1 1 auto; }
+.carta-list li span { color: var(--ink-mute); font-size: .85rem; text-align: right; flex: 1 1 220px; }
+.carta-guarniciones { font-size: .92rem; color: var(--ink-mute); line-height: 1.9; }
+
+.carta-cta {
+  margin-top: 3.2rem; padding-top: 2.6rem; border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.4rem;
+}
+.carta-cta p { max-width: 46ch; color: var(--ink-soft); font-size: 1rem; }
+
+/* =============================================================
+   11. Galería
+   ============================================================= */
+.galeria { padding-block: 6rem; }
+.gallery-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.gallery-item { border-radius: 16px; overflow: hidden; aspect-ratio: 4/5; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease-soft); }
+.gallery-item:hover img { transform: scale(1.08); }
+
+/* =============================================================
+   12. Ubicación
+   ============================================================= */
+.ubicacion { padding-block: 6rem; background: var(--bg-2); }
+.ubicacion-grid { display: grid; gap: 2.8rem; }
+@media (min-width: 900px) { .ubicacion-grid { grid-template-columns: 1fr 1fr; align-items: stretch; } }
+.ubicacion-address { display: block; font-size: 1.15rem; color: var(--ink-soft); margin-bottom: 1.8rem; }
+.schedule-table { width: 100%; margin-bottom: 2.2rem; }
+.schedule-table tr { border-bottom: 1px solid var(--line); }
+.schedule-table th, .schedule-table td { text-align: left; padding-block: .8rem; font-weight: 500; }
+.schedule-table th { color: var(--ink-soft); font-weight: 500; }
+.schedule-table td { color: var(--accent); font-weight: 600; text-align: right; white-space: nowrap; }
+.ubicacion-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+.ubicacion-map { min-height: 340px; border-radius: 18px; overflow: hidden; }
+.ubicacion-map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; }
+
+/* =============================================================
+   13. Footer
+   ============================================================= */
+.footer { background: var(--ink); color: rgba(251,246,236,0.72); padding-block: 3.5rem 1.6rem; }
+.footer-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); padding-bottom: 2.4rem; border-bottom: 1px solid rgba(251,246,236,0.12); }
+.footer-brand { display: flex; align-items: center; gap: .8rem; }
+.footer-logo { width: 42px; height: 42px; border-radius: 50%; }
+.footer-brand p { font-family: var(--serif); font-size: 1.2rem; color: var(--cream); }
+.footer-col p { margin-bottom: .5rem; font-size: .92rem; }
+.footer-col a:hover { color: var(--accent-2-on-dark); }
+.footer-bottom { padding-top: 1.6rem; font-size: .82rem; display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; justify-content: space-between; }
+.footer-credit { color: rgba(251,246,236,0.6); font-style: italic; }
+
+/* =============================================================
+   14. Sticky mobile CTA
+   ============================================================= */
+.sticky-cta {
+  position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 95;
+  display: flex; justify-content: center;
+  transform: translateY(140%);
+  transition: transform .5s var(--ease-soft);
+}
+.sticky-cta.is-visible { transform: translateY(0); }
+.sticky-cta .btn { width: 100%; justify-content: center; box-shadow: 0 16px 34px rgba(20,16,11,0.32); }
+@media (min-width: 720px) { .sticky-cta { display: none; } }
+
+/* =============================================================
+   15. Responsive
+   ============================================================= */
+@media (min-width: 540px) {
+  .destacados { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 960px) {
+  .destacados { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* =============================================================
+   16. Reduced-motion — only intrusive effects
+   ============================================================= */
+/* Nothing here on purpose: the hero Ken Burns zoom and the marquee are both
+   slow ambient/functional loops (same bucket as "mesh gradient slow loop" and
+   "marquee slow" in 04-critical-gotchas.md A.2 / 07-windows-troubleshooting.md
+   §1) and must keep running under reduced-motion. The only intrusive effect
+   in this project is the hero scroll-parallax, which is gated in JS
+   (initHeroParallax, main.js) since it isn't a CSS animation. */

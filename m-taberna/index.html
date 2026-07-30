@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>M Taberna Picantería — Cocina de mar en Punta Hermosa</title>
+<meta name="description" content="Picantería de mar en Punta Hermosa: ceviches de bonito y charela, pulpo a la parrilla, coctelería con pisco y una carta que no le teme al picante." />
+
+<link rel="preload" as="image" href="assets/img/hero-ceviche-de-bonito.webp" fetchpriority="high">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700&display=swap">
+
+<link rel="stylesheet" href="styles.css?v=20260730g">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Saltar al contenido</a>
+
+<div class="cursor" data-cursor-root aria-hidden="true">
+  <span class="cursor-dot"></span>
+  <span class="cursor-ring"></span>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+<header class="nav" data-nav>
+  <div class="nav-inner container">
+    <a href="#inicio" class="nav-brand">
+      <img src="assets/img/logo.webp" alt="M Taberna Picantería" class="nav-logo" width="75" height="75" />
+      <span class="nav-brand-text">M Taberna</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="#concepto" class="nav-link">La casa</a>
+      <a href="#carta" class="nav-link">Carta</a>
+      <a href="#galeria" class="nav-link">Galería</a>
+      <a href="#ubicacion" class="nav-link">Ubicación</a>
+    </nav>
+
+    <a class="btn btn-primary nav-cta" href="https://wa.me/51932612237?text=Hola%2C%20quiero%20reservar%20mesa%20en%20M%20Taberna%20para%20%5Bfecha%2Fhora%2Fpersonas%5D." target="_blank" rel="noopener">
+      Reservar mesa
+    </a>
+
+    <button class="nav-burger" data-nav-burger aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav-mobile" id="nav-mobile" data-nav-mobile hidden>
+    <a href="#concepto" class="nav-mobile-link">La casa</a>
+    <a href="#carta" class="nav-mobile-link">Carta</a>
+    <a href="#galeria" class="nav-mobile-link">Galería</a>
+    <a href="#ubicacion" class="nav-mobile-link">Ubicación</a>
+    <a class="btn btn-primary" href="https://wa.me/51932612237?text=Hola%2C%20quiero%20reservar%20mesa%20en%20M%20Taberna%20para%20%5Bfecha%2Fhora%2Fpersonas%5D." target="_blank" rel="noopener">
+      Reservar mesa por WhatsApp
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="inicio">
+    <div class="hero-bg">
+      <img src="assets/img/hero-ceviche-de-bonito.webp" alt="Ceviche de bonito con camote, palta y ajonjolí tostado, recién servido en M Taberna" fetchpriority="high" loading="eager" decoding="sync" class="ambient-on" />
+      <div class="hero-bg-tint"></div>
+    </div>
+    <div class="hero-content container">
+      <p class="kicker kicker-light" data-reveal>Picantería de mar · Calle Punta Sal, Punta Hermosa</p>
+      <h1 class="hero-title" data-reveal>La fila la hacen los que no reservaron.<br><em>Tú no tienes que.</em></h1>
+      <p class="hero-sub" data-reveal>Adentro: ceviches de bonito y charela, pulpo a la parrilla y una coctelería que no se guarda el pisco.</p>
+      <div class="hero-actions" data-reveal>
+        <a class="btn btn-primary" href="https://wa.me/51932612237?text=Hola%2C%20quiero%20reservar%20mesa%20en%20M%20Taberna%20para%20%5Bfecha%2Fhora%2Fpersonas%5D." target="_blank" rel="noopener">
+          <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.79 13.5L3 21l4.65-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.5-.5.8-.5h.6c.2 0 .5 0 .7.5.2.5.7 1.7.7 1.8.1.1.1.3 0 .4-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4 0 .2 0 1-.4 1.4-.4.5-1.3.9-2.2.9-1.6 0-3.2-.8-4.5-2-1.4-1.3-2.5-3-2.7-3.5-.2-.5-.6-1.4-.1-2.6Z" fill="currentColor"/></svg>
+          Reservar mesa por WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#carta">Ver la carta</a>
+      </div>
+      <p class="hero-rating" data-reveal>
+        <span class="hero-rating-value"><span data-count-to="4.7">4.7</span></span>
+        de valoración en Google, con 76 reseñas de comensales
+      </p>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" data-marquee>
+      <span>CEVICHE DE BONITO</span><span>·</span>
+      <span>PULPO AL OLIVO</span><span>·</span>
+      <span>TIRADITO DE CHARELA</span><span>·</span>
+      <span>CONCHAS A LA PARRILLA</span><span>·</span>
+      <span>PISCO PUNCH</span><span>·</span>
+      <span>LANGOSTINOS AL AJILLO</span><span>·</span>
+      <span>ERIZO AL VONGOLE</span><span>·</span>
+      <span>SECO DE PESCA</span><span>·</span>
+    </div>
+  </div>
+
+  <section class="concept" id="concepto">
+    <div class="container">
+      <p class="kicker" data-reveal>La casa</p>
+      <div class="concept-text" data-reveal>
+        <p class="lede">M Taberna nace en Punta Hermosa, con una idea simple: cocinar el pescado del día como se merece — crudo cuando pide crudo, a la parrilla cuando pide fuego.</p>
+        <p>La carta cruza el ceviche de bonito con el spaghetti alle vongole y no se disculpa por eso. Bajo el logo de cobre — la M golpeada a mano — hay una cocina que prefiere el ajonjolí tostado y el ají amarillo a cualquier salsa embotellada, y una barra que sirve el Pisco Punch de la casa sin medias tintas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="carta" id="carta">
+    <div class="container">
+      <p class="kicker" data-reveal>La carta</p>
+      <h2 class="section-title" data-reveal>Lo que sale de la parrilla<br><em>y lo que llega crudo</em></h2>
+
+      <div class="destacados" data-reveal>
+        <article class="dish-card" data-tilt>
+          <div class="dish-card-img"><img src="assets/img/langostinos-al-ajillo.webp" alt="Langostinos al ajillo en crema de ajíes con ajo crocante" loading="lazy" decoding="async" /></div>
+          <h3>Langostinos al ajillo</h3>
+          <p>Vino blanco, crema de ajíes, ajo crocante, mantequilla</p>
+        </article>
+        <article class="dish-card" data-tilt>
+          <div class="dish-card-img"><img src="assets/img/pulpo-al-olivo.webp" alt="Pulpo al olivo con palta, alcaparras y aceitunas" loading="lazy" decoding="async" /></div>
+          <h3>Pulpo al olivo</h3>
+          <p>Palta, alcaparras, cherry, aceitunas, pimentón ahumado</p>
+        </article>
+        <article class="dish-card" data-tilt>
+          <div class="dish-card-img"><img src="assets/img/conchas-parrilla-algarrobina.webp" alt="Conchas de abanico a la parrilla con mantequilla de algarrobina" loading="lazy" decoding="async" /></div>
+          <h3>Conchas a la parrilla</h3>
+          <p>Mantequilla de algarrobina, chancaca y limón</p>
+        </article>
+        <article class="dish-card" data-tilt>
+          <div class="dish-card-img"><img src="assets/img/anticuchos-de-lengua.webp" alt="Anticuchos de lengua a la parrilla" loading="lazy" decoding="async" /></div>
+          <h3>Anticuchos de lengua</h3>
+          <p>A la parrilla, al estilo de la casa</p>
+        </article>
+        <article class="dish-card" data-tilt>
+          <div class="dish-card-img"><img src="assets/img/erizo-mantequilla-vongole.webp" alt="Erizo en su mantequilla al vongole y vino blanco" loading="lazy" decoding="async" /></div>
+          <h3>Erizo al vongole</h3>
+          <p>En su mantequilla, con vino blanco</p>
+        </article>
+        <article class="dish-card" data-tilt>
+          <div class="dish-card-img"><img src="assets/img/seco-de-pesca-y-vongole.webp" alt="Seco de pesca y vongole con tacu tacu y plátano frito" loading="lazy" decoding="async" /></div>
+          <h3>Seco de pesca y vongole</h3>
+          <p>Tacu tacu, plátano frito, criolla</p>
+        </article>
+        <article class="dish-card" data-tilt>
+          <div class="dish-card-img"><img src="assets/img/lomo-saltado.webp" alt="Lomo saltado con papas fritas y arroz blanco" loading="lazy" decoding="async" /></div>
+          <h3>Lomo saltado</h3>
+          <p>Papas fritas, arroz blanco</p>
+        </article>
+        <article class="dish-card" data-tilt>
+          <div class="dish-card-img"><img src="assets/img/fideua-de-mariscos.webp" alt="Fideuá de mariscos" loading="lazy" decoding="async" /></div>
+          <h3>Fideuá de mariscos</h3>
+          <p>Fideos finos dorados, mariscos del día</p>
+        </article>
+        <article class="dish-card" data-tilt>
+          <div class="dish-card-img"><img src="assets/img/pisco-punch.webp" alt="Pisco Punch, coctel de la casa" loading="lazy" decoding="async" /></div>
+          <h3>Pisco Punch</h3>
+          <p>El infaltable de la barra</p>
+        </article>
+      </div>
+
+      <div class="carta-lists">
+        <div class="carta-col" data-reveal>
+          <h3 class="carta-col-title">Entradas y piqueos</h3>
+          <ul class="carta-list">
+            <li><strong>Ceviche de bonito</strong><span>Camote, palta, ajonjolí tostado</span></li>
+            <li><strong>Ceviche de bonito y pulpo</strong><span>Pulpo, camote, palta, ajonjolí tostado</span></li>
+            <li><strong>Ceviche mixto de bonito</strong><span>Langostinos, pulpo, concha, chicharrón de pota</span></li>
+            <li><strong>Ceviche de charela</strong></li>
+            <li><strong>Ceviche de charela y pulpo</strong></li>
+            <li><strong>Ceviche mixto de charela</strong><span>Langostinos, pulpo, concha, chicharrón de pota</span></li>
+            <li><strong>Conchas a la chalaca</strong><span>6 unidades</span></li>
+            <li><strong>Tiradito al ají amarillo</strong><span>Camote, choclo, chalaca, chicharrón de pota</span></li>
+            <li><strong>Muchame de bonito</strong><span>Palta, tomate, orégano, ajo, aceite de oliva</span></li>
+            <li><strong>Tartar de bonito</strong><span>Palta, soya, kion, ajonjolí, salsa dulce picante</span></li>
+            <li><strong>Pulpo a la parrilla</strong><span>Majado de yuca, alioli de ajo, huacatay</span></li>
+            <li><strong>Conchas parmesana</strong><span>6 unidades, vino blanco, grana padano</span></li>
+            <li><strong>Tequeños de quesos andinos</strong><span>8 unidades, con guacamole</span></li>
+            <li><strong>Papa a la huancaína</strong></li>
+            <li><strong>Tamalito verde</strong><span>Pejerrey al panko, salsa de seco, huancaína</span></li>
+            <li><strong>Papa rellena de carrilleras de res</strong><span>Huevos fritos, criolla, huancaína, ocopa</span></li>
+            <li><strong>Chicharrón de pollo</strong></li>
+            <li><strong>Chicharrón de pesca</strong></li>
+            <li><strong>Pejerreyes al panko</strong><span>Chalaca, tártara, guacamole</span></li>
+            <li><strong>Pulpo anticuchero</strong><span>Papa amarilla crocante, huancaína, ocopa</span></li>
+            <li><strong>Causa de pollo</strong><span>Palta, tomate, huevo</span></li>
+            <li><strong>Causa de langostinos</strong><span>Salsa cóctel</span></li>
+            <li><strong>Causa de pulpo a la parrilla</strong><span>Salsa olivo, alcaparras, ajo crocante</span></li>
+            <li><strong>Causa escabechada</strong><span>Bonito sellado o chicharrón de charela</span></li>
+          </ul>
+        </div>
+
+        <div class="carta-col" data-reveal>
+          <h3 class="carta-col-title">Fondos</h3>
+          <ul class="carta-list">
+            <li><strong>Seco de carrilleras</strong><span>Frejoles, criolla, arroz con choclo</span></li>
+            <li><strong>Ají de gallina</strong><span>Huevo, aceituna, arroz blanco</span></li>
+            <li><strong>Apanado de lomo con spaghetti al pesto</strong></li>
+            <li><strong>Lomo en salsa de pimientas</strong><span>Papas fritas, vegetales al wok</span></li>
+            <li><strong>Pesca al curry de ajíes peruanos</strong><span>Vegetales al wok, plátano frito, chifles</span></li>
+            <li><strong>Pesca a la chorrillana</strong><span>Papa amarilla, arroz con choclo</span></li>
+            <li><strong>Pesca en mantequilla negra</strong><span>Fondo de res, alcaparras, puré de papa amarilla</span></li>
+            <li><strong>Pesca en mantequilla de vino blanco y vongole</strong><span>Papas cóctel fritas, espinacas</span></li>
+            <li><strong>Pesca asiática</strong><span>Vegetales al wok, arroz blanco</span></li>
+            <li><strong>Cau cau de mariscos</strong><span>Pulpo, langostinos, pota, concha</span></li>
+            <li><strong>Tallarín saltado</strong><span>Pollo o lomo</span></li>
+            <li><strong>Arroz con mariscos</strong><span>Meloso, conchas, langostinos, pulpo, pota</span></li>
+            <li><strong>Chaufa de mariscos</strong><span>Pulpo, langostinos, pota, concha, plátano frito</span></li>
+            <li><strong>Milanesa de pollo</strong><span>Papas fritas, arroz con choclo</span></li>
+            <li><strong>Milanesa de pollo napolitana</strong><span>Pomodoro, pesto, mozzarella, jamón serrano</span></li>
+            <li><strong>Pollo en salsa trufada de hongos</strong><span>Espárragos a la parrilla, espinacas</span></li>
+            <li><strong>Pastas tradicionales</strong><span>Pomodoro, pesto, puttanesca o aglio</span></li>
+            <li><strong>Spaghetti alle vongole</strong><span>Vino blanco, peperoncino, ajo</span></li>
+            <li><strong>Ravioles de choclo</strong><span>Jamón de trucha ahumado, huacatay</span></li>
+            <li><strong>Panzotti de hongos</strong><span>Fondo de hongos trufado, grana padano</span></li>
+            <li><strong>Sorrentinos de zapallo loche</strong><span>Mantequilla trufada, jamón serrano</span></li>
+          </ul>
+        </div>
+
+        <div class="carta-col carta-col-narrow" data-reveal>
+          <h3 class="carta-col-title">Coctelería</h3>
+          <ul class="carta-list">
+            <li><strong>Pisco Punch</strong></li>
+            <li><strong>Pisco Sour</strong></li>
+            <li><strong>Chilcanos</strong></li>
+            <li><strong>Samboni</strong></li>
+            <li><strong>Capitán</strong></li>
+            <li><strong>Chikulin</strong></li>
+            <li><strong>Tinto de verano</strong></li>
+          </ul>
+
+          <h3 class="carta-col-title carta-col-title-spaced">Bebidas</h3>
+          <ul class="carta-list">
+            <li><strong>Gaseosas</strong><span>Coca Cola, Inca Kola y sus versiones cero</span></li>
+            <li><strong>Limonada y maracuyá</strong><span>Clásica o frozen</span></li>
+            <li><strong>Pilsen y Corona</strong></li>
+            <li><strong>Cervezas artesanales cusqueñas</strong><span>Troglo, Lady Hoppy, La Huaranita, Kincho Red, Quechua Brown</span></li>
+            <li><strong>Café pasado e infusiones</strong></li>
+          </ul>
+
+          <h3 class="carta-col-title carta-col-title-spaced">Guarniciones</h3>
+          <p class="carta-guarniciones">Papas fritas · Camote · Palta · Arroz con choclo · Arroz frito · Ensalada mixta · Vegetales al wok · Choclo · Tostadas · Grana padano · Galletas de soda</p>
+        </div>
+      </div>
+
+      <div class="carta-cta" data-reveal>
+        <p>La carta cambia con lo que trae el mar cada semana — precios y disponibilidad, directo por WhatsApp.</p>
+        <a class="btn btn-ghost" href="https://wa.me/51932612237?text=Hola%2C%20quiero%20consultar%20precios%20y%20disponibilidad%20de%20la%20carta%20de%20M%20Taberna." target="_blank" rel="noopener">Consultar precios y disponibilidad</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="galeria" id="galeria">
+    <div class="container">
+      <p class="kicker" data-reveal>Galería</p>
+      <h2 class="section-title" data-reveal>Así sale de cocina,<br><em>sin poses</em></h2>
+      <div class="gallery-grid" data-reveal>
+        <figure class="gallery-item">
+          <img src="assets/img/ceviche-mixto.webp" alt="Ceviche mixto de bonito con langostinos, pulpo, concha y chicharrón de pota" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/img/tiradito-de-charela.webp" alt="Tiradito de charela al ají amarillo con camote y choclo" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/img/langostinos-al-ajillo-2.webp" alt="Langostinos al ajillo servidos en sartén de barro" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="ubicacion" id="ubicacion">
+    <div class="container ubicacion-grid">
+      <div class="ubicacion-info" data-reveal>
+        <p class="kicker" data-reveal>Encuéntranos</p>
+        <h2 class="section-title" data-reveal>Calle Punta Sal,<br><em>Punta Hermosa</em></h2>
+        <address class="ubicacion-address">Esquina de la Av. Coronel Juan Valer con calle Punta Sal, Punta Hermosa, Lima</address>
+
+        <table class="schedule-table">
+          <tbody>
+            <tr><th>Martes, miércoles, jueves y domingo</th><td>12:00&nbsp;m. – 6:00&nbsp;p.m.</td></tr>
+            <tr><th>Viernes y sábado</th><td>12:00&nbsp;m. – 10:30&nbsp;p.m.</td></tr>
+            <tr><th>Lunes</th><td>Cerrado</td></tr>
+          </tbody>
+        </table>
+
+        <div class="ubicacion-actions">
+          <a class="btn btn-primary" href="https://wa.me/51932612237?text=Hola%2C%20quiero%20reservar%20mesa%20en%20M%20Taberna%20para%20%5Bfecha%2Fhora%2Fpersonas%5D." target="_blank" rel="noopener">Reservar mesa por WhatsApp</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=M+Taberna+Picanteria+Punta+Sal+Punta+Hermosa" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </div>
+      <div class="ubicacion-map" data-reveal>
+        <iframe
+          title="Ubicación de M Taberna Picantería en Punta Hermosa"
+          src="https://www.google.com/maps?q=M+Taberna+Picanteria+Punta+Sal+Punta+Hermosa+Lima&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo.webp" alt="M Taberna Picantería" class="footer-logo" width="48" height="48" />
+      <p>M Taberna Picantería</p>
+    </div>
+    <div class="footer-col">
+      <p>Esquina Av. Coronel Juan Valer<br>con calle Punta Sal, Punta Hermosa</p>
+    </div>
+    <div class="footer-col">
+      <p><a href="tel:+51932612237">+51 932 612 237</a></p>
+      <p><a href="https://wa.me/51932612237" target="_blank" rel="noopener">WhatsApp</a></p>
+    </div>
+    <div class="footer-col">
+      <p>Cerrado los lunes</p>
+      <p><a href="#ubicacion">Ver horario completo →</a></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 M Taberna Picantería. Todos los derechos reservados.</p>
+    <p class="footer-credit">Demo creada por Studio Parry — sin humo, directo al plato. Reserva y sáltate la fila.</p>
+  </div>
+</footer>
+
+<div class="sticky-cta" data-sticky-cta>
+  <a class="btn btn-primary" href="https://wa.me/51932612237?text=Hola%2C%20quiero%20reservar%20mesa%20en%20M%20Taberna%20para%20%5Bfecha%2Fhora%2Fpersonas%5D." target="_blank" rel="noopener">
+    Reservar mesa por WhatsApp
+  </a>
+</div>
+
+<script defer src="lib/gsap.min.js?v=20260730g"></script>
+<script defer src="lib/ScrollTrigger.min.js?v=20260730g"></script>
+<script defer src="lib/manifest.js?v=20260730g"></script>
+<script defer src="main.js?v=20260730g"></script>
+</body>
+</html>
