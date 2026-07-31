@@ -179,6 +179,7 @@
   function initStickyCta() {
     var cta = $("[data-sticky-cta]");
     var hero = $(".hero");
+    var footer = $(".footer");
     if (!cta || !hero) return;
     var onScroll = function () {
       var heroBottom = hero.getBoundingClientRect().bottom;
@@ -186,6 +187,27 @@
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+
+    // A fixed CSS padding-bottom on the footer is fragile: it has to guess
+    // the sticky bar's real footprint AND how many lines the last footer
+    // line wraps to at the current width — both change with content edits
+    // and viewport size. Measure the bar's actual rendered box instead and
+    // apply exactly that, so the footer's last line can never end up
+    // hidden behind it, on any width, at any text length.
+    function syncFooterClearance() {
+      if (!footer) return;
+      var visible = getComputedStyle(cta).display !== "none";
+      if (!visible) { footer.style.paddingBottom = ""; return; }
+      var ctaCS = getComputedStyle(cta);
+      var footprint = cta.getBoundingClientRect().height + parseFloat(ctaCS.bottom || "0");
+      footer.style.paddingBottom = Math.ceil(footprint + 32) + "px"; // +32px breathing margin
+    }
+    syncFooterClearance();
+    var resizeRaf = null;
+    window.addEventListener("resize", function () {
+      if (resizeRaf) return;
+      resizeRaf = requestAnimationFrame(function () { resizeRaf = null; syncFooterClearance(); });
+    });
   }
 
   /* ---------------- Tilt + halo on dish cards ---------------- */
