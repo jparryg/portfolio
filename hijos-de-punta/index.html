@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>Hijos de Punta — Cevichería en Punta Hermosa</title>
+<meta name="description" content="Hijos de Punta, cevichería en Av. Sunset, Punta Hermosa. Cocina del mar con alma playera: ceviches, causas, arroces y mariscos frescos. Miércoles a Domingo, 12:00 pm – 5:30 pm." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..600&family=Inter:wght@300;400;500;600;700&display=swap">
+
+<link rel="preload" as="image" href="assets/img/hero-ceviche.webp" fetchpriority="high">
+<link rel="icon" href="assets/img/logo.webp" type="image/webp">
+<link rel="stylesheet" href="styles.css?v=20260817d" />
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<div class="cursor" data-cursor aria-hidden="true">
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+</div>
+
+<header class="nav" data-nav>
+  <div class="nav-inner container">
+    <a href="#inicio" class="nav-brand">
+      <img src="assets/img/logo.webp" alt="Hijos de Punta" class="nav-logo" width="122" height="84" />
+    </a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="#historia">Historia</a>
+      <a href="#carta">Carta</a>
+      <a href="#ambiente">Ambiente</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
+    <a class="btn btn-nav-cta" href="https://wa.me/51981352019?text=Hola%2C%20quiero%20reservar%20mesa%20en%20Hijos%20de%20Punta%20para%20%5Bfecha%2Fhora%2Fpersonas%5D." target="_blank" rel="noopener">Reservar</a>
+    <button class="nav-burger" data-nav-toggle aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="nav-mobile" data-nav-mobile hidden aria-label="Navegación móvil">
+    <a href="#historia">Historia</a>
+    <a href="#carta">Carta</a>
+    <a href="#ambiente">Ambiente</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a class="btn btn-primary" href="https://wa.me/51981352019?text=Hola%2C%20quiero%20reservar%20mesa%20en%20Hijos%20de%20Punta%20para%20%5Bfecha%2Fhora%2Fpersonas%5D." target="_blank" rel="noopener">Reservar por WhatsApp</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="inicio">
+    <img src="assets/img/hero-ceviche.webp" alt="Ceviche Hijos de Punta, el plato insignia de la cevichería, con chicharrón de calamar y camote" class="hero-bg" fetchpriority="high" loading="eager" decoding="sync" />
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="kicker">Cevichería · Punta Hermosa</p>
+      <h1 class="hero-title">Cocina del mar<br />con alma <em>playera</em></h1>
+      <p class="hero-sub">Del mar a tu mesa, con el sabor y el orgullo de ser hijos de Punta Hermosa.</p>
+      <div class="hero-rating">
+        <span class="stars" aria-hidden="true">★★★★</span>
+        <span class="rating-num">3.8</span>
+        <span class="rating-count">· 79 reseñas en Google</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/51981352019?text=Hola%2C%20quiero%20reservar%20mesa%20en%20Hijos%20de%20Punta%20para%20%5Bfecha%2Fhora%2Fpersonas%5D." target="_blank" rel="noopener">Reservar por WhatsApp →</a>
+        <a class="btn btn-ghost" href="#carta">Ver la carta</a>
+      </div>
+    </div>
+    <a class="hero-scroll" href="#historia" aria-label="Bajar a la historia">↓</a>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" data-marquee>
+      <span>Ceviche Hijos de Punta</span><span class="dot">·</span>
+      <span>Leche de Tigre</span><span class="dot">·</span>
+      <span>Causa Acevichada</span><span class="dot">·</span>
+      <span>Arroz Hijos de Punta</span><span class="dot">·</span>
+      <span>Pulpo al Olivo</span><span class="dot">·</span>
+      <span>Tacu Tacu en Salsa de Mariscos</span><span class="dot">·</span>
+      <span>Ceviche Hijos de Punta</span><span class="dot">·</span>
+      <span>Leche de Tigre</span><span class="dot">·</span>
+      <span>Causa Acevichada</span><span class="dot">·</span>
+      <span>Arroz Hijos de Punta</span><span class="dot">·</span>
+      <span>Pulpo al Olivo</span><span class="dot">·</span>
+      <span>Tacu Tacu en Salsa de Mariscos</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <section class="historia" id="historia">
+    <div class="container historia-inner">
+      <p class="kicker">Nuestra historia</p>
+      <div class="historia-card reveal">
+        <h2>Por qué <em>Hijos de Punta</em></h2>
+        <p>El nombre «Hijos de Punta» refleja nuestro orgullo por Punta Hermosa: sus olas, sus playas, su gastronomía, su gente y su impacto en la cultura del surf.</p>
+        <p>Cada plato está inspirado en la autenticidad y frescura de estas playas, ofreciendo una experiencia culinaria que celebra la riqueza de la tradición costera y el espíritu de la comunidad local.</p>
+        <p>Queremos que cada visita sea un tributo a la esencia de Punta Hermosa y a la pasión que representa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="carta" id="carta">
+    <div class="container">
+      <p class="kicker">La carta</p>
+      <h2 class="section-title">Lo que se cocina en <em>Hijos de Punta</em></h2>
+
+      <div class="carta-grid" data-tilt-group>
+
+        <article class="dish-card is-big" data-tilt>
+          <span class="dish-tag dish-tag-signature">Plato insignia</span>
+          <img src="assets/img/plato-ceviche-hijos-de-punta.webp" alt="Ceviche Hijos de Punta con chicharrón de calamar, camote frito y choclo tierno" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Ceviches y tiraditos</p>
+            <h3>Ceviche Hijos de Punta</h3>
+            <p class="dish-desc">Abundante ceviche mixto con chicharrón de calamar, camote frito y choclo tierno.</p>
+            <p class="dish-price">S/ 54.90</p>
+          </div>
+        </article>
+
+        <article class="dish-card is-big" data-tilt>
+          <img src="assets/img/plato-arroz-hijos-de-punta.webp" alt="Arroz Hijos de Punta rojizo con camarones, concha flameada y costra de parmesano" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Arroces y tacu tacus</p>
+            <h3>Arroz Hijos de Punta</h3>
+            <p class="dish-desc">Arroz marino con camarones, concha de abanico flameada y costra crocante de parmesano.</p>
+            <p class="dish-price">S/ 50.90</p>
+          </div>
+        </article>
+
+        <article class="dish-card" data-tilt>
+          <img src="assets/img/plato-leche-de-tigre.webp" alt="Leche de Tigre con trozos de pescado y chicharrón de pota" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Para empezar</p>
+            <h3>Leche de Tigre</h3>
+            <p class="dish-desc">Trozos de pescado en abundante salsa, con chicharrón de pota.</p>
+            <p class="dish-price">S/ 28.90</p>
+          </div>
+        </article>
+
+        <article class="dish-card" data-tilt>
+          <img src="assets/img/plato-choritos-chalaca.webp" alt="Choritos a la chalaca con limón, ají y cebolla" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Para empezar</p>
+            <h3>Choritos a la Chalaca</h3>
+            <p class="dish-desc">Con chalaca fresca de limón, ají y cebolla. El piqueo marino por excelencia.</p>
+            <p class="dish-price">S/ 29.00</p>
+          </div>
+        </article>
+
+        <article class="dish-card" data-tilt>
+          <img src="assets/img/plato-tequenos-langostinos.webp" alt="Tequeños de langostinos rellenos" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Para empezar</p>
+            <h3>Tequeños de Langostinos</h3>
+            <p class="dish-desc">Seis unidades de wantán relleno, crocantes por fuera.</p>
+            <p class="dish-price">S/ 26.90</p>
+          </div>
+        </article>
+
+        <article class="dish-card" data-tilt>
+          <img src="assets/img/plato-causa-acevichada.webp" alt="Causa acevichada rellena, en crema de rocoto" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Causas</p>
+            <h3>Causa Acevichada</h3>
+            <p class="dish-desc">Causa rellena y ceviche en crema de rocoto.</p>
+            <p class="dish-price">S/ 39.90</p>
+          </div>
+        </article>
+
+        <article class="dish-card" data-tilt>
+          <img src="assets/img/plato-ceviche-carretillero.webp" alt="Ceviche carretillero coronado con chicharrón de pota" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Ceviches y tiraditos</p>
+            <h3>Ceviche Carretillero</h3>
+            <p class="dish-desc">Fusión clásica de ceviche de pescado con chicharrón de pota.</p>
+            <p class="dish-price">S/ 52.90</p>
+          </div>
+        </article>
+
+        <article class="dish-card" data-tilt>
+          <img src="assets/img/plato-chicharron-calamar.webp" alt="Chicharrón de calamar crocante" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Frituras y planchas</p>
+            <h3>Chicharrón de Calamar</h3>
+            <p class="dish-desc">Un clásico infaltable de la casa.</p>
+            <p class="dish-price">S/ 49.90</p>
+          </div>
+        </article>
+
+        <article class="dish-card" data-tilt>
+          <img src="assets/img/plato-conchitas-parmesana.webp" alt="Conchitas a la parmesana gratinadas" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Para empezar</p>
+            <h3>Conchitas a la Parmesana</h3>
+            <p class="dish-desc">Seis conchas de abanico cubiertas en abundante queso parmesano.</p>
+            <p class="dish-price">S/ 45.90</p>
+          </div>
+        </article>
+
+        <article class="dish-card" data-tilt>
+          <img src="assets/img/plato-arroz-mariscos.webp" alt="Arroz con mariscos cremoso" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Arroces y tacu tacus</p>
+            <h3>Arroz con Mariscos</h3>
+            <p class="dish-desc">Mariscos, arroz cremoso y toques de la casa.</p>
+            <p class="dish-price">S/ 48.90</p>
+          </div>
+        </article>
+
+        <article class="dish-card" data-tilt>
+          <img src="assets/img/plato-pulpo-al-olivo.webp" alt="Pulpo al olivo marinado, con galletas" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Para empezar</p>
+            <h3>Pulpo al Olivo</h3>
+            <p class="dish-desc">Pulpo marinado en salsa al olivar, con sus respectivas galletas.</p>
+            <p class="dish-price">S/ 48.90</p>
+          </div>
+        </article>
+
+        <article class="dish-card" data-tilt>
+          <img src="assets/img/plato-tacu-tacu-mariscos.webp" alt="Tacu tacu en salsa de mariscos con filete de pescado" loading="lazy" decoding="async" />
+          <div class="dish-info">
+            <p class="dish-cat">Arroces y tacu tacus</p>
+            <h3>Tacu Tacu en Salsa de Mariscos</h3>
+            <p class="dish-desc">Frejoles al wok con deliciosa salsa de mariscos y filete de pescado.</p>
+            <p class="dish-price">S/ 58.90</p>
+          </div>
+        </article>
+
+      </div>
+      <p class="carta-note">Precios y platos según el menú vigente en el local, agosto 2026. Sujeto a disponibilidad de pesca del día.</p>
+    </div>
+  </section>
+
+  <section class="ambiente" id="ambiente">
+    <div class="container">
+      <p class="kicker">Ambiente</p>
+      <h2 class="section-title">Un lugar para disfrutar más allá del plato</h2>
+      <div class="ambiente-grid">
+        <figure class="ambiente-item reveal">
+          <img src="assets/img/ambiente-fachada.webp" alt="Fachada celeste de Hijos de Punta en Av. Sunset, Punta Hermosa" loading="lazy" decoding="async" />
+          <figcaption>Nuestra fachada, Av. Sunset</figcaption>
+        </figure>
+        <figure class="ambiente-item reveal">
+          <img src="assets/img/ambiente-terraza.webp" alt="Terraza de Hijos de Punta con toldos y tabla de surf decorativa" loading="lazy" decoding="async" />
+          <figcaption>Nuestra terraza</figcaption>
+        </figure>
+        <figure class="ambiente-item reveal">
+          <img src="assets/img/ambiente-equipo.webp" alt="Equipo de Hijos de Punta posando en la entrada del local" loading="lazy" decoding="async" />
+          <figcaption>El equipo Hijos de Punta</figcaption>
+        </figure>
+        <figure class="ambiente-item reveal">
+          <img src="assets/img/ambiente-pet-friendly.webp" alt="Clienta con su perrita dentro del local, ambiente pet friendly" loading="lazy" decoding="async" />
+          <figcaption>Pet friendly — ven con tu mascota</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="ubicacion" id="ubicacion">
+    <div class="container ubicacion-grid">
+      <div class="ubicacion-info reveal">
+        <p class="kicker">Dónde encontrarnos</p>
+        <h2>Ven a probarlo en Punta Hermosa</h2>
+        <ul class="info-list">
+          <li>
+            <strong>Dirección</strong>
+            <span>
+              Av. Sunset 539, Punta Hermosa
+              <!-- NOTA: 539 (IG) usado a propósito para esta demo, por indicación de John. Facebook indica 531 — Patricia confirma la dirección definitiva al revisar la demo. -->
+            </span>
+          </li>
+          <li><strong>Horario</strong><span>Miércoles a Domingo · 12:00 pm – 5:30 pm</span></li>
+          <li><strong>Rating</strong><span>3.8 ★ · 79 reseñas en Google</span></li>
+          <li><strong>Instagram</strong><span><a href="https://www.instagram.com/hijosdepunta.pe/" target="_blank" rel="noopener">@hijosdepunta.pe</a></span></li>
+        </ul>
+        <div class="ubicacion-actions">
+          <a class="btn btn-primary" href="https://wa.me/51981352019?text=Hola%2C%20quiero%20reservar%20mesa%20en%20Hijos%20de%20Punta%20para%20%5Bfecha%2Fhora%2Fpersonas%5D." target="_blank" rel="noopener">Reservar por WhatsApp →</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=Av.+Sunset+539,+Punta+Hermosa,+Peru" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </div>
+      <div class="ubicacion-map reveal">
+        <iframe title="Ubicación de Hijos de Punta en el mapa" src="https://www.google.com/maps?q=Av.+Sunset+539,+Punta+Hermosa,+Peru&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="container cta-final-inner reveal">
+      <img src="assets/img/hero-banner-fachada.webp" alt="Fachada de Hijos de Punta con tabla de surf, Av. Sunset" class="cta-final-bg" loading="lazy" decoding="async" />
+      <div class="cta-final-overlay" aria-hidden="true"></div>
+      <h2>¿List@ para tu próxima visita a Hijos de Punta?</h2>
+      <p>Miércoles a Domingo · 12:00 pm – 5:30 pm · Av. Sunset 539, Punta Hermosa</p>
+      <a class="btn btn-primary btn-lg" href="https://wa.me/51981352019?text=Hola%2C%20quiero%20reservar%20mesa%20en%20Hijos%20de%20Punta%20para%20%5Bfecha%2Fhora%2Fpersonas%5D." target="_blank" rel="noopener">Reservar por WhatsApp →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="assets/img/logo.webp" alt="Hijos de Punta" class="footer-logo" width="169" height="116" />
+      <span>· Cevichería</span>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/hijosdepunta.pe/" target="_blank" rel="noopener" aria-label="Instagram de Hijos de Punta">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
+        Instagram
+      </a>
+    </div>
+    <p class="footer-copy">© <span data-year></span> Hijos de Punta · Diseño: Studio Parry</p>
+  </div>
+</footer>
+
+<script defer src="lib/gsap.min.js?v=20260817d"></script>
+<script defer src="lib/ScrollTrigger.min.js?v=20260817d"></script>
+<script defer src="lib/manifest.js?v=20260817d"></script>
+<script defer src="main.js?v=20260817d"></script>
+</body>
+</html>
