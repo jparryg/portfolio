@@ -114,9 +114,9 @@ em { font-style: italic; color: var(--accent); }
 }
 .brand-badge {
   width: 64px; height: 64px;
-  border-radius: 50%;
+  border-radius: 10px;
   object-fit: contain;
-  padding: 10px;
+  padding: 4px;
   box-sizing: border-box;
   background: var(--bg);
   flex-shrink: 0;
@@ -451,9 +451,9 @@ body.tienda-modal-open { overflow-y: hidden; }
 .footer-brand strong { color: var(--ink); font-family: var(--font-serif); font-weight: 500; }
 .footer-badge {
   width: 64px; height: 64px;
-  border-radius: 50%;
+  border-radius: 10px;
   object-fit: contain;
-  padding: 10px;
+  padding: 4px;
   box-sizing: border-box;
   background: var(--bg);
 }
