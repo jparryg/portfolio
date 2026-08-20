@@ -113,9 +113,11 @@ em { font-style: italic; color: var(--accent); }
   color: var(--ink);
 }
 .brand-badge {
-  width: 56px; height: 56px;
+  width: 64px; height: 64px;
   border-radius: 50%;
   object-fit: contain;
+  padding: 10px;
+  box-sizing: border-box;
   background: var(--bg);
   flex-shrink: 0;
 }
@@ -448,9 +450,11 @@ body.tienda-modal-open { overflow-y: hidden; }
 .footer-brand { font-size: .82rem; color: var(--ink-mute); }
 .footer-brand strong { color: var(--ink); font-family: var(--font-serif); font-weight: 500; }
 .footer-badge {
-  width: 56px; height: 56px;
+  width: 64px; height: 64px;
   border-radius: 50%;
   object-fit: contain;
+  padding: 10px;
+  box-sizing: border-box;
   background: var(--bg);
 }
 .footer-links { display: flex; gap: 1.6rem; list-style: none; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
