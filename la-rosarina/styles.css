@@ -313,7 +313,7 @@ em { font-style: italic; color: var(--accent); }
 .tienda-card { display: flex; flex-direction: column; }
 .tienda-card .card-photo { aspect-ratio: 1 / 1; margin-bottom: 1rem; }
 .tienda-card h3 { font-size: 1.2rem; margin-bottom: .4rem; }
-.tienda-card p { font-size: .92rem; color: var(--ink-2); margin-bottom: .6rem; min-height: 2.8em; }
+.tienda-card p { font-size: .92rem; line-height: 1.5; color: var(--ink-2); margin-bottom: .6rem; min-height: 7.5em; }
 .tienda-card .tienda-expand,
 .tienda-card .tienda-expand-spacer,
 .tienda-card .tienda-link { margin-top: auto; }
