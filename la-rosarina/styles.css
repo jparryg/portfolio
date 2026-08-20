@@ -113,15 +113,17 @@ em { font-style: italic; color: var(--accent); }
   color: var(--ink);
 }
 .brand-badge {
-  width: 40px; height: 40px;
+  width: 56px; height: 56px;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--bg);
   flex-shrink: 0;
 }
 .issue {
   font-family: var(--font-sans);
-  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--ink-mute); margin-top: .3rem;
+  font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+  font-weight: 700; color: var(--ink);
+  margin-top: .35rem;
 }
 .masthead-nav {
   display: flex; justify-content: center; gap: 1.6rem; flex-wrap: wrap;
@@ -306,9 +308,14 @@ em { font-style: italic; color: var(--accent); }
 .tienda-grid {
   display: grid; grid-template-columns: 1fr; gap: 2rem;
 }
+.tienda-card { display: flex; flex-direction: column; }
 .tienda-card .card-photo { aspect-ratio: 1 / 1; margin-bottom: 1rem; }
 .tienda-card h3 { font-size: 1.2rem; margin-bottom: .4rem; }
-.tienda-card p { font-size: .92rem; color: var(--ink-2); margin-bottom: .6rem; }
+.tienda-card p { font-size: .92rem; color: var(--ink-2); margin-bottom: .6rem; min-height: 2.8em; }
+.tienda-card .tienda-expand,
+.tienda-card .tienda-expand-spacer,
+.tienda-card .tienda-link { margin-top: auto; }
+.tienda-expand-spacer { display: block; height: 2.6rem; margin-bottom: .7rem; }
 .tienda-link {
   display: inline-block;
   font-family: var(--font-sans);
@@ -440,6 +447,12 @@ body.tienda-modal-open { overflow-y: hidden; }
 }
 .footer-brand { font-size: .82rem; color: var(--ink-mute); }
 .footer-brand strong { color: var(--ink); font-family: var(--font-serif); font-weight: 500; }
+.footer-badge {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: var(--bg);
+}
 .footer-links { display: flex; gap: 1.6rem; list-style: none; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
 .footer-links a:hover { color: var(--accent); }
 .footer-credit {
