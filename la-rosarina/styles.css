@@ -489,7 +489,7 @@ body.tienda-modal-open { overflow-y: hidden; }
   .tienda-modal-grid { grid-template-columns: repeat(3, 1fr); }
   .eventos-grid { grid-template-columns: repeat(3, 1fr); }
   .contacto-grid { grid-template-columns: 1.2fr .8fr; }
-  .masthead-inner { text-align: left; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; }
+  .masthead-inner { text-align: left; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
   .masthead-nav { margin-top: 0; }
 }
 @media (min-width: 960px) {
