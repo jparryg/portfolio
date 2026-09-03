@@ -384,7 +384,13 @@ ul { list-style: none; padding: 0; }
 /* =============================================================
    12. Footer
    ============================================================= */
-.footer { padding: 44px 0; border-top: none; background: var(--bg-2); }
+.footer {
+  padding: 44px 0;
+  border-top: none;
+  background:
+    radial-gradient(560px circle at 50% -150px, rgba(224,138,44,.08), transparent 70%),
+    var(--bg-2);
+}
 .footer-inner { display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center; }
 .footer-brand { font-family: var(--serif); font-size: 18px; }
 .footer-meta { font-size: 13px; color: var(--cream-3); }
