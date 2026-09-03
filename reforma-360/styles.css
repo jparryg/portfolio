@@ -260,6 +260,14 @@ ul { list-style: none; padding: 0; }
 @keyframes dotPulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
 
 /* =============================================================
+   7.5 Quiénes somos — bloque de texto simple, sin cards
+   ============================================================= */
+.about { padding: 90px 0; background: var(--bg); text-align: center; }
+.about-inner { max-width: 640px; margin: 0 auto; }
+.about .kicker { justify-content: center; }
+.about p { color: var(--cream-2); font-size: 17px; line-height: 1.75; margin-top: 20px; }
+
+/* =============================================================
    8. Servicios
    ============================================================= */
 .services { padding: 120px 0; background: var(--bg); }
