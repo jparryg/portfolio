@@ -196,6 +196,58 @@
     });
   }
 
+  /* ---------- Contador (count-up) ---------- */
+
+  function initCountUp() {
+    const targets = $$("[data-count-to]");
+    if (!targets.length) return;
+
+    const animate = (el) => {
+      const target = parseInt(el.getAttribute("data-count-to"), 10) || 0;
+      if (reduced) { el.textContent = String(target); return; } // reduced-motion: instant, no lo desactivamos, solo lo aceleramos
+      el.textContent = "0";
+      if (window.gsap) {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 1.3,
+          ease: "power2.out",
+          onUpdate: () => { el.textContent = String(Math.round(obj.val)); }
+        });
+      } else {
+        const start = performance.now();
+        const dur = 1100;
+        const step = (t) => {
+          const p = Math.min((t - start) / dur, 1);
+          el.textContent = String(Math.round(target * p));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+    };
+
+    if (typeof IntersectionObserver === "undefined") {
+      targets.forEach(el => { el.textContent = el.getAttribute("data-count-to"); });
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    targets.forEach(el => io.observe(el));
+
+    // Red de seguridad: si algo no disparó a los 6s, fijar el valor final
+    setTimeout(() => {
+      targets.forEach(el => {
+        if (el.textContent === "0") el.textContent = el.getAttribute("data-count-to");
+      });
+    }, 6000);
+  }
+
   /* ---------- Boot ---------- */
 
   function boot() {
@@ -209,6 +261,7 @@
     safe(initAnchors, "initAnchors");
     safe(initReveals, "initReveals");
     safe(initTilt, "initTilt");
+    safe(initCountUp, "initCountUp");
 
     if (window.gsap && window.ScrollTrigger) {
       try { gsap.registerPlugin(ScrollTrigger); } catch (_) {}

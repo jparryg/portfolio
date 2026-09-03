@@ -377,11 +377,14 @@ ul { list-style: none; padding: 0; }
 .cta-contact p { color: var(--cream-3); margin-top: 18px; font-size: 17px; }
 .cta-contact .btn { margin-top: 34px; }
 .cta-whatsapp-icon { width: 20px; height: 20px; }
+.showcase-stat { display: inline-flex; align-items: baseline; gap: .5em; margin-top: 22px; }
+.showcase-stat-num { font-family: var(--mono); font-size: 30px; color: var(--accent); line-height: 1; }
+.showcase-stat-label { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--cream-3); }
 
 /* =============================================================
    12. Footer
    ============================================================= */
-.footer { padding: 44px 0; border-top: 1px solid var(--line); background: var(--bg); }
+.footer { padding: 44px 0; border-top: none; background: var(--bg-2); }
 .footer-inner { display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center; }
 .footer-brand { font-family: var(--serif); font-size: 18px; }
 .footer-meta { font-size: 13px; color: var(--cream-3); }
