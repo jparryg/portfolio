@@ -213,8 +213,7 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; col
 .nav.is-scrolled { box-shadow: 0 12px 32px -16px rgba(35,38,26,0.35); }
 
 .nav-brand { display: flex; align-items: center; gap: .5rem; font-family: var(--display); font-weight: 700; font-size: 1.05rem; }
-.nav-brand-mark { font-size: 1.3rem; }
-.nav-brand em { display: block; font-family: var(--sans); font-style: normal; font-weight: 500; font-size: .62rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-mute); }
+.nav-brand-logo { display: block; height: 40px; width: auto; }
 
 .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 1.6rem; }
 .nav-links a:not(.btn) { font-weight: 500; font-size: .92rem; position: relative; }
@@ -340,7 +339,7 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; col
 /* =============================================================
    7b. Quiénes somos (equipo)
    ============================================================= */
-.section-team { padding-block: 2rem 4rem; }
+.section.section-team { padding-block: 2rem 1.5rem; }
 .team-inner { display: grid; gap: 2rem; grid-template-columns: 1fr; align-items: center; }
 .team-photo { border-radius: var(--radius); overflow: hidden; box-shadow: 0 20px 48px -24px rgba(35,38,26,0.4); aspect-ratio: 8 / 5; }
 .team-photo img { width: 100%; height: 100%; object-fit: cover; }
@@ -359,12 +358,18 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; col
 .section-cafeteria,
 .section-faq,
 .section-contact { background: transparent; }
+.section.section-faq { padding-block: 3rem 5rem; }
+.section.section-contact { padding-block: 3rem 5rem; }
 
 /* =============================================================
    9. Catering — services & menu tags
    ============================================================= */
 .services-grid { display: grid; gap: 1.2rem; grid-template-columns: 1fr; margin-top: 2.6rem; }
-.service-card { padding: 1.8rem; position: relative; }
+.service-card { padding: 1.8rem; position: relative; overflow: hidden; }
+.service-card-img {
+  display: block; width: calc(100% + 3.6rem); margin: -1.8rem -1.8rem 1.2rem;
+  aspect-ratio: 4 / 3; object-fit: cover;
+}
 .service-num { font-family: var(--display); font-size: .85rem; font-weight: 700; color: var(--accent); }
 .service-card h3 { font-size: 1.2rem; margin-top: .6rem; }
 .service-card p { margin-top: .6rem; font-size: .92rem; color: var(--ink-soft); }
@@ -479,6 +484,7 @@ em { font-family: var(--serif-accent); font-style: italic; font-weight: 500; col
 .cafe-info-icon { display: inline-flex; color: var(--accent); margin-bottom: .6rem; }
 .cafe-info-icon svg { display: block; width: 28px; height: 28px; }
 .cafe-info-card h3 { font-size: 1.05rem; color: var(--accent-2-dark); }
+.cafe-info-card > h3:first-child { margin-top: 37.6px; }
 .cafe-info-card .btn-primary { margin-top: .8rem; }
 .cafe-info-card p { margin-top: .5rem; font-size: .92rem; color: var(--ink-soft); }
 .cafe-info-muted { font-size: .8rem; color: var(--ink-mute); margin-top: .3rem; }
